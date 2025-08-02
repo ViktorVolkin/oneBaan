@@ -1,0 +1,129 @@
+.dropdown__container {
+	position: relative;
+}
+
+.dropdown__button {
+	font-size: 12px;
+	display: flex;
+	gap: 6px;
+	align-items: center;
+	cursor: pointer;
+	background: transparent;
+	border: none;
+	position: relative;
+	z-index: 2;
+}
+
+.dropdown__icon {
+	width: 14px;
+	height: 14px;
+	transition: transform 0.3s ease;
+}
+
+.dropdown__icon_open {
+	transform: rotate(180deg);
+}
+
+.dropdown__iconBeforeText {
+	border-radius: 50%;
+	width: 16px;
+	height: 16px;
+	object-fit: cover;
+}
+
+.dropdown__list {
+	position: absolute;
+	margin-top: 10px;
+	background-color: white;
+	box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.1);
+	border-radius: 8px;
+	z-index: 1;
+	padding: 8px 0;
+	min-width: 120px;
+}
+.dropdown__list_left {
+	top: 100%;
+	right: calc(100% - 4px);
+	border-top-right-radius: 0;
+}
+.dropdown__list_right {
+	top: 100%;
+	left: calc(100% - 4px);
+	border-top-left-radius: 0;
+}
+.dropdown__list_left::before {
+	content: "";
+	position: absolute;
+	bottom: 100%;
+	right: 0;
+	width: 0;
+	height: 0;
+	border-bottom: 10px solid white;
+	border-left: 10px solid transparent;
+}
+.dropdown__list_right::before {
+	content: "";
+	position: absolute;
+	bottom: 100%;
+	left: 0;
+	width: 0;
+	height: 0;
+	border-bottom: 10px solid white;
+	border-right: 10px solid transparent;
+}
+
+.dropdown__listItem {
+	list-style: none;
+	padding: 8px 10px;
+	color: black;
+	cursor: pointer;
+	background-color: white;
+	transition: background 0.2s ease;
+	text-decoration: none;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-self: center;
+	gap: 20px;
+}
+.dropdown__listItem > * {
+	display: block;
+	width: 100%;
+	text-align: center;
+	cursor: pointer;
+	background-color: white;
+	border: none;
+	color: black;
+	text-decoration: none;
+	transition: background 0.2s ease;
+	&:hover {
+		transform: scale(1.2);
+		transition: transform 1s cubic-bezier(0.25, 1.25, 0.5, 1);
+		background-color: #f8f8f8;
+	}
+}
+
+@media (max-width: 768px) {
+	.dropdown__button {
+		font-size: 16px;
+		gap: 6px;
+	}
+	.dropdown__icon {
+		width: 14px;
+		height: 14px;
+	}
+}
+@media (min-width: 1441px) {
+	.dropdown__button {
+		font-size: 16px;
+		gap: 8px;
+	}
+	.dropdown__icon {
+		width: 18px;
+		height: 18px;
+	}
+	.dropdown__iconBeforeText {
+		width: 27px;
+		height: 27px;
+	}
+}

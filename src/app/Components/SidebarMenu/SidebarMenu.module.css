@@ -1,0 +1,63 @@
+.overlay {
+	position: fixed;
+	inset: 0;
+	display: flex;
+	z-index: 1000;
+	transition: background-color 0.3s ease;
+}
+
+.show {
+	background-color: rgba(0, 0, 0, 0.4);
+}
+
+.hide {
+	background-color: rgba(0, 0, 0, 0);
+}
+
+.menu {
+	width: 80%;
+	max-width: 300px;
+	height: 100%;
+	background-color: white;
+	padding: 30px;
+	box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+	position: relative;
+	transition: transform 0.3s ease;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	gap: 48px;
+}
+.menu > * {
+	text-decoration: none;
+	color: black;
+	width: 100%;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+}
+.menu * {
+	text-decoration: none;
+	color: black;
+}
+.slideIn {
+	transform: translateX(0%);
+}
+
+.slideOut {
+	transform: translateX(-100%);
+}
+
+.overlayArea {
+	flex: 1;
+	cursor: pointer;
+}
+
+@media (min-width: 768px) {
+	.menu {
+		max-width: calc(30% + 30px);
+		gap: 0;
+		justify-content: space-around;
+		font-size: 1.3em;
+	}
+}

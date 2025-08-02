@@ -1,0 +1,67 @@
+{
+	"header": {
+		"home": "Home",
+		"catalog": "Real Estate Catalog",
+		"sell": "Want to sell?",
+		"agents": "For Agents"
+	},
+	"footer": {
+		"mission": {
+			"title": "Mission",
+			"text": "Our mission is to make the secondary real estate market accessible and safe"
+		},
+		"contacts": {
+			"title": "Contacts",
+			"email": "contact@onebaan.com",
+			"adress": "4/2 Blue Tree Project, Srisoonthorn Road, Choeng Thale, Thalang, Phuket, 83110",
+			"phoneNumber": "+66 906 555 919"
+		},
+		"subscribe": {
+			"title": "Subscribe to our newsletter",
+			"placeholder": "Your email"
+		}
+	},
+	"nav": {
+		"home": "Home",
+		"sell": "Properties for Sale",
+		"rent": "Properties for Rent",
+		"compare": "Compare",
+		"favourites": "Favourites"
+	},
+	"RealEstateSpecialist": {
+		"title": "Are you a Phuket real estate specialist?",
+		"ps": "OneBaan will help your clients:",
+		"text": "a property on the secondary market",
+		"button": { "text": "Go to the agents page" }
+	},
+	"sell": "Sell",
+	"buy": "Buy",
+	"NewObjectsSaleBlock": {
+		"title": "New Properties for Sale from Owners"
+	},
+	"properties": {
+		"bangtaoApartment2br": "Bangtao, Apartment, 2 bedrooms",
+		"patongStudio1br": "Patong, Studio, 1 bedroom",
+		"kamalaVilla3br": "Kamala, Villa, 3 bedrooms",
+		"cherngtalayTownhouse2br": "Cherng Talay, Townhouse, 2 bedrooms",
+		"rawaiCondo2br": "Rawai, Condo, 2 bedrooms"
+	},
+	"MainPage": {
+		"image": {
+			"title": "Phuket Real Estate Directly from Owners",
+			"text": "Up-to-date listings and assistance with paperwork"
+		}
+	},
+	"guideBlock": {
+		"title": "Want to sell an apartment or villa in Phuket?",
+		"text": "Add your property to the OneBaan catalog and it will be seen by hundreds of potential clients",
+		"cards": {
+			"form": "You fill out a detailed form",
+			"managerDetails": "Your manager will contact you to clarify details",
+			"finalStep": "Your property is published on the OneBaan platform"
+		},
+		"importantDetail": "Important: Your contact details will not be shared with third parties without your consent. All communication takes place through your OneBaan manager."
+	},
+	"extra": "added for showcase",
+	"exampleOfLink": "Link"
+}

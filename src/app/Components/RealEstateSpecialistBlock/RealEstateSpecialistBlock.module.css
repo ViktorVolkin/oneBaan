@@ -1,0 +1,320 @@
+.SpecialistBlock__container {
+	width: 100%;
+	min-width: 320px;
+	max-width: 320px;
+	height: 220px;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	margin-bottom: 66px;
+}
+
+.SpecialistBlock__title {
+	width: 240px;
+	font-size: 18px;
+	font-weight: 700;
+	margin-bottom: 16px;
+}
+
+.cards__container {
+	display: flex;
+	width: 100%;
+	height: 110px;
+	background-color: #f5f5f5;
+	border-radius: 10px;
+}
+
+.card {
+	width: 50%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background: white;
+	border-radius: 10px;
+	border: 1px solid #553c9a;
+	&:last-of-type {
+		border: 0;
+		border-radius: 10px;
+		background-color: inherit;
+	}
+}
+.card__logo_image {
+	display: none;
+}
+
+.card__textContainer {
+	display: flex;
+	flex-direction: column;
+	width: 136px;
+	height: 74px;
+	gap: 14px;
+}
+
+.card__textPS {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-size: 10px;
+	display: flex;
+	align-items: center;
+	gap: 20px;
+}
+.card__icon {
+	width: 22px;
+	height: 22px;
+}
+.keyWord {
+	font-size: 14px;
+	font-weight: 600;
+	color: #553c9a;
+}
+.card__text {
+	font-size: 14px;
+	font-weight: 600;
+}
+
+.SpecialistBlock__button {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #553c9a;
+	color: white;
+	border-radius: 8px;
+	text-decoration: none;
+	font-weight: 700;
+	font-size: 14px;
+}
+
+.RealEstateSpecialistBlock__image {
+	display: none;
+}
+
+@media (min-width: 768px) and (max-width: 1440px) {
+	.SpecialistBlock__container {
+		max-width: 660px;
+		height: 600px;
+		margin-bottom: 86px;
+	}
+
+	.SpecialistBlock__title {
+		width: 360px;
+		font-size: 28px;
+		font-weight: 700;
+		text-align: center;
+		margin: 0 auto;
+		margin-bottom: 20px;
+		color: #2d3748;
+	}
+
+	.cards__container {
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		transform: translateX(-50%);
+		display: flex;
+		width: 100%;
+		max-width: 572px;
+		height: 214px;
+		background-color: unset;
+		border-radius: 12px;
+		gap: 12px;
+	}
+
+	.card {
+		width: 50%;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		align-items: flex-start;
+		background: white;
+		border-radius: 12px;
+		border: none;
+		background-color: #f7f8f9;
+		position: relative;
+		overflow: hidden;
+		padding-bottom: 20px;
+		&:last-of-type {
+			border: 0;
+			border-radius: 12px;
+			background-color: #f7f8f9;
+		}
+	}
+	.card__logo_image {
+		display: inline-block;
+		position: absolute;
+		width: 120px;
+		height: 120px;
+		top: -20px;
+		right: 0;
+	}
+
+	.card__textContainer {
+		display: flex;
+		padding-left: 20px;
+		padding-bottom: 20px;
+		min-width: 211px;
+		min-height: 104px;
+		gap: 16px;
+		justify-content: flex-start;
+	}
+
+	.card__textPS {
+		font-size: 16px;
+		color: #a0aec0;
+		gap: 0;
+	}
+	.card__icon {
+		position: absolute;
+		top: 20px;
+		left: 20px;
+		width: 56px;
+		height: 56px;
+	}
+	.keyWord {
+		font-size: 20px;
+		font-weight: 700;
+		color: #553c9a;
+	}
+	.card__text {
+		font-size: 20px;
+		font-weight: 700;
+	}
+
+	.SpecialistBlock__button {
+		display: none;
+	}
+
+	.RealEstateSpecialistBlock__image {
+		display: block;
+		z-index: -1;
+		width: 100%;
+		height: 400px;
+	}
+}
+@media (min-width: 1440px) {
+	.SpecialistBlock__container {
+		max-width: 1240px;
+		height: 588px;
+		margin-bottom: 86px;
+		flex-direction: row;
+		gap: 20px;
+	}
+	.SpecialistBlock__infoContainer {
+		display: flex;
+		flex-direction: column;
+		width: 620px;
+		height: 100%;
+		gap: 30px;
+		position: relative;
+	}
+
+	.SpecialistBlock__title {
+		width: 400px;
+		font-size: 32px;
+		font-weight: 700;
+		text-align: left;
+		margin: 0;
+		margin-bottom: 0;
+		color: #2d3748;
+	}
+
+	.cards__container {
+		position: relative;
+		display: flex;
+		width: 100%;
+		max-width: 620px;
+		height: 380px;
+		background-color: unset;
+		border-radius: 12px;
+		gap: 20px;
+	}
+
+	.card {
+		width: 50%;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		align-items: flex-start;
+		background: white;
+		border-radius: 12px;
+		border: none;
+		background-color: #7180960f;
+		position: relative;
+		overflow: hidden;
+		padding-left: 20px;
+		padding-bottom: 28px;
+		&:last-of-type {
+			border: 0;
+			border-radius: 12px;
+			background-color: #7180960f;
+		}
+	}
+	.card__logo_image {
+		display: inline-block;
+		position: absolute;
+		width: 160px;
+		height: 160px;
+		top: -20px;
+		right: 0;
+	}
+
+	.card__textContainer {
+		display: flex;
+		min-width: 250px;
+		min-height: 118px;
+		gap: 10px;
+		justify-content: flex-start;
+	}
+
+	.card__textPS {
+		font-size: 18px;
+		color: #a0aec0;
+		gap: 0;
+	}
+	.card__icon {
+		position: absolute;
+		top: 20px;
+		left: 20px;
+		width: 80px;
+		height: 80px;
+	}
+	.keyWord {
+		font-size: 24px;
+		font-weight: 700;
+		color: #553c9a;
+	}
+	.card__text {
+		font-size: 24px;
+		font-weight: 700;
+	}
+
+	.SpecialistBlock__button {
+		display: inline-block;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 12px;
+		font-size: 24px;
+		color: white;
+		font-weight: 700;
+		height: 68px;
+	}
+
+	.RealEstateSpecialistBlock__image {
+		display: block;
+		z-index: -1;
+		width: 600px;
+		height: 100%;
+		border-radius: 24px;
+	}
+}

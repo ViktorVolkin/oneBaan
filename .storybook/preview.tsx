@@ -1,0 +1,73 @@
+import type { Preview } from "@storybook/nextjs-vite";
+import type { Decorator } from "@storybook/react";
+import { NextIntlClientProvider } from "next-intl";
+import translationsEn from "../src/messages/en.json";
+import translationsRu from "../src/messages/ru.json";
+import "../src/app/[locale]/reset.css";
+import "./storybook-overrides.css";
+import Header from "../src/app/Components/Header";
+import Footer from "../src/app/Components/Footer";
+
+const messages = {
+	en: translationsEn,
+	ru: translationsRu,
+};
+
+const withNextIntl: Decorator = (Story, context) => {
+	const locale = context.globals.locale || "en";
+	return (
+		<NextIntlClientProvider locale={locale} messages={messages[locale]}>
+			<Story />
+		</NextIntlClientProvider>
+	);
+};
+
+export const decorators = [withNextIntl];
+
+export const globalTypes = {
+	locale: {
+		name: "Locale",
+		description: "Internationalization locale",
+		defaultValue: "en",
+		toolbar: {
+			icon: "globe",
+			items: [
+				{ value: "en", right: "🇺🇸", title: "English" },
+				{ value: "ru", right: "🇷🇺", title: "Russian" },
+			],
+		},
+	},
+};
+const preview: Preview = {
+	parameters: {
+		viewport: {
+			options: {
+				mobile360: {
+					name: "Mobile 360",
+					styles: { width: "360px", height: "640px" },
+					type: "mobile",
+				},
+				tablet768: {
+					name: "Tablet 768",
+					styles: { width: "768px", height: "1024px" },
+					type: "tablet",
+				},
+				desktop1440: {
+					name: "Desktop 1440",
+					styles: { width: "1440px", height: "900px" },
+					type: "desktop",
+				},
+				desktop1920: {
+					name: "Desktop 1920",
+					styles: { width: "1920px", height: "1200px" },
+					type: "desktop",
+				},
+			},
+		},
+	},
+	initialGlobals: {
+		viewport: { value: "desktop1440" }, // начальный глобальный viewport
+	},
+};
+
+export default preview;

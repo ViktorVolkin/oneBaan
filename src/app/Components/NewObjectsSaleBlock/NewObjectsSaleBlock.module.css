@@ -1,0 +1,143 @@
+.SaleBlock__wrapper {
+	width: 100%;
+	height: 400px;
+	background: #f5f5f5;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin-top: 36px;
+	margin-bottom: 32px;
+}
+.SaleBlock__container {
+	width: 100%;
+	max-width: calc((100% - 320px) / 2 + 320px);
+	margin-left: auto;
+	margin-right: 0;
+	position: relative;
+}
+.SaleBlock__info {
+	height: 44px;
+	width: 223px;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	margin-bottom: 16px;
+}
+.title {
+	font-size: 18px;
+	font-weight: 700;
+	min-width: 233px;
+}
+.customNav {
+	display: none;
+}
+@media (max-width: 1439px) and (min-width: 768px) {
+	.SaleBlock__wrapper {
+		width: 100%;
+		height: 392px;
+		background: none;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		margin-top: 68px;
+		margin-bottom: 60px;
+	}
+	.SaleBlock__container {
+		max-width: calc((100% - 660px) / 2 + 660px);
+	}
+	.SaleBlock__info {
+		height: 72px;
+		width: 660px;
+		margin-bottom: 20px;
+		justify-content: space-between;
+	}
+	.title {
+		font-size: 28px;
+		font-weight: 700;
+		color: #2d3748;
+		min-width: 344px;
+	}
+
+	.customNav {
+		display: inline-block;
+		width: 106px;
+		height: 50px;
+		display: flex;
+		gap: 6px;
+		align-items: center;
+	}
+	.swiperButton {
+		background: #553c9a;
+		width: 50px;
+		height: 50px;
+		border-radius: 10px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.swiperArrowLeft {
+		transform: rotate(180deg);
+		width: 24px;
+		height: 24px;
+	}
+	.swiperArrowRight {
+		width: 24px;
+		height: 24px;
+	}
+}
+@media (min-width: 1440px) {
+	.SaleBlock__wrapper {
+		width: 100%;
+		height: 500px;
+		background: none;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		margin-top: 96px;
+		margin-bottom: 80px;
+	}
+	.SaleBlock__container {
+		max-width: calc((100% - 1240px) / 2 + 1240px);
+	}
+	.SaleBlock__info {
+		height: 80px;
+		width: 1240px;
+		margin-bottom: 20px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	.title {
+		font-size: 28px;
+		font-weight: 700;
+		color: #2d3748;
+		min-width: 420px;
+	}
+
+	.customNav {
+		display: inline-block;
+		width: 106px;
+		height: 50px;
+		display: flex;
+		gap: 6px;
+		align-items: center;
+	}
+	.swiperButton {
+		background: #553c9a;
+		width: 50px;
+		height: 50px;
+		border-radius: 10px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.swiperArrowLeft {
+		transform: rotate(180deg);
+		width: 24px;
+		height: 24px;
+	}
+	.swiperArrowRight {
+		width: 24px;
+		height: 24px;
+	}
+}

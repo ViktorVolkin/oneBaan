@@ -1,0 +1,19 @@
+.swiperSlide {
+	width: 220px;
+	flex-shrink: 0;
+}
+.sliderSection {
+	width: 100%;
+	overflow: hidden;
+}
+
+@media (max-width: 1439px) and (min-width: 768px) {
+	.swiperSlide {
+		width: 240px;
+	}
+}
+@media (min-width: 1440px) {
+	.swiperSlide {
+		width: 400px;
+	}
+}
