@@ -3,7 +3,7 @@ import { StaticImageData } from "next/image";
 
 export type DropdownProps = {
 	buttonText: string;
-	iconBeforeText?: StaticImageData;
+	iconBeforeText?: string;
 	children: ReactElement[] | ReactElement;
 	sideToPopUp?: "left" | "right";
 };

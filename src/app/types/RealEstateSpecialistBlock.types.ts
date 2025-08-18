@@ -8,11 +8,11 @@ export interface IRealEstateSpecialistBlock {
 		linkHref: string;
 	};
 	Card1?: {
-		icon: StaticImageData;
+		icon: string;
 		text: string;
 	};
 	Card2?: {
-		icon: StaticImageData;
+		icon: string;
 		text: string;
 	};
 }

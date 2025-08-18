@@ -5,8 +5,8 @@ import translationsEn from "../src/messages/en.json";
 import translationsRu from "../src/messages/ru.json";
 import "../src/app/[locale]/reset.css";
 import "./storybook-overrides.css";
-import Header from "../src/app/Components/Header";
-import Footer from "../src/app/Components/Footer";
+import Header from "../src/app/сomponents/Header";
+import Footer from "../src/app/сomponents/Footer";
 
 const messages = {
 	en: translationsEn,

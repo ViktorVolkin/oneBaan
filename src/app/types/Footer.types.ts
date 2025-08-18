@@ -18,5 +18,5 @@ export type FooterProps = {
 	ourMission?: OurMission;
 	contacts?: Contacts;
 	links?: LinkItem[];
-	signForDistributionFn?: () => void;
+	signForDistributionFn?: (data: { email: string }) => Promise<void>;
 };

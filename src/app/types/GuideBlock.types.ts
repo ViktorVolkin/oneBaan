@@ -1,5 +1,3 @@
-import { StaticImageData } from "next/image";
-
 export interface IGuideIntroBlock {
 	title: string;
 	text: string;
@@ -8,7 +6,7 @@ export interface IGuideIntroBlock {
 export interface IGuideCard {
 	number: string;
 	text: string;
-	icon: StaticImageData;
+	icon: string;
 }
 
 export interface IGuideBlockProps {

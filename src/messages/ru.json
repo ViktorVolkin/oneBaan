@@ -3,7 +3,8 @@
 		"home": "Главная",
 		"catalog": "Каталог недвижимости",
 		"sell": "Хотите продать?",
-		"agents": "Для агентов"
+		"agents": "Для агентов",
+		"catalogPlaceholder": "Район или Проект"
 	},
 	"footer": {
 		"mission": {
@@ -63,5 +64,101 @@
 		"importantDetail": "Важно: Ваши контактные данные не передаются третьим лицам без вашего ведома, вся коммуникация происходит через менеджера OneBaan"
 	},
 	"extra": "Добавлено для демонстрации",
-	"exampleOfLink": "ссылка"
+	"exampleOfLink": "ссылка",
+	"offer": {
+		"type": {
+			"rent": "Аренда",
+			"buy": "Покупка",
+			"label": "Тип предложения:"
+		}
+	},
+	"search": {
+		"placeholder": "Поиск в {location}...",
+		"locations": {
+			"Phuket": "Пхукете"
+		}
+	},
+	"offers": {
+		"cozy": {
+			"title": "Уютная квартира",
+			"description": "Описание уютной квартиры"
+		},
+		"villa": {
+			"title": "Вилла у моря",
+			"description": "Описание виллы у моря"
+		},
+		"condo": {
+			"title": "Кондо в центре",
+			"description": "Описание кондо в центре"
+		}
+	},
+
+	"catalog": {
+		"mainPage": "Главная",
+		"property": "Каталог недвижимости",
+
+		"filter": "Фильтр",
+		"searchPlaceholder": "Район или проект",
+
+		"resetQuery": "Сбросить фильтры",
+		"amountOfObjects": "{ count, plural, one {# объект} few {# объекта} many {# объектов} other {# объектов}}",
+		"sortBy": "Сортировать",
+
+		"sort": {
+			"location": "Локация",
+			"typeOfProperty": "Тип недвижимости",
+			"baths": "Санузлы",
+			"bedrooms": "Спальни",
+			"priceTitle": "Цена",
+			"minPrice": "Мин цена",
+			"maxPrice": "Макс цена"
+		},
+		"all": "Все",
+		"ready": "Готовые",
+		"building": "Строящиеся",
+
+		"selector": {
+			"type": "Тип",
+			"bedrooms": "Спальни",
+			"price": "Цена"
+		},
+
+		"foundOffers": "{ count, plural, one {# объект найден} few {# объекта найдено} many {# объектов найдено} other {# объектов найдено}}"
+	},
+
+	"cards": {
+		"foundObjects": " объектов найдено",
+		"sort": "Сортировка",
+		"removeFromFav": "убрать из избранного",
+		"addToFav": "добавить в избранное",
+		"talkToSalesman": "Связаться с продавцом"
+	},
+
+	"sortBy": {
+		"newest": "Сначала новые",
+		"oldest": "Сначала старые",
+		"recommended": "Рекомендуемые",
+		"popular": "Популярные"
+	},
+
+	"locations": {
+		"phuket": "Пхукет",
+		"bangkok": "Бангкок",
+		"pattaya": "Паттайя",
+		"samui": "Самуи",
+		"Phang_Nga": "Пханг-Нга"
+	},
+
+	"typesofProperty": {
+		"apartments": "Апартаменты",
+		"villa": "Вилла",
+		"house": "Дом",
+		"townhouse": "Таунхаус",
+		"condo": "Кондо",
+		"studio": "Студия"
+	},
+
+	"typesOfProperty": {
+		"studio": "Студия"
+	}
 }

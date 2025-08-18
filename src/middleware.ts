@@ -4,6 +4,7 @@ const locales = routing.locales;
 export default createMiddleware({
 	locales,
 	defaultLocale: "en",
+	localePrefix: "always",
 });
 
 export const config = {

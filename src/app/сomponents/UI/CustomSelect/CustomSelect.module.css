@@ -1,0 +1,147 @@
+.root {
+	position: relative;
+	width: 100%;
+	font: inherit;
+	background-color: inherit;
+	color: inherit;
+	height: auto;
+}
+
+.control {
+	width: 100%;
+	height: 100%;
+	padding-left: 12px;
+	padding-right: 22px;
+	border: inherit;
+	border-radius: inherit;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 8px;
+	color: inherit;
+}
+
+.value {
+	font-size: 14px;
+	color: #111827;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.isPlaceholder {
+	color: #9ca3af;
+}
+
+.caret {
+	position: absolute;
+	right: 13px;
+	width: 16px;
+	height: 16px;
+	flex: 0 0 auto;
+	transition: transform 0.15s ease;
+}
+[data-open] .caret {
+	transform: rotate(180deg);
+}
+
+.isDisabled .control {
+	color: #9ca3af;
+	cursor: not-allowed;
+}
+
+.list {
+	position: absolute;
+	z-index: 20;
+	top: calc(100% + 6px);
+	left: 0;
+	width: 100%;
+	max-height: 260px;
+	overflow: auto;
+	background: #fff;
+	border: 1px solid #e5e7eb;
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+	border-radius: 10px;
+	padding: 6px;
+}
+
+.option {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 8px;
+	padding: 10px 0 10px 10px;
+	border-radius: 8px;
+	font-size: 14px;
+	line-height: 1.2;
+	cursor: pointer;
+}
+.option:hover {
+	background: #f3f4f6;
+}
+.option[data-selected] {
+	background: #eef2ff;
+	color: #3730a3;
+}
+.option[data-disabled] {
+	color: #c4c4c4;
+	cursor: not-allowed;
+}
+.option[data-disabled]:hover {
+	background: transparent;
+}
+
+.optionLabel {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.prefix {
+	width: 18px;
+	height: 18px;
+	flex: 0 0 auto;
+	opacity: 0.9;
+}
+
+.chip {
+	display: inline-flex;
+	align-items: center;
+	gap: 16px;
+	color: #2d3748;
+	border-radius: 999px;
+	line-height: 1;
+	width: 100%;
+}
+
+.clear {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	right: 12px;
+	border: 0;
+	background: transparent;
+	cursor: pointer;
+	font-size: 16px;
+	line-height: 1;
+	opacity: 0.85;
+}
+.clear:hover {
+	opacity: 1;
+}
+
+.control[data-locked] {
+	cursor: default;
+}
+
+.optionIcon {
+	width: 18px;
+	height: 18px;
+	flex: 0 0 auto;
+	opacity: 0.9;
+	margin-right: 6px;
+}
+
+.control {
+	align-items: center;
+}
