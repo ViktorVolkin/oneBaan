@@ -1,8 +1,3 @@
-"use client";
-import dynamic from "next/dynamic";
-
-const Header = dynamic(() => import("./Header").then((mod) => mod.default), {
-	ssr: false,
-});
+import Header from "./Header";
 
 export default Header;

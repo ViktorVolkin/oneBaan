@@ -1,0 +1,73 @@
+.savedSearches__item {
+	padding: 12px;
+	background-color: #71809614;
+	border-radius: 12px;
+	height: 96px;
+}
+.savedSearches__main_info {
+	display: flex;
+	justify-content: space-between;
+}
+.savedSearches__more {
+	cursor: pointer;
+	width: 20px;
+	height: 20px;
+}
+.savedSearches__title {
+	font-size: 14px;
+	font-weight: 600;
+	color: #1a202c;
+	margin-bottom: 6px;
+}
+.savedSearches__description {
+	color: #718096;
+	font-size: 12px;
+	margin-bottom: 10px;
+}
+.savedSearches__type {
+	border-radius: 26px;
+	padding: 6px 10px;
+	width: max-content;
+	background-color: #e9d8fd;
+	color: #44337a;
+}
+
+@media (min-width: 768px) and (max-width: 1439.99px) {
+	.savedSearches__item {
+		padding: 14px;
+		border-radius: 14px;
+		height: 110px;
+	}
+	.savedSearches__more {
+		width: 24px;
+		height: 24px;
+	}
+	.savedSearches__title {
+		font-size: 16px;
+		margin-bottom: 8px;
+	}
+	.savedSearches__description {
+		font-size: 14px;
+		margin-bottom: 12px;
+	}
+}
+
+@media (min-width: 1440px) {
+	.savedSearches__item {
+		padding: 14px;
+		border-radius: 14px;
+		height: 110px;
+	}
+	.savedSearches__more {
+		width: 24px;
+		height: 24px;
+	}
+	.savedSearches__title {
+		font-size: 18px;
+		margin-bottom: 8px;
+	}
+	.savedSearches__description {
+		font-size: 16px;
+		margin-bottom: 14px;
+	}
+}

@@ -1,15 +1,14 @@
 "use client";
-import { useState } from "react";
 import styles from "./CardSellCatalog.module.css";
 import ApartmentImageSwiper from "../ApartmentImageSwiper";
 import IconRow from "../IconRow";
 import CardTags from "../CardTags";
 import Like from "@/../public/like.svg?component";
 import Liked from "@/../public/liked.svg?component";
-
 import type { ListingCardBase } from "@/app/types/LargeCardHorizontalSellCatalog.types";
 import { useTranslations } from "next-intl";
 import { useOfferLike } from "@/app/сustomHooks/useOfferLike";
+import { Link } from "@/i18n/navigation";
 
 export const CardSellCatalog = (props: ListingCardBase) => {
 	const t = useTranslations();
@@ -18,13 +17,20 @@ export const CardSellCatalog = (props: ListingCardBase) => {
 	const breadcrumbs = props.breadcrumbs;
 
 	return (
-		<div className={styles.card__wrapper}>
-			<div className={styles.card__images}>
+		<div
+			className={`${styles.card__wrapper} ${
+				props.isRentCard ? styles.rent__card__wrapper : ""
+			}`}
+		>
+			<div
+				className={`${styles.card__images} ${
+					props.isRentCard ? styles.rent__card__images : ""
+				}`}
+			>
 				<ApartmentImageSwiper images={props.apartmentImages.images} />
+
 				<button
-					className={`${styles.card__like_icon} ${
-						liked ? styles.liked : ""
-					}`}
+					className={styles.card__like_icon}
 					onClick={toggle}
 					aria-pressed={liked}
 					aria-label={
@@ -32,9 +38,7 @@ export const CardSellCatalog = (props: ListingCardBase) => {
 					}
 				>
 					<WhichHeartToDisplay
-						className={`${styles.card__interaction_icon} ${
-							liked ? styles.liked : ""
-						}`}
+						className={styles.card__interaction_icon}
 					/>
 				</button>
 
@@ -47,12 +51,21 @@ export const CardSellCatalog = (props: ListingCardBase) => {
 				</button>
 			</div>
 
-			<div className={styles.card__info}>
+			<div
+				className={`${styles.card__info} ${
+					props.isRentCard ? styles.rent__card__info : ""
+				}`}
+			>
 				<div className={styles.card__main_info}>
-					<div>
+					<div
+						className={`${styles.card__header} ${
+							props.isRentCard ? styles.card__rent__header : ""
+						}`}
+					>
 						<h3 className={styles.card__description}>
 							{props.cardDescription}
 						</h3>
+
 						{props.whenPosted && (
 							<span className={styles.card__date}>
 								{props.whenPosted}
@@ -61,16 +74,38 @@ export const CardSellCatalog = (props: ListingCardBase) => {
 					</div>
 
 					<div>
-						<h4 className={styles.card__price}>{props.price}</h4>
-						<span className={styles.card__price_per_meter}>
-							{props.pricePerMeter}
-						</span>
+						<h4
+							className={`${styles.card__price} ${
+								props.isRentCard ? styles.rent__card__price : ""
+							}`}
+						>
+							{props.price}
+							{props.isRentCard ? t("cards.perMonth") : ""}
+						</h4>
+
+						{!props.isRentCard && (
+							<span className={styles.card__price_per_meter}>
+								{props.pricePerMeter}
+							</span>
+						)}
 					</div>
 
-					<p className={styles.card__details}>{props.details}</p>
+					<p
+						className={`${styles.card__details} ${
+							props.isRentCard ? styles.rent__card__details : ""
+						}`}
+					>
+						{props.details}
+					</p>
 
 					{breadcrumbs && breadcrumbs.length > 0 && (
-						<nav className={styles.card__breadcrumbs}>
+						<nav
+							className={`${styles.card__breadcrumbs} ${
+								props.isRentCard
+									? styles.rent__card__breadcrumbs
+									: ""
+							}`}
+						>
 							<img
 								src="/adress.svg"
 								alt="path"
@@ -78,7 +113,7 @@ export const CardSellCatalog = (props: ListingCardBase) => {
 							/>
 							{breadcrumbs.map((crumb, index) => (
 								<span key={index}>
-									<a href={crumb.href}>{crumb.label}</a>
+									<Link href={crumb.href}>{crumb.label}</Link>
 									{index < breadcrumbs.length - 1 && (
 										<span
 											className={styles.card__separator}
@@ -93,22 +128,55 @@ export const CardSellCatalog = (props: ListingCardBase) => {
 				</div>
 
 				<IconRow {...props.iconRow} />
-				<CardTags tags={props.tags} />
+				{!props.isRentCard && <CardTags tags={props.tags} />}
 			</div>
 
-			<div className={styles.contacts__buttons_container}>
+			<div
+				className={`${
+					props.isRentCard
+						? styles.rent__contacts__buttons__container
+						: styles.contacts__buttons_container
+				}`}
+			>
 				<a
-					className={styles.contacts__button}
+					className={`${styles.contacts__button} ${
+						props.isRentCard ? styles.rent_contacts__button : ""
+					}`}
 					href={props.contactWithSalesman.path}
 				>
-					{t("сards.talkToSalesman")}
+					{t("cards.talkToSalesman")}
 				</a>
+
 				<a
 					href={props.contactWhatsApp.path}
-					className={styles.contacts__button_whatsapp}
+					className={`${styles.contacts__button_whatsapp} ${
+						props.isRentCard
+							? styles.rent_contacts__button_whatsapp
+							: ""
+					}`}
 				>
+					{props.isRentCard && (
+						<img
+							src="/whatsapp.svg"
+							alt=""
+							className={styles.desktop__contacts__icon}
+						/>
+					)}
 					WhatsApp
 				</a>
+
+				{props.isRentCard && (
+					<a
+						href={props.contactWhatsApp.path}
+						className={styles.rent__contacts__button_whatsappTablet}
+					>
+						<img
+							src="/whatsapp.svg"
+							alt=""
+							className={styles.rent__contacts__icon}
+						/>
+					</a>
+				)}
 			</div>
 		</div>
 	);

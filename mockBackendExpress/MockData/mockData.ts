@@ -1,7 +1,5 @@
-import type { ListingCardBase } from "@/app/types/LargeCardHorizontalSellCatalog.types";
 import { Offer } from "../types/offers";
 import { Subscriber } from "../types/subscriber";
-import { ApiListingCard } from "../types/ApiListingCard";
 export const CURRENCY_RATES: Record<string, number> = {
 	USD: 1,
 	THB: 36,

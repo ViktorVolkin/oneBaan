@@ -12,7 +12,10 @@
 	border-width: 1px;
 	opacity: 1;
 }
-
+.rent__card__wrapper {
+	min-height: 429px;
+	max-width: 322px;
+}
 .card__images {
 	position: relative;
 	width: 100%;
@@ -41,6 +44,11 @@
 	top: 15px;
 	right: 15px;
 	border-radius: 10px;
+}
+.card__header {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
 }
 
 .card__agent_icon {
@@ -74,10 +82,18 @@
 	margin-right: 12px;
 	color: #a0aec0;
 }
+.card__rent__header {
+	height: 30px;
+	align-items: first baseline;
+	margin-bottom: 20px;
+}
 .card__date {
 	color: #707070;
 	font-size: 14px;
 	font-weight: 400;
+	flex-wrap: nowrap;
+	min-width: 70px;
+	text-align: end;
 }
 .card__price {
 	font-size: 24px;
@@ -95,7 +111,7 @@
 	font-size: 14px;
 	color: #2d3748;
 	font-weight: 700;
-	margin: 12px 0 0 0;
+	margin: 12px 0 4px 0;
 }
 
 .card__breadcrumbs {
@@ -132,13 +148,22 @@
 	font-size: 14px;
 	font-weight: 500;
 	width: 50%;
+	height: 100%;
 	border: none;
 	border-radius: 10px;
 	cursor: pointer;
 	text-decoration: none;
 	transition: background-color 0.2s ease;
+	text-align: center;
 }
-
+.rent__contacts__buttons__container {
+	display: flex;
+	width: 100%;
+	height: 80px;
+	margin: auto 0 0 0;
+	padding: 8px 16px 20px 16px;
+	gap: 8px;
+}
 .contacts__button {
 	background-color: #f0f0f0;
 	color: #333;
@@ -153,7 +178,6 @@
 	background-color: #c6f6d5;
 	color: #25855a;
 	max-width: 290px;
-	max-height: 40px;
 }
 .contacts__buttons_container {
 	display: flex;
@@ -161,4 +185,103 @@
 	margin: auto 0 0 0;
 	padding: 8px 16px 20px 16px;
 	gap: 8px;
+}
+.rent_contacts__button_whatsapp {
+	width: 50%;
+	background-color: #48bb78;
+	color: white;
+	font-weight: 700;
+}
+.rent__contacts__button_whatsappTablet {
+	display: none;
+}
+.desktop__contacts__icon {
+	display: none;
+}
+@media (min-width: 768px) {
+	.rent__contacts__buttons__container {
+		display: flex;
+		height: 72px;
+	}
+	.rent_contacts__button_whatsapp {
+		display: none;
+	}
+	.rent_contacts__button {
+		display: flex;
+		flex-grow: 1;
+		color: #000000;
+		font-weight: 600;
+		font-size: 14px;
+	}
+	.rent__contacts__button_whatsappTablet {
+		display: block;
+		width: 44px;
+		height: 44px;
+		background-color: #48bb78;
+		display: flex;
+		justify-content: center;
+		align-self: center;
+		border-radius: 10px;
+	}
+	.rent__contacts__icon {
+		width: 20px;
+		height: 20px;
+		align-self: center;
+	}
+}
+@media (min-width: 1440px) {
+	.rent__card__wrapper {
+		min-height: 576px;
+		max-width: 400px;
+	}
+	.rent__card__images {
+		height: 260px;
+	}
+
+	.rent__card__info {
+		padding: 20px;
+		gap: 20px;
+	}
+
+	.rent__card__price {
+		margin: 0;
+		font-size: 28px;
+		font-weight: 700;
+		margin-bottom: 10px;
+	}
+	.rent__card__price_per_meter {
+	}
+	.rent__card__details {
+		margin: 0 0 10px 0;
+		color: #2d3748;
+		font-size: 16px;
+		font-weight: 700;
+	}
+
+	.rent__card__breadcrumbs {
+		color: #a0aec0;
+		font-size: 14px;
+	}
+	.rent__contacts__buttons__container {
+		display: flex;
+		height: 72px;
+	}
+	.rent_contacts__button_whatsapp {
+		display: block;
+	}
+
+	.rent__contacts__button_whatsappTablet {
+		display: none;
+	}
+	.rent_contacts__button_whatsapp {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 6px;
+	}
+	.desktop__contacts__icon {
+		display: block;
+		width: 20px;
+		height: 20px;
+	}
 }

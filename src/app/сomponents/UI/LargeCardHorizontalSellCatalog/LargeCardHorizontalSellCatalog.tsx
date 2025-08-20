@@ -29,6 +29,9 @@ export const LargeCardHorizontalSellCatalog = (props: ListingCardBase) => {
 							<div>
 								<h4 className={styles.card__price}>
 									{props.price}
+									{props.isRentCard
+										? t("cards.perMonth")
+										: ""}
 								</h4>
 								<span className={styles.card__price_per_meter}>
 									{props.pricePerMeter}
@@ -96,7 +99,7 @@ export const LargeCardHorizontalSellCatalog = (props: ListingCardBase) => {
 				<div className={styles.card__contacts}>
 					<button className={styles.contact__with_salesman}>
 						<a href={props.contactWithSalesman.path}>
-							{t("cards.contactWithSalesman")}
+							{t("cards.talkToSalesman")}
 						</a>
 					</button>
 					<button className={styles.contact__whatsapp}>

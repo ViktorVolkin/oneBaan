@@ -38,7 +38,7 @@ const HeaderDesktopMode = ({
 	};
 
 	return (
-		<header className={styles.header}>
+		<div className={styles.header}>
 			<nav className={styles.nav}>
 				<div className={styles.desktop__container}>
 					<div className={styles.logo__container}>
@@ -120,7 +120,7 @@ const HeaderDesktopMode = ({
 					</div>
 				</div>
 			</nav>
-		</header>
+		</div>
 	);
 };
 

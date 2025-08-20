@@ -15,7 +15,7 @@ export const NAVIGATION_CONSTANTS = {
 	FOOTER_LINKS: [
 		{ text: "nav.home", leadsTo: "/" },
 		{ text: "nav.sell", leadsTo: "/sell" },
-		{ text: "nav.rent", leadsTo: "/rent" },
+		{ text: "nav.rent", leadsTo: "/catalog/rent" },
 		{ text: "nav.compare", leadsTo: "/compare" },
 		{ text: "nav.favourites", leadsTo: "/favourites" },
 	],

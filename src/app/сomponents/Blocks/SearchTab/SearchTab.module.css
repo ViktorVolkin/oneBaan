@@ -1,0 +1,369 @@
+.popMessage__container {
+	width: 100%;
+	position: fixed;
+	top: 56px;
+	left: 0;
+	right: 0;
+	height: 64px;
+	z-index: 250;
+	background-color: #6b46c1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+.popMessage {
+	color: white;
+	font-size: 14px;
+	font-weight: 600;
+}
+
+.noSaves__container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	width: 262px;
+	margin-top: 60px;
+	align-self: center;
+}
+.previewImage {
+	width: 200px;
+	height: 260px;
+}
+.saveSearches__text {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	align-items: center;
+	justify-content: center;
+	margin-top: 24px;
+}
+.saveSearches__title {
+	color: #000000;
+	font-size: 20px;
+	font-weight: 700;
+}
+.saveSearches__informing_text {
+	color: #718096;
+	font-weight: 400;
+	font-size: 12px;
+	margin-bottom: 6px;
+}
+.saveSearches__button {
+	background-color: #edf2f7;
+	color: #0a1137;
+	border: 0;
+	border-radius: 8px;
+	height: 40px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 229px;
+}
+
+.savedSearches__container {
+	width: 100%;
+	margin-top: 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 24px;
+}
+.sortBy {
+	height: 30px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 8px 12px;
+	border: 1px solid #a0aec0;
+	background-color: transparent;
+	border-radius: 8px;
+	font-size: 12px;
+	color: #1a202c;
+	font-weight: 600;
+	width: max-content;
+	gap: 24px;
+}
+
+.savedSearches__list {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+.saveSearch {
+	width: 100%;
+	max-width: 320px;
+	height: 140px;
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+.saveSearch__title {
+	color: #1a202c;
+	font-size: 20px;
+	font-weight: 700;
+	margin-bottom: 8px;
+}
+.saveSearch__inputContainer {
+	width: 100%;
+	height: 44px;
+	display: flex;
+	position: relative;
+	border-radius: 10px;
+}
+.saveSearch__input {
+	width: 100%;
+	border: 1px solid #7180965c;
+	background-color: #f4f5f7;
+	color: #718096;
+	padding-left: 12px;
+	border-radius: 10px;
+}
+.saveSearch__input::placeholder {
+	color: #718096;
+}
+.saveSearch__clear {
+	position: absolute;
+	border: 0;
+	background-color: transparent;
+	color: #718096;
+	font-size: 20px;
+	top: 50%;
+	transform: translateY(-50%);
+	right: 17px;
+}
+.saveSearch__button {
+	height: 40px;
+	width: 230px;
+	background-color: #edf2f7;
+	border-radius: 8px;
+	border: 0;
+}
+
+.redactSettings {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+}
+.redactSettings__searchTitle {
+	color: #1a202c;
+	font-size: 20px;
+	font-weight: 700;
+	margin-bottom: 12px;
+}
+.readctSettings__description {
+	color: #718096;
+	font-size: 12px;
+	font-weight: 400;
+}
+.readctSettings__description::after {
+	content: "";
+	display: block;
+	width: 100%;
+	height: 1px;
+	background-color: #71809629;
+	margin: 16px 0;
+}
+.redactButtons__container {
+	display: flex;
+	gap: 6px;
+	height: 40px;
+}
+.redactButton {
+	padding: 14px;
+	background-color: #edf2f7;
+	border-radius: 8px;
+	border: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #2d3748;
+	font-size: 12px;
+	font-weight: 600;
+	cursor: pointer;
+	gap: 8px;
+}
+.deleteButton {
+	padding: 14px;
+	background-color: #fed7d7;
+	border-radius: 8px;
+	border: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #e53e3e;
+	font-size: 12px;
+	font-weight: 600;
+	cursor: pointer;
+	gap: 8px;
+}
+
+@media (min-width: 768px) and (max-width: 1439.99px) {
+	.noSaves__container {
+		flex-direction: row;
+		width: 570px;
+	}
+	.previewImage {
+		width: 231px;
+		height: 300px;
+	}
+	.saveSearches__text {
+		gap: 20px;
+		align-items: flex-start;
+		min-width: 310px;
+		min-height: 180px;
+		margin-top: 0;
+	}
+	.saveSearches__title {
+		font-size: 24px;
+	}
+	.saveSearches__informing_text {
+		font-size: 14px;
+	}
+	.saveSearches__button {
+		height: 44px;
+		width: 237px;
+	}
+
+	.savedSearches__container {
+		margin-top: 20px;
+		gap: 24px;
+	}
+	.sortBy {
+		padding: 10px 14px;
+		width: max-content;
+		gap: 24px;
+		height: 36px;
+		font-size: 14px;
+	}
+	.savedSearches__list {
+		gap: 14px;
+	}
+
+	.saveSearch {
+		max-width: 400px;
+		min-height: 154px;
+		gap: 14px;
+	}
+	.saveSearch__title {
+		font-size: 24px;
+	}
+	.saveSearch__inputContainer {
+		height: 48px;
+	}
+	.saveSearch__input {
+		padding-left: 14px;
+	}
+	.saveSearch__button {
+		height: 44px;
+		width: 237px;
+	}
+
+	.popMessage__container {
+		top: 60px;
+		height: 58px;
+	}
+	.popMessage {
+		font-size: 16px;
+	}
+
+	.redactSettings__searchTitle {
+		font-size: 24px;
+	}
+	.readctSettings__description {
+		font-size: 14px;
+	}
+	.redactButtons__container {
+		height: 44px;
+	}
+	.redactButton {
+		font-size: 14px;
+	}
+	.deleteButton {
+		font-size: 14px;
+	}
+}
+
+@media (min-width: 1440px) {
+	.noSaves__container {
+		width: 671px;
+		flex-direction: row;
+	}
+	.previewImage {
+		width: 261px;
+		height: 340px;
+	}
+	.saveSearches__text {
+		gap: 20px;
+		align-items: flex-start;
+		min-width: 370px;
+		min-height: 206px;
+		margin-top: 0;
+	}
+	.saveSearches__title {
+		font-size: 28px;
+	}
+	.saveSearches__informing_text {
+		font-size: 14px;
+		max-width: 265px;
+		text-align: start;
+	}
+	.saveSearches__button {
+		height: 54px;
+		width: 305px;
+	}
+
+	.savedSearches__container {
+		gap: 24px;
+	}
+	.sortBy {
+		padding: 12px 16px;
+		height: 42px;
+		font-size: 16px;
+	}
+
+	.saveSearch {
+		max-width: 460px;
+		min-height: 182px;
+		gap: 14px;
+	}
+	.saveSearch__title {
+		font-size: 28px;
+	}
+	.saveSearch__inputContainer {
+		height: 52px;
+	}
+	.saveSearch__input {
+		padding-left: 16px;
+	}
+	.saveSearch__button {
+		height: 54px;
+		width: 305px;
+	}
+
+	.popMessage__container {
+		top: 100px;
+		height: 88px;
+	}
+	.popMessage {
+		font-size: 20px;
+	}
+
+	.redactSettings__searchTitle {
+		font-size: 28px;
+	}
+	.readctSettings__description {
+		font-size: 16px;
+	}
+	.redactButtons__container {
+		height: 50px;
+	}
+	.redactButton {
+		font-size: 18px;
+	}
+	.deleteButton {
+		font-size: 18px;
+	}
+}

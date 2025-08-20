@@ -25,6 +25,7 @@ export interface ListingCardBase {
 	breadcrumbs: { label: string; href: string }[];
 
 	isLiked: boolean;
+	isRentCard: boolean;
 }
 
 export type ListingCardProps = ListingCardBase;

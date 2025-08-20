@@ -1,0 +1,112 @@
+.overlay {
+	display: flex;
+	flex-direction: column;
+	justify-content: end;
+	position: absolute;
+	background-color: rgba(17, 24, 39, 0.45);
+	z-index: 1000;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	top: 0;
+}
+
+.content {
+	width: 100%;
+	overflow: auto;
+	background-color: #fff;
+	border-top-left-radius: 16px;
+	border-top-right-radius: 16px;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+	padding: 20px 20px 30px 20px;
+	height: max-content;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.closeButton {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	border: none;
+	cursor: pointer;
+	width: 24px;
+	height: 24px;
+	background-color: transparent;
+	font-size: 24px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+@keyframes popupIn {
+	from {
+		transform: translateY(8px);
+		opacity: 0;
+	}
+	to {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+.content {
+	animation: popupIn 0.16s ease-out;
+}
+
+@media (min-width: 768px) and (max-width: 1439.9px) {
+	.overlay {
+		justify-content: center;
+		align-items: center;
+	}
+
+	.content {
+		width: 100%;
+		max-width: 440px;
+		overflow: auto;
+		background-color: #fff;
+		border-radius: 14px;
+		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+		padding: 30px;
+		height: max-content;
+		position: relative;
+	}
+	.closeButton {
+		position: absolute;
+		top: 30px;
+		right: 30px;
+		border: none;
+		cursor: pointer;
+		width: 24px;
+		height: 24px;
+		background-color: transparent;
+		font-size: 24px;
+	}
+}
+@media (min-width: 1440px) {
+	.overlay {
+		justify-content: center;
+		align-items: center;
+	}
+
+	.content {
+		width: 100%;
+		max-width: 540px;
+		border-radius: 16px;
+		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+		padding: 40px;
+		height: max-content;
+		position: relative;
+	}
+	.closeButton {
+		position: absolute;
+		top: 40px;
+		right: 40px;
+		border: none;
+		cursor: pointer;
+		width: 28px;
+		height: 28px;
+		background-color: transparent;
+		font-size: 28px;
+	}
+}

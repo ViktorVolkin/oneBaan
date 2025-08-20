@@ -2,16 +2,8 @@
 import { useEffect, useState, useCallback } from "react";
 import styles from "./searchBox.module.css";
 import { useQueryParams } from "@/app/сustomHooks/useQueryParams";
-
-type Props = {
-	placeholder: string;
-	className?: string;
-	param?: string;
-	changeOnEnter?: boolean;
-	onCommit?: (v: string) => void;
-	onKeyDownExtra?: React.KeyboardEventHandler<HTMLInputElement>;
-	clearable?: boolean;
-};
+import SearchIcon from "@/../public/searchIcon.svg?component";
+import { SearchBoxProps } from "@/app/types/searchBox.types";
 
 export function SearchBox({
 	placeholder,
@@ -21,7 +13,8 @@ export function SearchBox({
 	onKeyDownExtra,
 	changeOnEnter = true,
 	clearable = true,
-}: Props) {
+	withIcon = false,
+}: SearchBoxProps) {
 	const { get, set } = useQueryParams();
 
 	const queryValue = get(param) ?? "";
@@ -56,12 +49,15 @@ export function SearchBox({
 
 	return (
 		<div className={styles.inputContainer}>
+			{withIcon && <SearchIcon className={styles.searchBox__icon} />}
 			<input
 				value={value}
 				onChange={(e) => setValue(e.target.value)}
 				onKeyDown={onKeyDown}
 				placeholder={placeholder}
-				className={className}
+				className={`${className} ${
+					withIcon ? styles.searchBox__inputWithIcon : ""
+				}`}
 			/>
 			{clearable && (
 				<button

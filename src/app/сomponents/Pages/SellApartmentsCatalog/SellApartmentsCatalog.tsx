@@ -1,11 +1,11 @@
 "use client";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import Header from "../../Blocks/Header";
 import styles from "./SellApartmentsCatalog.module.css";
 import { useQueryParams } from "@/app/сustomHooks/useQueryParams";
 import type { ListingCardBase } from "@/app/types/LargeCardHorizontalSellCatalog.types";
 import { useTranslations, useLocale } from "next-intl";
-import CustomSelect, { type Option } from "../../UI/CustomSelect/CustomSelect";
+import CustomSelect from "../../UI/CustomSelect/CustomSelect";
 import DisplayDouble from "@/../public/displayDouble.svg?component";
 import BulletedList from "@/../public/bulletedList.svg?component";
 import LargeCardHorizontalSellCatalog from "../../UI/LargeCardHorizontalSellCatalog";
@@ -22,34 +22,10 @@ import {
 	makePhonePriceValue,
 } from "@/app/utils/phonePrice.helpers";
 import { fetchListingsPreview } from "@/app/api/fetchPreviewListings";
-export interface SellApartmentsCatalogProps {
-	breadcrumbs?: { label: string; href: string }[];
-	title: string;
-	mainSortsIcons?: {
-		iconPath: string;
-		iconQueryName: string;
-		iconQueryValue: string;
-		nameForIconsPhone: string;
-	}[];
-	isRentPage?: boolean;
-	optionsLocation: Option[];
-	optionsTypesOfProperty: Option[];
-	optionsBaths: Option[];
-	optionsBedrooms: Option[];
-	optionsMinPrice: Option[];
-	optionsMaxPrice: Option[];
-	optionsSortBy: Option[];
-	optionsPriceForPhoneMode: Option[];
-}
-
-type FiltersState = {
-	location: string;
-	typeOfProperty: string;
-	amountOfBaths: string;
-	amountOfBedrooms: string;
-	price: { minPrice: string; maxPrice: string };
-	sortBy: string;
-};
+import {
+	FiltersState,
+	SellApartmentsCatalogProps,
+} from "@/app/types/SellApartmentsCatalog.types";
 
 export function SellApartmentsCatalog({
 	breadcrumbs,
@@ -78,7 +54,7 @@ export function SellApartmentsCatalog({
 			minPrice: get("min-price") ?? "",
 			maxPrice: get("max-price") ?? "",
 		},
-		sortBy: get("sortBy") ?? "",
+		sortBy: get("sortBy") ?? "recommended",
 	});
 	const EMPTY_FILTERS: FiltersState = useMemo(
 		() => ({
@@ -112,12 +88,6 @@ export function SellApartmentsCatalog({
 		},
 		[set]
 	);
-
-	useEffect(() => {
-		if (!get("sortBy")) {
-			set("sortBy", "recommended");
-		}
-	}, []);
 
 	const qSearch = get("search");
 	const qLocation = get("location");
@@ -217,12 +187,8 @@ export function SellApartmentsCatalog({
 	}, [baseQuery, isRentPage]);
 
 	const listToRender: ListingCardBase[] = items;
-	const headerMediaQueryPhone = isRentPage
-		? "(max-width:768px)"
-		: "(max-width:1439.9px)";
-	const headerMediaQueryTablet = isRentPage
-		? "(max-width:1439.9px)"
-		: "(max-width:0)";
+	const headerMediaQueryPhone = isRentPage ? 768 : 1439.9;
+	const headerMediaQueryTablet = isRentPage ? 1439.9 : 0;
 
 	const queriesToClear = useMemo(
 		() => [
@@ -239,18 +205,41 @@ export function SellApartmentsCatalog({
 		],
 		[]
 	);
+	useEffect(() => {
+		if (!get("sortBy")) {
+			set("sortBy", "recommended");
+		}
+	}, [baseQuery]);
 
 	return (
 		<>
 			<Header
-				matchMediaPhone={headerMediaQueryPhone}
-				matchMediaTablet={headerMediaQueryTablet}
-				matchMediaDesktop="(min-width:1440px)"
 				hasCatalog={true}
+				maxPhoneWidth={headerMediaQueryPhone}
+				maxTabletWidth={headerMediaQueryTablet}
+				minDesktopWidth={1440}
 			/>
 
-			<div className={styles.catalog__container}>
+			<div
+				className={`${
+					isRentPage
+						? styles.rent__catalog__container
+						: styles.catalog__container
+				}`}
+			>
 				<div className={styles.mainRow__container}>
+					{isRentPage && (
+						<div className={styles.tabletSearchBoxContainer}>
+							<SearchBox
+								placeholder={t("catalog.searchPlaceholder")}
+								onCommit={commitSearch}
+								clearable={true}
+								changeOnEnter={true}
+								className={styles.tabletSearchBox}
+								withIcon={true}
+							/>
+						</div>
+					)}
 					<div className={styles.title__container}>
 						{breadcrumbs && breadcrumbs.length > 0 && (
 							<nav className={styles.catalog__breadcrumbs}>
@@ -285,7 +274,9 @@ export function SellApartmentsCatalog({
 							{t("catalog.filter")}
 						</button>
 					</div>
-					<div className={styles.advancedFilters}>
+					<div
+						className={`${styles.advancedFilters}  ${styles.rent__advancedFilters}`}
+					>
 						<SearchBox
 							className={styles.filterSearch}
 							placeholder={t("catalog.searchPlaceholder")}
@@ -295,7 +286,7 @@ export function SellApartmentsCatalog({
 						/>
 
 						<CustomSelect
-							placeholder={t("catalog.sort.location")}
+							placeholder={"catalog.sort.location"}
 							options={optionsLocation}
 							value={filtersDraft.location}
 							className={`${styles.catalog__selector} ${styles.catalog__selector_location}`}
@@ -308,7 +299,7 @@ export function SellApartmentsCatalog({
 						/>
 
 						<CustomSelect
-							placeholder={t("catalog.sort.typeOfProperty")}
+							placeholder={"catalog.sort.typeOfProperty"}
 							options={optionsTypesOfProperty}
 							value={filtersDraft.typeOfProperty}
 							className={styles.catalog__selector}
@@ -322,7 +313,7 @@ export function SellApartmentsCatalog({
 
 						<div className={styles.optionsOfApartment}>
 							<CustomSelect
-								placeholder={t("catalog.sort.baths")}
+								placeholder={"catalog.sort.baths"}
 								options={optionsBaths}
 								value={filtersDraft.amountOfBaths}
 								className={styles.catalog__selector}
@@ -334,7 +325,7 @@ export function SellApartmentsCatalog({
 								}
 							/>
 							<CustomSelect
-								placeholder={t("catalog.sort.bedrooms")}
+								placeholder={"catalog.sort.bedrooms"}
 								options={optionsBedrooms}
 								className={styles.catalog__selector}
 								value={filtersDraft.amountOfBedrooms}
@@ -353,7 +344,7 @@ export function SellApartmentsCatalog({
 							</h4>
 							<div className={styles.customSelectorsContainer}>
 								<CustomSelect
-									placeholder={t("catalog.sort.minPrice")}
+									placeholder={"catalog.sort.minPrice"}
 									options={optionsMinPrice}
 									className={styles.catalog__selector}
 									value={filtersDraft.price.minPrice}
@@ -368,7 +359,7 @@ export function SellApartmentsCatalog({
 									}
 								/>
 								<CustomSelect
-									placeholder={t("catalog.sort.maxPrice")}
+									placeholder={"catalog.sort.maxPrice"}
 									options={optionsMaxPrice}
 									className={styles.catalog__selector}
 									value={filtersDraft.price.maxPrice}
@@ -394,7 +385,9 @@ export function SellApartmentsCatalog({
 							</button>
 
 							<button
-								className={styles.findOffers}
+								className={`${styles.findOffers} ${
+									isRentPage ? styles.rentColor : ""
+								}`}
 								onClick={() =>
 									setMany({
 										location: filtersDraft.location || null,
@@ -440,8 +433,16 @@ export function SellApartmentsCatalog({
 								</button>
 							))}
 						<button
-							className={`${styles.desktopIconsDisplay__button} ${
-								areLargeCardsEnabled
+							className={`${
+								isRentPage
+									? styles.desktopIconsDisplay__button_rent
+									: styles.desktopIconsDisplay__button
+							} ${
+								isRentPage
+									? areLargeCardsEnabled
+										? ""
+										: styles.displayIcon__active_rent
+									: areLargeCardsEnabled
 									? ""
 									: styles.displayIcon__active
 							}`}
@@ -450,22 +451,38 @@ export function SellApartmentsCatalog({
 							<DisplayDouble></DisplayDouble>
 						</button>
 						<button
-							className={`${styles.desktopIconsDisplay__button} ${
-								areLargeCardsEnabled
+							className={`${
+								isRentPage
+									? styles.desktopIconsDisplay__button_rent
+									: styles.desktopIconsDisplay__button
+							} 
+							${
+								isRentPage
+									? areLargeCardsEnabled
+										? styles.displayIcon__active_rent
+										: ""
+									: areLargeCardsEnabled
 									? styles.displayIcon__active
 									: ""
-							}`}
+							} 
+							`}
 							onClick={() => setLargeCardsEnabled(true)}
 						>
 							<BulletedList></BulletedList>
 						</button>
 					</div>
 					<div className={styles.phoneFilterOptions}>
-						<div className={styles.tabletContainer}>
+						<div
+							className={`${
+								isRentPage
+									? styles.tabletContainer__rent
+									: styles.tabletContainer
+							}`}
+						>
 							<div className={styles.filterContainer}>
 								<CustomSelect
 									options={optionsTypesOfProperty}
-									placeholder={t("catalog.selector.type")}
+									placeholder={"catalog.selector.type"}
 									onChange={function (
 										value: string | null
 									): void {
@@ -489,7 +506,7 @@ export function SellApartmentsCatalog({
 									className={styles.phoneFilterOption}
 									clearable={true}
 									lockWhenSelected={true}
-									placeholder={t("catalog.selector.bedrooms")}
+									placeholder={"catalog.selector.bedrooms"}
 								></CustomSelect>
 								<CustomSelect
 									options={optionsPriceForPhoneMode}
@@ -519,13 +536,14 @@ export function SellApartmentsCatalog({
 									chipWhenSelected={true}
 									clearable={true}
 									lockWhenSelected={true}
-									placeholder={t("catalog.selector.price")}
+									placeholder={"catalog.selector.price"}
 								/>
 							</div>
 							<div className={styles.card__sortBy}>
 								<p className={styles.amountOfFoundOffers}>
-									{total}
-									{t("cards.foundObjects")}
+									{t("catalog.amountOfObjects", {
+										count: total,
+									})}
 								</p>
 								<div className={styles.sortByContainer}>
 									<p className={styles.sortText}>
@@ -533,6 +551,7 @@ export function SellApartmentsCatalog({
 									</p>
 									<CustomSelect
 										options={optionsSortBy}
+										placeholder={"sortBy.recommended"}
 										onChange={(v) => set("sortBy", v)}
 										value={get("sortBy")}
 										className={styles.select__phoneSortBy}
@@ -542,7 +561,11 @@ export function SellApartmentsCatalog({
 								</div>
 							</div>
 						</div>
-						<div className={styles.mainIconsPhone__container}>
+						<div
+							className={`${styles.mainIconsPhone__container} ${
+								isRentPage ? styles.hidden : ""
+							}`}
+						>
 							<button
 								className={`${styles.mainIconsButton} ${
 									mainSortsIcons?.filter((item) =>
@@ -594,7 +617,7 @@ export function SellApartmentsCatalog({
 								{t("catalog.sortBy")}
 							</p>
 							<CustomSelect
-								placeholder={t("catalog.sortBy.recommended")}
+								placeholder={"sortBy.recommended"}
 								options={optionsSortBy}
 								className={styles.desktop__sortBySelector}
 								value={get("sortBy")}
@@ -604,7 +627,11 @@ export function SellApartmentsCatalog({
 					</div>
 					<div className={styles.cards__wrapper}>
 						{listToRender.map((item) => (
-							<CardToRender key={item.idOfCard} {...item} />
+							<CardToRender
+								key={item.idOfCard}
+								{...item}
+								isRentCard={isRentPage}
+							/>
 						))}
 					</div>
 					<div className={styles.pagination}>
@@ -651,7 +678,7 @@ export function SellApartmentsCatalog({
 					/>
 
 					<CustomSelect
-						placeholder={t("catalog.sort.location")}
+						placeholder={"catalog.sort.location"}
 						options={optionsLocation}
 						value={filtersDraft.location}
 						className={styles.catalog__selectorPopup}
@@ -664,7 +691,7 @@ export function SellApartmentsCatalog({
 					/>
 
 					<CustomSelect
-						placeholder={t("catalog.sort.typeOfProperty")}
+						placeholder={"catalog.sort.typeOfProperty"}
 						options={optionsTypesOfProperty}
 						value={filtersDraft.typeOfProperty}
 						className={styles.catalog__selectorPopup}
@@ -678,7 +705,7 @@ export function SellApartmentsCatalog({
 
 					<div className={styles.optionsOfApartmentPopup}>
 						<CustomSelect
-							placeholder={t("catalog.sort.baths")}
+							placeholder={"catalog.sort.baths"}
 							options={optionsBaths}
 							value={filtersDraft.amountOfBaths}
 							className={styles.catalog__selectorPopup}
@@ -691,7 +718,7 @@ export function SellApartmentsCatalog({
 						/>
 
 						<CustomSelect
-							placeholder={t("catalog.sort.bedrooms")}
+							placeholder={"catalog.sort.bedrooms"}
 							options={optionsBedrooms}
 							className={styles.catalog__selectorPopup}
 							value={filtersDraft.amountOfBedrooms}
@@ -710,7 +737,7 @@ export function SellApartmentsCatalog({
 						</h4>
 						<div className={styles.customSelectorsContainerPopup}>
 							<CustomSelect
-								placeholder={t("catalog.sort.minPrice")}
+								placeholder={"catalog.sort.minPrice"}
 								options={optionsMinPrice}
 								className={styles.catalog__selectorPopup}
 								value={filtersDraft.price.minPrice}
@@ -726,7 +753,7 @@ export function SellApartmentsCatalog({
 							/>
 							-
 							<CustomSelect
-								placeholder={t("catalog.sort.maxPrice")}
+								placeholder={"catalog.sort.maxPrice"}
 								options={optionsMaxPrice}
 								className={styles.catalog__selectorPopup}
 								value={filtersDraft.price.maxPrice}
@@ -744,7 +771,7 @@ export function SellApartmentsCatalog({
 					</div>
 					<div className={styles.sortContainerPopup}>
 						<CustomSelect
-							placeholder={t("catalog.sortBy.recommended")}
+							placeholder={"catalog.sortBy.recommended"}
 							options={optionsSortBy}
 							className={styles.catalog__selectorPopup}
 							value={filtersDraft.sortBy}
@@ -766,7 +793,9 @@ export function SellApartmentsCatalog({
 						</button>
 
 						<button
-							className={styles.findOffersPopup}
+							className={`${styles.findOffersPopup} ${
+								isRentPage ? styles.rentColor : ""
+							}`}
 							onClick={() => {
 								applyFilters();
 								setPopupOpen(false);

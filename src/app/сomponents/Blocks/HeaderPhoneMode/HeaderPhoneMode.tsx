@@ -64,7 +64,7 @@ const HeaderPhoneMode = ({
 	);
 
 	return (
-		<header className={styles.header}>
+		<div className={styles.header}>
 			<nav className={hasCatalog ? styles.headerAddedCatalog : ""}>
 				<div className={styles.mobile__container}>
 					<div
@@ -185,7 +185,7 @@ const HeaderPhoneMode = ({
 					</SidebarMenu>
 				</div>
 			</nav>
-		</header>
+		</div>
 	);
 };
 

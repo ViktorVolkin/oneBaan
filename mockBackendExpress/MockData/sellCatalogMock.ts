@@ -1,6 +1,6 @@
-import { CatalogItem } from "../utils/catalogHelper";
+import type { CatalogItem, Locale } from "../types/ApiListingCard";
 
-export const sellCatalogListingCards = [
+export const sellCatalogListingCards: CatalogItem[] = [
 	{
 		idOfCard: "ph-001",
 		apartmentImages: { images: Array(8).fill("/backgroundImage.png") },
@@ -17,9 +17,15 @@ export const sellCatalogListingCards = [
 		contactWhatsApp: { path: "https://wa.me/66612345678" },
 		contactWithSalesman: { path: "tel:+66612345678" },
 		breadcrumbs: [
-			{ label: "Mainpage", href: "/" },
-			{ label: "Catalog", href: "/catalog" },
-			{ label: "Phuket", href: "/catalog?location=phuket" },
+			{ href: "/", translations: { en: "Main page", ru: "Главная" } },
+			{
+				href: "/catalog",
+				translations: { en: "Catalog", ru: "Каталог" },
+			},
+			{
+				href: "/catalog?location=phuket",
+				translations: { en: "Phuket", ru: "Пхукет" },
+			},
 		],
 		isLiked: false,
 		ageDays: 5,
@@ -30,12 +36,20 @@ export const sellCatalogListingCards = [
 			},
 			ru: {
 				cardDescription: "Кондо в Ката, 2 спальни, вид на море",
-				details: "Phuket • Вид на море • 10 мин до пляжа",
+				details: "Пхукет • Вид на море • 10 мин до пляжа",
 			},
 		},
 		tags: [
-			{ code: "object_verified", label: "Проверено", color: "#10B981" },
-			{ code: "beneficial_price", label: "Выгодно", color: "#3B82F6" },
+			{
+				code: "object_verified",
+				color: "#10B981",
+				translations: { en: "Verified", ru: "Проверено" },
+			},
+			{
+				code: "beneficial_price",
+				color: "#3B82F6",
+				translations: { en: "Best price", ru: "Выгодно" },
+			},
 		],
 	},
 	{
@@ -54,9 +68,15 @@ export const sellCatalogListingCards = [
 		contactWhatsApp: { path: "https://wa.me/66612345678" },
 		contactWithSalesman: { path: "tel:+66612345678" },
 		breadcrumbs: [
-			{ label: "catalog.mainPage", href: "/" },
-			{ label: "catalog.property", href: "/catalog" },
-			{ label: "Karon", href: "/catalog?location=karon" },
+			{ href: "/", translations: { en: "Main page", ru: "Главная" } },
+			{
+				href: "/catalog",
+				translations: { en: "Catalog", ru: "Каталог" },
+			},
+			{
+				href: "/catalog?location=karon",
+				translations: { en: "Karon", ru: "Карон" },
+			},
 		],
 		isLiked: true,
 		ageDays: 2,
@@ -71,8 +91,16 @@ export const sellCatalogListingCards = [
 			},
 		},
 		tags: [
-			{ code: "with_furniture", label: "С мебелью", color: "#10B981" },
-			{ code: "only_on_oneBaan", label: "Эксклюзив", color: "#3B82F6" },
+			{
+				code: "with_furniture",
+				color: "#10B981",
+				translations: { en: "Furnished", ru: "С мебелью" },
+			},
+			{
+				code: "only_on_oneBaan",
+				color: "#3B82F6",
+				translations: { en: "Exclusive", ru: "Эксклюзив" },
+			},
 		],
 	},
 	{
@@ -91,9 +119,15 @@ export const sellCatalogListingCards = [
 		contactWhatsApp: { path: "https://wa.me/66612345678" },
 		contactWithSalesman: { path: "tel:+66612345678" },
 		breadcrumbs: [
-			{ label: "catalog.mainPage", href: "/" },
-			{ label: "catalog.property", href: "/catalog" },
-			{ label: "Kamala", href: "/catalog?location=kamala" },
+			{ href: "/", translations: { en: "Main page", ru: "Главная" } },
+			{
+				href: "/catalog",
+				translations: { en: "Catalog", ru: "Каталог" },
+			},
+			{
+				href: "/catalog?location=kamala",
+				translations: { en: "Kamala", ru: "Камала" },
+			},
 		],
 		isLiked: false,
 		ageDays: 7,
@@ -108,8 +142,16 @@ export const sellCatalogListingCards = [
 			},
 		},
 		tags: [
-			{ code: "object_verified", label: "Проверено", color: "#10B981" },
-			{ code: "with_furniture", label: "С мебелью", color: "#3B82F6" },
+			{
+				code: "object_verified",
+				color: "#10B981",
+				translations: { en: "Verified", ru: "Проверено" },
+			},
+			{
+				code: "with_furniture",
+				color: "#3B82F6",
+				translations: { en: "Furnished", ru: "С мебелью" },
+			},
 		],
 	},
 	{
@@ -128,9 +170,15 @@ export const sellCatalogListingCards = [
 		contactWhatsApp: { path: "https://wa.me/66612345678" },
 		contactWithSalesman: { path: "tel:+66612345678" },
 		breadcrumbs: [
-			{ label: "catalog.mainPage", href: "/" },
-			{ label: "catalog.property", href: "/catalog" },
-			{ label: "Patong", href: "/catalog?location=patong" },
+			{ href: "/", translations: { en: "Main page", ru: "Главная" } },
+			{
+				href: "/catalog",
+				translations: { en: "Catalog", ru: "Каталог" },
+			},
+			{
+				href: "/catalog?location=patong",
+				translations: { en: "Patong", ru: "Патонг" },
+			},
 		],
 		isLiked: true,
 		ageDays: 1,
@@ -145,8 +193,16 @@ export const sellCatalogListingCards = [
 			},
 		},
 		tags: [
-			{ code: "beneficial_price", label: "Выгодно", color: "#10B981" },
-			{ code: "only_on_oneBaan", label: "Эксклюзив", color: "#3B82F6" },
+			{
+				code: "beneficial_price",
+				color: "#10B981",
+				translations: { en: "Best price", ru: "Выгодно" },
+			},
+			{
+				code: "only_on_oneBaan",
+				color: "#3B82F6",
+				translations: { en: "Exclusive", ru: "Эксклюзив" },
+			},
 		],
 	},
 	{
@@ -165,9 +221,15 @@ export const sellCatalogListingCards = [
 		contactWhatsApp: { path: "https://wa.me/66612345678" },
 		contactWithSalesman: { path: "tel:+66612345678" },
 		breadcrumbs: [
-			{ label: "catalog.mainPage", href: "/" },
-			{ label: "catalog.property", href: "/catalog" },
-			{ label: "Rawai", href: "/catalog?location=rawai" },
+			{ href: "/", translations: { en: "Main page", ru: "Главная" } },
+			{
+				href: "/catalog",
+				translations: { en: "Catalog", ru: "Каталог" },
+			},
+			{
+				href: "/catalog?location=rawai",
+				translations: { en: "Rawai", ru: "Раваи" },
+			},
 		],
 		isLiked: false,
 		ageDays: 9,
@@ -182,8 +244,16 @@ export const sellCatalogListingCards = [
 			},
 		},
 		tags: [
-			{ code: "object_verified", label: "Проверено", color: "#10B981" },
-			{ code: "with_furniture", label: "С мебелью", color: "#3B82F6" },
+			{
+				code: "object_verified",
+				color: "#10B981",
+				translations: { en: "Verified", ru: "Проверено" },
+			},
+			{
+				code: "with_furniture",
+				color: "#3B82F6",
+				translations: { en: "Furnished", ru: "С мебелью" },
+			},
 		],
 	},
 	{
@@ -202,9 +272,15 @@ export const sellCatalogListingCards = [
 		contactWhatsApp: { path: "https://wa.me/66612345678" },
 		contactWithSalesman: { path: "tel:+66612345678" },
 		breadcrumbs: [
-			{ label: "catalog.mainPage", href: "/" },
-			{ label: "catalog.property", href: "/catalog" },
-			{ label: "Bang Tao", href: "/catalog?location=bangtao" },
+			{ href: "/", translations: { en: "Main page", ru: "Главная" } },
+			{
+				href: "/catalog",
+				translations: { en: "Catalog", ru: "Каталог" },
+			},
+			{
+				href: "/catalog?location=bangtao",
+				translations: { en: "Bang Tao", ru: "Банг Тао" },
+			},
 		],
 		isLiked: true,
 		ageDays: 3,
@@ -219,8 +295,16 @@ export const sellCatalogListingCards = [
 			},
 		},
 		tags: [
-			{ code: "beneficial_price", label: "Выгодно", color: "#10B981" },
-			{ code: "with_furniture", label: "С мебелью", color: "#3B82F6" },
+			{
+				code: "beneficial_price",
+				color: "#10B981",
+				translations: { en: "Best price", ru: "Выгодно" },
+			},
+			{
+				code: "with_furniture",
+				color: "#3B82F6",
+				translations: { en: "Furnished", ru: "С мебелью" },
+			},
 		],
 	},
 	{
@@ -239,9 +323,15 @@ export const sellCatalogListingCards = [
 		contactWhatsApp: { path: "https://wa.me/66612345678" },
 		contactWithSalesman: { path: "tel:+66612345678" },
 		breadcrumbs: [
-			{ label: "catalog.mainPage", href: "/" },
-			{ label: "catalog.property", href: "/catalog" },
-			{ label: "Surin", href: "/catalog?location=surin" },
+			{ href: "/", translations: { en: "Main page", ru: "Главная" } },
+			{
+				href: "/catalog",
+				translations: { en: "Catalog", ru: "Каталог" },
+			},
+			{
+				href: "/catalog?location=surin",
+				translations: { en: "Surin", ru: "Сурин" },
+			},
 		],
 		isLiked: false,
 		ageDays: 0,
@@ -256,8 +346,16 @@ export const sellCatalogListingCards = [
 			},
 		},
 		tags: [
-			{ code: "object_verified", label: "Проверено", color: "#10B981" },
-			{ code: "only_on_oneBaan", label: "Эксклюзив", color: "#3B82F6" },
+			{
+				code: "object_verified",
+				color: "#10B981",
+				translations: { en: "Verified", ru: "Проверено" },
+			},
+			{
+				code: "only_on_oneBaan",
+				color: "#3B82F6",
+				translations: { en: "Exclusive", ru: "Эксклюзив" },
+			},
 		],
 	},
 	{
@@ -276,9 +374,15 @@ export const sellCatalogListingCards = [
 		contactWhatsApp: { path: "https://wa.me/66612345678" },
 		contactWithSalesman: { path: "tel:+66612345678" },
 		breadcrumbs: [
-			{ label: "catalog.mainPage", href: "/" },
-			{ label: "catalog.property", href: "/catalog" },
-			{ label: "Chalong", href: "/catalog?location=chalong" },
+			{ href: "/", translations: { en: "Main page", ru: "Главная" } },
+			{
+				href: "/catalog",
+				translations: { en: "Catalog", ru: "Каталог" },
+			},
+			{
+				href: "/catalog?location=chalong",
+				translations: { en: "Chalong", ru: "Чалонг" },
+			},
 		],
 		isLiked: true,
 		ageDays: 4,
@@ -293,8 +397,16 @@ export const sellCatalogListingCards = [
 			},
 		},
 		tags: [
-			{ code: "with_furniture", label: "С мебелью", color: "#10B981" },
-			{ code: "beneficial_price", label: "Выгодно", color: "#3B82F6" },
+			{
+				code: "with_furniture",
+				color: "#10B981",
+				translations: { en: "Furnished", ru: "С мебелью" },
+			},
+			{
+				code: "beneficial_price",
+				color: "#3B82F6",
+				translations: { en: "Best price", ru: "Выгодно" },
+			},
 		],
 	},
 	{
@@ -313,9 +425,15 @@ export const sellCatalogListingCards = [
 		contactWhatsApp: { path: "https://wa.me/66612345678" },
 		contactWithSalesman: { path: "tel:+66612345678" },
 		breadcrumbs: [
-			{ label: "catalog.mainPage", href: "/" },
-			{ label: "catalog.property", href: "/catalog" },
-			{ label: "Phuket Town", href: "/catalog?location=phuket-town" },
+			{ href: "/", translations: { en: "Main page", ru: "Главная" } },
+			{
+				href: "/catalog",
+				translations: { en: "Catalog", ru: "Каталог" },
+			},
+			{
+				href: "/catalog?location=phuket-town",
+				translations: { en: "Phuket Town", ru: "Пхукет-Таун" },
+			},
 		],
 		isLiked: false,
 		ageDays: 6,
@@ -330,7 +448,11 @@ export const sellCatalogListingCards = [
 			},
 		},
 		tags: [
-			{ code: "beneficial_price", label: "Выгодно", color: "#10B981" },
+			{
+				code: "beneficial_price",
+				color: "#10B981",
+				translations: { en: "Best price", ru: "Выгодно" },
+			},
 		],
 	},
 	{
@@ -349,9 +471,15 @@ export const sellCatalogListingCards = [
 		contactWhatsApp: { path: "https://wa.me/66612345678" },
 		contactWithSalesman: { path: "tel:+66612345678" },
 		breadcrumbs: [
-			{ label: "catalog.mainPage", href: "/" },
-			{ label: "catalog.property", href: "/catalog" },
-			{ label: "Nai Harn", href: "/catalog?location=nai-harn" },
+			{ href: "/", translations: { en: "Main page", ru: "Главная" } },
+			{
+				href: "/catalog",
+				translations: { en: "Catalog", ru: "Каталог" },
+			},
+			{
+				href: "/catalog?location=nai-harn",
+				translations: { en: "Nai Harn", ru: "Най Харн" },
+			},
 		],
 		isLiked: true,
 		ageDays: 8,
@@ -366,8 +494,16 @@ export const sellCatalogListingCards = [
 			},
 		},
 		tags: [
-			{ code: "object_verified", label: "Проверено", color: "#10B981" },
-			{ code: "only_on_oneBaan", label: "Эксклюзив", color: "#3B82F6" },
+			{
+				code: "object_verified",
+				color: "#10B981",
+				translations: { en: "Verified", ru: "Проверено" },
+			},
+			{
+				code: "only_on_oneBaan",
+				color: "#3B82F6",
+				translations: { en: "Exclusive", ru: "Эксклюзив" },
+			},
 		],
 	},
 	{
@@ -386,9 +522,15 @@ export const sellCatalogListingCards = [
 		contactWhatsApp: { path: "https://wa.me/66612345678" },
 		contactWithSalesman: { path: "tel:+66612345678" },
 		breadcrumbs: [
-			{ label: "catalog.mainPage", href: "/" },
-			{ label: "catalog.property", href: "/catalog" },
-			{ label: "Mai Khao", href: "/catalog?location=mai-khao" },
+			{ href: "/", translations: { en: "Main page", ru: "Главная" } },
+			{
+				href: "/catalog",
+				translations: { en: "Catalog", ru: "Каталог" },
+			},
+			{
+				href: "/catalog?location=mai-khao",
+				translations: { en: "Mai Khao", ru: "Май Као" },
+			},
 		],
 		isLiked: false,
 		ageDays: 10,
@@ -403,7 +545,11 @@ export const sellCatalogListingCards = [
 			},
 		},
 		tags: [
-			{ code: "beneficial_price", label: "Выгодно", color: "#10B981" },
+			{
+				code: "beneficial_price",
+				color: "#10B981",
+				translations: { en: "Best price", ru: "Выгодно" },
+			},
 		],
 	},
 	{
@@ -422,9 +568,15 @@ export const sellCatalogListingCards = [
 		contactWhatsApp: { path: "https://wa.me/66612345678" },
 		contactWithSalesman: { path: "tel:+66612345678" },
 		breadcrumbs: [
-			{ label: "catalog.mainPage", href: "/" },
-			{ label: "catalog.property", href: "/catalog" },
-			{ label: "Laguna", href: "/catalog?location=laguna" },
+			{ href: "/", translations: { en: "Main page", ru: "Главная" } },
+			{
+				href: "/catalog",
+				translations: { en: "Catalog", ru: "Каталог" },
+			},
+			{
+				href: "/catalog?location=laguna",
+				translations: { en: "Laguna", ru: "Лагуна" },
+			},
 		],
 		isLiked: true,
 		ageDays: 11,
@@ -439,7 +591,11 @@ export const sellCatalogListingCards = [
 			},
 		},
 		tags: [
-			{ code: "with_furniture", label: "С мебелью", color: "#10B981" },
+			{
+				code: "with_furniture",
+				color: "#10B981",
+				translations: { en: "Furnished", ru: "С мебелью" },
+			},
 		],
 	},
 	{
@@ -458,9 +614,15 @@ export const sellCatalogListingCards = [
 		contactWhatsApp: { path: "https://wa.me/66612345678" },
 		contactWithSalesman: { path: "tel:+66612345678" },
 		breadcrumbs: [
-			{ label: "catalog.mainPage", href: "/" },
-			{ label: "catalog.property", href: "/catalog" },
-			{ label: "Thalang", href: "/catalog?location=thalang" },
+			{ href: "/", translations: { en: "Main page", ru: "Главная" } },
+			{
+				href: "/catalog",
+				translations: { en: "Catalog", ru: "Каталог" },
+			},
+			{
+				href: "/catalog?location=thalang",
+				translations: { en: "Thalang", ru: "Таланг" },
+			},
 		],
 		isLiked: false,
 		ageDays: 12,
@@ -475,7 +637,11 @@ export const sellCatalogListingCards = [
 			},
 		},
 		tags: [
-			{ code: "object_verified", label: "Проверено", color: "#10B981" },
+			{
+				code: "object_verified",
+				color: "#10B981",
+				translations: { en: "Verified", ru: "Проверено" },
+			},
 		],
 	},
 	{
@@ -494,9 +660,15 @@ export const sellCatalogListingCards = [
 		contactWhatsApp: { path: "https://wa.me/66612345678" },
 		contactWithSalesman: { path: "tel:+66612345678" },
 		breadcrumbs: [
-			{ label: "catalog.mainPage", href: "/" },
-			{ label: "catalog.property", href: "/catalog" },
-			{ label: "Cape Panwa", href: "/catalog?location=panwa" },
+			{ href: "/", translations: { en: "Main page", ru: "Главная" } },
+			{
+				href: "/catalog",
+				translations: { en: "Catalog", ru: "Каталог" },
+			},
+			{
+				href: "/catalog?location=panwa",
+				translations: { en: "Cape Panwa", ru: "Кейп Панва" },
+			},
 		],
 		isLiked: true,
 		ageDays: 4,
@@ -511,7 +683,11 @@ export const sellCatalogListingCards = [
 			},
 		},
 		tags: [
-			{ code: "only_on_oneBaan", label: "Эксклюзив", color: "#3B82F6" },
+			{
+				code: "only_on_oneBaan",
+				color: "#3B82F6",
+				translations: { en: "Exclusive", ru: "Эксклюзив" },
+			},
 		],
 	},
-] satisfies Array<CatalogItem>;
+];

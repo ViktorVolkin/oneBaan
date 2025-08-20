@@ -1,6 +1,5 @@
 "use client";
 import styles from "./Header.module.css";
-import { useMediaQuery } from "@/app/сustomHooks/MediaQuery";
 import HeaderPhoneMode from "../HeaderPhoneMode";
 import HeaderTabletMode from "../HeaderTabletMode";
 import HeaderDesktopMode from "../HeaderDesktopMode";
@@ -9,25 +8,27 @@ import { useRouter, usePathname } from "@/i18n/navigation";
 import { useMemo, useEffect } from "react";
 import type { HeaderProps, SupportedLngs } from "@/app/types/Header.types";
 import { useQueryParams } from "@/app/сustomHooks/useQueryParams";
-import { NAVIGATION_CONSTANTS } from "@/app/constants/common";
-import { CURRENCY_CONSTANTS } from "@/app/constants/common";
+import {
+	NAVIGATION_CONSTANTS,
+	CURRENCY_CONSTANTS,
+} from "@/app/constants/common";
+
 const Header = ({
 	burgerOptions = NAVIGATION_CONSTANTS.BURGER_OPTIONS,
 	typesOfCurrency = CURRENCY_CONSTANTS.TYPES,
 	handleLanguageChange: handleLanguageChangeProp,
-	matchMediaPhone,
-	matchMediaTablet,
-	matchMediaDesktop,
+	maxPhoneWidth = 767.99,
+	maxTabletWidth = 1439.99,
+	minDesktopWidth = 1440,
 	hasCatalog = false,
 }: HeaderProps & {
-	matchMediaPhone?: string;
-	matchMediaTablet?: string;
-	matchMediaDesktop?: string;
+	maxPhoneWidth?: number;
+	maxTabletWidth?: number;
+	minDesktopWidth?: number;
 	hasCatalog?: boolean;
 }) => {
 	const router = useRouter();
 	const path = usePathname();
-
 	const { get, set } = useQueryParams();
 
 	useEffect(() => {
@@ -59,39 +60,60 @@ const Header = ({
 		};
 	}, [handleLanguageChangeProp, path, router]);
 
-	const isMobile = useMediaQuery(matchMediaPhone ?? "(max-width: 768px)");
-	const isTablet = useMediaQuery(
-		matchMediaTablet ?? "(min-width: 768px) and (max-width:1440px)"
-	);
-	const isDesktop = useMediaQuery(matchMediaDesktop ?? "(min-width: 1440px)");
+	const tabletMin = maxPhoneWidth + 0.01;
 
-	if (isMobile) {
-		return (
-			<HeaderPhoneMode
-				burgerOptions={burgerOptions}
-				typesOfCurrency={typesOfCurrency}
-				handleLanguageChange={handleLanguageChange}
-				hasCatalog={hasCatalog}
-			/>
-		);
-	} else if (isTablet) {
-		return (
-			<HeaderTabletMode
-				burgerOptions={burgerOptions}
-				typesOfCurrency={typesOfCurrency}
-				handleLanguageChange={handleLanguageChange}
-			/>
-		);
-	} else if (isDesktop) {
-		return (
-			<HeaderDesktopMode
-				burgerOptions={burgerOptions}
-				typesOfCurrency={typesOfCurrency}
-				handleLanguageChange={handleLanguageChange}
-			/>
-		);
-	}
-	return null;
+	return (
+		<header>
+			<div className="phone slot">
+				<HeaderPhoneMode
+					burgerOptions={burgerOptions}
+					typesOfCurrency={typesOfCurrency}
+					handleLanguageChange={handleLanguageChange}
+					hasCatalog={hasCatalog}
+				/>
+			</div>
+
+			<div className="tablet slot">
+				<HeaderTabletMode
+					burgerOptions={burgerOptions}
+					typesOfCurrency={typesOfCurrency}
+					handleLanguageChange={handleLanguageChange}
+				/>
+			</div>
+
+			<div className="desktop slot">
+				<HeaderDesktopMode
+					burgerOptions={burgerOptions}
+					typesOfCurrency={typesOfCurrency}
+					handleLanguageChange={handleLanguageChange}
+				/>
+			</div>
+
+			<style jsx>{`
+				.slot {
+					display: none;
+				}
+
+				@media (max-width: ${maxPhoneWidth}px) {
+					.phone {
+						display: block;
+					}
+				}
+
+				@media (min-width: ${tabletMin}px) and (max-width: ${maxTabletWidth}px) {
+					.tablet {
+						display: block;
+					}
+				}
+
+				@media (min-width: ${minDesktopWidth}px) {
+					.desktop {
+						display: block;
+					}
+				}
+			`}</style>
+		</header>
+	);
 };
 
 export default Header;

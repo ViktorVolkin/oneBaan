@@ -8,6 +8,7 @@ import { SUBSCRIBERS } from "./MockData/mockData";
 import type { Subscriber } from "./types/subscriber";
 import { sellCatalogListingCards } from "./MockData/sellCatalogMock";
 import { makeCatalogHandler } from "./utils/catalogHelper";
+import { rentCatalogMock } from "./MockData/rentCatalogMock";
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -117,9 +118,12 @@ app.post(
 app.get("/sell-catalog-offers/preview", (req, res) => {
 	res.json({ total: 1920 });
 });
+app.get("/rent-catalog-offers/preview", (req, res) => {
+	res.json({ total: 1225 });
+});
 
 app.get("/sell-catalog-offers", makeCatalogHandler(sellCatalogListingCards));
-
+app.get("/rent-catalog-offers", makeCatalogHandler(rentCatalogMock));
 app.listen(4000, () => {
 	console.log("server started on 4000");
 });

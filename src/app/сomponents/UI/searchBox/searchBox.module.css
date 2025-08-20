@@ -6,6 +6,7 @@
 	justify-content: center;
 	align-items: center;
 	position: relative;
+	color: inherit;
 	& > input {
 		width: 100%;
 		height: 100%;
@@ -18,4 +19,14 @@
 	transform: translateY(-50%);
 	border: none;
 	background-color: inherit;
+}
+.searchBox__icon {
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	left: 16px;
+	color: #959595;
+}
+.searchBox__inputWithIcon {
+	padding-left: 42px;
 }

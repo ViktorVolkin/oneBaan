@@ -5,6 +5,7 @@ import type { FooterProps } from "@/app/types/Footer.types";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
 import { API_CONSTANTS, NAVIGATION_CONSTANTS } from "@/app/constants/common";
+import Arrow from "@/../public/footer__arrow_right.svg?component";
 const signForDistribution = async (data: { email: string }) => {
 	if (!API_CONSTANTS.EMAIL_REGEX.test(data.email)) {
 		throw new Error("Invalid email format");
@@ -112,9 +113,7 @@ export const Footer = ({
 										}
 									}}
 								>
-									<img
-										src="/footer__arrow_right.svg"
-										alt="sign for distribution"
+									<Arrow
 										className={
 											styles.distributionSign__icon
 										}

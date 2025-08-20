@@ -37,12 +37,12 @@ const HeaderTabletMode = ({
 			reset: ["page"],
 			method: "replace",
 			scroll: false,
-		}); // <<
+		});
 		setCurrency(next as any);
 	};
 
 	return (
-		<header className={styles.header}>
+		<div className={styles.header}>
 			<nav className={styles.nav}>
 				<div className={styles.tablet__container}>
 					<div className={styles.logo__container}>
@@ -140,7 +140,7 @@ const HeaderTabletMode = ({
 					</SidebarMenu>
 				</div>
 			</nav>
-		</header>
+		</div>
 	);
 };
 

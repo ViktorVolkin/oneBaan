@@ -2,31 +2,7 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import styles from "./CustomSelect.module.css";
 import { useTranslations } from "next-intl";
-
-export interface Option {
-	label: string;
-	value: string;
-	disabled?: boolean;
-	iconSrc?: string;
-}
-
-export interface CustomSelectProps {
-	placeholder?: string;
-	options: Option[];
-	value?: string | null;
-	onChange: (value: string | null) => void;
-	className?: string;
-	disabled?: boolean;
-	caretSrc?: string;
-
-	prefixSrc?: string;
-	chipWhenSelected?: boolean;
-	clearable?: boolean;
-	lockWhenSelected?: boolean;
-	showLabelWhenEmpty?: boolean;
-	allowMissingValue?: boolean;
-	missingValueLabelFactory?: (value: string) => string;
-}
+import { CustomSelectProps, Option } from "@/app/types/CustomSelect.types";
 
 export default function CustomSelect({
 	placeholder = "Select…",

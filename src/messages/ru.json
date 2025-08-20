@@ -96,7 +96,7 @@
 	"catalog": {
 		"mainPage": "Главная",
 		"property": "Каталог недвижимости",
-
+		"rentPage": "Аренда",
 		"filter": "Фильтр",
 		"searchPlaceholder": "Район или проект",
 
@@ -127,11 +127,11 @@
 	},
 
 	"cards": {
-		"foundObjects": " объектов найдено",
 		"sort": "Сортировка",
 		"removeFromFav": "убрать из избранного",
 		"addToFav": "добавить в избранное",
-		"talkToSalesman": "Связаться с продавцом"
+		"talkToSalesman": "Связаться с продавцом",
+		"perMonth": "/мес"
 	},
 
 	"sortBy": {
@@ -160,5 +160,16 @@
 
 	"typesOfProperty": {
 		"studio": "Студия"
+	},
+	"favourites": {
+		"savedSearches": {
+			"sortBy": {
+				"params": "По параметрам"
+			}
+		},
+		"redactSettings": {
+			"edit": "Редактировать",
+			"delete": "Удалить"
+		}
 	}
 }

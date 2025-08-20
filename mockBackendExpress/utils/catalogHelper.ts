@@ -1,64 +1,12 @@
 import type { Request, Response } from "express";
 import { CURRENCY_RATES } from "../MockData/mockData";
-export type ApiTag = {
-	code:
-		| "object_verified"
-		| "only_on_oneBaan"
-		| "beneficial_price"
-		| "with_furniture";
-	label: string;
-	color: string;
-};
-
-export type CatalogItem = {
-	idOfCard: string;
-	apartmentImages: { images: string[] };
-	priceUsd: number;
-	pricePerMeterUsd: number;
-	iconRow: { icons: { iconPath: string; value: number | string }[] };
-	agentLogo: string;
-	contactWhatsApp: { path: string };
-	contactWithSalesman: { path: string };
-	breadcrumbs: { label: string; href: string }[];
-	isLiked: boolean;
-	ageDays: number;
-	translations: {
-		en: { cardDescription: string; details: string };
-		ru: { cardDescription: string; details: string };
-	};
-	tags: ApiTag[];
-};
-
-export type ListingCardBase = {
-	idOfCard: string;
-	apartmentImages: { images: string[] };
-	price: string;
-	pricePerMeter: string;
-	iconRow: { icons: { iconPath: string; value: number | string }[] };
-	details: string;
-	cardDescription: string;
-	agentLogo: string;
-	tags: ApiTag[];
-	contactWhatsApp: { path: string };
-	contactWithSalesman: { path: string };
-	whenPosted: string;
-	breadcrumbs: { label: string; href: string }[];
-	isLiked: boolean;
-};
-
-type ListQuery = {
-	search: string;
-	location: string;
-	bedsMin?: number;
-	bathsMin?: number;
-	minPrice?: number;
-	maxPrice?: number;
-	sortBy: "recommended" | "newest" | "oldest" | "popular";
-	locale: "en" | "ru";
-	currency: "USD" | "THB" | "RUB" | "EUR";
-	page: number;
-	limit: number;
-};
+import type {
+	ApiTag,
+	CatalogItem,
+	ListingCardBase,
+} from "../types/ApiListingCard";
+import { ListQuery } from "../types/ListQuery";
+import { whenPostedLabelFromAge } from "./whenPosted";
 
 const SYMBOL: Record<ListQuery["currency"], string> = {
 	USD: "$",
@@ -67,17 +15,37 @@ const SYMBOL: Record<ListQuery["currency"], string> = {
 	EUR: "€",
 };
 
-function fmtMoney(usd: number, cur: ListQuery["currency"]) {
+function fmtMoney(usd: number | null, cur: ListQuery["currency"]) {
+	if (!usd || !CURRENCY_RATES[cur]) return "";
 	const amount = Math.round(usd * CURRENCY_RATES[cur]);
 	return `${SYMBOL[cur]}${amount.toLocaleString()}`;
 }
 
-export function whenPostedLabelFromAge(ageDays: number, locale: "ru" | "en") {
-	const d = Math.max(0, Math.floor(ageDays || 0));
-	if (locale === "en")
-		return d === 0 ? "Today" : d === 1 ? "Yesterday" : `${d}d ago`;
-	return d === 0 ? "Сегодня" : d === 1 ? "Вчера" : `${d} д. назад`;
-}
+type Locale = "en" | "ru";
+
+const pickLocale = <T extends Record<Locale, string>>(
+	dict: T,
+	locale: Locale
+) => dict[locale] ?? dict.en;
+
+const localizeBreadcrumbs = (
+	arr: CatalogItem["breadcrumbs"],
+	locale: Locale
+): { href: string; label: string }[] =>
+	arr.map((b) => ({
+		href: b.href,
+		label: pickLocale(b.translations, locale),
+	}));
+
+const localizeTags = (
+	arr: ApiTag[],
+	locale: Locale
+): { code: ApiTag["code"]; color: string; label: string }[] =>
+	arr.map((t) => ({
+		code: t.code,
+		color: t.color,
+		label: pickLocale(t.translations, locale),
+	}));
 
 const toNum = (v: unknown) => {
 	const n = Number(v);
@@ -131,7 +99,7 @@ function valueOfIcon(item: CatalogItem, needle: "bed" | "bath") {
 function matchesLocation(breadcrumbs: CatalogItem["breadcrumbs"], loc: string) {
 	if (!loc) return true;
 	return breadcrumbs.some((b) => {
-		if (b.label.toLowerCase() === loc) return true;
+		if (b.translations.en.toLowerCase() === loc) return true;
 		const qs = new URLSearchParams(b.href.split("?")[1] ?? "");
 		return (qs.get("location") ?? "").toLowerCase() === loc;
 	});
@@ -152,16 +120,19 @@ export function makeCatalogHandler(data: CatalogItem[]) {
 					);
 				});
 			}
+
 			if (q.location)
 				list = list.filter((c) =>
 					matchesLocation(c.breadcrumbs, q.location)
 				);
+
 			if (q.bedsMin != null)
 				list = list.filter((c) => valueOfIcon(c, "bed") >= q.bedsMin!);
 			if (q.bathsMin != null)
 				list = list.filter(
 					(c) => valueOfIcon(c, "bath") >= q.bathsMin!
 				);
+
 			if (q.minPrice != null)
 				list = list.filter((c) => c.priceUsd >= q.minPrice!);
 			if (q.maxPrice != null)
@@ -191,18 +162,18 @@ export function makeCatalogHandler(data: CatalogItem[]) {
 					apartmentImages: c.apartmentImages,
 					price: fmtMoney(c.priceUsd, q.currency),
 					pricePerMeter: `${fmtMoney(
-						c.pricePerMeterUsd,
+						c.pricePerMeterUsd ?? null,
 						q.currency
-					)}/m²`,
+					)} ${c.pricePerMeterUsd ? "/m²" : ""}`,
 					iconRow: c.iconRow,
 					details: t.details,
 					cardDescription: t.cardDescription,
 					agentLogo: c.agentLogo,
-					tags: c.tags,
+					tags: localizeTags(c.tags, q.locale),
 					contactWhatsApp: c.contactWhatsApp,
 					contactWithSalesman: c.contactWithSalesman,
 					whenPosted: whenPostedLabelFromAge(c.ageDays, q.locale),
-					breadcrumbs: c.breadcrumbs,
+					breadcrumbs: localizeBreadcrumbs(c.breadcrumbs, q.locale),
 					isLiked: c.isLiked,
 				};
 			});

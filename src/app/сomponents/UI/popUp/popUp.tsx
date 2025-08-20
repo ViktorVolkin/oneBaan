@@ -1,33 +1,7 @@
 "use client";
+import { PopUpProps } from "@/app/types/popUp.types";
 import styles from "./popUp.module.css";
-import { ReactNode, useEffect, useRef } from "react";
-
-type Placement =
-	| "center"
-	| "top-right"
-	| "top-left"
-	| "bottom-right"
-	| "bottom-left"
-	| "right"
-	| "left"
-	| "top"
-	| "bottom";
-
-export interface PopUpProps {
-	isOpen: boolean;
-	onClose: () => void;
-	children: ReactNode;
-
-	placement?: Placement;
-	maxWidth?: number | string;
-	maxHeight?: number | string;
-	offset?: number;
-	showBackdrop?: boolean;
-	closeOnBackdrop?: boolean;
-	closeOnEsc?: boolean;
-	lockScroll?: boolean;
-	contentClassName?: string;
-}
+import { useEffect, useRef } from "react";
 
 export function PopUp({
 	isOpen,
