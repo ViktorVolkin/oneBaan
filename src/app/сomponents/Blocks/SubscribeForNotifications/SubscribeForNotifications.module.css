@@ -1,0 +1,395 @@
+.SubscribeForNotifications__container {
+	width: 100%;
+	padding: 16px 24px 24px 24px;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	background-color: #e9d8fd;
+	color: #553c9a;
+	border-radius: 10px;
+	overflow: hidden;
+}
+.SubscribeForNotifications__title {
+	color: #553c9a;
+	font-size: 20px;
+	font-weight: 700;
+	margin-bottom: 12px;
+	max-width: 232px;
+	z-index: 2;
+}
+.SubscribeForNotifications__list {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	margin-bottom: 16px;
+	list-style-type: none;
+	z-index: 2;
+}
+
+.list__item {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	gap: 12px;
+	width: 100%;
+	min-height: 26px;
+}
+
+.list__item_icon {
+	width: 22px;
+	height: 22px;
+}
+
+.subscribe__button {
+	display: flex;
+	width: 100%;
+	padding: 0 16px;
+	justify-content: center;
+	align-items: center;
+	height: 44px;
+	border-radius: 10px;
+	border: 0;
+	background-color: white;
+	color: #553c9a;
+	font-size: 16px;
+	font-weight: 700;
+	gap: 8px;
+	z-index: 2;
+}
+.subscribe__icon {
+	width: 20px;
+	height: 20px;
+}
+
+.SubscribeForNotifications__imageBg {
+	position: absolute;
+	width: 69px;
+	height: 52px;
+	top: 16px;
+	right: 24px;
+	z-index: 1;
+}
+.popup {
+	max-width: 360px;
+	max-height: 360px;
+}
+.popup__content {
+	display: flex;
+	flex-direction: column;
+	padding: 16px 24px;
+}
+.popup__title {
+	margin-bottom: 8px;
+	color: #1a202c;
+	font-weight: 700;
+	font-size: 24px;
+}
+.popup__text {
+	color: #1a202c;
+	font-size: 14px;
+	margin-bottom: 40px;
+}
+
+.input__container {
+	display: flex;
+	width: 100%;
+	position: relative;
+	background-color: #7180960f;
+	border-radius: 10px;
+	margin-bottom: 12px;
+}
+.input__icon {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	left: 12px;
+	width: 16px;
+	height: 16px;
+}
+.input {
+	width: 100%;
+	height: 100%;
+	padding: 11px 20px 11px 32px;
+	border: 0;
+	background-color: #7180960f;
+	border-radius: 10px;
+	&::placeholder {
+		color: #a0aec0;
+		font-size: 16px;
+	}
+}
+
+.popup__button {
+	width: 100%;
+	height: 52px;
+	border: 0;
+	border-radius: 10px;
+	background-color: #48bb78;
+	color: #ffffff;
+	font-weight: 700;
+}
+
+@media (min-width: 768px) and (max-width: 1439.9px) {
+	.SubscribeForNotifications__container {
+		width: 100%;
+		padding: 24px 32px;
+		display: flex;
+		flex-direction: column;
+		position: relative;
+		background-color: #e9d8fd;
+		color: #553c9a;
+		border-radius: 10px;
+	}
+	.SubscribeForNotifications__title {
+		color: #553c9a;
+		font-size: 24px;
+		font-weight: 700;
+		margin-bottom: 16px;
+		max-width: max-content;
+	}
+	.SubscribeForNotifications__list {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+		margin-bottom: 24px;
+		list-style-type: none;
+	}
+
+	.list__item {
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+		gap: 12px;
+		width: 100%;
+		min-height: 26px;
+		font-size: 18px;
+	}
+
+	.list__item_icon {
+		width: 22px;
+		height: 22px;
+	}
+
+	.subscribe__button {
+		display: flex;
+		width: 100%;
+		padding: 0 16px;
+		justify-content: center;
+		align-items: center;
+		height: 44px;
+		border-radius: 10px;
+		border: 0;
+		background-color: white;
+		color: #553c9a;
+		font-size: 18px;
+		font-weight: 700;
+		gap: 8px;
+	}
+	.subscribe__icon {
+		width: 20px;
+		height: 20px;
+	}
+
+	.SubscribeForNotifications__imageBg {
+		position: absolute;
+		width: 400px;
+		height: 225px;
+		top: 0;
+		bottom: 0;
+		left: 549px;
+		object-fit: cover;
+		z-index: 1;
+	}
+	.popup {
+		max-width: 583px;
+		max-height: 330px;
+	}
+	.popup__content {
+		display: flex;
+		flex-direction: column;
+		padding: 34px 32px;
+		overflow: visible;
+	}
+	.popup__title {
+		margin-bottom: 12px;
+		color: #1a202c;
+		font-weight: 700;
+		font-size: 28px;
+	}
+	.popup__text {
+		color: #1a202c;
+		font-size: 16px;
+		margin-bottom: 48px;
+	}
+
+	.input__container {
+		display: flex;
+		width: 100%;
+		position: relative;
+		background-color: #7180960f;
+		border-radius: 10px;
+		margin-bottom: 16px;
+	}
+	.input__icon {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		left: 12px;
+		width: 16px;
+		height: 16px;
+	}
+	.input {
+		width: 100%;
+		height: 100%;
+		padding: 11px 20px 11px 32px;
+		border: 0;
+		background-color: #7180960f;
+		border-radius: 10px;
+		&::placeholder {
+			color: #a0aec0;
+			font-size: 16px;
+		}
+	}
+
+	.popup__button {
+		width: 100%;
+		height: 52px;
+		border: 0;
+		border-radius: 10px;
+		background-color: #48bb78;
+		color: #ffffff;
+		font-weight: 700;
+	}
+}
+@media (min-width: 1440px) {
+	.SubscribeForNotifications__container {
+		width: 100%;
+		padding: 24px 32px;
+		display: flex;
+		flex-direction: column;
+		position: relative;
+		background-color: #e9d8fd;
+		color: #553c9a;
+		border-radius: 10px;
+	}
+	.SubscribeForNotifications__title {
+		color: #553c9a;
+		font-size: 24px;
+		font-weight: 700;
+		margin-bottom: 16px;
+		max-width: max-content;
+	}
+	.SubscribeForNotifications__list {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+		margin-bottom: 24px;
+		list-style-type: none;
+	}
+
+	.list__item {
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+		gap: 12px;
+		width: 100%;
+		min-height: 26px;
+		font-size: 18px;
+	}
+
+	.list__item_icon {
+		width: 22px;
+		height: 22px;
+	}
+
+	.subscribe__button {
+		display: flex;
+		width: 100%;
+		padding: 0 16px;
+		justify-content: center;
+		align-items: center;
+		height: 44px;
+		border-radius: 10px;
+		border: 0;
+		background-color: white;
+		color: #553c9a;
+		font-size: 18px;
+		font-weight: 700;
+		gap: 8px;
+	}
+	.subscribe__icon {
+		width: 20px;
+		height: 20px;
+	}
+
+	.SubscribeForNotifications__imageBg {
+		position: absolute;
+		width: 400px;
+		height: 225px;
+		top: 0;
+		bottom: 0;
+		left: 549px;
+		object-fit: cover;
+		z-index: 1;
+	}
+	.popup {
+		max-width: 583px;
+		max-height: 360px;
+	}
+	.popup__content {
+		display: flex;
+		flex-direction: column;
+		padding: 34px 32px;
+		overflow: visible;
+	}
+	.popup__title {
+		margin-bottom: 12px;
+		color: #1a202c;
+		font-weight: 700;
+		font-size: 28px;
+	}
+	.popup__text {
+		color: #1a202c;
+		font-size: 16px;
+		margin-bottom: 48px;
+	}
+
+	.input__container {
+		display: flex;
+		width: 100%;
+		position: relative;
+		background-color: #7180960f;
+		border-radius: 10px;
+		margin-bottom: 16px;
+	}
+	.input__icon {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		left: 12px;
+		width: 16px;
+		height: 16px;
+	}
+	.input {
+		width: 100%;
+		height: 100%;
+		padding: 11px 20px 11px 32px;
+		border: 0;
+		background-color: #7180960f;
+		border-radius: 10px;
+		&::placeholder {
+			color: #a0aec0;
+			font-size: 16px;
+		}
+	}
+
+	.popup__button {
+		width: 100%;
+		height: 52px;
+		border: 0;
+		border-radius: 10px;
+		background-color: #48bb78;
+		color: #ffffff;
+		font-weight: 700;
+	}
+}

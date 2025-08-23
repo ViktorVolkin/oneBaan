@@ -4,4 +4,6 @@ export type IconRowProps = {
 		value: number | string;
 	}[];
 	sizeForIconsinRow?: "sm" | "md" | "lg";
+	showLines?: boolean;
+	className?: string;
 };

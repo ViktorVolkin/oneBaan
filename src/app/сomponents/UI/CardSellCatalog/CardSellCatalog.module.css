@@ -7,7 +7,7 @@
 	transition: box-shadow 0.2s ease;
 	width: clamp(282px, 100%, 386px);
 	min-height: 450px;
-	max-height: 500;
+	max-height: 500px;
 	border-radius: 10px;
 	border-width: 1px;
 	opacity: 1;
@@ -21,6 +21,10 @@
 	width: 100%;
 	height: 185px;
 	overflow: hidden;
+	& > div {
+		height: 100%;
+		width: 100%;
+	}
 }
 
 .card__like_icon,
@@ -147,7 +151,6 @@
 	padding: 10px 20px;
 	font-size: 14px;
 	font-weight: 500;
-	width: 50%;
 	height: 100%;
 	border: none;
 	border-radius: 10px;
@@ -155,6 +158,23 @@
 	text-decoration: none;
 	transition: background-color 0.2s ease;
 	text-align: center;
+	min-width: 0;
+}
+
+.phoneButton {
+	width: 60px;
+	min-width: 60px;
+	max-width: 60px;
+	height: 36px;
+	padding: 0;
+	justify-content: center;
+	align-items: center;
+	margin-right: 8px;
+}
+
+.whatsappGrow {
+	flex: 1 1 0%;
+	min-width: 0;
 }
 .rent__contacts__buttons__container {
 	display: flex;
@@ -167,7 +187,7 @@
 .contacts__button {
 	background-color: #f0f0f0;
 	color: #333;
-	flex: none;
+	flex: 1;
 	padding: 10px 0;
 	display: flex;
 	justify-content: center;
@@ -177,7 +197,10 @@
 .contacts__button_whatsapp {
 	background-color: #c6f6d5;
 	color: #25855a;
-	max-width: 290px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex: 1;
 }
 .contacts__buttons_container {
 	display: flex;
@@ -197,6 +220,12 @@
 }
 .desktop__contacts__icon {
 	display: none;
+}
+.phoneIcon {
+	width: 16px;
+	height: 16px;
+	align-self: center;
+	justify-self: center;
 }
 @media (min-width: 768px) {
 	.rent__contacts__buttons__container {
@@ -233,9 +262,6 @@
 	.rent__card__wrapper {
 		min-height: 576px;
 		max-width: 400px;
-	}
-	.rent__card__images {
-		height: 260px;
 	}
 
 	.rent__card__info {
@@ -283,5 +309,12 @@
 		display: block;
 		width: 20px;
 		height: 20px;
+	}
+	.rent__card__images {
+		height: 260px;
+		& > div {
+			object-fit: cover;
+			height: 100%;
+		}
 	}
 }

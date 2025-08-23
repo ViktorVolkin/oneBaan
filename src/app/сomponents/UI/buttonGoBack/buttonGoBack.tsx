@@ -1,14 +1,15 @@
 "use client";
-import Arrow from "@/../public/footer__arrow_right.svg?component";
 type Props = {
 	className?: string;
 	fallbackHref?: string;
 	imgClassName?: string;
+	text?: string;
 };
 export default function GoBackButton({
 	className,
 	imgClassName,
 	fallbackHref = "/",
+	text,
 }: Props) {
 	const onClick = () => {
 		if (typeof window !== "undefined" && window.history.length > 1) {
@@ -25,10 +26,8 @@ export default function GoBackButton({
 			onClick={onClick}
 			style={{ cursor: "pointer" }}
 		>
-			<Arrow
-				className={imgClassName}
-				style={{ transform: "rotate(180deg)" }}
-			/>
+			<img src="/arrow__back_gray.svg" className={imgClassName} />
+			{text && <span>{text}</span>}
 		</button>
 	);
 }

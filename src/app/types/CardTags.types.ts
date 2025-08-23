@@ -8,4 +8,7 @@ export interface CardTagProps {
 
 export interface CardTagsProps {
 	tags: CardTagProps[];
+	sizeOfTheIcons?: "16px" | "18px";
+	fillTagColor?: string;
+	gapClamp?: string;
 }

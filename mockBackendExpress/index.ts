@@ -106,7 +106,6 @@ app.post(
 
 			const newUser: Subscriber = { id: String(nextId), email };
 			SUBSCRIBERS.push(newUser);
-
 			return res.status(201).json(newUser);
 		} catch (err) {
 			console.error(err);

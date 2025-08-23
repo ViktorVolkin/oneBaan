@@ -13,15 +13,18 @@ const defaultProps: IconRowProps = {
 export const IconRow = ({
 	icons = defaultProps.icons,
 	sizeForIconsinRow = "md",
+	showLines = true,
+	className,
 }: IconRowProps) => {
 	return (
-		<ul className={styles.icons__list}>
+		<ul className={`${styles.icons__list} ${className}`}>
 			{icons?.map((icon, index) => (
 				<li
 					key={index}
 					className={`${styles.icon__item} ${
 						styles[`icon__item_${sizeForIconsinRow}`]
 					}`}
+					data-show={showLines ? "show" : "hide"}
 				>
 					<img
 						src={icon.iconPath}

@@ -1,16 +1,21 @@
 .tags__container {
 	display: flex;
 	flex-wrap: wrap;
-	gap: clamp(4px, 1vw, 8px);
 }
 .tag {
 	display: flex;
 	align-items: center;
 	width: fit-content;
 	font-weight: 600;
-	font-size: clamp(11px, 1.5vw, 13px);
-	border: 1px solid;
+	font-size: clamp(11px, 1.5vw, 16px);
 	border-radius: 10px;
 	gap: 8px;
 	padding: 3px 8px;
+	border: none;
+}
+.tag[data-showborder="show"] {
+	border: 1px solid;
+}
+.text {
+	z-index: 5;
 }

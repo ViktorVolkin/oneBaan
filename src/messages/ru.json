@@ -171,5 +171,35 @@
 			"edit": "Редактировать",
 			"delete": "Удалить"
 		}
+	},
+	"textGoBack": "Вернуться",
+	"CardDetailed": {
+		"blueprint": "Фото и план",
+		"conveniences": "Удобства в ",
+		"moreOffers": "Еще предложения в ",
+		"complex": {
+			"year": "Год строительства: ",
+			"amountOfApartments": "Всего апартаментов: ",
+			"builder": "Застройщик: "
+		},
+		"showMore": "Показать еще",
+		"subscribe": {
+			"title": "Подпишитесь на уведомления",
+			"newOffers": "Новые предложение в Blue Canyon Golf And Country Club Home",
+			"discounts": "Скидка на существующие предложения",
+			"button": "Подписаться",
+			"popupTitle": "Подписка на уведомления",
+			"popupText": "Мы обязательно напишем Вам, когда появятся новые предложения или скидки на существующие",
+			"placeholder": "Ваш email"
+		},
+		"location": "Локация",
+		"checkOnMap": "Смотреть на карте",
+		"listingGranted": {
+			"title": "Листинг предоставлен",
+			"experienceOnPhuket": "Опыт на Пхукете: ",
+			"workingHoursOnPhuket": "Время работы по Пхукету: ",
+			"languages": "Языки: ",
+			"allOffers": "Смотреть все предложения"
+		}
 	}
 }

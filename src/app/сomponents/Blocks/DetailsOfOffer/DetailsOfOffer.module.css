@@ -1,0 +1,301 @@
+.detailsOfOfferSell {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+}
+.blueprintRent,
+.blueprintSell {
+	display: flex;
+	border-radius: 10px;
+	padding: 0 12px 0 8px;
+	min-height: 24px;
+	align-items: center;
+	gap: 8px;
+	background-color: #faf5ff;
+	color: #44337a;
+	font-size: 14px;
+	width: max-content;
+	margin-bottom: 10px;
+}
+.blueprintImg {
+	width: 16px;
+	height: 16px;
+}
+.offerDetail {
+	width: 100%;
+	padding: 8px 16px;
+	background-color: #71809614;
+	color: #718096;
+	font-size: 16px;
+	border-radius: 10px;
+	margin-bottom: 40px;
+	display: flex;
+	align-items: center;
+}
+.priceBlock {
+	display: flex;
+	gap: 8px;
+	align-items: last baseline;
+}
+.card__price {
+	color: #1a202c;
+	font-weight: 700;
+	font-size: 32px;
+}
+.card__price_per_meter {
+	color: #718096;
+	font-size: 18px;
+}
+.icons__list {
+	display: flex;
+	list-style-type: none;
+	gap: 12px;
+	height: 28px;
+}
+.icon__item {
+	display: flex;
+	gap: 4px;
+	width: max-content;
+	text-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+}
+.icon {
+	width: 24px;
+	height: 24px;
+}
+.icon__value {
+	color: #2d3748;
+	font-size: 18px;
+	font-weight: 700;
+}
+.breadcrumbs {
+	display: flex;
+	margin: 24px 0;
+}
+.breadcrumb {
+	& > * {
+		color: #cbd5e0;
+		font-size: 18px;
+		text-decoration: none;
+	}
+}
+.card__separator {
+	margin: 0 6px;
+}
+
+.cardDetails__container {
+	display: grid;
+	grid-template-rows: repeat(2, 1fr);
+	grid-template-columns: repeat(2, 1fr);
+	gap: 8px;
+	margin-bottom: 42px;
+}
+
+.offerFeatureBlock {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+.offerFeature__title {
+	font-size: 20px;
+	font-weight: 700;
+}
+.offerFeature__text {
+	color: #4a5568;
+	font-size: 14px;
+}
+.detailsOnOneBaan {
+	color: #718096;
+	font-size: 12px;
+}
+
+.detailsOfOfferRent {
+}
+
+@media (min-width: 768px) and (max-width: 1439.9px) {
+	.detailsOfOfferSell {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+	}
+	.blueprintRent {
+		display: none;
+	}
+	.blueprintSell {
+		display: flex;
+		border-radius: 10px;
+		padding: 0 12px 0 8px;
+		min-height: 24px;
+		align-items: center;
+		gap: 8px;
+		background-color: #faf5ff;
+		color: #44337a;
+		font-size: 16px;
+		width: max-content;
+		margin-bottom: 13px;
+	}
+
+	.offerDetail {
+		width: 100%;
+		padding: 12px 16px;
+		background-color: #71809614;
+		color: #718096;
+		font-size: 18px;
+		border-radius: 10px;
+		margin-bottom: 62px;
+	}
+	.priceBlock {
+		display: flex;
+		gap: 12px;
+		align-items: last baseline;
+	}
+	.card__price {
+		color: #1a202c;
+		font-weight: 700;
+		font-size: 36px;
+	}
+	.card__price_per_meter {
+		color: #718096;
+		font-size: 20px;
+	}
+	.icons__list {
+		display: flex;
+		list-style-type: none;
+		gap: 16px;
+		height: 32px;
+	}
+	.icon__item {
+		display: flex;
+		gap: 4px;
+		width: max-content;
+		text-wrap: nowrap;
+		justify-content: center;
+		align-items: center;
+	}
+	.icon {
+		width: 24px;
+		height: 24px;
+	}
+	.icon__value {
+		font-size: 20px;
+		font-weight: 700;
+	}
+	.breadcrumbs {
+		display: flex;
+		margin: 32px 0;
+	}
+	.breadcrumb {
+		& > * {
+			color: #cbd5e0;
+			font-size: 20px;
+			text-decoration: none;
+		}
+	}
+	.card__separator {
+		margin: 0 6px;
+	}
+
+	.cardDetails__container {
+		display: flex;
+		gap: 12px;
+		margin-bottom: 42px;
+	}
+
+	.offerFeature__title {
+		font-size: 24px;
+		font-weight: 700;
+	}
+	.offerFeature__text {
+		color: #4a5568;
+		font-size: 16px;
+	}
+	.detailsOnOneBaan {
+		color: #718096;
+		font-size: 12px;
+	}
+}
+
+@media (min-width: 1440px) {
+	.detailsOfOfferSell {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+	}
+	.blueprintRent,
+	.blueprintSell {
+		display: none;
+	}
+
+	.offerDetail {
+		width: 100%;
+		height: 26px;
+		padding: 0;
+		color: #718096;
+		background-color: inherit;
+		font-size: 20px;
+		border-radius: 0;
+		margin-bottom: 24px;
+	}
+	.priceBlock {
+		display: flex;
+		gap: 12px;
+		align-items: last baseline;
+	}
+	.card__price {
+		color: #1a202c;
+		font-weight: 700;
+		font-size: 40px;
+	}
+	.card__price_per_meter {
+		color: #718096;
+		font-size: 20px;
+	}
+	.icons__list {
+		display: flex;
+		list-style-type: none;
+		gap: 16px;
+		height: 32px;
+	}
+
+	.icon__value {
+		color: #2d3748;
+		font-size: 20px;
+		font-weight: 700;
+	}
+	.breadcrumbs {
+		display: flex;
+		margin: 32px 0;
+	}
+	.breadcrumb {
+		& > * {
+			color: #cbd5e0;
+			font-size: 20px;
+			text-decoration: none;
+		}
+	}
+
+	.cardDetails__container {
+		display: flex;
+		gap: 12px;
+		margin-bottom: 60px;
+	}
+
+	.offerFeatureBlock {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+	}
+	.offerFeature__title {
+		font-size: 24px;
+		font-weight: 700;
+	}
+	.offerFeature__text {
+		color: #4a5568;
+		font-size: 16px;
+	}
+	.detailsOnOneBaan {
+		color: #718096;
+		font-size: 12px;
+	}
+}

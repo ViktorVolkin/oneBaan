@@ -659,6 +659,7 @@
 		background-color: white;
 		border-radius: 10px;
 		padding-left: 12px;
+		border: 1px solid #7180963d;
 	}
 
 	.catalog__selector {
@@ -842,6 +843,12 @@
 	}
 	.tabletSearchBoxContainer {
 		display: none;
+	}
+	.rent__advancedFilters .catalog__selector {
+		background-color: white;
+		& * {
+			background-color: #fff;
+		}
 	}
 }
 .rentColor {

@@ -7,12 +7,15 @@ import Like from "@/../public/like.svg?component";
 import Liked from "@/../public/liked.svg?component";
 import type { ListingCardBase } from "@/app/types/LargeCardHorizontalSellCatalog.types";
 import { useTranslations } from "next-intl";
-import { useOfferLike } from "@/app/сustomHooks/useOfferLike";
+import { readIds, useOfferLike } from "@/app/сustomHooks/useOfferLike";
 import { Link } from "@/i18n/navigation";
-
-export const CardSellCatalog = (props: ListingCardBase) => {
+import { useMemo } from "react";
+interface displayPhone {
+	displayPhoneIcon?: boolean;
+}
+export const CardSellCatalog = (props: ListingCardBase & displayPhone) => {
 	const t = useTranslations();
-	const { liked, toggle } = useOfferLike(props.idOfCard, props.isLiked);
+	const { liked, toggle } = useOfferLike(props.idOfCard, false);
 	const WhichHeartToDisplay = liked ? Liked : Like;
 	const breadcrumbs = props.breadcrumbs;
 
@@ -138,32 +141,62 @@ export const CardSellCatalog = (props: ListingCardBase) => {
 						: styles.contacts__buttons_container
 				}`}
 			>
-				<a
-					className={`${styles.contacts__button} ${
-						props.isRentCard ? styles.rent_contacts__button : ""
-					}`}
-					href={props.contactWithSalesman.path}
-				>
-					{t("cards.talkToSalesman")}
-				</a>
 
-				<a
-					href={props.contactWhatsApp.path}
-					className={`${styles.contacts__button_whatsapp} ${
-						props.isRentCard
-							? styles.rent_contacts__button_whatsapp
-							: ""
-					}`}
-				>
-					{props.isRentCard && (
-						<img
-							src="/whatsapp.svg"
-							alt=""
-							className={styles.desktop__contacts__icon}
-						/>
-					)}
-					WhatsApp
-				</a>
+				   {props.displayPhoneIcon ? (
+					   <>
+						   <a
+							   className={`${styles.contacts__button} ${styles.phoneButton}`}
+							   href={props.contactWithSalesman.path}
+						   >
+							   <img
+								   src="/phoneIcon.svg"
+								   alt=""
+								   className={styles.phoneIcon}
+							   />
+						   </a>
+						   <a
+							   href={props.contactWhatsApp.path}
+							   className={`${styles.contacts__button_whatsapp} ${styles.whatsappGrow} ${
+								   props.isRentCard ? styles.rent_contacts__button_whatsapp : ""
+							   }`}
+						   >
+							   {props.isRentCard && (
+								   <img
+									   src="/whatsapp.svg"
+									   alt=""
+									   className={styles.desktop__contacts__icon}
+								   />
+							   )}
+							   WhatsApp
+						   </a>
+					   </>
+				   ) : (
+					   <>
+						   <a
+							   className={`${styles.contacts__button} ${
+								   props.isRentCard ? styles.rent_contacts__button : ""
+							   }`}
+							   href={props.contactWithSalesman.path}
+						   >
+							   {t("cards.talkToSalesman")}
+						   </a>
+						   <a
+							   href={props.contactWhatsApp.path}
+							   className={`${styles.contacts__button_whatsapp} ${
+								   props.isRentCard ? styles.rent_contacts__button_whatsapp : ""
+							   }`}
+						   >
+							   {props.isRentCard && (
+								   <img
+									   src="/whatsapp.svg"
+									   alt=""
+									   className={styles.desktop__contacts__icon}
+								   />
+							   )}
+							   WhatsApp
+						   </a>
+					   </>
+				   )}
 
 				{props.isRentCard && (
 					<a

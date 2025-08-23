@@ -7,10 +7,12 @@ import type { ListingCardBase } from "@/app/types/LargeCardHorizontalSellCatalog
 import { useTranslations } from "next-intl";
 import Like from "@/../public/like.svg?component";
 import Liked from "@/../public/liked.svg?component";
-import { useOfferLike } from "@/app/сustomHooks/useOfferLike";
+import { readIds, useOfferLike } from "@/app/сustomHooks/useOfferLike";
+import { useMemo } from "react";
 export const LargeCardHorizontalSellCatalog = (props: ListingCardBase) => {
 	const t = useTranslations();
-	const { liked, toggle } = useOfferLike(props.idOfCard, props.isLiked);
+
+	const { liked, toggle } = useOfferLike(props.idOfCard, false);
 	const WhichIconToDisplay = liked ? Liked : Like;
 
 	return (

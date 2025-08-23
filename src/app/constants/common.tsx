@@ -1,9 +1,25 @@
 import { BurgerOption } from "../types/Header.types";
-import { Option } from "../сomponents/UI/CustomSelect/CustomSelect";
 import Check from "@/../public/BiCheckCircle.svg?component";
 import Logo from "@/../public/logoSmall.svg?component";
 import BenificialPrice from "@/../public/BiDollar.svg?component";
 import WithFurniture from "@/../public/MdOutlineChair.svg?component";
+
+import BiCar from "@/../public/iconTags/BiCar.svg?component";
+import BiCctv from "@/../public/iconTags/BiCctv.svg?component";
+import BiCheckShield from "@/../public/iconTags/BiCheckShield.svg?component";
+import BiKey from "@/../public/iconTags/BiKey.svg?component";
+import BiLandscape from "@/../public/iconTags/BiLandscape.svg?component";
+import BiLaptop from "@/../public/iconTags/BiLaptop.svg?component";
+import BiLock from "@/../public/iconTags/BiLock.svg?component";
+import BiRestaurant from "@/../public/iconTags/BiRestaurant.svg?component";
+import BiShield from "@/../public/iconTags/BiShield.svg?component";
+import BiSwim from "@/../public/iconTags/BiSwim.svg?component";
+import MdChildCare from "@/../public/iconTags/MdChildCare.svg?component";
+import MdFitnessCenter from "@/../public/iconTags/MdFitnessCenter.svg?component";
+import MdHowToReg from "@/../public/iconTags/MdHowToReg.svg?component";
+import MdOutlineBusiness from "@/../public/iconTags/MdOutlineBusiness.svg?component";
+import MdOutlineGrass from "@/../public/iconTags/MdOutlineGrass.svg?component";
+
 export const NAVIGATION_CONSTANTS = {
 	BURGER_OPTIONS: [
 		{ leadsTo: "/", text: "header.home" },
@@ -73,7 +89,6 @@ export const CATALOG_FILTER_OPTIONS_DEFAULT = {
 		{ label: "≥ 15M", value: "15000000" },
 		{ label: "≥ 20M", value: "20000000" },
 	],
-
 	optionsMaxPrice: [
 		{ label: "≤ 5M", value: "5000000" },
 		{ label: "≤ 7M", value: "7000000" },
@@ -84,7 +99,6 @@ export const CATALOG_FILTER_OPTIONS_DEFAULT = {
 		{ label: "≤ 50M", value: "50000000" },
 		{ label: "≤ 100M", value: "100000000" },
 	],
-
 	optionsMinAndMaxPriceForPhoneMode: [
 		{ label: "2M-5M", value: "2000000-5000000" },
 		{ label: "3M-7M", value: "3000000-7000000" },
@@ -108,4 +122,19 @@ export const TAG_CODES_CONSTANT = {
 	only_on_oneBaan: Logo,
 	beneficial_price: BenificialPrice,
 	with_furniture: WithFurniture,
+	with_parking: BiCar,
+	ready_for_rent: BiKey,
+	form_of_ownership: MdOutlineBusiness,
+	guards: BiShield,
+	view_on_mountains: BiLandscape,
+	with_pool: BiSwim,
+	with_gym: MdFitnessCenter,
+	with_child_club: MdChildCare,
+	reception: MdHowToReg,
+	with_cameras: BiCctv,
+	guarded_whole_day: BiCheckShield,
+	with_coworking: BiLaptop,
+	access_by_card: BiLock,
+	with_restaurant: BiRestaurant,
+	with_garden: MdOutlineGrass,
 };

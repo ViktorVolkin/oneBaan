@@ -1,0 +1,88 @@
+.location__container {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	gap: 16px;
+}
+.location__title {
+	color: #1a202c;
+	font-size: 24px;
+	font-weight: 700;
+}
+.location__details {
+	display: flex;
+	position: relative;
+	height: 191px;
+	object-fit: cover;
+}
+
+.bgImage {
+	width: 100%;
+	z-index: -1;
+	border-radius: 10px;
+}
+
+.location__data_container {
+	position: absolute;
+	flex-direction: column;
+	left: 20px;
+	top: 20px;
+	right: 20px;
+	bottom: 20px;
+	background-color: #ffffffcc;
+	border-radius: 10px;
+}
+.location__text_container {
+	padding: 18px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 100%;
+	width: 100%;
+}
+.location__data__wrapper {
+	display: flex;
+	align-items: center;
+	gap: 14px;
+}
+.location__data {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+.location__icon {
+	width: 50px;
+	height: 50px;
+}
+.location__country {
+	color: #4a5568;
+	font-size: 18px;
+	text-decoration: none;
+}
+
+.card__breadcrumbs {
+	display: flex;
+	a {
+		color: #4a5568;
+		font-size: 18px;
+		text-decoration: none;
+	}
+}
+.card__separator {
+	margin: 0 4px;
+}
+.checkOnMap {
+	color: #2d3748;
+	font-weight: 700;
+	font-size: 20px;
+	text-decoration: none;
+	display: flex;
+	align-items: center;
+}
+.checkOnMap__arrow {
+	color: #2d3748;
+	font-weight: 700;
+	font-size: 20px;
+	text-decoration: none;
+	margin-left: 8px;
+}

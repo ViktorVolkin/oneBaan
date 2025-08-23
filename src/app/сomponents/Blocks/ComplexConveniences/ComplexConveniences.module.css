@@ -1,0 +1,163 @@
+.complexConveniences__container {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	gap: 16px;
+}
+
+.complexConveniences__title {
+	color: #1a202c;
+	font-size: 20px;
+	font-weight: 700;
+	width: 100%;
+}
+
+.complexName {
+	font-size: inherit;
+	font-weight: inherit;
+	color: inherit;
+	text-decoration: underline;
+}
+
+.complexCard {
+	display: flex;
+	padding-bottom: 12px;
+	padding-right: 12px;
+	gap: 16px;
+	align-items: center;
+}
+
+.complexImage {
+	width: 80px;
+	height: 80px;
+	object-fit: cover;
+	border-radius: 10px;
+}
+
+.complexDetails {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	min-width: 0;
+}
+
+.complexDetail {
+	font-size: 14px;
+	color: #718096;
+	display: flex;
+	min-width: 0;
+}
+.detailLabel {
+	white-space: nowrap;
+}
+
+.detailData {
+	font-weight: 600;
+	min-width: 0;
+	color: #2d3748;
+	margin-left: 6px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+@media (min-width: 768px) and (max-width: 1439.9px) {
+	.complexConveniences__title {
+		font-size: 24px;
+	}
+
+	.complexName {
+		font-size: inherit;
+		font-weight: inherit;
+		color: inherit;
+		text-decoration: underline;
+	}
+
+	.complexCard {
+		display: flex;
+		padding-bottom: 12px;
+		padding-right: 12px;
+		gap: 24px;
+		align-items: center;
+	}
+
+	.complexDetails {
+		display: flex;
+		flex-direction: column;
+		gap: 4px;
+		min-width: 0;
+	}
+
+	.complexDetail {
+		font-size: 16px;
+		color: #718096;
+		display: flex;
+		min-width: 0;
+	}
+	.detailLabel {
+		white-space: nowrap;
+	}
+
+	.detailData {
+		font-weight: 600;
+		min-width: 0;
+		color: #2d3748;
+		margin-left: 6px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+}
+@media (min-width: 1440px) {
+	.complexConveniences__container {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		gap: 16px;
+	}
+
+	.complexConveniences__title {
+		color: #1a202c;
+		font-size: 24px;
+		font-weight: 700;
+		width: 100%;
+	}
+
+	.complexName {
+		font-size: inherit;
+		font-weight: inherit;
+		color: inherit;
+		text-decoration: underline;
+	}
+
+	.complexCard {
+		gap: 24px;
+	}
+
+	.complexDetails {
+		display: flex;
+		flex-direction: column;
+		gap: 4px;
+		min-width: 0;
+	}
+
+	.complexDetail {
+		font-size: 16px;
+		color: #718096;
+		display: flex;
+		min-width: 0;
+	}
+	.detailLabel {
+		white-space: nowrap;
+	}
+
+	.detailData {
+		font-weight: 600;
+		min-width: 0;
+		color: #2d3748;
+		margin-left: 6px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+}

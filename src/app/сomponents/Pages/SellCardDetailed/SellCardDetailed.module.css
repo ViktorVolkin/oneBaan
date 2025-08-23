@@ -1,0 +1,38 @@
+.sellCardContainer {
+	display: flex;
+	flex-direction: column;
+}
+.sellCardContent {
+	max-width: 369px;
+	position: relative;
+	margin: 0 auto;
+	margin-top: 20px;
+	margin-bottom: 30px;
+}
+.complexBlock {
+	margin: 42px 0;
+}
+.moreOffersFromComplex {
+	margin: 56px 0;
+}
+.subscribeForNotifications {
+	margin-bottom: 56px;
+}
+.location {
+	margin-bottom: 60px;
+}
+
+@media (min-width: 768px) and (max-width: 1439.9px) {
+	.sellCardContent {
+		width: 100%;
+		max-width: 798px;
+		margin-top: 26px;
+	}
+}
+@media (min-width: 1440px) {
+	.sellCardContent {
+		max-width: 768px;
+		margin: 0 0 0 361px;
+		margin-top: 30px;
+	}
+}

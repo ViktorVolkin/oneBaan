@@ -1,0 +1,407 @@
+.listingGranted__container {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	border-radius: 10px;
+	background-color: #71809614;
+	height: 312px;
+	padding: 16px 24px 24px 24px;
+}
+.listingGranted__title_PC {
+	display: none;
+}
+.listingGranted__title {
+	color: #a0aec0;
+	font-size: 16px;
+	font-weight: 700;
+	margin-bottom: 4px;
+}
+.listingGranted__card {
+	display: flex;
+	flex-direction: column;
+}
+
+.agent__container {
+	display: flex;
+	align-items: center;
+	gap: 15px;
+	flex-wrap: nowrap;
+}
+.agent__icon {
+	width: 100px;
+	height: 100px;
+}
+.agent__info {
+	min-width: 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	max-width: 160px;
+	max-height: 75px;
+}
+
+.agent__name {
+	margin: 0;
+	color: #2d3748;
+	font-size: 20px;
+	font-weight: 700;
+
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+.agent__status {
+	display: flex;
+	align-items: center;
+	color: #2d3748;
+	font-size: 12px;
+	margin-top: 8px;
+}
+.statusImage {
+	width: 12px;
+	height: 12px;
+	background-color: #48bb78;
+	border-radius: 50%;
+	margin-right: 6px;
+}
+.agent__params {
+	margin-top: 20px;
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	color: #718096;
+	font-size: 14px;
+}
+.agent__data__container {
+}
+.agent__data {
+	color: #2d3748;
+}
+
+.toAllOffers {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 20px;
+	height: 44px;
+	width: 100%;
+	background-color: #2d3748;
+	color: white;
+	border-radius: 10px;
+	text-decoration: none;
+}
+.buttons {
+	display: none;
+	gap: 8px;
+	width: 100%;
+}
+.listingGranted__desktop_phone {
+	width: 60px;
+	height: 52px;
+	background-color: #2d3748;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: 0;
+	border-radius: 10px;
+}
+.listingGranted__desktop_icon {
+	width: 24px;
+	height: 24px;
+}
+.listingGranted__desktop_whatsapp {
+	background-color: #48bb78;
+	color: white;
+	font-weight: 700;
+	font-size: 18px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-grow: 1;
+	border: 0;
+	border-radius: 10px;
+}
+@media (min-width: 768px) and (max-width: 1439.9px) {
+	.listingGranted__container {
+		display: flex;
+		width: 100%;
+		border-radius: 10px;
+		background-color: #71809614;
+		height: 266px;
+		padding: 24px 32px 32px 32px;
+	}
+	.listingGranted__title {
+		color: #a0aec0;
+		font-size: 18px;
+		font-weight: 700;
+		margin-bottom: 8px;
+	}
+	.listingGranted__card {
+		display: flex;
+		flex-direction: row;
+		gap: 30px;
+		padding: 8px;
+	}
+
+	.agent__container {
+		display: flex;
+		align-items: center;
+		gap: 15px;
+		flex-wrap: nowrap;
+	}
+	.agent__icon {
+		width: 100px;
+		height: 100px;
+	}
+	.agent__info {
+		min-width: 0;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		max-width: 160px;
+		max-height: 80px;
+	}
+
+	.agent__name {
+		margin: 0;
+		color: #2d3748;
+		font-size: 24px;
+		font-weight: 700;
+
+		display: -webkit-box;
+		-webkit-line-clamp: 2;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+	}
+	.agent__status {
+		display: flex;
+		align-items: center;
+		color: #2d3748;
+		font-size: 12px;
+	}
+	.statusImage {
+		width: 12px;
+		height: 12px;
+		background-color: #48bb78;
+		border-radius: 50%;
+		margin-right: 6px;
+	}
+	.agent__params {
+		margin: auto 0;
+		display: flex;
+		flex-direction: column;
+		gap: 4px;
+		color: #718096;
+		font-size: 16px;
+	}
+	.agent__data__container {
+	}
+	.agent__data {
+		color: #2d3748;
+	}
+
+	.toAllOffers {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin-top: 21px;
+		height: 44px;
+		width: 100%;
+		background-color: #2d3748;
+		color: white;
+		border-radius: 10px;
+		text-decoration: none;
+	}
+}
+@media (min-width: 1440px) and (max-width: 1919.9px) {
+	.listingGranted__container {
+		display: flex;
+		width: 100%;
+		border-radius: 10px;
+		background-color: #71809614;
+		height: 266px;
+		padding: 24px 32px 32px 32px;
+	}
+	.listingGranted__title {
+		color: #a0aec0;
+		font-size: 18px;
+		font-weight: 700;
+		margin-bottom: 8px;
+	}
+	.listingGranted__card {
+		display: flex;
+		flex-direction: row;
+		gap: 30px;
+		padding: 8px;
+	}
+
+	.agent__container {
+		display: flex;
+		align-items: center;
+		gap: 15px;
+		flex-wrap: nowrap;
+	}
+	.agent__icon {
+		width: 100px;
+		height: 100px;
+	}
+	.agent__info {
+		min-width: 0;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		max-width: 160px;
+		max-height: 80px;
+	}
+
+	.agent__name {
+		margin: 0;
+		color: #2d3748;
+		font-size: 24px;
+		font-weight: 700;
+
+		display: -webkit-box;
+		-webkit-line-clamp: 2;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+	}
+	.agent__status {
+		display: flex;
+		align-items: center;
+		color: #2d3748;
+		font-size: 12px;
+	}
+	.statusImage {
+		width: 12px;
+		height: 12px;
+		background-color: #48bb78;
+		border-radius: 50%;
+		margin-right: 6px;
+	}
+	.agent__params {
+		margin: auto 0;
+		display: flex;
+		flex-direction: column;
+		gap: 4px;
+		color: #718096;
+		font-size: 16px;
+	}
+	.agent__data__container {
+	}
+	.agent__data {
+		color: #2d3748;
+	}
+
+	.toAllOffers {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin-top: 21px;
+		height: 44px;
+		width: 100%;
+		background-color: #2d3748;
+		color: white;
+		border-radius: 10px;
+		text-decoration: none;
+	}
+}
+@media (min-width: 1920px) {
+	.listingGranted__container {
+		position: absolute;
+		top: 0;
+		left: calc(100% + 16px);
+		display: flex;
+		width: 390px;
+		border-radius: 10px;
+		background-color: #71809614;
+		align-items: center;
+		height: 426px;
+		padding: 24px 32px 32px 32px;
+	}
+	.buttons {
+		display: flex;
+	}
+	.listingGranted__title {
+		display: none;
+	}
+	.listingGranted__title_PC {
+		display: block;
+		color: #a0aec0;
+		font-weight: 600;
+		font-size: 12px;
+	}
+	.listingGranted__card {
+		display: flex;
+		flex-direction: column;
+		gap: 30px;
+		padding: 8px;
+	}
+
+	.agent__container {
+		display: flex;
+		align-items: center;
+		gap: 15px;
+		flex-wrap: nowrap;
+		height: 110px;
+	}
+	.agent__icon {
+		width: 120px;
+		height: 120px;
+	}
+	.agent__info {
+		min-width: 0;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		max-width: 174px;
+		min-height: 88px;
+	}
+
+	.agent__name {
+		margin: 0;
+		color: #2d3748;
+		font-size: 20px;
+		font-weight: 700;
+		display: -webkit-box;
+		-webkit-line-clamp: 2;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+	}
+	.agent__status {
+		display: flex;
+		align-items: center;
+		color: #2d3748;
+		font-size: 12px;
+	}
+	.statusImage {
+		width: 12px;
+		height: 12px;
+		border-radius: 50%;
+		margin-right: 6px;
+	}
+	.agent__params {
+		margin: auto 0;
+		display: flex;
+		flex-direction: column;
+		gap: 4px;
+		color: #718096;
+		font-size: 16px;
+	}
+	.agent__data__container {
+	}
+	.agent__data {
+		color: #2d3748;
+	}
+
+	.toAllOffers {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin-top: 32px;
+		height: 44px;
+		width: 100%;
+		background-color: #ffffff;
+		color: #2d3748;
+		border-radius: 10px;
+		text-decoration: none;
+		font-size: 16px;
+		font-weight: 700;
+	}
+}
