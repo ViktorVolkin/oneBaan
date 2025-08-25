@@ -14,7 +14,17 @@ export const LargeCardHorizontalSellCatalog = (props: ListingCardBase) => {
 
 	const { liked, toggle } = useOfferLike(props.idOfCard, false);
 	const WhichIconToDisplay = liked ? Liked : Like;
-
+	const icons = [
+		...(props.stats?.amountOfBeds !== undefined
+			? [{ iconPath: "/BiBed.svg", value: props.stats.amountOfBeds }]
+			: []),
+		...(props.stats?.amountOfBaths !== undefined
+			? [{ iconPath: "/BiBath.svg", value: props.stats.amountOfBaths }]
+			: []),
+		...(props.stats?.area !== undefined
+			? [{ iconPath: "/BiBorderOuter.svg", value: props.stats.area }]
+			: []),
+	];
 	return (
 		<div className={styles.card__container}>
 			<div className={styles.card__image}>
@@ -44,10 +54,7 @@ export const LargeCardHorizontalSellCatalog = (props: ListingCardBase) => {
 							</p>
 						</div>
 
-						<IconRow
-							icons={props.iconRow.icons}
-							sizeForIconsinRow="lg"
-						/>
+						<IconRow icons={icons} sizeForIconsinRow="lg" />
 						<CardTags tags={props.tags} />
 					</div>
 

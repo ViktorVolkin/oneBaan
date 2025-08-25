@@ -23,7 +23,13 @@ export function ComplexConveniences({
 }: ComplexConveniencesProps) {
 	const t = useTranslations();
 	return (
-		<div className={styles.complexConveniences__container}>
+		<div
+			className={
+				isRent
+					? styles.complexConveniences__container__rent
+					: styles.complexConveniences__container
+			}
+		>
 			<h4 className={styles.complexConveniences__title}>
 				{t("CardDetailed.conveniences")}
 				<span className={isRent ? "" : styles.complexName}>

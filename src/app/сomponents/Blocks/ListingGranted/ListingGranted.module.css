@@ -1,4 +1,5 @@
-.listingGranted__container {
+.listingGranted__container,
+.listingGranted__containerRent {
 	display: flex;
 	flex-direction: column;
 	width: 100%;
@@ -7,31 +8,42 @@
 	height: 312px;
 	padding: 16px 24px 24px 24px;
 }
-.listingGranted__title_PC {
+
+.listingGranted__title_PC,
+.listingGranted__title_PCRent {
 	display: none;
 }
-.listingGranted__title {
+
+.listingGranted__title,
+.listingGranted__titleRent {
 	color: #a0aec0;
 	font-size: 16px;
 	font-weight: 700;
 	margin-bottom: 4px;
 }
-.listingGranted__card {
+
+.listingGranted__card,
+.listingGranted__cardRent {
 	display: flex;
 	flex-direction: column;
 }
 
-.agent__container {
+.agent__container,
+.agent__containerRent {
 	display: flex;
 	align-items: center;
 	gap: 15px;
 	flex-wrap: nowrap;
 }
-.agent__icon {
+
+.agent__icon,
+.agent__iconRent {
 	width: 100px;
 	height: 100px;
 }
-.agent__info {
+
+.agent__info,
+.agent__infoRent {
 	min-width: 0;
 	overflow: hidden;
 	text-overflow: ellipsis;
@@ -39,32 +51,38 @@
 	max-height: 75px;
 }
 
-.agent__name {
+.agent__name,
+.agent__nameRent {
 	margin: 0;
 	color: #2d3748;
 	font-size: 20px;
 	font-weight: 700;
-
 	display: -webkit-box;
 	-webkit-line-clamp: 2;
 	-webkit-box-orient: vertical;
 	overflow: hidden;
 }
-.agent__status {
+
+.agent__status,
+.agent__statusRent {
 	display: flex;
 	align-items: center;
 	color: #2d3748;
 	font-size: 12px;
 	margin-top: 8px;
 }
-.statusImage {
+
+.statusImage,
+.statusImageRent {
 	width: 12px;
 	height: 12px;
 	background-color: #48bb78;
 	border-radius: 50%;
 	margin-right: 6px;
 }
-.agent__params {
+
+.agent__params,
+.agent__paramsRent {
 	margin-top: 20px;
 	display: flex;
 	flex-direction: column;
@@ -72,13 +90,18 @@
 	color: #718096;
 	font-size: 14px;
 }
-.agent__data__container {
+
+.agent__data__container,
+.agent__data__containerRent {
 }
-.agent__data {
+
+.agent__data,
+.agent__dataRent {
 	color: #2d3748;
 }
 
-.toAllOffers {
+.toAllOffers,
+.toAllOffersRent {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -90,12 +113,16 @@
 	border-radius: 10px;
 	text-decoration: none;
 }
-.buttons {
+
+.buttons,
+.buttonsRent {
 	display: none;
 	gap: 8px;
 	width: 100%;
 }
-.listingGranted__desktop_phone {
+
+.listingGranted__desktop_phone,
+.listingGranted__desktop_phoneRent {
 	width: 60px;
 	height: 52px;
 	background-color: #2d3748;
@@ -105,11 +132,15 @@
 	border: 0;
 	border-radius: 10px;
 }
-.listingGranted__desktop_icon {
+
+.listingGranted__desktop_icon,
+.listingGranted__desktop_iconRent {
 	width: 24px;
 	height: 24px;
 }
-.listingGranted__desktop_whatsapp {
+
+.listingGranted__desktop_whatsapp,
+.listingGranted__desktop_whatsappRent {
 	background-color: #48bb78;
 	color: white;
 	font-weight: 700;
@@ -121,6 +152,25 @@
 	border: 0;
 	border-radius: 10px;
 	text-decoration: none;
+}
+
+.agent__data__containerRent {
+	color: #a3a3a3;
+}
+.agent__dataRent {
+	color: #121212;
+}
+.agent__nameRent {
+	color: #000000;
+}
+.listingGranted__titleRent {
+	color: #000000;
+}
+.toAllOffersRent {
+	background-color: #0a1137;
+	font-size: 14px;
+	font-weight: 600;
+	color: white;
 }
 @media (min-width: 768px) and (max-width: 1439.9px) {
 	.listingGranted__container {
@@ -143,7 +193,6 @@
 		gap: 30px;
 		padding: 8px;
 	}
-
 	.agent__container {
 		display: flex;
 		align-items: center;
@@ -161,13 +210,11 @@
 		max-width: 160px;
 		max-height: 80px;
 	}
-
 	.agent__name {
 		margin: 0;
 		color: #2d3748;
 		font-size: 24px;
 		font-weight: 700;
-
 		display: -webkit-box;
 		-webkit-line-clamp: 2;
 		-webkit-box-orient: vertical;
@@ -194,12 +241,6 @@
 		color: #718096;
 		font-size: 16px;
 	}
-	.agent__data__container {
-	}
-	.agent__data {
-		color: #2d3748;
-	}
-
 	.toAllOffers {
 		display: flex;
 		justify-content: center;
@@ -212,7 +253,28 @@
 		border-radius: 10px;
 		text-decoration: none;
 	}
+	.listingGranted__cardRent {
+		display: flex;
+		flex-direction: row;
+	}
+	.listingGranted__containerRent {
+		height: 250px;
+		padding: 16px;
+	}
+	.listingGranted__titleRent {
+		font-size: 24px;
+		font-weight: 700;
+		margin-bottom: 20px;
+	}
+	.agent__paramsRent {
+		font-size: 16px;
+	}
+	.agent__dataRent {
+		color: #121212;
+		font-weight: 700;
+	}
 }
+
 @media (min-width: 1440px) and (max-width: 1919.9px) {
 	.listingGranted__container {
 		display: flex;
@@ -234,7 +296,6 @@
 		gap: 30px;
 		padding: 8px;
 	}
-
 	.agent__container {
 		display: flex;
 		align-items: center;
@@ -252,13 +313,11 @@
 		max-width: 160px;
 		max-height: 80px;
 	}
-
 	.agent__name {
 		margin: 0;
 		color: #2d3748;
 		font-size: 24px;
 		font-weight: 700;
-
 		display: -webkit-box;
 		-webkit-line-clamp: 2;
 		-webkit-box-orient: vertical;
@@ -285,12 +344,6 @@
 		color: #718096;
 		font-size: 16px;
 	}
-	.agent__data__container {
-	}
-	.agent__data {
-		color: #2d3748;
-	}
-
 	.toAllOffers {
 		display: flex;
 		justify-content: center;
@@ -303,7 +356,40 @@
 		border-radius: 10px;
 		text-decoration: none;
 	}
+	.listingGranted__containerRent {
+		position: absolute;
+		top: 0;
+		left: calc(100% + 60px);
+		width: 390px;
+		height: 370px;
+		padding: 20px;
+	}
+	.listingGranted__titleRent {
+		color: #121212;
+		font-weight: 700;
+		font-size: 28px;
+		margin-bottom: 20px;
+	}
+	.agent__containerRent {
+		width: 350px;
+		gap: 12px;
+		margin-bottom: 20px;
+	}
+	.agent__paramsRent {
+		margin: 0;
+		font-size: 14px;
+		color: #121212;
+	}
+	.agent__dataRent {
+		color: #121212;
+		font-weight: 700;
+		font-size: 18px;
+	}
+	.toAllOffersRent {
+		height: 50px;
+	}
 }
+
 @media (min-width: 1920px) {
 	.listingGranted__container {
 		position: absolute;
@@ -335,7 +421,6 @@
 		gap: 30px;
 		padding: 8px;
 	}
-
 	.agent__container {
 		display: flex;
 		align-items: center;
@@ -354,7 +439,6 @@
 		max-width: 174px;
 		min-height: 88px;
 	}
-
 	.agent__name {
 		margin: 0;
 		color: #2d3748;
@@ -385,12 +469,6 @@
 		color: #718096;
 		font-size: 16px;
 	}
-	.agent__data__container {
-	}
-	.agent__data {
-		color: #2d3748;
-	}
-
 	.toAllOffers {
 		display: flex;
 		justify-content: center;

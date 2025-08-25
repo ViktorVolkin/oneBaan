@@ -89,13 +89,6 @@ function parseListQuery(q: Record<string, any>): ListQuery {
 	};
 }
 
-function valueOfIcon(item: CatalogItem, needle: "bed" | "bath") {
-	const it = item.iconRow.icons.find((i) =>
-		i.iconPath.toLowerCase().includes(needle)
-	);
-	return typeof it?.value === "number" ? it!.value : Number(it?.value) || 0;
-}
-
 function matchesLocation(breadcrumbs: CatalogItem["breadcrumbs"], loc: string) {
 	if (!loc) return true;
 	return breadcrumbs.some((b) => {
@@ -127,10 +120,12 @@ export function makeCatalogHandler(data: CatalogItem[]) {
 				);
 
 			if (q.bedsMin != null)
-				list = list.filter((c) => valueOfIcon(c, "bed") >= q.bedsMin!);
+				list = list.filter(
+					(c) => (c.stats?.amountOfBeds ?? 0) >= q.bedsMin!
+				);
 			if (q.bathsMin != null)
 				list = list.filter(
-					(c) => valueOfIcon(c, "bath") >= q.bathsMin!
+					(c) => (c.stats?.amountOfBaths ?? 0) >= q.bathsMin!
 				);
 
 			if (q.minPrice != null)
@@ -165,7 +160,7 @@ export function makeCatalogHandler(data: CatalogItem[]) {
 						c.pricePerMeterUsd ?? null,
 						q.currency
 					)} ${c.pricePerMeterUsd ? "/m²" : ""}`,
-					iconRow: c.iconRow,
+					stats: c.stats,
 					details: t.details,
 					cardDescription: t.cardDescription,
 					agentLogo: c.agentLogo,

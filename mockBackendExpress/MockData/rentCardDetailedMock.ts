@@ -54,6 +54,7 @@ export type RentListingDetailsDTO = {
 		cards: ListingCardBaseDTO[];
 	};
 };
+
 export const RENT_CARD_DETAILED_MOCKS: Record<string, RentListingDetailsDTO> = {
 	"123": {
 		images: [
@@ -66,7 +67,7 @@ export const RENT_CARD_DETAILED_MOCKS: Record<string, RentListingDetailsDTO> = {
 
 		offerDetail:
 			"Апартаменты на продажу в Blue Canyon Golf And Country Club Home",
-		price: "$1000",
+		price: "$1,000",
 		subText: "При 12-мес. аренде",
 		breadcrumbs: [
 			{ href: "/thailand/phuket", label: "Пхукет" },
@@ -90,23 +91,31 @@ export const RENT_CARD_DETAILED_MOCKS: Record<string, RentListingDetailsDTO> = {
 			"Комплекс в шаговой доступности от моря; возможно полное обслуживание на ресепшене. Угловая квартира — больше света и меньше соседей.",
 		tagsDetailed: {
 			tags: [
-				{ code: "with_pool", label: "Бассейн", color: "yellow" },
+				{ code: "with_pool", label: "Бассейн", color: "#44337A" },
 				{
 					code: "view_on_mountains",
 					label: "Вид на горы",
-					color: "yellow",
+					color: "#44337A",
 				},
-				{ code: "with_furniture", label: "С мебелью", color: "yellow" },
-				{ code: "with_gym", label: "Фитнес", color: "yellow" },
-				{ code: "guards", label: "Охрана 24/7", color: "yellow" },
+
+				{ code: "with_gym", label: "Фитнес", color: "#44337A" },
+				{ code: "guards", label: "Охрана 24/7", color: "#44337A" },
 				{
 					code: "with_child_club",
 					label: "Детская зона",
-					color: "yellow",
+					color: "#44337A",
 				},
-				{ code: "with_coworking", label: "Коворкинг", color: "yellow" },
-				{ code: "with_restaurant", label: "Ресторан", color: "yellow" },
-				{ code: "with_garden", label: "Сад", color: "yellow" },
+				{
+					code: "with_coworking",
+					label: "Коворкинг",
+					color: "#44337A",
+				},
+				{
+					code: "with_restaurant",
+					label: "Ресторан",
+					color: "#44337A",
+				},
+				{ code: "with_garden", label: "Сад", color: "#44337A" },
 			],
 		},
 		detailsOnOneBaan: { daysOnOneBaan: 12, amountOfViews: 14 },
@@ -132,16 +141,10 @@ export const RENT_CARD_DETAILED_MOCKS: Record<string, RentListingDetailsDTO> = {
 					apartmentImages: {
 						images: Array(6).fill("/backgroundImage.png"),
 					},
-					price: "$1,200,000",
-					pricePerMeter: "$15,200 за м² ",
-					iconRow: {
-						icons: [
-							{ iconPath: "/BiBed.svg", value: "2" },
-							{ iconPath: "/BiBath.svg", value: "3" },
-							{ iconPath: "/BiBorderOuter.svg", value: "2010" },
-						],
-					},
-					details: "Короткое описание",
+					price: "$1,900",
+					pricePerMeter: "$25 / м²",
+					stats: { amountOfBeds: 2, amountOfBaths: 3, area: 2010 },
+					details: "Вид на море",
 					cardDescription: "Описание карточки",
 					agentLogo: "/agent-logo.svg",
 					tags: [
@@ -176,22 +179,16 @@ export const RENT_CARD_DETAILED_MOCKS: Record<string, RentListingDetailsDTO> = {
 					apartmentImages: {
 						images: Array(6).fill("/backgroundImage.png"),
 					},
-					price: "$980,000",
-					pricePerMeter: "$13,900 за м² ",
-					iconRow: {
-						icons: [
-							{ iconPath: "/BiBed.svg", value: "3" },
-							{ iconPath: "/BiBath.svg", value: "2" },
-							{ iconPath: "/BiBorderOuter.svg", value: "1750" },
-						],
-					},
-					details: "Короткое описание 2",
+					price: "$2,300",
+					pricePerMeter: "$28 / м²",
+					stats: { amountOfBeds: 3, amountOfBaths: 2, area: 1750 },
+					details: "Вид на горы",
 					cardDescription: "Описание карточки 2",
 					agentLogo: "/agent-logo.svg",
 					tags: [],
 					contactWhatsApp: { path: "" },
 					contactWithSalesman: { path: "" },
-					whenPosted: "2025-08-10T12:00:00.000Z",
+					whenPosted: "5 дней назад",
 					breadcrumbs: [],
 				},
 				{
@@ -199,22 +196,16 @@ export const RENT_CARD_DETAILED_MOCKS: Record<string, RentListingDetailsDTO> = {
 					apartmentImages: {
 						images: Array(6).fill("/backgroundImage.png"),
 					},
-					price: "$1,050,000",
-					pricePerMeter: "$14,500 за м² ",
-					iconRow: {
-						icons: [
-							{ iconPath: "/BiBed.svg", value: "2" },
-							{ iconPath: "/BiBath.svg", value: "2" },
-							{ iconPath: "/BiBorderOuter.svg", value: "1800" },
-						],
-					},
-					details: "Короткое описание 3",
+					price: "$1,750",
+					pricePerMeter: "$26 / м²",
+					stats: { amountOfBeds: 2, amountOfBaths: 2, area: 1800 },
+					details: "С мебелью",
 					cardDescription: "Описание карточки 3",
 					agentLogo: "/agent-logo.svg",
 					tags: [],
 					contactWhatsApp: { path: "" },
 					contactWithSalesman: { path: "" },
-					whenPosted: "2025-08-15T09:30:00.000Z",
+					whenPosted: "3 дня назад",
 					breadcrumbs: [],
 				},
 				{
@@ -222,46 +213,33 @@ export const RENT_CARD_DETAILED_MOCKS: Record<string, RentListingDetailsDTO> = {
 					apartmentImages: {
 						images: Array(6).fill("/backgroundImage.png"),
 					},
-					price: "$1,300,000",
-					pricePerMeter: "$16,800 за м² ",
-					iconRow: {
-						icons: [
-							{ iconPath: "/BiBed.svg", value: "4" },
-							{ iconPath: "/BiBath.svg", value: "4" },
-							{ iconPath: "/BiBorderOuter.svg", value: "2200" },
-						],
-					},
-					details: "Короткое описание 4",
+					price: "$3,100",
+					pricePerMeter: "$32 / м²",
+					stats: { amountOfBeds: 4, amountOfBaths: 4, area: 2200 },
+					details: "Бассейн и фитнес",
 					cardDescription: "Описание карточки 4",
 					agentLogo: "/agent-logo.svg",
 					tags: [],
 					contactWhatsApp: { path: "" },
 					contactWithSalesman: { path: "" },
-					whenPosted: "2025-08-18T14:00:00.000Z",
+					whenPosted: "Неделю назад",
 					breadcrumbs: [],
 				},
-
 				{
 					idOfCard: "5",
 					apartmentImages: {
 						images: Array(6).fill("/backgroundImage.png"),
 					},
-					price: "$1,150,000",
-					pricePerMeter: "$14,900 за м² ",
-					iconRow: {
-						icons: [
-							{ iconPath: "/BiBed.svg", value: "3" },
-							{ iconPath: "/BiBath.svg", value: "3" },
-							{ iconPath: "/BiBorderOuter.svg", value: "1900" },
-						],
-					},
-					details: "Короткое описание 5",
+					price: "$2,000",
+					pricePerMeter: "$27 / м²",
+					stats: { amountOfBeds: 3, amountOfBaths: 3, area: 1900 },
+					details: "Сад и охрана 24/7",
 					cardDescription: "Описание карточки 5",
 					agentLogo: "/agent-logo.svg",
 					tags: [],
 					contactWhatsApp: { path: "" },
 					contactWithSalesman: { path: "" },
-					whenPosted: "2025-08-20T10:00:00.000Z",
+					whenPosted: "10 дней назад",
 					breadcrumbs: [],
 				},
 				{
@@ -269,16 +247,10 @@ export const RENT_CARD_DETAILED_MOCKS: Record<string, RentListingDetailsDTO> = {
 					apartmentImages: {
 						images: Array(6).fill("/backgroundImage.png"),
 					},
-					price: "$1,020,000",
-					pricePerMeter: "$14,000 за м² ",
-					iconRow: {
-						icons: [
-							{ iconPath: "/BiBed.svg", value: "2" },
-							{ iconPath: "/BiBath.svg", value: "2" },
-							{ iconPath: "/BiBorderOuter.svg", value: "1760" },
-						],
-					},
-					details: "Короткое описание 6",
+					price: "$1,600",
+					pricePerMeter: "$24 / м²",
+					stats: { amountOfBeds: 2, amountOfBaths: 2, area: 1760 },
+					details: "Ресторан и детская зона",
 					cardDescription: "Описание карточки 6",
 					agentLogo: "/agent-logo.svg",
 					tags: [
@@ -286,7 +258,7 @@ export const RENT_CARD_DETAILED_MOCKS: Record<string, RentListingDetailsDTO> = {
 					],
 					contactWhatsApp: { path: "" },
 					contactWithSalesman: { path: "" },
-					whenPosted: "2025-08-21T11:15:00.000Z",
+					whenPosted: "Сегодня",
 					breadcrumbs: [],
 				},
 				{
@@ -294,16 +266,10 @@ export const RENT_CARD_DETAILED_MOCKS: Record<string, RentListingDetailsDTO> = {
 					apartmentImages: {
 						images: Array(6).fill("/backgroundImage.png"),
 					},
-					price: "$1,380,000",
-					pricePerMeter: "$17,100 за м² ",
-					iconRow: {
-						icons: [
-							{ iconPath: "/BiBed.svg", value: "4" },
-							{ iconPath: "/BiBath.svg", value: "3" },
-							{ iconPath: "/BiBorderOuter.svg", value: "2300" },
-						],
-					},
-					details: "Короткое описание 7",
+					price: "$2,800",
+					pricePerMeter: "$30 / м²",
+					stats: { amountOfBeds: 4, amountOfBaths: 3, area: 2300 },
+					details: "Коворкинг и фитнес",
 					cardDescription: "Описание карточки 7",
 					agentLogo: "/agent-logo.svg",
 					tags: [
@@ -312,7 +278,7 @@ export const RENT_CARD_DETAILED_MOCKS: Record<string, RentListingDetailsDTO> = {
 					],
 					contactWhatsApp: { path: "" },
 					contactWithSalesman: { path: "" },
-					whenPosted: "2025-08-22T09:00:00.000Z",
+					whenPosted: "Вчера",
 					breadcrumbs: [],
 				},
 				{
@@ -320,22 +286,16 @@ export const RENT_CARD_DETAILED_MOCKS: Record<string, RentListingDetailsDTO> = {
 					apartmentImages: {
 						images: Array(6).fill("/backgroundImage.png"),
 					},
-					price: "$1,250,000",
-					pricePerMeter: "$16,000 за м² ",
-					iconRow: {
-						icons: [
-							{ iconPath: "/BiBed.svg", value: "3" },
-							{ iconPath: "/BiBath.svg", value: "3" },
-							{ iconPath: "/BiBorderOuter.svg", value: "2100" },
-						],
-					},
-					details: "Короткое описание 8",
+					price: "$2,400",
+					pricePerMeter: "$29 / м²",
+					stats: { amountOfBeds: 3, amountOfBaths: 3, area: 2100 },
+					details: "Вид на море и горы",
 					cardDescription: "Описание карточки 8",
 					agentLogo: "/agent-logo.svg",
 					tags: [],
 					contactWhatsApp: { path: "" },
 					contactWithSalesman: { path: "" },
-					whenPosted: "2025-08-23T16:45:00.000Z",
+					whenPosted: "3 часа назад",
 					breadcrumbs: [],
 				},
 			],
@@ -370,29 +330,38 @@ export const RENT_CARD_DETAILED_MOCKS: Record<string, RentListingDetailsDTO> = {
 				apartmentImages: {
 					images: ["/backgroundImage.png", "/backgroundImage.png"],
 				},
-				price: "$1,200,000",
-				pricePerMeter: "$15,200 за м²",
-				iconRow: {
-					icons: [
-						{ iconPath: "/BiBed.svg", value: "2" },
-						{ iconPath: "/BiBath.svg", value: "3" },
-						{ iconPath: "/BiBorderOuter.svg", value: "2010" },
-					],
-				},
-				details: "2 спальни, 3 ванные, 2010 м²",
+				price: `$${i % 2 === 0 ? 2300 + i * 100 : 1800 + i * 120}`,
+				pricePerMeter: "$27 / м²",
+				stats: { amountOfBeds: 2, amountOfBaths: 3, area: 2010 },
+				details:
+					i === 0
+						? "Вид на море"
+						: i === 1
+						? "Вид на горы"
+						: i === 2
+						? "С мебелью"
+						: i === 3
+						? "Бассейн и фитнес"
+						: i === 4
+						? "Сад и охрана 24/7"
+						: "Ресторан и детская зона",
 				cardDescription: "Апартаменты с видом на море",
 				agentLogo: "/agent-logo.svg",
 				tags: [],
 				contactWhatsApp: { path: "" },
 				contactWithSalesman: { path: "" },
-				whenPosted: "Сегодня",
+				whenPosted:
+					i === 0
+						? "Сегодня"
+						: i === 1
+						? "Вчера"
+						: `${i + 1} дня назад`,
 				breadcrumbs: [
 					{ label: "Пхукет", href: "/thailand/phuket" },
 					{ label: "Бангтао", href: "/thailand/phuket/bangtao" },
 				],
-				isRentCard: false,
 				mainImage: "/backgroundImage.png",
-			})),
+			})) as unknown as ListingCardBaseDTO[],
 		},
 	},
 };

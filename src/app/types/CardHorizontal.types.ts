@@ -4,7 +4,11 @@ export interface CardHorizontalProps {
 	};
 	price: string;
 	pricePerMeter?: string;
-	iconRow?: { iconPath: string; value: number | string }[];
+	stats?: {
+		amountOfBeds?: number;
+		amountOfBaths?: number;
+		area?: number;
+	};
 	details: string;
 	agentLogo: string;
 	idOfCard: string;

@@ -20,7 +20,11 @@ export type CatalogItem = {
 	apartmentImages: { images: string[] };
 	priceUsd: number;
 	pricePerMeterUsd?: number;
-	iconRow: { icons: { iconPath: string; value: number | string }[] };
+	stats?: {
+		amountOfBeds: number;
+		amountOfBaths: number;
+		area: number;
+	};
 	agentLogo: string;
 	contactWhatsApp: { path: string };
 	contactWithSalesman: { path: string };
@@ -39,7 +43,6 @@ export type ListingCardBase = {
 	apartmentImages: { images: string[] };
 	price: string;
 	pricePerMeter: string;
-	iconRow: { icons: { iconPath: string; value: number | string }[] };
 	details: string;
 	cardDescription: string;
 	agentLogo: string;

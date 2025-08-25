@@ -12,9 +12,12 @@ import "swiper/css/navigation";
 import styles from "./SimilarOffers.module.css";
 import CardSellCatalog from "../../UI/CardSellCatalog";
 import SimilarOffersRentCard from "../../UI/SimilarOffersRentCard";
+import { useMediaQuery } from "@/app/сustomHooks/MediaQuery";
 
 export function SimilarOffers({ tags, isRent, cards }: SimilarOffersProps) {
 	const t = useTranslations();
+	const isDesktop = useMediaQuery("(min-width:1440px)");
+	const isPhone = useMediaQuery("(max-width:768px)");
 
 	const [prevEl, setPrevEl] = useState<HTMLElement | null>(null);
 	const [nextEl, setNextEl] = useState<HTMLElement | null>(null);
@@ -23,11 +26,17 @@ export function SimilarOffers({ tags, isRent, cards }: SimilarOffersProps) {
 
 	return (
 		<div className={styles.similarOffers__container}>
-			<h4 className={styles.similarOffers__title}>
+			<h4
+				className={
+					isRent
+						? styles.similiraOffers__title__rent
+						: styles.similarOffers__title
+				}
+			>
 				{t("CardDetailed.similarOffers")}
 			</h4>
 
-			<div className={styles.row}>
+			<div className={isRent ? styles.row__rent : styles.row}>
 				<div className={styles.tags__container}>
 					{tags.map((tag) => (
 						<p className={styles.tag} key={tag}>
@@ -45,7 +54,7 @@ export function SimilarOffers({ tags, isRent, cards }: SimilarOffersProps) {
 							aria-label="Previous"
 						>
 							<img
-								src="/footer__arrow_right"
+								src="/footer__arrow_right.svg"
 								alt=""
 								className={styles.arrow}
 								style={{ rotate: "180deg" }}
@@ -58,7 +67,7 @@ export function SimilarOffers({ tags, isRent, cards }: SimilarOffersProps) {
 							aria-label="Next"
 						>
 							<img
-								src="/footer__arrow_right"
+								src="/footer__arrow_right.svg"
 								alt=""
 								className={styles.arrow}
 							/>
@@ -101,7 +110,7 @@ export function SimilarOffers({ tags, isRent, cards }: SimilarOffersProps) {
 				<Swiper
 					modules={[Scrollbar, FreeMode, Mousewheel, Navigation]}
 					slidesPerView="auto"
-					spaceBetween={12}
+					spaceBetween={isDesktop ? 20 : isPhone ? 8 : 16}
 					freeMode={{ enabled: true, momentum: true, sticky: false }}
 					scrollbar={{ draggable: true, hide: false }}
 					mousewheel={{ forceToAxis: true }}

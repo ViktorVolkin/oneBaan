@@ -140,7 +140,40 @@ export const CardSellCatalog = (props: ListingCardBase & displayPhone) => {
 					)}
 				</div>
 
-				<IconRow {...props.iconRow} />
+				{(() => {
+					const statsIcons: {
+						iconPath: string;
+						value: string | number;
+					}[] = [
+						...(props.stats?.amountOfBeds !== undefined
+							? [
+									{
+										iconPath: "/BiBed.svg",
+										value: props.stats.amountOfBeds,
+									},
+							  ]
+							: []),
+						...(props.stats?.amountOfBaths !== undefined
+							? [
+									{
+										iconPath: "/BiBath.svg",
+										value: props.stats.amountOfBaths,
+									},
+							  ]
+							: []),
+						...(props.stats?.area !== undefined
+							? [
+									{
+										iconPath: "/BiBorderOuter.svg",
+										value: props.stats.area,
+									},
+							  ]
+							: []),
+					];
+					return (
+						<IconRow icons={statsIcons} sizeForIconsinRow="md" />
+					);
+				})()}
 				{!props.isRentCard && <CardTags tags={props.tags} />}
 			</div>
 

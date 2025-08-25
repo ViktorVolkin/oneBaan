@@ -1,3 +1,18 @@
+@font-face {
+	font-family: "Manrope";
+	src: url("/public/fonts/Manrope/Manrope-VariableFont_wght.ttf")
+		format("ttf");
+	font-weight: 400 800;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: "Nunito";
+	src: url("/public/fonts/Nunito/Nunito-VariableFont_wght.ttf") format("ttf");
+	font-weight: 400 800;
+	font-style: normal;
+	font-display: swap;
+}
 *,
 footer,
 *::before,
@@ -10,7 +25,7 @@ footer,
 html,
 body {
 	height: max-content;
-	font-family: sans-serif;
+	font-family: "Manrope", sans-serif;
 	display: flex;
 	flex-direction: column;
 }

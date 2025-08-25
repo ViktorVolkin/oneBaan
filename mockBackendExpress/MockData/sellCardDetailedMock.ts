@@ -3,26 +3,34 @@ export type TagDTO = { code: string; label: string; color?: string };
 
 export type ListingCardBaseDTO = {
 	idOfCard: string;
-	apartmentImages?: { images: string[] };
-	mainImage?: string;
+	apartmentImages: { images: string[] };
+
 	price: string;
 	pricePerMeter?: string;
-	iconRow: {
-		icons: Array<{ iconPath: string; value: string }>;
-		showLines?: boolean;
+
+	stats: {
+		amountOfBeds: number;
+		amountOfBaths: number;
+		area: number;
 	};
+
 	details?: string;
 	cardDescription?: string;
 	agentLogo?: string;
 	tags: TagDTO[];
-	contactWhatsApp?: { path: string };
-	contactWithSalesman?: { path: string };
-	whenPosted?: string;
-	breadcrumbs?: Breadcrumb[];
+
+	contactWhatsApp: { path: string };
+	contactWithSalesman: { path: string };
+	whenPosted: string;
+	breadcrumbs: Breadcrumb[];
+
+	isRentCard?: boolean;
+	mainImage?: string;
 };
 
 export type ListingDetailsDTO = {
 	images: string[];
+	amountOfLikes: number;
 	offerDetail: string;
 	price: string;
 	subText?: string;
@@ -85,6 +93,7 @@ export const SELL_CARD_DETAILED_MOCKS: Record<string, ListingDetailsDTO> = {
 			"/backgroundImage.png",
 			"/backgroundImage.png",
 		],
+		amountOfLikes: 120,
 
 		offerDetail:
 			"Апартаменты на продажу в Blue Canyon Golf And Country Club Home",
@@ -106,29 +115,43 @@ export const SELL_CARD_DETAILED_MOCKS: Record<string, ListingDetailsDTO> = {
 			checkOnMapHref: "/2gis",
 		},
 		tagsSell: {
-			tags: [{ code: "with_parking", label: "Парковка", color: "green" }],
+			tags: [
+				{ code: "with_furniture", label: "Парковка", color: "yellow" },
+			],
 		},
 		offerFeatureText:
 			"Комплекс в шаговой доступности от моря; возможно полное обслуживание на ресепшене. Угловая квартира — больше света и меньше соседей.",
 		tagsDetailed: {
 			tags: [
-				{ code: "with_pool", label: "Бассейн", color: "yellow" },
+				{ code: "with_pool", label: "Бассейн", color: "#44337A" },
 				{
 					code: "view_on_mountains",
 					label: "Вид на горы",
-					color: "yellow",
+					color: "#44337A",
 				},
-				{ code: "with_furniture", label: "С мебелью", color: "yellow" },
-				{ code: "with_gym", label: "Фитнес", color: "yellow" },
-				{ code: "guards", label: "Охрана 24/7", color: "yellow" },
+				{
+					code: "with_furniture",
+					label: "С мебелью",
+					color: "#44337A",
+				},
+				{ code: "with_gym", label: "Фитнес", color: "#44337A" },
+				{ code: "guards", label: "Охрана 24/7", color: "#44337A" },
 				{
 					code: "with_child_club",
 					label: "Детская зона",
-					color: "yellow",
+					color: "#44337A",
 				},
-				{ code: "with_coworking", label: "Коворкинг", color: "yellow" },
-				{ code: "with_restaurant", label: "Ресторан", color: "yellow" },
-				{ code: "with_garden", label: "Сад", color: "yellow" },
+				{
+					code: "with_coworking",
+					label: "Коворкинг",
+					color: "#44337A",
+				},
+				{
+					code: "with_restaurant",
+					label: "Ресторан",
+					color: "#44337A",
+				},
+				{ code: "with_garden", label: "Сад", color: "#44337A" },
 			],
 		},
 		detailsOnOneBaan: { daysOnOneBaan: 12, amountOfViews: 14 },
@@ -149,7 +172,6 @@ export const SELL_CARD_DETAILED_MOCKS: Record<string, ListingDetailsDTO> = {
 		moreFromComplex: {
 			nameOfComplex: "Blue Canyon Golf And Country Club Home",
 			cards: [
-				// page 1
 				{
 					idOfCard: "1",
 					apartmentImages: {
@@ -157,13 +179,7 @@ export const SELL_CARD_DETAILED_MOCKS: Record<string, ListingDetailsDTO> = {
 					},
 					price: "$1,200,000",
 					pricePerMeter: "$15,200 за м² ",
-					iconRow: {
-						icons: [
-							{ iconPath: "/BiBed.svg", value: "2" },
-							{ iconPath: "/BiBath.svg", value: "3" },
-							{ iconPath: "/BiBorderOuter.svg", value: "2010" },
-						],
-					},
+					stats: { amountOfBeds: 2, amountOfBaths: 3, area: 2010 },
 					details: "Короткое описание",
 					cardDescription: "Описание карточки",
 					agentLogo: "/agent-logo.svg",
@@ -201,13 +217,7 @@ export const SELL_CARD_DETAILED_MOCKS: Record<string, ListingDetailsDTO> = {
 					},
 					price: "$980,000",
 					pricePerMeter: "$13,900 за м² ",
-					iconRow: {
-						icons: [
-							{ iconPath: "/BiBed.svg", value: "3" },
-							{ iconPath: "/BiBath.svg", value: "2" },
-							{ iconPath: "/BiBorderOuter.svg", value: "1750" },
-						],
-					},
+					stats: { amountOfBeds: 3, amountOfBaths: 2, area: 1750 },
 					details: "Короткое описание 2",
 					cardDescription: "Описание карточки 2",
 					agentLogo: "/agent-logo.svg",
@@ -224,13 +234,7 @@ export const SELL_CARD_DETAILED_MOCKS: Record<string, ListingDetailsDTO> = {
 					},
 					price: "$1,050,000",
 					pricePerMeter: "$14,500 за м² ",
-					iconRow: {
-						icons: [
-							{ iconPath: "/BiBed.svg", value: "2" },
-							{ iconPath: "/BiBath.svg", value: "2" },
-							{ iconPath: "/BiBorderOuter.svg", value: "1800" },
-						],
-					},
+					stats: { amountOfBeds: 2, amountOfBaths: 2, area: 1800 },
 					details: "Короткое описание 3",
 					cardDescription: "Описание карточки 3",
 					agentLogo: "/agent-logo.svg",
@@ -247,13 +251,7 @@ export const SELL_CARD_DETAILED_MOCKS: Record<string, ListingDetailsDTO> = {
 					},
 					price: "$1,300,000",
 					pricePerMeter: "$16,800 за м² ",
-					iconRow: {
-						icons: [
-							{ iconPath: "/BiBed.svg", value: "4" },
-							{ iconPath: "/BiBath.svg", value: "4" },
-							{ iconPath: "/BiBorderOuter.svg", value: "2200" },
-						],
-					},
+					stats: { amountOfBeds: 4, amountOfBaths: 4, area: 2200 },
 					details: "Короткое описание 4",
 					cardDescription: "Описание карточки 4",
 					agentLogo: "/agent-logo.svg",
@@ -264,7 +262,6 @@ export const SELL_CARD_DETAILED_MOCKS: Record<string, ListingDetailsDTO> = {
 					breadcrumbs: [],
 				},
 
-				// page 2
 				{
 					idOfCard: "5",
 					apartmentImages: {
@@ -272,13 +269,7 @@ export const SELL_CARD_DETAILED_MOCKS: Record<string, ListingDetailsDTO> = {
 					},
 					price: "$1,150,000",
 					pricePerMeter: "$14,900 за м² ",
-					iconRow: {
-						icons: [
-							{ iconPath: "/BiBed.svg", value: "3" },
-							{ iconPath: "/BiBath.svg", value: "3" },
-							{ iconPath: "/BiBorderOuter.svg", value: "1900" },
-						],
-					},
+					stats: { amountOfBeds: 3, amountOfBaths: 3, area: 1900 },
 					details: "Короткое описание 5",
 					cardDescription: "Описание карточки 5",
 					agentLogo: "/agent-logo.svg",
@@ -295,13 +286,7 @@ export const SELL_CARD_DETAILED_MOCKS: Record<string, ListingDetailsDTO> = {
 					},
 					price: "$1,020,000",
 					pricePerMeter: "$14,000 за м² ",
-					iconRow: {
-						icons: [
-							{ iconPath: "/BiBed.svg", value: "2" },
-							{ iconPath: "/BiBath.svg", value: "2" },
-							{ iconPath: "/BiBorderOuter.svg", value: "1760" },
-						],
-					},
+					stats: { amountOfBeds: 2, amountOfBaths: 2, area: 1760 },
 					details: "Короткое описание 6",
 					cardDescription: "Описание карточки 6",
 					agentLogo: "/agent-logo.svg",
@@ -320,13 +305,7 @@ export const SELL_CARD_DETAILED_MOCKS: Record<string, ListingDetailsDTO> = {
 					},
 					price: "$1,380,000",
 					pricePerMeter: "$17,100 за м² ",
-					iconRow: {
-						icons: [
-							{ iconPath: "/BiBed.svg", value: "4" },
-							{ iconPath: "/BiBath.svg", value: "3" },
-							{ iconPath: "/BiBorderOuter.svg", value: "2300" },
-						],
-					},
+					stats: { amountOfBeds: 4, amountOfBaths: 3, area: 2300 },
 					details: "Короткое описание 7",
 					cardDescription: "Описание карточки 7",
 					agentLogo: "/agent-logo.svg",
@@ -346,13 +325,7 @@ export const SELL_CARD_DETAILED_MOCKS: Record<string, ListingDetailsDTO> = {
 					},
 					price: "$1,250,000",
 					pricePerMeter: "$16,000 за м² ",
-					iconRow: {
-						icons: [
-							{ iconPath: "/BiBed.svg", value: "3" },
-							{ iconPath: "/BiBath.svg", value: "3" },
-							{ iconPath: "/BiBorderOuter.svg", value: "2100" },
-						],
-					},
+					stats: { amountOfBeds: 3, amountOfBaths: 3, area: 2100 },
 					details: "Короткое описание 8",
 					cardDescription: "Описание карточки 8",
 					agentLogo: "/agent-logo.svg",
@@ -396,14 +369,8 @@ export const SELL_CARD_DETAILED_MOCKS: Record<string, ListingDetailsDTO> = {
 				},
 				price: "$1,200,000",
 				pricePerMeter: "$15,200 за м²",
-				iconRow: {
-					icons: [
-						{ iconPath: "/BiBed.svg", value: "2" },
-						{ iconPath: "/BiBath.svg", value: "3" },
-						{ iconPath: "/BiBorderOuter.svg", value: "2010" },
-					],
-				},
-				details: "2 спальни, 3 ванные, 2010 м²",
+				stats: { amountOfBeds: 2, amountOfBaths: 3, area: 2010 },
+				details: i % 2 === 0 ? "Вид на море" : "Вид на горы",
 				cardDescription: "Апартаменты с видом на море",
 				agentLogo: "/agent-logo.svg",
 				tags: [],

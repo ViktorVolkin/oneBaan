@@ -48,10 +48,12 @@
 	color: #1a202c;
 	font-weight: 700;
 	font-size: 32px;
+	white-space: nowrap;
 }
 .card__price_per_meter {
 	color: #718096;
 	font-size: 18px;
+	white-space: nowrap;
 }
 .icons__list {
 	display: flex;

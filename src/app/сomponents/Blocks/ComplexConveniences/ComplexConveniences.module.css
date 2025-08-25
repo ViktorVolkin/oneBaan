@@ -1,8 +1,12 @@
-.complexConveniences__container {
+.complexConveniences__container,
+.complexConveniences__container__rent {
 	display: flex;
 	flex-direction: column;
 	width: 100%;
 	gap: 16px;
+}
+.complexConveniences__container__rent {
+	gap: 20px;
 }
 
 .complexConveniences__title {
@@ -84,7 +88,15 @@
 		gap: 24px;
 		align-items: center;
 	}
-
+	.complexCardRent {
+		display: flex;
+		align-items: center;
+		height: 120px;
+	}
+	.complexImageRent {
+		height: 120px;
+		width: 120px;
+	}
 	.complexDetails {
 		display: flex;
 		flex-direction: column;
@@ -111,9 +123,13 @@
 		text-overflow: ellipsis;
 		white-space: nowrap;
 	}
+	.complexConveniences__container__rent {
+		gap: 20px;
+	}
 }
 @media (min-width: 1440px) {
-	.complexConveniences__container {
+	.complexConveniences__container,
+	.complexConveniences__container__rent {
 		display: flex;
 		flex-direction: column;
 		width: 100%;
@@ -163,5 +179,17 @@
 		overflow: hidden;
 		text-overflow: ellipsis;
 		white-space: nowrap;
+	}
+	.complexCardRent {
+		display: flex;
+		align-items: center;
+		height: 120px;
+	}
+	.complexImageRent {
+		height: 120px;
+		width: 120px;
+	}
+	.complexConveniences__container__rent {
+		gap: 24px;
 	}
 }

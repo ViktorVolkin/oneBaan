@@ -9,7 +9,12 @@ export interface ListingCardBase {
 	price: string;
 	pricePerMeter: string;
 
-	iconRow: IconRowProps;
+	// iconRow убран, теперь используем stats
+	stats: {
+		amountOfBeds?: number;
+		amountOfBaths?: number;
+		area?: number;
+	};
 
 	details: string;
 	cardDescription: string;

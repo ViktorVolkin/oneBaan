@@ -1,20 +1,20 @@
 import { useTranslations } from "next-intl";
 import styles from "./ListingGranted.module.css";
 import { Link } from "@/i18n/navigation";
-interface ListingGranted {
+
+interface ListingGrantedProps {
 	agentIcon: string;
 	agentName: string;
 	agentStatus: { text: string; img: string };
 	agentExperienceOnPhuket: string;
 	phuketWorkingHours: string;
 	languages: string;
-	allOffers: {
-		href: string;
-		amountOfOffers: string;
-	};
+	allOffers: { href: string; amountOfOffers: string };
 	phoneHref: string;
 	whatsAppHref: string;
+	isRent?: boolean;
 }
+
 export function ListingGranted({
 	agentIcon,
 	agentName,
@@ -25,73 +25,196 @@ export function ListingGranted({
 	allOffers,
 	phoneHref,
 	whatsAppHref,
-}: ListingGranted) {
+	isRent = false,
+}: ListingGrantedProps) {
 	const t = useTranslations();
+
 	return (
-		<div className={styles.listingGranted__container}>
-			<h4 className={styles.listingGranted__title}>
+		<div
+			className={
+				isRent
+					? styles.listingGranted__containerRent
+					: styles.listingGranted__container
+			}
+		>
+			<h4
+				className={
+					isRent
+						? styles.listingGranted__titleRent
+						: styles.listingGranted__title
+				}
+			>
 				{t("CardDetailed.listingGranted.title")}
 			</h4>
-			<div className={styles.listingGranted__card}>
-				<div className={styles.buttons}>
+
+			<div
+				className={
+					isRent
+						? styles.listingGranted__cardRent
+						: styles.listingGranted__card
+				}
+			>
+				<div className={isRent ? styles.buttonsRent : styles.buttons}>
 					<Link
 						href={phoneHref}
-						className={styles.listingGranted__desktop_phone}
+						className={
+							isRent
+								? styles.listingGranted__desktop_phoneRent
+								: styles.listingGranted__desktop_phone
+						}
 					>
 						<img
 							src="/footer__phone.svg"
 							alt=""
-							className={styles.listingGranted__desktop_icon}
+							className={
+								isRent
+									? styles.listingGranted__desktop_iconRent
+									: styles.listingGranted__desktop_icon
+							}
 						/>
 					</Link>
+
 					<Link
 						href={whatsAppHref}
-						className={styles.listingGranted__desktop_whatsapp}
+						className={
+							isRent
+								? styles.listingGranted__desktop_whatsappRent
+								: styles.listingGranted__desktop_whatsapp
+						}
 					>
 						WhatsApp
 					</Link>
 				</div>
-				<div className={styles.agent__container}>
+
+				<div
+					className={
+						isRent
+							? styles.agent__containerRent
+							: styles.agent__container
+					}
+				>
 					<img
 						src={agentIcon}
 						alt=""
-						className={styles.agent__icon}
+						className={
+							isRent ? styles.agent__iconRent : styles.agent__icon
+						}
 					/>
-					<div className={styles.agent__info}>
-						<h4 className={styles.listingGranted__title_PC}>
+
+					<div
+						className={
+							isRent ? styles.agent__infoRent : styles.agent__info
+						}
+					>
+						<h4
+							className={
+								isRent
+									? styles.listingGranted__title_PCRent
+									: styles.listingGranted__title_PC
+							}
+						>
 							{t("CardDetailed.listingGranted.title")}
 						</h4>
-						<h2 className={styles.agent__name}>{agentName}</h2>
-						<p className={styles.agent__status}>
+
+						<h2
+							className={
+								isRent
+									? styles.agent__nameRent
+									: styles.agent__name
+							}
+						>
+							{agentName}
+						</h2>
+
+						<p
+							className={
+								isRent
+									? styles.agent__statusRent
+									: styles.agent__status
+							}
+						>
 							<img
 								src={agentStatus.img}
 								alt=""
-								className={styles.statusImage}
+								className={
+									isRent
+										? styles.statusImageRent
+										: styles.statusImage
+								}
 							/>
 							{agentStatus.text}
 						</p>
 					</div>
 				</div>
-				<div className={styles.agent__params}>
-					<p className={styles.agent__data__container}>
+
+				<div
+					className={
+						isRent ? styles.agent__paramsRent : styles.agent__params
+					}
+				>
+					<p
+						className={
+							isRent
+								? styles.agent__data__containerRent
+								: styles.agent__data__container
+						}
+					>
 						{t("CardDetailed.listingGranted.experienceOnPhuket")}
-						<span className={styles.agent__data}>
+						<span
+							className={
+								isRent
+									? styles.agent__dataRent
+									: styles.agent__data
+							}
+						>
 							{agentExperienceOnPhuket}
 						</span>
 					</p>
-					<p className={styles.agent__data__container}>
+
+					<p
+						className={
+							isRent
+								? styles.agent__data__containerRent
+								: styles.agent__data__container
+						}
+					>
 						{t("CardDetailed.listingGranted.workingHoursOnPhuket")}
-						<span className={styles.agent__data}>
+						<span
+							className={
+								isRent
+									? styles.agent__dataRent
+									: styles.agent__data
+							}
+						>
 							{phuketWorkingHours}
 						</span>
 					</p>
-					<p className={styles.agent__data__container}>
+
+					<p
+						className={
+							isRent
+								? styles.agent__data__containerRent
+								: styles.agent__data__container
+						}
+					>
 						{t("CardDetailed.listingGranted.languages")}
-						<span className={styles.agent__data}>{languages}</span>
+						<span
+							className={
+								isRent
+									? styles.agent__dataRent
+									: styles.agent__data
+							}
+						>
+							{languages}
+						</span>
 					</p>
 				</div>
 			</div>
-			<Link href={allOffers.href} className={styles.toAllOffers}>
+
+			<Link
+				href={allOffers.href}
+				className={isRent ? styles.toAllOffersRent : styles.toAllOffers}
+			>
 				{t("CardDetailed.listingGranted.allOffers")} (
 				{allOffers.amountOfOffers})
 			</Link>

@@ -12,6 +12,7 @@
 	gap: 8px;
 	padding: 3px 8px;
 	border: none;
+	font-family: "Nunito";
 }
 .tag[data-showborder="show"] {
 	border: 1px solid;

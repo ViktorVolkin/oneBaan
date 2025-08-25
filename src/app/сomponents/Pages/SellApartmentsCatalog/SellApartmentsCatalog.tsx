@@ -88,7 +88,6 @@ export function SellApartmentsCatalog({
 		},
 		[set]
 	);
-
 	const qSearch = get("search");
 	const qLocation = get("location");
 	const qType = get("type");
@@ -166,6 +165,7 @@ export function SellApartmentsCatalog({
 		: "sell-catalog-offers";
 	const { items, page, setPage, next, prev, total, totalPages } =
 		useCatalogPagination(baseQuery, { pageSize: 12 }, askingPath);
+
 	const paginationTokens = useMemo(
 		() => buildPagination(totalPages, page),
 		[totalPages, page]
@@ -210,7 +210,6 @@ export function SellApartmentsCatalog({
 			set("sortBy", "recommended");
 		}
 	}, [baseQuery]);
-
 	return (
 		<>
 			<Header

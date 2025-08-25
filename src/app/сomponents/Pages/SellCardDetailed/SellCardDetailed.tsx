@@ -16,6 +16,7 @@ import { Link } from "@/i18n/navigation";
 import { useQueryParams } from "@/app/сustomHooks/useQueryParams";
 import { useMediaQuery } from "@/app/сustomHooks/MediaQuery";
 import type { ListingCardBase } from "@/app/types/LargeCardHorizontalSellCatalog.types";
+import Footer from "../../Blocks/Footer";
 
 type CardItem = Omit<ListingCardBase, "isRentCard">;
 
@@ -105,6 +106,7 @@ export function SellCardDetailedPage(props: { id: string }) {
 		<div className={styles.sellCardContainer}>
 			<CardDetailedPreviewBlock
 				images={data.images}
+				amountOfLikes={data.amountOfLikes}
 				offerId={id}
 				isRent={false}
 			/>
@@ -261,6 +263,7 @@ export function SellCardDetailedPage(props: { id: string }) {
 					</div>
 				</div>
 			</div>
+			<Footer />
 		</div>
 	) : (
 		<></>

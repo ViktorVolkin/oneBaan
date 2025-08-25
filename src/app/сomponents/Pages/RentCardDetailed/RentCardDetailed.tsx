@@ -14,35 +14,70 @@ import { useEffect, useMemo, useState } from "react";
 import { fetchSellCardDetailedPage } from "@/app/api/fetchSellCardDetailed";
 import { useQueryParams } from "@/app/сustomHooks/useQueryParams";
 import type { ListingCardBase } from "@/app/types/LargeCardHorizontalSellCatalog.types";
+import { Link } from "@/i18n/navigation";
 
 type CardItem = Omit<ListingCardBase, "isRentCard">;
 
-export function RentCardDetailed(props: { id: string }) {
-	const id = props.id;
+export function RentCardDetailed({ id }: { id: string }) {
 	type DataType = Awaited<ReturnType<typeof fetchSellCardDetailedPage>>;
 	const [data, setData] = useState<DataType | null>(null);
+	const [accMoreCards, setAccMoreCards] = useState<CardItem[]>([]);
+	const [hasMore, setHasMore] = useState(false);
 
-	const { get } = useQueryParams();
+	const { get, set } = useQueryParams();
 	const t = useTranslations();
+
 	const pageSize = 4;
+
+	useEffect(() => {
+		if (!get("page")) set("page", "1");
+	}, []);
 
 	const qLocale = useLocale();
 	const qBeds = get("beds");
 	const qCurr = get("currency");
 	const qSortBy = get("sortBy");
+	const pageRaw = get("page");
+	const page = Math.max(1, Number(pageRaw || 1));
+
+	const baseQuery = useMemo(
+		() => ({
+			locale: qLocale,
+			currency: qCurr ?? "USD",
+			sortBy: qSortBy ?? "recommended",
+			beds: qBeds ?? "",
+			page,
+			limit: pageSize,
+		}),
+		[qLocale, qCurr, qSortBy, qBeds, page]
+	);
+
 	useEffect(() => {
+		const ac = new AbortController();
 		(async () => {
 			try {
 				const result = await fetchSellCardDetailedPage(
 					id,
-					undefined,
-					undefined,
+					baseQuery,
+					ac.signal,
 					"/rent-card-detailed/"
 				);
 				setData(result);
-			} catch (error: any) {}
+
+				const incoming: CardItem[] =
+					result.moreFromComplex?.cards ?? [];
+				const serverHasMore = Boolean(result.moreFromComplex?.hasMore);
+
+				if (page > 1) setAccMoreCards((prev) => [...prev, ...incoming]);
+				else setAccMoreCards(incoming);
+
+				setHasMore(serverHasMore);
+			} catch (e) {
+				console.error(e);
+			}
 		})();
-	}, [id]);
+		return () => ac.abort();
+	}, [id, baseQuery, page]);
 
 	return data ? (
 		<div className={styles.rentCardContainer}>
@@ -84,7 +119,6 @@ export function RentCardDetailed(props: { id: string }) {
 						subText={data.subText}
 						breadcrumbs={data.breadcrumbs}
 						stats={data.stats}
-						tagsSell={data.tagsSell || { tags: [] }}
 						offerFeatureText={data.offerFeatureText}
 						tagsDetailed={data.tagsDetailed || { tags: [] }}
 						detailsOnOneBaan={{
@@ -119,14 +153,14 @@ export function RentCardDetailed(props: { id: string }) {
 						optionsPriceForPhoneMode={
 							CATALOG_FILTER_OPTIONS_DEFAULT.optionsMinAndMaxPriceForPhoneMode
 						}
-						cards={data.moreFromComplex.cards || []}
+						cards={accMoreCards}
 						isRent={true}
-						hasMore={data.moreFromComplex.hasMore || false}
+						hasMore={hasMore}
 					/>
 				</div>
 
 				<div className={styles.subscribeForNotifications}>
-					<SubscribeForNotifications />
+					<SubscribeForNotifications isRent={true} />
 				</div>
 
 				<div className={styles.location}>
@@ -135,6 +169,7 @@ export function RentCardDetailed(props: { id: string }) {
 						breadcrumbs={data.location.breadcrumbs}
 						toLocationHref={data.location.toLocationHref}
 						countryName={data.location.countryName}
+						isRent={true}
 					/>
 				</div>
 
@@ -151,6 +186,7 @@ export function RentCardDetailed(props: { id: string }) {
 						agentStatus={data.agent.agentStatus}
 						phoneHref={data.agent.phoneHref}
 						whatsAppHref={data.agent.whatsAppHref}
+						isRent={true}
 					/>
 				</div>
 
@@ -160,6 +196,50 @@ export function RentCardDetailed(props: { id: string }) {
 						isRent={true}
 						cards={data.similar.cards}
 					/>
+				</div>
+			</div>
+			<div className={styles.agent__underBlock}>
+				<div className={styles.agent__underBlock_content}>
+					<img
+						src={data.agent.agentIcon}
+						alt=""
+						className={styles.agentIcon}
+					/>
+					<div className={styles.agent__underBlock__state}>
+						<p className={styles.agent__underBlock__title}>
+							{data.agent.agentName}
+						</p>
+						<div className={styles.agent__underBlock__status}>
+							<img
+								src={data.agent.agentStatus.img}
+								alt=""
+								className={
+									styles.agent__underBlock__status_icon
+								}
+							/>
+							<p className={styles.agent__status_text}>
+								{data.agent.agentStatus.text}
+							</p>
+						</div>
+					</div>
+				</div>
+				<div className={styles.agent__underBlock__buttons}>
+					<Link
+						href={data.agent.phoneHref}
+						className={styles.agent__underBlock__buttonPhone}
+					>
+						<img
+							src="/MdCall.svg"
+							alt=""
+							className={styles.underBlock_icon}
+						/>
+					</Link>
+					<Link
+						className={styles.agent__underBlock__buttonWhatsApp}
+						href={data.agent.whatsAppHref}
+					>
+						WhatsApp
+					</Link>
 				</div>
 			</div>
 		</div>

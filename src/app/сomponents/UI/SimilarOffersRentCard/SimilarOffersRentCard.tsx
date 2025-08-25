@@ -5,6 +5,17 @@ import { Link } from "@/i18n/navigation";
 import IconRow from "../IconRow";
 export function SimilarOffersRentCard(props: SimilarRentCard) {
 	const t = useTranslations();
+	const statsIcons: { iconPath: string; value: string | number }[] = [
+		...(props.stats?.amountOfBeds !== undefined
+			? [{ iconPath: "/BiBed.svg", value: props.stats.amountOfBeds }]
+			: []),
+		...(props.stats?.amountOfBaths !== undefined
+			? [{ iconPath: "/BiBath.svg", value: props.stats.amountOfBaths }]
+			: []),
+		...(props.stats?.area !== undefined
+			? [{ iconPath: "/BiBorderOuter.svg", value: props.stats.area }]
+			: []),
+	];
 	return (
 		<div className={styles.similarOffersRentCard__container}>
 			<img src={props.mainImage} alt="" className={styles.image} />
@@ -29,7 +40,12 @@ export function SimilarOffersRentCard(props: SimilarRentCard) {
 						))}
 					</nav>
 				)}
-				<IconRow {...props.iconRow}></IconRow>
+				<div className={styles.iconRowPhone}>
+					<IconRow icons={statsIcons} sizeForIconsinRow="sm" />
+				</div>
+				<div className={styles.iconRowTablet}>
+					<IconRow icons={statsIcons} sizeForIconsinRow="md" />
+				</div>
 				<div className={styles.button__container}>
 					<Link href={props.phoneHref} className={styles.phone}>
 						<img

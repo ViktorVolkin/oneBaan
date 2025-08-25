@@ -62,6 +62,7 @@
 
 .card__breadcrumbs {
 	display: flex;
+	align-items: center;
 	a {
 		color: #4a5568;
 		font-size: 18px;
@@ -85,4 +86,226 @@
 	font-size: 20px;
 	text-decoration: none;
 	margin-left: 8px;
+}
+.location__containerRent {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	gap: 16px;
+}
+.location__titleRent {
+	color: #000000;
+	font-size: 20px;
+	font-weight: 700;
+}
+.location__details_rent {
+	width: 100%;
+	height: 132px;
+	position: relative;
+}
+
+.bgImageRent {
+	width: 100%;
+	height: 100%;
+	border-radius: 10px;
+}
+
+.location__data_containerRent {
+	position: absolute;
+	flex-direction: column;
+	left: 12px;
+	top: 12px;
+	right: 12px;
+	bottom: 12px;
+	background: linear-gradient(
+		97.58deg,
+		rgba(255, 255, 255, 0.8) 0%,
+		rgba(255, 255, 255, 0.4) 100%
+	);
+
+	backdrop-filter: blur(8px);
+	border-radius: 10px;
+}
+.location__text_containerRent {
+	display: flex;
+	flex-direction: column;
+	padding: 12px;
+	gap: 24px;
+}
+.location__data__wrapperRent {
+	display: flex;
+	gap: 4px;
+}
+.location__dataRent {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+.location__iconRent {
+	width: 44px;
+	height: 44px;
+}
+.location__countryRent {
+	font-size: 14px;
+	color: #2d3748;
+}
+
+.card__breadcrumbsRent {
+	color: #2d3748;
+	font-size: 14px;
+}
+.card__breadcrumbsRent a {
+	text-decoration: none;
+	color: inherit;
+}
+.card__separatorRent {
+	margin: 0 8px;
+}
+
+.checkOnMapRent {
+	text-decoration: none;
+	color: #2d3748;
+	font-size: 16px;
+}
+.checkOnMap__arrowRent {
+	margin-left: 8px;
+}
+.mapIconButton {
+	display: none;
+}
+@media (min-width: 768px) {
+	.location__containerRent {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		gap: 24px;
+	}
+	.location__titleRent {
+		color: #000000;
+		font-size: 20px;
+		font-weight: 700;
+	}
+	.location__details_rent {
+		width: 100%;
+		height: 300px;
+		position: relative;
+	}
+
+	.bgImageRent {
+		width: 100%;
+		height: 100%;
+	}
+
+	.location__data_containerRent {
+		left: 20px;
+		bottom: 20px;
+		right: 20px;
+		top: unset;
+		background: transparent;
+		backdrop-filter: unset;
+		flex-direction: row;
+	}
+	.location__text_containerRent {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		padding: 0;
+		gap: 6px;
+		height: 50px;
+		align-items: center;
+	}
+	.location__data__wrapperRent {
+		display: flex;
+		gap: 4px;
+		align-items: center;
+	}
+	.location__dataRent {
+		display: flex;
+		flex-direction: column;
+		gap: 6px;
+	}
+	.mapIconButton {
+		border-radius: 10px;
+		display: block;
+		width: 50px;
+		height: 50px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background: linear-gradient(
+			97.58deg,
+			rgba(140, 140, 140, 0.5) 0%,
+			rgba(140, 140, 140, 0.3) 100%
+		);
+
+		border-image-source: linear-gradient(
+			97.58deg,
+			#ffffff 0%,
+			rgba(255, 255, 255, 0) 35%,
+			rgba(255, 255, 255, 0) 65%,
+			#ffffff 100%
+		);
+		box-shadow: 0px 2px 12px 0px #00000033;
+
+		backdrop-filter: blur(8px);
+		border: 1px solid white;
+	}
+	.mapIconForTablet {
+		width: 26px;
+		height: 26px;
+	}
+	.location__iconRent {
+		display: none;
+	}
+	.location__countryRent {
+		font-size: 14px;
+		color: #2d3748;
+		display: none;
+	}
+
+	.card__breadcrumbsRent {
+		color: #2d3748;
+		font-size: 14px;
+		border-radius: 10px;
+		padding: 16px;
+		background: linear-gradient(
+			97.58deg,
+			rgba(140, 140, 140, 0.5) 0%,
+			rgba(140, 140, 140, 0.3) 100%
+		);
+
+		border-image-source: linear-gradient(
+			97.58deg,
+			#ffffff 0%,
+			rgba(255, 255, 255, 0) 35%,
+			rgba(255, 255, 255, 0) 65%,
+			#ffffff 100%
+		);
+		box-shadow: 0px 2px 12px 0px #00000033;
+
+		backdrop-filter: blur(8px);
+		border: 1px solid white;
+		color: #ffffff;
+	}
+	.card__breadcrumbsRent a {
+		text-decoration: none;
+		color: inherit;
+	}
+	.card__separatorRent {
+		margin: 0 8px;
+	}
+
+	.checkOnMapRent {
+		color: #2d3748;
+		font-size: 16px;
+		font-weight: 700;
+		border-radius: 10px;
+		padding: 16px;
+		background-color: #ffffff;
+		border: none;
+		color: black;
+	}
+	.checkOnMap__arrowRent {
+		margin-left: 8px;
+	}
 }

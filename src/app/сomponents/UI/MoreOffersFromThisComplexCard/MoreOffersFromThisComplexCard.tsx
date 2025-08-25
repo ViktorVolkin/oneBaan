@@ -10,7 +10,20 @@ import CardSellCatalog from "../CardSellCatalog";
 export const MoreOffersFromThisComplexCard = (props: ListingCardBase) => {
 	const t = useTranslations();
 	const { toggle, liked } = useOfferLike(props.idOfCard, false);
-
+	const statsIcons = [
+		{
+			iconPath: "/BiBed.svg",
+			value: props.stats?.amountOfBeds ?? "-",
+		},
+		{
+			iconPath: "/BiBath.svg",
+			value: props.stats?.amountOfBaths ?? "-",
+		},
+		{
+			iconPath: "/BiBorderOuter.svg",
+			value: props.stats?.area ?? "-",
+		},
+	];
 	return (
 		<>
 			<div
@@ -45,16 +58,18 @@ export const MoreOffersFromThisComplexCard = (props: ListingCardBase) => {
 						</div>
 
 						<div className={styles.offer__conditions}>
-							<IconRow
-								icons={props.iconRow.icons}
-								sizeForIconsinRow="sm"
-								className={styles.IconRowPhone}
-							/>
-							<IconRow
-								icons={props.iconRow.icons}
-								sizeForIconsinRow="md"
-								className={styles.IconRow}
-							/>
+							<>
+								<IconRow
+									icons={statsIcons}
+									sizeForIconsinRow="sm"
+									className={styles.IconRowPhone}
+								/>
+								<IconRow
+									icons={statsIcons}
+									sizeForIconsinRow="md"
+									className={styles.IconRow}
+								/>
+							</>
 							<span className={styles.card__details}>
 								{props.details}
 							</span>

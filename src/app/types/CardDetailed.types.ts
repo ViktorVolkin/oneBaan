@@ -14,7 +14,7 @@ export interface CardDetailedBaseProps {
 
 export interface SellCardDetailedProps extends CardDetailedBaseProps {
 	isRent: boolean;
-	tagsSell: import("./CardTags.types").CardTagsProps;
+	tagsSell?: import("./CardTags.types").CardTagsProps;
 	offerFeatureText: string;
 	tagsDetailed: import("./CardTags.types").CardTagsProps;
 	detailsOnOneBaan: {

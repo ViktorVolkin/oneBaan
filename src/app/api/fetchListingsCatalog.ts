@@ -76,6 +76,7 @@ export async function fetchListingsPage(
 	const data: CatalogPage = await res.json();
 	const transformedItems = data.items.map((item) => ({
 		...item,
+		stats: item.stats,
 		tags: item.tags.map((tag: any) => ({
 			label: tag.label,
 			color: tag.color,

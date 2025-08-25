@@ -180,7 +180,7 @@ app.get("/rent-card-detailed/:id", (req, res) => {
 
 	if (pageRaw && limitRaw && data?.moreFromComplex?.cards) {
 		const p = Math.max(1, parseInt(pageRaw, 10) || 1);
-		const l = Math.max(1, parseInt(limitRaw, 10) || 10000);
+		const l = Math.max(1, parseInt(limitRaw, 10) || 4);
 
 		const all = data.moreFromComplex.cards || [];
 		const start = (p - 1) * l;

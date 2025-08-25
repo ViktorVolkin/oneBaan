@@ -128,7 +128,20 @@
 	color: #ffffff;
 	font-weight: 700;
 }
-
+.SubscribeForNotifications__list_Rent {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	max-width: 340px;
+	margin-bottom: 20px;
+}
+.SubscribeForNotifications__imageBg_Rent {
+	position: absolute;
+	top: 20px;
+	left: 230px;
+	width: 70px;
+	height: 48px;
+}
 @media (min-width: 768px) and (max-width: 1439.9px) {
 	.SubscribeForNotifications__container {
 		width: 100%;
@@ -192,11 +205,10 @@
 
 	.SubscribeForNotifications__imageBg {
 		position: absolute;
-		width: 400px;
-		height: 225px;
-		top: 0;
-		bottom: 0;
-		left: 549px;
+		width: 218px;
+		height: 178px;
+		top: 21px;
+		left: 620px;
 		object-fit: cover;
 		z-index: 1;
 	}
@@ -259,6 +271,20 @@
 		background-color: #48bb78;
 		color: #ffffff;
 		font-weight: 700;
+	}
+	.SubscribeForNotifications__list_Rent {
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+		max-width: 400px;
+		margin-bottom: 24px;
+	}
+	.SubscribeForNotifications__imageBg_Rent {
+		position: absolute;
+		top: 20px;
+		left: 460px;
+		width: 176px;
+		height: 140px;
 	}
 }
 @media (min-width: 1440px) {
@@ -324,13 +350,10 @@
 
 	.SubscribeForNotifications__imageBg {
 		position: absolute;
-		width: 400px;
-		height: 225px;
-		top: 0;
-		bottom: 0;
-		left: 549px;
-		object-fit: cover;
-		z-index: 1;
+		top: 20px;
+		left: 620px;
+		width: 176px;
+		height: 140px;
 	}
 	.popup {
 		max-width: 583px;
@@ -391,5 +414,19 @@
 		background-color: #48bb78;
 		color: #ffffff;
 		font-weight: 700;
+	}
+	.SubscribeForNotifications__list_Rent {
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+		max-width: 400px;
+		margin-bottom: 24px;
+	}
+	.SubscribeForNotifications__imageBg_Rent {
+		position: absolute;
+		top: 20px;
+		left: 594px;
+		width: 176px;
+		height: 140px;
 	}
 }

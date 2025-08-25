@@ -7,7 +7,11 @@ export interface SimilarRentCard {
 	cardDescription: string;
 	details: string;
 	breadcrumbs: { label: string; href: string }[];
-	iconRow?: ListingCardBase["iconRow"];
+	stats: {
+		amountOfBeds?: number;
+		amountOfBaths?: number;
+		area?: number;
+	};
 	phoneHref: string;
 	whatsAppHref: string;
 }

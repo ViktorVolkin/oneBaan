@@ -8,6 +8,7 @@ interface SubscribeForNotificationsProps {
 	title?: string;
 	list?: Array<string>;
 	image?: string;
+	isRent?: boolean;
 }
 export function SubscribeForNotifications({
 	title = "CardDetailed.subscribe.title",
@@ -15,7 +16,8 @@ export function SubscribeForNotifications({
 		"CardDetailed.subscribe.newOffers",
 		"CardDetailed.subscribe.discounts",
 	],
-	image = "/subscribeForNotificationsDefaultImage.png",
+	image = "/bgImageLetter.png",
+	isRent = false,
 }: SubscribeForNotificationsProps) {
 	const [isOpenPopup, setIsOpenPopup] = useState<boolean>(false);
 	const [currEmail, setEmail] = useState<string>("");
@@ -26,7 +28,13 @@ export function SubscribeForNotifications({
 				<h4 className={styles.SubscribeForNotifications__title}>
 					{t(title)}
 				</h4>
-				<ul className={styles.SubscribeForNotifications__list}>
+				<ul
+					className={
+						isRent
+							? styles.SubscribeForNotifications__list_Rent
+							: styles.SubscribeForNotifications__list
+					}
+				>
 					{list.map((item) => (
 						<li className={styles.list__item} key={item}>
 							<img
@@ -52,7 +60,11 @@ export function SubscribeForNotifications({
 				<img
 					src={image}
 					alt=""
-					className={styles.SubscribeForNotifications__imageBg}
+					className={
+						isRent
+							? styles.SubscribeForNotifications__imageBg_Rent
+							: styles.SubscribeForNotifications__imageBg
+					}
 				/>
 			</div>
 			<PopUp

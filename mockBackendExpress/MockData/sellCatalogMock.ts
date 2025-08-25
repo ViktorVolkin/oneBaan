@@ -6,12 +6,10 @@ export const sellCatalogListingCards: CatalogItem[] = [
 		apartmentImages: { images: Array(8).fill("/backgroundImage.png") },
 		priceUsd: 263_889,
 		pricePerMeterUsd: 3_340,
-		iconRow: {
-			icons: [
-				{ iconPath: "/BiBed.svg", value: 2 },
-				{ iconPath: "/BiBath.svg", value: 2 },
-				{ iconPath: "/BiBorderOuter.svg", value: 79 },
-			],
+		stats: {
+			amountOfBeds: 2,
+			amountOfBaths: 2,
+			area: 79,
 		},
 		agentLogo: "/agent-logo.svg",
 		contactWhatsApp: { path: "https://wa.me/66612345678" },
@@ -57,12 +55,10 @@ export const sellCatalogListingCards: CatalogItem[] = [
 		apartmentImages: { images: Array(8).fill("/backgroundImage.png") },
 		priceUsd: 525_000,
 		pricePerMeterUsd: 4_038,
-		iconRow: {
-			icons: [
-				{ iconPath: "/BiBed.svg", value: 3 },
-				{ iconPath: "/BiBath.svg", value: 3 },
-				{ iconPath: "/BiBorderOuter.svg", value: 130 },
-			],
+		stats: {
+			amountOfBeds: 3,
+			amountOfBaths: 3,
+			area: 130,
 		},
 		agentLogo: "/agent-logo.svg",
 		contactWhatsApp: { path: "https://wa.me/66612345678" },
@@ -108,12 +104,10 @@ export const sellCatalogListingCards: CatalogItem[] = [
 		apartmentImages: { images: Array(8).fill("/backgroundImage.png") },
 		priceUsd: 341_667,
 		pricePerMeterUsd: 3_059,
-		iconRow: {
-			icons: [
-				{ iconPath: "/BiBed.svg", value: 2 },
-				{ iconPath: "/BiBath.svg", value: 2 },
-				{ iconPath: "/BiBorderOuter.svg", value: 112 },
-			],
+		stats: {
+			amountOfBeds: 2,
+			amountOfBaths: 2,
+			area: 112,
 		},
 		agentLogo: "/agent-logo.svg",
 		contactWhatsApp: { path: "https://wa.me/66612345678" },
@@ -159,12 +153,10 @@ export const sellCatalogListingCards: CatalogItem[] = [
 		apartmentImages: { images: Array(8).fill("/backgroundImage.png") },
 		priceUsd: 219_444,
 		pricePerMeterUsd: 2_743,
-		iconRow: {
-			icons: [
-				{ iconPath: "/BiBed.svg", value: 1 },
-				{ iconPath: "/BiBath.svg", value: 1 },
-				{ iconPath: "/BiBorderOuter.svg", value: 80 },
-			],
+		stats: {
+			amountOfBeds: 1,
+			amountOfBaths: 1,
+			area: 80,
 		},
 		agentLogo: "/agent-logo.svg",
 		contactWhatsApp: { path: "https://wa.me/66612345678" },
@@ -210,12 +202,10 @@ export const sellCatalogListingCards: CatalogItem[] = [
 		apartmentImages: { images: Array(8).fill("/backgroundImage.png") },
 		priceUsd: 625_000,
 		pricePerMeterUsd: 4_310,
-		iconRow: {
-			icons: [
-				{ iconPath: "/BiBed.svg", value: 4 },
-				{ iconPath: "/BiBath.svg", value: 4 },
-				{ iconPath: "/BiBorderOuter.svg", value: 145 },
-			],
+		stats: {
+			amountOfBeds: 4,
+			amountOfBaths: 4,
+			area: 145,
 		},
 		agentLogo: "/agent-logo.svg",
 		contactWhatsApp: { path: "https://wa.me/66612345678" },
@@ -261,12 +251,10 @@ export const sellCatalogListingCards: CatalogItem[] = [
 		apartmentImages: { images: Array(8).fill("/backgroundImage.png") },
 		priceUsd: 325_000,
 		pricePerMeterUsd: 2_928,
-		iconRow: {
-			icons: [
-				{ iconPath: "/BiBed.svg", value: 2 },
-				{ iconPath: "/BiBath.svg", value: 2 },
-				{ iconPath: "/BiBorderOuter.svg", value: 111 },
-			],
+		stats: {
+			amountOfBeds: 2,
+			amountOfBaths: 2,
+			area: 111,
 		},
 		agentLogo: "/agent-logo.svg",
 		contactWhatsApp: { path: "https://wa.me/66612345678" },
@@ -312,12 +300,10 @@ export const sellCatalogListingCards: CatalogItem[] = [
 		apartmentImages: { images: Array(8).fill("/backgroundImage.png") },
 		priceUsd: 400_000,
 		pricePerMeterUsd: 3_279,
-		iconRow: {
-			icons: [
-				{ iconPath: "/BiBed.svg", value: 3 },
-				{ iconPath: "/BiBath.svg", value: 3 },
-				{ iconPath: "/BiBorderOuter.svg", value: 122 },
-			],
+		stats: {
+			amountOfBeds: 3,
+			amountOfBaths: 3,
+			area: 122,
 		},
 		agentLogo: "/agent-logo.svg",
 		contactWhatsApp: { path: "https://wa.me/66612345678" },
@@ -363,12 +349,10 @@ export const sellCatalogListingCards: CatalogItem[] = [
 		apartmentImages: { images: Array(8).fill("/backgroundImage.png") },
 		priceUsd: 229_167,
 		pricePerMeterUsd: 2_795,
-		iconRow: {
-			icons: [
-				{ iconPath: "/BiBed.svg", value: 2 },
-				{ iconPath: "/BiBath.svg", value: 2 },
-				{ iconPath: "/BiBorderOuter.svg", value: 82 },
-			],
+		stats: {
+			amountOfBeds: 2,
+			amountOfBaths: 2,
+			area: 82,
 		},
 		agentLogo: "/agent-logo.svg",
 		contactWhatsApp: { path: "https://wa.me/66612345678" },
@@ -414,12 +398,10 @@ export const sellCatalogListingCards: CatalogItem[] = [
 		apartmentImages: { images: Array(8).fill("/backgroundImage.png") },
 		priceUsd: 95_000,
 		pricePerMeterUsd: 2_500,
-		iconRow: {
-			icons: [
-				{ iconPath: "/BiBed.svg", value: 0 },
-				{ iconPath: "/BiBath.svg", value: 1 },
-				{ iconPath: "/BiBorderOuter.svg", value: 38 },
-			],
+		stats: {
+			amountOfBeds: 0,
+			amountOfBaths: 1,
+			area: 38,
 		},
 		agentLogo: "/agent-logo.svg",
 		contactWhatsApp: { path: "https://wa.me/66612345678" },
@@ -460,12 +442,10 @@ export const sellCatalogListingCards: CatalogItem[] = [
 		apartmentImages: { images: Array(8).fill("/backgroundImage.png") },
 		priceUsd: 1_350_000,
 		pricePerMeterUsd: 4_355,
-		iconRow: {
-			icons: [
-				{ iconPath: "/BiBed.svg", value: 5 },
-				{ iconPath: "/BiBath.svg", value: 5 },
-				{ iconPath: "/BiBorderOuter.svg", value: 310 },
-			],
+		stats: {
+			amountOfBeds: 5,
+			amountOfBaths: 5,
+			area: 310,
 		},
 		agentLogo: "/agent-logo.svg",
 		contactWhatsApp: { path: "https://wa.me/66612345678" },
@@ -511,12 +491,10 @@ export const sellCatalogListingCards: CatalogItem[] = [
 		apartmentImages: { images: Array(8).fill("/backgroundImage.png") },
 		priceUsd: 265_000,
 		pricePerMeterUsd: 1_893,
-		iconRow: {
-			icons: [
-				{ iconPath: "/BiBed.svg", value: 2 },
-				{ iconPath: "/BiBath.svg", value: 3 },
-				{ iconPath: "/BiBorderOuter.svg", value: 140 },
-			],
+		stats: {
+			amountOfBeds: 2,
+			amountOfBaths: 3,
+			area: 140,
 		},
 		agentLogo: "/agent-logo.svg",
 		contactWhatsApp: { path: "https://wa.me/66612345678" },
@@ -557,12 +535,10 @@ export const sellCatalogListingCards: CatalogItem[] = [
 		apartmentImages: { images: Array(8).fill("/backgroundImage.png") },
 		priceUsd: 120_000,
 		pricePerMeterUsd: 2_182,
-		iconRow: {
-			icons: [
-				{ iconPath: "/BiBed.svg", value: 1 },
-				{ iconPath: "/BiBath.svg", value: 1 },
-				{ iconPath: "/BiBorderOuter.svg", value: 55 },
-			],
+		stats: {
+			amountOfBeds: 1,
+			amountOfBaths: 1,
+			area: 55,
 		},
 		agentLogo: "/agent-logo.svg",
 		contactWhatsApp: { path: "https://wa.me/66612345678" },
@@ -603,12 +579,10 @@ export const sellCatalogListingCards: CatalogItem[] = [
 		apartmentImages: { images: Array(8).fill("/backgroundImage.png") },
 		priceUsd: 210_000,
 		pricePerMeterUsd: 2_100,
-		iconRow: {
-			icons: [
-				{ iconPath: "/BiBed.svg", value: 3 },
-				{ iconPath: "/BiBath.svg", value: 2 },
-				{ iconPath: "/BiBorderOuter.svg", value: 100 },
-			],
+		stats: {
+			amountOfBeds: 3,
+			amountOfBaths: 2,
+			area: 100,
 		},
 		agentLogo: "/agent-logo.svg",
 		contactWhatsApp: { path: "https://wa.me/66612345678" },
@@ -649,12 +623,10 @@ export const sellCatalogListingCards: CatalogItem[] = [
 		apartmentImages: { images: Array(8).fill("/backgroundImage.png") },
 		priceUsd: 180_000,
 		pricePerMeterUsd: 2_000,
-		iconRow: {
-			icons: [
-				{ iconPath: "/BiBed.svg", value: 1 },
-				{ iconPath: "/BiBath.svg", value: 2 },
-				{ iconPath: "/BiBorderOuter.svg", value: 90 },
-			],
+		stats: {
+			amountOfBeds: 1,
+			amountOfBaths: 2,
+			area: 90,
 		},
 		agentLogo: "/agent-logo.svg",
 		contactWhatsApp: { path: "https://wa.me/66612345678" },

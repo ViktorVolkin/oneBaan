@@ -27,6 +27,7 @@
 	color: #553c9a;
 	font-weight: 700;
 	font-size: 16px;
+	white-space: nowrap;
 }
 .iconRent {
 	width: 30px;
@@ -150,6 +151,7 @@
 		color: #44337a;
 		font-size: 18px;
 		font-weight: 700;
+		white-space: nowrap;
 	}
 	.icon {
 		width: 40px;
