@@ -15,10 +15,13 @@
 	color: #fff;
 }
 .prevSlide {
+	display: none;
 	left: 20px;
 	transform: translateY(-50%);
 }
 .nextSlide {
+	display: none;
+
 	right: 20px;
 }
 .prevSlide .arrowIcon {
@@ -37,6 +40,7 @@
 	.nextSlide {
 		width: 50px;
 		height: 50px;
+		display: flex;
 	}
 }
 

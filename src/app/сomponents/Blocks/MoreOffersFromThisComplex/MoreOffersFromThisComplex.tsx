@@ -16,6 +16,7 @@ import type { Option } from "@/app/types/CustomSelect.types";
 import { ListingCardBase } from "@/app/types/LargeCardHorizontalSellCatalog.types";
 import MoreOffersFromThisComplexCard from "@/app/сomponents/UI/MoreOffersFromThisComplexCard";
 import { useMediaQuery } from "@/app/сustomHooks/MediaQuery";
+import { useEffect } from "react";
 
 interface MoreOffersFromThisComplexProps {
 	nameOfComplex: string;
@@ -24,6 +25,7 @@ interface MoreOffersFromThisComplexProps {
 	optionsPriceForPhoneMode: Option[];
 	cards: Omit<ListingCardBase, "isRentCard">[];
 	isRent?: boolean;
+	hasMore: boolean;
 }
 
 export function MoreOffersFromThisComplex({
@@ -33,23 +35,37 @@ export function MoreOffersFromThisComplex({
 	optionsSortBy,
 	cards,
 	isRent = false,
+	hasMore,
 }: MoreOffersFromThisComplexProps) {
 	const t = useTranslations();
 	const { set, setMany, get } = useQueryParams();
 
+	const isPhone = useMediaQuery("(max-width:768px)");
 	const isDesktop = useMediaQuery("(min-width:1440px)");
+	const shouldUsePaging = isRent || isPhone;
+
 	const enableScroll = !isRent && isDesktop;
+	const pageFromUrl = shouldUsePaging ? get("page") ?? "1" : "1";
+
+	useEffect(() => {
+		if (!shouldUsePaging) set("page", null);
+	}, [shouldUsePaging, set]);
 
 	const phonePriceRaw = makePhonePriceValue(
 		get("min-price"),
 		get("max-price")
 	);
 
+	const onShowMore = () => {
+		const next = String(Math.max(1, Number(pageFromUrl || "1") + 1));
+		set("page", next);
+	};
+
 	return (
 		<div className={styles.moreOffersBlock}>
 			<h4 className={styles.moreOffers__title}>
 				{t("CardDetailed.moreOffers")}
-				<span className={styles.moreOffers__complex}>
+				<span className={isRent ? "" : styles.moreOffers__complex}>
 					{nameOfComplex}
 				</span>
 			</h4>
@@ -65,47 +81,59 @@ export function MoreOffersFromThisComplex({
 						placeholder={"catalog.selector.bedrooms"}
 						value={get("beds")}
 						className={styles.bedsSelect}
-						onChange={(value) => set("beds", value)}
+						onChange={(value) =>
+							setMany({
+								beds: value,
+								page: shouldUsePaging ? "1" : (null as any),
+							})
+						}
 						prefixSrc="/BiBed.svg"
 					/>
-					<CustomSelect
-						options={optionsPriceForPhoneMode ?? []}
-						placeholder={"catalog.selector.price"}
-						className={styles.priceSelect}
-						value={phonePriceRaw}
-						allowMissingValue={true}
-						missingValueLabelFactory={(v) => {
-							const [min = "", max = ""] = String(v ?? "").split(
-								"-"
-							);
-							return (
-								formatMillionsRange(min, max) ||
-								t("catalog.selector.price")
-							);
-						}}
-						onChange={(value) => {
-							const [min = "", max = ""] = String(
-								value ?? ""
-							).split("-");
-							const both = min.trim() && max.trim();
-							setMany({
-								"min-price": both ? min : null,
-								"max-price": both ? max : null,
-								page: "1",
-							});
-						}}
-					/>
+					{!isRent && (
+						<CustomSelect
+							options={optionsPriceForPhoneMode ?? []}
+							placeholder={"catalog.selector.price"}
+							className={styles.priceSelect}
+							value={phonePriceRaw}
+							allowMissingValue={true}
+							missingValueLabelFactory={(v) => {
+								const [min = "", max = ""] = String(
+									v ?? ""
+								).split("-");
+								return (
+									formatMillionsRange(min, max) ||
+									t("catalog.selector.price")
+								);
+							}}
+							onChange={(value) => {
+								const [min = "", max = ""] = String(
+									value ?? ""
+								).split("-");
+								const both = min.trim() && max.trim();
+								setMany({
+									"min-price": both ? min : null,
+									"max-price": both ? max : null,
+									page: shouldUsePaging ? "1" : (null as any),
+								});
+							}}
+						/>
+					)}
 				</div>
 
 				<CustomSelect
 					options={optionsSortBy}
 					placeholder={"sortBy.recommended"}
-					onChange={(v) => set("sortBy", v)}
+					onChange={(v) =>
+						setMany({
+							sortBy: v,
+							page: shouldUsePaging ? "1" : (null as any),
+						})
+					}
 					value={get("sortBy")}
 					className={styles.sortBy}
 					caretSrc=""
 					prefixSrc="/sortIcon.svg"
-				></CustomSelect>
+				/>
 			</div>
 
 			<div className={styles.moreOffers}>
@@ -129,20 +157,24 @@ export function MoreOffersFromThisComplex({
 					))}
 				</div>
 
-				<button
-					className={
-						isRent
-							? styles.get__more_offers
-							: styles.get__more_offers__sell
-					}
-				>
-					{t("CardDetailed.showMore")}
-					<img
-						src="/MdArrowDownward.svg"
-						alt=""
-						className={styles.get__more_offers_image}
-					/>
-				</button>
+				{shouldUsePaging && (
+					<button
+						className={
+							isRent
+								? styles.get__more_offers
+								: styles.get__more_offers__sell
+						}
+						onClick={onShowMore}
+						disabled={!hasMore}
+					>
+						{t("CardDetailed.showMore")}
+						<img
+							src="/MdArrowDownward.svg"
+							alt=""
+							className={styles.get__more_offers_image}
+						/>
+					</button>
+				)}
 
 				{!isRent && (
 					<div className={styles.cards__wrapper}>
@@ -185,7 +217,11 @@ export function MoreOffersFromThisComplex({
 							{cards.map((item) => (
 								<SwiperSlide
 									key={item.idOfCard}
-									className={styles.swiperSlide}
+									className={
+										isRent
+											? styles.swiperSlideRent
+											: styles.swiperSlide
+									}
 								>
 									<div>
 										<MoreOffersFromThisComplexCard

@@ -57,6 +57,7 @@
 	color: #44337a;
 	font-size: 12px;
 	font-weight: 600;
+	white-space: nowrap;
 }
 .text {
 	color: #44337a;
@@ -72,8 +73,8 @@
 @media (min-width: 768px) and (max-width: 1439.9px) {
 	.detailsCardRent {
 		padding: 16px;
-		gap: 24px;
-		max-width: 183px;
+		gap: 16px;
+		max-width: max-content;
 	}
 
 	.titleRent {
@@ -81,6 +82,7 @@
 	}
 	.textRent {
 		font-size: 24px;
+		white-space: nowrap;
 	}
 	.iconRent {
 		width: 30px;

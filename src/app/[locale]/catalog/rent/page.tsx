@@ -1,5 +1,6 @@
 import SellApartmentsCatalog from "@/app/сomponents/Pages/SellApartmentsCatalog";
 import { CATALOG_FILTER_OPTIONS_DEFAULT } from "@/app/constants/common";
+import Footer from "@/app/сomponents/Blocks/Footer";
 
 export default function Page() {
 	return (
@@ -39,6 +40,7 @@ export default function Page() {
 				}
 				isRentPage={true}
 			/>
+			<Footer></Footer>
 		</>
 	);
 }

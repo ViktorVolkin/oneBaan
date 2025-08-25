@@ -9,6 +9,8 @@ import type { Subscriber } from "./types/subscriber";
 import { sellCatalogListingCards } from "./MockData/sellCatalogMock";
 import { makeCatalogHandler } from "./utils/catalogHelper";
 import { rentCatalogMock } from "./MockData/rentCatalogMock";
+import { SELL_CARD_DETAILED_MOCKS } from "./MockData/sellCardDetailedMock";
+import { RENT_CARD_DETAILED_MOCKS } from "./MockData/rentCardDetailedMock";
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -123,6 +125,90 @@ app.get("/rent-catalog-offers/preview", (req, res) => {
 
 app.get("/sell-catalog-offers", makeCatalogHandler(sellCatalogListingCards));
 app.get("/rent-catalog-offers", makeCatalogHandler(rentCatalogMock));
+app.get("/sell-card-detailed/:id", (req, res) => {
+	const { id } = req.params;
+
+	const original = SELL_CARD_DETAILED_MOCKS[id];
+	if (!original) return res.status(404).json({ error: "Not found" });
+
+	const data = JSON.parse(JSON.stringify(original));
+
+	const pageRaw = req.query.page as string | undefined;
+	const limitRaw = req.query.limit as string | undefined;
+
+	if (pageRaw && limitRaw && data?.moreFromComplex?.cards) {
+		const p = Math.max(1, parseInt(pageRaw, 10) || 1);
+		const l = Math.max(1, parseInt(limitRaw, 10) || Infinity);
+
+		const all = data.moreFromComplex.cards || [];
+		const start = (p - 1) * l;
+		const end = start + l;
+
+		const items = all.slice(start, end);
+		const total = all.length;
+		const hasMore = end < total;
+
+		data.moreFromComplex = {
+			...data.moreFromComplex,
+			cards: items,
+			page: p,
+			limit: l,
+			total,
+			hasMore,
+		};
+	} else {
+		if (data?.moreFromComplex) {
+			data.moreFromComplex = {
+				...data.moreFromComplex,
+				hasMore: false,
+			};
+		}
+	}
+
+	return res.json(data);
+});
+app.get("/rent-card-detailed/:id", (req, res) => {
+	const { id } = req.params;
+
+	const original = RENT_CARD_DETAILED_MOCKS[id];
+	if (!original) return res.status(404).json({ error: "Not found" });
+
+	const data = JSON.parse(JSON.stringify(original));
+
+	const pageRaw = req.query.page as string | undefined;
+	const limitRaw = req.query.limit as string | undefined;
+
+	if (pageRaw && limitRaw && data?.moreFromComplex?.cards) {
+		const p = Math.max(1, parseInt(pageRaw, 10) || 1);
+		const l = Math.max(1, parseInt(limitRaw, 10) || 10000);
+
+		const all = data.moreFromComplex.cards || [];
+		const start = (p - 1) * l;
+		const end = start + l;
+
+		const items = all.slice(start, end);
+		const total = all.length;
+		const hasMore = end < total;
+
+		data.moreFromComplex = {
+			...data.moreFromComplex,
+			cards: items,
+			page: p,
+			limit: l,
+			total,
+			hasMore,
+		};
+	} else {
+		if (data?.moreFromComplex) {
+			data.moreFromComplex = {
+				...data.moreFromComplex,
+				hasMore: false,
+			};
+		}
+	}
+
+	return res.json(data);
+});
 app.listen(4000, () => {
 	console.log("server started on 4000");
 });

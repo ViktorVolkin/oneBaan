@@ -52,6 +52,7 @@
 }
 .swiperSlide {
 	width: 282px;
+	max-height: 490px;
 }
 .cards__wrapper {
 	display: none;
@@ -145,6 +146,9 @@
 		display: block;
 		width: 100%;
 	}
+	.filters__container__rent {
+		display: none;
+	}
 }
 @media (min-width: 1440px) {
 	.moreOffers__complex {
@@ -204,5 +208,8 @@
 	.cards__wrapper {
 		display: block;
 		width: 100%;
+	}
+	.filters__container__rent {
+		display: none;
 	}
 }

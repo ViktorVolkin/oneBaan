@@ -4,40 +4,19 @@ import { useTranslations } from "next-intl";
 import styles from "./DetailsOfOffer.module.css";
 import { Link } from "@/i18n/navigation";
 import DetailsCard from "../../UI/detailsCard";
-import { DetailsCardProps } from "../../UI/detailsCard/DetailsCard";
 import CardTags from "../../UI/CardTags";
-import { CardTagsProps } from "@/app/types/CardTags.types";
-type Breadcrumb = { href: string; label: string };
 
-type DetailsOfOfferProps = {
-	isRent: boolean;
-	offerDetail: string;
-	price: string;
-	subText?: string;
-	breadcrumbs?: Breadcrumb[];
-	propDetailsCard: Array<Omit<DetailsCardProps, "isRent">>;
-
-	icons: {
-		iconPath: string;
-		value: string;
-	}[];
-	tagsSell: CardTagsProps;
-	offerFeatureText: string;
-	tagsDetailed: CardTagsProps;
-	detailsOnOneBaan: {
-		daysOnOneBaan: number;
-		amountOfViews: number;
-	};
-};
+import type { SellCardDetailedProps } from "@/app/types/CardDetailed.types";
+type DetailsOfOfferProps = Omit<SellCardDetailedProps, "images">;
 
 export function DetailsOfOffer({
 	offerDetail,
 	isRent,
 	price,
 	subText,
-	breadcrumbs = [],
+	breadcrumbs,
 	propDetailsCard,
-	icons,
+	stats,
 	tagsSell,
 	tagsDetailed,
 	offerFeatureText,
@@ -75,16 +54,36 @@ export function DetailsOfOffer({
 			</div>
 
 			<ul className={styles.icons__list}>
-				{icons?.map((icon, index) => (
-					<li key={index} className={styles.icon__item}>
-						<img
-							src={icon.iconPath}
-							alt="icon"
-							className={styles.icon}
-						/>
-						<span className={styles.icon__value}>{icon.value}</span>
-					</li>
-				))}
+				<li className={styles.icon__item}>
+					<img
+						src={"/BiBed.svg"}
+						alt="icon"
+						className={styles.icon}
+					/>
+					<span className={styles.icon__value}>
+						{t("CardDetailed.beds", { count: stats.amountOfBeds })}
+					</span>
+				</li>
+				<li className={styles.icon__item}>
+					<img
+						src={"/BiBed.svg"}
+						alt="icon"
+						className={styles.icon}
+					/>
+					<span className={styles.icon__value}>
+						{t("CardDetailed.baths", {
+							count: stats.amountOfBaths,
+						})}
+					</span>
+				</li>
+				<li className={styles.icon__item}>
+					<img
+						src={"/BiBorderOuter.svg"}
+						alt="icon"
+						className={styles.icon}
+					/>
+					<span className={styles.icon__value}>{stats.area}</span>
+				</li>
 			</ul>
 			{breadcrumbs.length > 0 && (
 				<nav className={styles.breadcrumbs}>
@@ -104,9 +103,23 @@ export function DetailsOfOffer({
 				</nav>
 			)}
 			<div className={styles.cardDetails__container}>
-				{propDetailsCard.map((item) => (
-					<DetailsCard key={item.title} {...item} isRent={isRent} />
-				))}
+				{propDetailsCard.map((item) =>
+					item.leadsTo && !isRent ? (
+						<Link
+							href={item.leadsTo}
+							key={item.title}
+							className={styles.textDecoration__none}
+						>
+							<DetailsCard {...item} isRent={isRent} />
+						</Link>
+					) : (
+						<DetailsCard
+							key={item.title}
+							{...item}
+							isRent={isRent}
+						/>
+					)
+				)}
 			</div>
 			<div className={styles.offerFeatureBlock}>
 				<h4 className={styles.offerFeature__title}>

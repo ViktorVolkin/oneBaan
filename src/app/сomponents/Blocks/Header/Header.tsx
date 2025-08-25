@@ -19,11 +19,13 @@ const Header = ({
 	handleLanguageChange: handleLanguageChangeProp,
 	maxPhoneWidth = 767.99,
 	maxTabletWidth = 1439.99,
+	minTabletWidth,
 	minDesktopWidth = 1440,
 	hasCatalog = false,
 }: HeaderProps & {
 	maxPhoneWidth?: number;
 	maxTabletWidth?: number;
+	minTabletWidth?: number;
 	minDesktopWidth?: number;
 	hasCatalog?: boolean;
 }) => {
@@ -100,7 +102,8 @@ const Header = ({
 					}
 				}
 
-				@media (min-width: ${tabletMin}px) and (max-width: ${maxTabletWidth}px) {
+				@media (min-width: ${minTabletWidth ??
+					tabletMin}px) and (max-width: ${maxTabletWidth}px) {
 					.tablet {
 						display: block;
 					}

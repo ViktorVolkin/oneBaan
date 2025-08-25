@@ -19,15 +19,19 @@
 	text-decoration: underline;
 }
 
-.complexCard {
+.complexCard,
+.complexCardRent {
 	display: flex;
 	padding-bottom: 12px;
 	padding-right: 12px;
 	gap: 16px;
 	align-items: center;
 }
-
-.complexImage {
+.complexCardRent {
+	padding: 0;
+}
+.complexImage,
+.complexImageRent {
 	width: 80px;
 	height: 80px;
 	object-fit: cover;

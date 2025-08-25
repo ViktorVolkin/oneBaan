@@ -1,0 +1,84 @@
+.similarOffers__container {
+	display: flex;
+	flex-direction: column;
+}
+.similarOffers__title {
+	font-size: 20px;
+	font-weight: 700;
+	color: #000000;
+	margin-bottom: 12px;
+}
+.row {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	margin-bottom: 16px;
+}
+.tags__container {
+	display: flex;
+	gap: 6px;
+	flex-wrap: wrap;
+}
+.tag {
+	display: flex;
+	padding: 8px 12px;
+	background-color: #f4f5f7;
+	border: none;
+	color: #718096;
+	border-radius: 10px;
+}
+.swiperSlideSell {
+	width: 282px;
+}
+.swiperSlideRent {
+	width: 385px;
+}
+
+.swiper__buttons {
+	display: flex;
+	gap: 8px;
+	margin-left: auto;
+}
+.navBtn {
+	width: 36px;
+	height: 36px;
+	border-radius: 10px;
+	border: 0;
+	background: #6b46c1;
+	color: #fff;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 20px;
+	line-height: 1;
+	cursor: pointer;
+	user-select: none;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+	transition: transform 0.15s ease, opacity 0.15s ease;
+}
+.navBtn:hover {
+	transform: translateY(-1px);
+}
+.navBtn:active {
+	transform: translateY(0);
+}
+.navBtn.swiper-button-disabled {
+	opacity: 0.4;
+	cursor: default;
+	box-shadow: none;
+}
+.prevBtn {
+}
+.nextBtn {
+}
+
+.similarOffers__container :global(.swiper-scrollbar) {
+	height: 6px;
+	border-radius: 9999px;
+	background: rgba(107, 70, 193, 0.2);
+	margin-top: 8px;
+}
+.similarOffers__container :global(.swiper-scrollbar-drag) {
+	border-radius: 9999px;
+	background: #6b46c1;
+}

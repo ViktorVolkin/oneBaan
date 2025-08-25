@@ -10,6 +10,7 @@ interface ComplexConveniencesProps {
 	amountOfApartments: number;
 	builder: string;
 	tags: CardTagProps[];
+	isRent?: boolean;
 }
 export function ComplexConveniences({
 	complexName,
@@ -18,19 +19,26 @@ export function ComplexConveniences({
 	amountOfApartments,
 	builder,
 	tags,
+	isRent = false,
 }: ComplexConveniencesProps) {
 	const t = useTranslations();
 	return (
 		<div className={styles.complexConveniences__container}>
 			<h4 className={styles.complexConveniences__title}>
 				{t("CardDetailed.conveniences")}
-				<span className={styles.complexName}>{complexName}</span>
+				<span className={isRent ? "" : styles.complexName}>
+					{complexName}
+				</span>
 			</h4>
-			<div className={styles.complexCard}>
+			<div
+				className={isRent ? styles.complexCardRent : styles.complexCard}
+			>
 				<img
 					src={complexImage}
 					alt="image of complex"
-					className={styles.complexImage}
+					className={
+						isRent ? styles.complexImageRent : styles.complexImage
+					}
 				/>
 				<div className={styles.complexDetails}>
 					<p className={styles.complexDetail}>

@@ -1,9 +1,9 @@
 import { useTranslations } from "next-intl";
 import styles from "./SimilarOffersRentCard.module.css";
-import type { ListingCardBase } from "@/app/types/LargeCardHorizontalSellCatalog.types";
+import type { SimilarRentCard } from "@/app/types/similarOffers.types";
 import { Link } from "@/i18n/navigation";
 import IconRow from "../IconRow";
-export function SimilarOffersRentCard(props: ListingCardBase) {
+export function SimilarOffersRentCard(props: SimilarRentCard) {
 	const t = useTranslations();
 	return (
 		<div className={styles.similarOffersRentCard__container}>
@@ -16,13 +16,7 @@ export function SimilarOffersRentCard(props: ListingCardBase) {
 				</p>
 				<p className={styles.card__detail}>{props.details}</p>
 				{props.breadcrumbs && props.breadcrumbs.length > 0 && (
-					<nav
-						className={`${styles.card__breadcrumbs} ${
-							props.isRentCard
-								? styles.rent__card__breadcrumbs
-								: ""
-						}`}
-					>
+					<nav className={styles.card__breadcrumbs}>
 						{props.breadcrumbs.map((crumb, index) => (
 							<span key={index}>
 								<Link href={crumb.href}>{crumb.label}</Link>
@@ -37,14 +31,16 @@ export function SimilarOffersRentCard(props: ListingCardBase) {
 				)}
 				<IconRow {...props.iconRow}></IconRow>
 				<div className={styles.button__container}>
-					<button className={styles.phone}>
+					<Link href={props.phoneHref} className={styles.phone}>
 						<img
 							src="/MdCall.svg"
 							alt=""
 							className={styles.phoneIcon}
 						/>
-					</button>
-					<button className={styles.whatsApp}>WhatsApp</button>
+					</Link>
+					<Link href={props.whatsAppHref} className={styles.whatsApp}>
+						WhatsApp
+					</Link>
 				</div>
 			</div>
 		</div>

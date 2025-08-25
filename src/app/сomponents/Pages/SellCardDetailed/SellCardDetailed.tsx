@@ -2,271 +2,168 @@
 import styles from "./SellCardDetailed.module.css";
 import CardDetailedPreviewBlock from "../../Blocks/CardDetailedPreviewBlock/CardDetailedPreviewBlock";
 import DetailsOfOffer from "../../Blocks/DetailsOfOffer";
-import smth from "@/../public/iconTags/BiCar.svg?component";
 import ComplexConveniences from "../../Blocks/ComplexConveniences";
 import MoreOffersFromThisComplex from "../../Blocks/MoreOffersFromThisComplex";
 import { CATALOG_FILTER_OPTIONS_DEFAULT } from "@/app/constants/common";
 import SubscribeForNotifications from "../../Blocks/SubscribeForNotifications";
 import CardDetailedLocation from "../../Blocks/CardDetailedLocation";
 import ListingGranted from "../../Blocks/ListingGranted";
-export function SellCardDetailedPage() {
-	return (
+import SimilarOffers from "../../Blocks/SimilarOffers";
+import { useLocale, useTranslations } from "next-intl";
+import { useEffect, useMemo, useState } from "react";
+import { fetchSellCardDetailedPage } from "@/app/api/fetchSellCardDetailed";
+import { Link } from "@/i18n/navigation";
+import { useQueryParams } from "@/app/сustomHooks/useQueryParams";
+import { useMediaQuery } from "@/app/сustomHooks/MediaQuery";
+import type { ListingCardBase } from "@/app/types/LargeCardHorizontalSellCatalog.types";
+
+type CardItem = Omit<ListingCardBase, "isRentCard">;
+
+export function SellCardDetailedPage(props: { id: string }) {
+	type DataType = Awaited<ReturnType<typeof fetchSellCardDetailedPage>>;
+	const [data, setData] = useState<DataType | null>(null);
+
+	const isPhone = useMediaQuery("(max-width: 768px)");
+
+	const [accMoreCards, setAccMoreCards] = useState<CardItem[]>([]);
+	const [hasMore, setHasMore] = useState(false);
+
+	const { get } = useQueryParams();
+	const t = useTranslations();
+	const pageSize = 4;
+
+	const qLocale = useLocale();
+	const qBeds = get("beds");
+	const qCurr = get("currency");
+	const qMinPrice = get("min-price");
+	const qMaxPrice = get("max-price");
+	const qSortBy = get("sortBy");
+
+	const qPageRaw = isPhone ? get("page") : null;
+	const effectivePage = isPhone ? Number(qPageRaw || 1) : null;
+
+	const id = props.id;
+
+	const baseQuery = useMemo(
+		() => ({
+			locale: qLocale,
+			currency: qCurr ?? "USD",
+			minPrice: qMinPrice ?? "",
+			maxPrice: qMaxPrice ?? "",
+			sortBy: qSortBy ?? "recommended",
+			beds: qBeds ?? "",
+			...(effectivePage ? { page: effectivePage, limit: pageSize } : {}),
+		}),
+		[
+			qLocale,
+			qCurr,
+			qMinPrice,
+			qMaxPrice,
+			qSortBy,
+			qBeds,
+			effectivePage,
+			pageSize,
+		]
+	);
+
+	useEffect(() => {
+		setAccMoreCards([]);
+		setHasMore(false);
+	}, [id, qLocale, qCurr, qMinPrice, qMaxPrice, qSortBy, qBeds]);
+
+	useEffect(() => {
+		const ac = new AbortController();
+		(async () => {
+			try {
+				const result = await fetchSellCardDetailedPage(
+					id,
+					baseQuery,
+					ac.signal
+				);
+				setData(result);
+
+				const incoming: CardItem[] =
+					result.moreFromComplex?.cards ?? [];
+				const serverHasMore = Boolean(
+					(result as any)?.moreFromComplex?.hasMore
+				);
+
+				if ((effectivePage ?? 1) > 1) {
+					setAccMoreCards((prev) => [...prev, ...incoming]);
+				} else {
+					setAccMoreCards(incoming);
+				}
+				setHasMore(serverHasMore);
+			} catch (error: any) {
+				if (error?.name !== "AbortError") console.error(error);
+			}
+		})();
+		return () => ac.abort();
+	}, [id, baseQuery, effectivePage]);
+
+	return data ? (
 		<div className={styles.sellCardContainer}>
 			<CardDetailedPreviewBlock
-				images={[
-					"/backgroundImage.png",
-					"/backgroundImage.png",
-					"/backgroundImage.png",
-					"/backgroundImage.png",
-					"/backgroundImage.png",
-				]}
-				offerId={"123"}
+				images={data.images}
+				offerId={id}
 				isRent={false}
 			/>
+
 			<div className={styles.sellCardContent}>
 				<DetailsOfOffer
 					isRent={false}
-					offerDetail={
-						"Апартаменты на продажу в Blue Canyon Golf And Country Club Home"
-					}
-					price={"$1,200,000"}
+					offerDetail={data.offerDetail}
+					price={data.price}
 					propDetailsCard={[
 						{
-							title: "something",
-							text: "123",
-							icon: "/BiHeart.svg",
+							title: t("CardDetailed.yearOfBuilding"),
+							text: data.detailValues.yearOfBuilding ?? "",
+							icon: "/yearOfBuilding.svg",
 						},
 						{
-							title: "something",
-							text: "234",
-							icon: "/BiHeart.svg",
+							title: t("CardDetailed.distanceToSea"),
+							text: data.detailValues.distanceToSea ?? "",
+							icon: "/distanceToWater.svg",
 						},
 						{
-							title: "something",
-							text: "456",
-							icon: "/BiHeart.svg",
+							title: t("CardDetailed.level"),
+							text: data.detailValues.level ?? "",
+							icon: "/levels.svg",
 						},
 						{
-							title: "something",
-							text: "456",
-							icon: "/BiHeart.svg",
+							title: t("CardDetailed.check"),
+							text: t("CardDetailed.onMap"),
+							icon: "/BiMap.svg",
+							leadsTo: data.detailValues.checkOnMapHref,
 						},
 					]}
-					subText="$15,200 / м² "
-					breadcrumbs={[
-						{
-							href: "#",
-							label: "Пхукет",
-						},
-						{
-							href: "#",
-							label: "Бангтао",
-						},
-						{
-							href: "#",
-							label: "Апартаменты",
-						},
-					]}
-					icons={[
-						{
-							iconPath: "/BiBed.svg",
-							value: "4 спальни",
-						},
-						{
-							iconPath: "/BiBath.svg",
-							value: "4 ванные",
-						},
-						{
-							iconPath: "/BiBorderOuter.svg",
-							value: "203",
-						},
-					]}
-					tagsSell={{
-						tags: [
-							{
-								svgIconComponent: smth,
-								label: "yooooo",
-								color: "green",
-							},
-						],
-					}}
-					offerFeatureText={
-						"Комплекс находится в шаговой доступности до моря, на ресепшене можно организовать ее полное обслуживание. Эта угловая квартира, более светлая и с меньшим количеством соседей."
-					}
-					tagsDetailed={{
-						tags: [
-							{
-								svgIconComponent: smth,
-								label: "yooooo",
-								color: "yellow",
-							},
-							{
-								svgIconComponent: smth,
-								label: "yooooo",
-								color: "yellow",
-							},
-							{
-								svgIconComponent: smth,
-								label: "yooooo",
-								color: "yellow",
-							},
-							{
-								svgIconComponent: smth,
-								label: "yooooo",
-								color: "yellow",
-							},
-							{
-								svgIconComponent: smth,
-								label: "yooooo",
-								color: "yellow",
-							},
-							{
-								svgIconComponent: smth,
-								label: "yooooo",
-								color: "yellow",
-							},
-							{
-								svgIconComponent: smth,
-								label: "yooooo",
-								color: "yellow",
-							},
-							{
-								svgIconComponent: smth,
-								label: "yooooo",
-								color: "yellow",
-							},
-							{
-								svgIconComponent: smth,
-								label: "yooooo",
-								color: "yellow",
-							},
-							{
-								svgIconComponent: smth,
-								label: "yooooo",
-								color: "yellow",
-							},
-							{
-								svgIconComponent: smth,
-								label: "yooooo",
-								color: "yellow",
-							},
-							{
-								svgIconComponent: smth,
-								label: "yooooo",
-								color: "yellow",
-							},
-							{
-								svgIconComponent: smth,
-								label: "yooooo",
-								color: "yellow",
-							},
-							{
-								svgIconComponent: smth,
-								label: "yooooo",
-								color: "yellow",
-							},
-							{
-								svgIconComponent: smth,
-								label: "yooooo",
-								color: "yellow",
-							},
-							{
-								svgIconComponent: smth,
-								label: "yooooo",
-								color: "yellow",
-							},
-							{
-								svgIconComponent: smth,
-								label: "yooooo",
-								color: "yellow",
-							},
-						],
-						sizeOfTheIcons: "16px",
-					}}
+					subText={data.subText}
+					breadcrumbs={data.breadcrumbs}
+					stats={data.stats}
+					tagsSell={data.tagsSell || { tags: [] }}
+					offerFeatureText={data.offerFeatureText}
+					tagsDetailed={data.tagsDetailed || { tags: [] }}
 					detailsOnOneBaan={{
-						daysOnOneBaan: 12,
-						amountOfViews: 14,
+						daysOnOneBaan: data.detailsOnOneBaan.daysOnOneBaan,
+						amountOfViews: data.detailsOnOneBaan.amountOfViews,
 					}}
+					offerId={id}
 				/>
+
 				<div className={styles.complexBlock}>
 					<ComplexConveniences
-						complexName={"Blue Canyon Golf And Country Club Home"}
-						complexImage={"/backgroundImage.png"}
-						yearOfBuilding={2022}
-						amountOfApartments={232}
-						builder={"Sino-Thai Engineering & Construction"}
-						tags={[
-							{
-								svgIconComponent: smth,
-								label: "Парковка",
-								color: "#44337A",
-							},
-							{
-								svgIconComponent: smth,
-								label: "Парковка",
-								color: "#44337A",
-							},
-							{
-								svgIconComponent: smth,
-								label: "Парковка",
-								color: "#44337A",
-							},
-							{
-								svgIconComponent: smth,
-								label: "Парковка",
-								color: "#44337A",
-							},
-							{
-								svgIconComponent: smth,
-								label: "Парковка",
-								color: "#44337A",
-							},
-							{
-								svgIconComponent: smth,
-								label: "Парковка",
-								color: "#44337A",
-							},
-							{
-								svgIconComponent: smth,
-								label: "Парковка",
-								color: "#44337A",
-							},
-							{
-								svgIconComponent: smth,
-								label: "Парковка",
-								color: "#44337A",
-							},
-							{
-								svgIconComponent: smth,
-								label: "Парковка",
-								color: "#44337A",
-							},
-							{
-								svgIconComponent: smth,
-								label: "Парковка",
-								color: "#44337A",
-							},
-							{
-								svgIconComponent: smth,
-								label: "Парковка",
-								color: "#44337A",
-							},
-							{
-								svgIconComponent: smth,
-								label: "Парковка",
-								color: "#44337A",
-							},
-							{
-								svgIconComponent: smth,
-								label: "Парковка",
-								color: "#44337A",
-							},
-						]}
+						complexName={data.complex.complexName}
+						complexImage={data.complex.complexImage}
+						yearOfBuilding={data.complex.yearOfBuilding}
+						amountOfApartments={data.complex.amountOfApartments}
+						builder={data.complex.builder}
+						tags={data.complex.tags}
 					/>
 				</div>
+
 				<div className={styles.moreOffersFromComplex}>
 					<MoreOffersFromThisComplex
-						nameOfComplex={"Blue Canyon Golf And Country Club Home"}
+						nameOfComplex={data.moreFromComplex.nameOfComplex}
 						optionsBedrooms={
 							CATALOG_FILTER_OPTIONS_DEFAULT.optionsBedrooms
 						}
@@ -276,227 +173,96 @@ export function SellCardDetailedPage() {
 						optionsPriceForPhoneMode={
 							CATALOG_FILTER_OPTIONS_DEFAULT.optionsMinAndMaxPriceForPhoneMode
 						}
-						cards={[
-							{
-								idOfCard: "1",
-								apartmentImages: {
-									images: [
-										"/backgroundImage.png",
-										"/backgroundImage.png",
-										"/backgroundImage.png",
-										"/backgroundImage.png",
-										"/backgroundImage.png",
-										"/backgroundImage.png",
-									],
-								},
-								price: "$1,200,000",
-								pricePerMeter: "$15,200 за м² ",
-								iconRow: {
-									icons: [
-										{
-											iconPath: "/BiBed.svg",
-											value: "2",
-										},
-										{
-											iconPath: "/BiBath.svg",
-											value: "3",
-										},
-										{
-											iconPath: "/BiBorderOuter.svg",
-											value: "2010",
-										},
-									],
-									showLines: true,
-								},
-								details: "jgjhghgysjgfgfgfgfgfgffgfgfgys",
-								cardDescription: "hhg",
-								agentLogo: "/agent-logo.svg",
-								tags: [],
-								contactWhatsApp: {
-									path: "",
-								},
-								contactWithSalesman: {
-									path: "",
-								},
-								whenPosted: "",
-								breadcrumbs: [],
-							},
-							{
-								idOfCard: "2",
-								apartmentImages: {
-									images: [
-										"/backgroundImage.png",
-										"/backgroundImage.png",
-										"/backgroundImage.png",
-										"/backgroundImage.png",
-										"/backgroundImage.png",
-										"/backgroundImage.png",
-									],
-								},
-								price: "$1,200,000",
-								pricePerMeter: "$15,200 за м² ",
-								iconRow: {
-									icons: [
-										{
-											iconPath: "/BiBed.svg",
-											value: "2",
-										},
-										{
-											iconPath: "/BiBath.svg",
-											value: "3",
-										},
-										{
-											iconPath: "/BiBorderOuter.svg",
-											value: "2010",
-										},
-									],
-									showLines: true,
-								},
-								details: "jgjhghgysjgfgfgfgfgfgffgfgfgys",
-								cardDescription: "hhg",
-								agentLogo: "/agent-logo.svg",
-								tags: [],
-								contactWhatsApp: {
-									path: "",
-								},
-								contactWithSalesman: {
-									path: "",
-								},
-								whenPosted: "",
-								breadcrumbs: [],
-							},
-							{
-								idOfCard: "3",
-								apartmentImages: {
-									images: [
-										"/backgroundImage.png",
-										"/backgroundImage.png",
-										"/backgroundImage.png",
-										"/backgroundImage.png",
-										"/backgroundImage.png",
-										"/backgroundImage.png",
-									],
-								},
-								price: "$1,200,000",
-								pricePerMeter: "$15,200 за м² ",
-								iconRow: {
-									icons: [
-										{
-											iconPath: "/BiBed.svg",
-											value: "2",
-										},
-										{
-											iconPath: "/BiBath.svg",
-											value: "3",
-										},
-										{
-											iconPath: "/BiBorderOuter.svg",
-											value: "2010",
-										},
-									],
-									showLines: true,
-								},
-								details: "jgjhghgysjgfgfgfgfgfgffgfgfgys",
-								cardDescription: "hhg",
-								agentLogo: "/agent-logo.svg",
-								tags: [],
-								contactWhatsApp: {
-									path: "",
-								},
-								contactWithSalesman: {
-									path: "",
-								},
-								whenPosted: "",
-								breadcrumbs: [],
-							},
-							{
-								idOfCard: "4",
-								apartmentImages: {
-									images: [
-										"/backgroundImage.png",
-										"/backgroundImage.png",
-										"/backgroundImage.png",
-										"/backgroundImage.png",
-										"/backgroundImage.png",
-										"/backgroundImage.png",
-									],
-								},
-								price: "$1,200,000",
-								pricePerMeter: "$15,200 за м² ",
-								iconRow: {
-									icons: [
-										{
-											iconPath: "/BiBed.svg",
-											value: "2",
-										},
-										{
-											iconPath: "/BiBath.svg",
-											value: "3",
-										},
-										{
-											iconPath: "/BiBorderOuter.svg",
-											value: "2010",
-										},
-									],
-									showLines: true,
-								},
-								details: "jgjhghgysjgfgfgfgfgfgffgfgfgys",
-								cardDescription: "hhg",
-								agentLogo: "/agent-logo.svg",
-								tags: [],
-								contactWhatsApp: {
-									path: "",
-								},
-								contactWithSalesman: {
-									path: "",
-								},
-								whenPosted: "",
-								breadcrumbs: [],
-							},
-						]}
+						cards={accMoreCards}
 						isRent={false}
-					></MoreOffersFromThisComplex>
+						hasMore={hasMore}
+					/>
 				</div>
+
 				<div className={styles.subscribeForNotifications}>
 					<SubscribeForNotifications />
 				</div>
+
 				<div className={styles.location}>
 					<CardDetailedLocation
-						image={"/backgroundImage.png"}
-						breadcrumbs={[
-							{
-								label: "Пхукет",
-								href: "#",
-							},
-							{
-								label: "Пляж Багтао",
-								href: "#",
-							},
-						]}
-						toLocationHref={""}
-						countryName={"Таиланд"}
-					></CardDetailedLocation>
+						image={data.location.image}
+						breadcrumbs={data.location.breadcrumbs}
+						toLocationHref={data.location.toLocationHref}
+						countryName={data.location.countryName}
+					/>
 				</div>
+
 				<div className={styles.listingGranted}>
 					<ListingGranted
-						agentIcon={"/agent-logo.svg"}
-						agentName={"Apart Homes Pattaya Incorporated"}
-						agentExperienceOnPhuket={"20 лет"}
-						phuketWorkingHours={"12-24"}
-						languages={"Английский,Русский,Тайский"}
-						allOffers={{
-							href: "#",
-							amountOfOffers: "12",
-						}}
-						agentStatus={{
-							text: "online",
-							img: "/onlineIcon.svg",
-						}}
-						phoneHref={""}
-						whatsAppHref={""}
-					></ListingGranted>
+						agentIcon={data.agent.agentIcon}
+						agentName={data.agent.agentName}
+						agentExperienceOnPhuket={
+							data.agent.agentExperienceOnPhuket
+						}
+						phuketWorkingHours={data.agent.phuketWorkingHours}
+						languages={data.agent.languages}
+						allOffers={data.agent.allOffers}
+						agentStatus={data.agent.agentStatus}
+						phoneHref={data.agent.phoneHref}
+						whatsAppHref={data.agent.whatsAppHref}
+					/>
+				</div>
+
+				<div className={styles.similarOffers}>
+					<SimilarOffers
+						tags={data.similar.tags}
+						isRent={false}
+						cards={data.similar.cards}
+					/>
+				</div>
+
+				<div className={styles.agent__underBlock}>
+					<div className={styles.agent__underBlock_content}>
+						<img
+							src={data.agent.agentIcon}
+							alt=""
+							className={styles.agentIcon}
+						/>
+						<div className={styles.agent__underBlock__state}>
+							<p className={styles.agent__underBlock__title}>
+								{data.agent.agentName}
+							</p>
+							<div className={styles.agent__underBlock__status}>
+								<img
+									src={data.agent.agentStatus.img}
+									alt=""
+									className={
+										styles.agent__underBlock__status_icon
+									}
+								/>
+								<p className={styles.agent__status_text}>
+									{data.agent.agentStatus.text}
+								</p>
+							</div>
+						</div>
+					</div>
+					<div className={styles.agent__underBlock__buttons}>
+						<Link
+							href={data.agent.phoneHref}
+							className={styles.agent__underBlock__buttonPhone}
+						>
+							<img
+								src="/footer__phone.svg"
+								alt=""
+								className={styles.underBlock_icon}
+							/>
+						</Link>
+						<Link
+							className={styles.agent__underBlock__buttonWhatsApp}
+							href={data.agent.whatsAppHref}
+						>
+							WhatsApp
+						</Link>
+					</div>
 				</div>
 			</div>
 		</div>
+	) : (
+		<></>
 	);
 }

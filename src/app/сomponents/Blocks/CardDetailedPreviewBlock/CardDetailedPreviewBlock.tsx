@@ -7,7 +7,14 @@ import GoBackButton from "../../UI/buttonGoBack/buttonGoBack";
 import { useTranslations } from "next-intl";
 import { useMemo } from "react";
 
-type Mode = "sell" | "rent";
+import type { CardDetailedProps } from "@/app/types/CardDetailed.types";
+type CardDetailedPreviewBlockProps = Pick<
+	CardDetailedProps,
+	"images" | "offerId" | "isRent"
+> & {
+	amountOfLikes?: number;
+	className?: string;
+};
 
 export default function CardDetailedPreviewBlock({
 	images,
@@ -15,13 +22,7 @@ export default function CardDetailedPreviewBlock({
 	offerId,
 	className,
 	isRent,
-}: {
-	images: string[];
-	amountOfLikes?: number;
-	offerId: string;
-	className?: string;
-	isRent: boolean;
-}) {
+}: CardDetailedPreviewBlockProps) {
 	const isLikedInit = useMemo(
 		() => readIds("favourites:ids").includes(offerId.toString()),
 		[offerId]

@@ -120,6 +120,7 @@
 	flex-grow: 1;
 	border: 0;
 	border-radius: 10px;
+	text-decoration: none;
 }
 @media (min-width: 768px) and (max-width: 1439.9px) {
 	.listingGranted__container {

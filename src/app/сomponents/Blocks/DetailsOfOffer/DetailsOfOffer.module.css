@@ -3,6 +3,9 @@
 	flex-direction: column;
 	width: 100%;
 }
+.textDecoration__none {
+	text-decoration: none;
+}
 .blueprintRent,
 .blueprintSell {
 	display: flex;
@@ -16,6 +19,9 @@
 	font-size: 14px;
 	width: max-content;
 	margin-bottom: 10px;
+}
+.detailsOfOfferRent .card__price {
+	font-size: 28px;
 }
 .blueprintImg {
 	width: 16px;
@@ -36,6 +42,7 @@
 	display: flex;
 	gap: 8px;
 	align-items: last baseline;
+	margin-bottom: 10px;
 }
 .card__price {
 	color: #1a202c;

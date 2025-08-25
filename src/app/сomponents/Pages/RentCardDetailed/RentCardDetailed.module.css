@@ -1,0 +1,41 @@
+.rentCardContainer {
+	max-width: 360px;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.rentCardContent {
+	margin-top: 12px;
+	max-width: 320px;
+}
+.DetailsOfOffer {
+	margin-bottom: 52px;
+}
+.complexBlock {
+	margin-bottom: 40px;
+}
+.moreOffersFromComplex {
+	margin-bottom: 40px;
+}
+@media (min-width: 768px) and (max-width: 1439.9px) {
+	.rentCardContainer {
+		max-width: 760px;
+	}
+	.rentCardContainer {
+		margin-top: 60px;
+	}
+	.rentCardContent {
+		margin-top: 20px;
+		max-width: 660px;
+	}
+}
+
+@media (min-width: 1440px) {
+	.rentCardContainer {
+		max-width: 1240px;
+	}
+	.rentCardContainer {
+		margin-top: 100px;
+	}
+}

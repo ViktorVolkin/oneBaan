@@ -9,9 +9,9 @@ import type { ListingCardBase } from "@/app/types/LargeCardHorizontalSellCatalog
 import { useTranslations } from "next-intl";
 import { readIds, useOfferLike } from "@/app/сustomHooks/useOfferLike";
 import { Link } from "@/i18n/navigation";
-import { useMemo } from "react";
 interface displayPhone {
 	displayPhoneIcon?: boolean;
+	mainImage?: string;
 }
 export const CardSellCatalog = (props: ListingCardBase & displayPhone) => {
 	const t = useTranslations();
@@ -30,7 +30,17 @@ export const CardSellCatalog = (props: ListingCardBase & displayPhone) => {
 					props.isRentCard ? styles.rent__card__images : ""
 				}`}
 			>
-				<ApartmentImageSwiper images={props.apartmentImages.images} />
+				{!props.mainImage ? (
+					<ApartmentImageSwiper
+						images={props.apartmentImages.images}
+					/>
+				) : (
+					<img
+						src={props.mainImage}
+						alt=""
+						className={styles.mainImage}
+					/>
+				)}
 
 				<button
 					className={styles.card__like_icon}
@@ -141,62 +151,69 @@ export const CardSellCatalog = (props: ListingCardBase & displayPhone) => {
 						: styles.contacts__buttons_container
 				}`}
 			>
-
-				   {props.displayPhoneIcon ? (
-					   <>
-						   <a
-							   className={`${styles.contacts__button} ${styles.phoneButton}`}
-							   href={props.contactWithSalesman.path}
-						   >
-							   <img
-								   src="/phoneIcon.svg"
-								   alt=""
-								   className={styles.phoneIcon}
-							   />
-						   </a>
-						   <a
-							   href={props.contactWhatsApp.path}
-							   className={`${styles.contacts__button_whatsapp} ${styles.whatsappGrow} ${
-								   props.isRentCard ? styles.rent_contacts__button_whatsapp : ""
-							   }`}
-						   >
-							   {props.isRentCard && (
-								   <img
-									   src="/whatsapp.svg"
-									   alt=""
-									   className={styles.desktop__contacts__icon}
-								   />
-							   )}
-							   WhatsApp
-						   </a>
-					   </>
-				   ) : (
-					   <>
-						   <a
-							   className={`${styles.contacts__button} ${
-								   props.isRentCard ? styles.rent_contacts__button : ""
-							   }`}
-							   href={props.contactWithSalesman.path}
-						   >
-							   {t("cards.talkToSalesman")}
-						   </a>
-						   <a
-							   href={props.contactWhatsApp.path}
-							   className={`${styles.contacts__button_whatsapp} ${
-								   props.isRentCard ? styles.rent_contacts__button_whatsapp : ""
-							   }`}
-						   >
-							   {props.isRentCard && (
-								   <img
-									   src="/whatsapp.svg"
-									   alt=""
-									   className={styles.desktop__contacts__icon}
-								   />
-							   )}
-							   WhatsApp
-						   </a>
-					   </>
-				   )}
+				{props.displayPhoneIcon ? (
+					<>
+						<a
+							className={`${styles.contacts__button} ${styles.phoneButton}`}
+							href={props.contactWithSalesman.path}
+						>
+							<img
+								src="/phoneIcon.svg"
+								alt=""
+								className={styles.phoneIcon}
+							/>
+						</a>
+						<a
+							href={props.contactWhatsApp.path}
+							className={`${styles.contacts__button_whatsapp} ${
+								styles.whatsappGrow
+							} ${
+								props.isRentCard
+									? styles.rent_contacts__button_whatsapp
+									: ""
+							}`}
+						>
+							{props.isRentCard && (
+								<img
+									src="/whatsapp.svg"
+									alt=""
+									className={styles.desktop__contacts__icon}
+								/>
+							)}
+							WhatsApp
+						</a>
+					</>
+				) : (
+					<>
+						<a
+							className={`${styles.contacts__button} ${
+								props.isRentCard
+									? styles.rent_contacts__button
+									: ""
+							}`}
+							href={props.contactWithSalesman.path}
+						>
+							{t("cards.talkToSalesman")}
+						</a>
+						<a
+							href={props.contactWhatsApp.path}
+							className={`${styles.contacts__button_whatsapp} ${
+								props.isRentCard
+									? styles.rent_contacts__button_whatsapp
+									: ""
+							}`}
+						>
+							{props.isRentCard && (
+								<img
+									src="/whatsapp.svg"
+									alt=""
+									className={styles.desktop__contacts__icon}
+								/>
+							)}
+							WhatsApp
+						</a>
+					</>
+				)}
 
 				{props.isRentCard && (
 					<a

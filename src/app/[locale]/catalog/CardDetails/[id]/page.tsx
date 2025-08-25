@@ -1,7 +1,14 @@
-import CardDetailedPreviewBlock from "@/app/сomponents/Blocks/CardDetailedPreviewBlock/CardDetailedPreviewBlock";
-import { DetailsOfOffer } from "@/app/сomponents/Blocks/DetailsOfOffer/DetailsOfOffer";
+import Footer from "@/app/сomponents/Blocks/Footer";
+import styles from "./style.module.css";
 import SellCardDetailedPage from "@/app/сomponents/Pages/SellCardDetailed";
-import DetailsCard from "@/app/сomponents/UI/detailsCard";
-export default function Page() {
-	return <SellCardDetailedPage />;
+type PageProps = { params: { id: string } };
+
+export default async function Page({ params }: PageProps) {
+	const { id } = await params;
+	return (
+		<div className={styles.container}>
+			<SellCardDetailedPage id={id} />
+			<Footer />
+		</div>
+	);
 }
