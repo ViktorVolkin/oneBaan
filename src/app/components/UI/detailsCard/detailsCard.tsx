@@ -1,4 +1,4 @@
-import styles from "./detailsCard.module.css";
+import styles from "./DetailsCard.module.css";
 export interface DetailsCardProps {
 	className?: string;
 	title: string;
