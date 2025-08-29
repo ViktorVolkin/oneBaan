@@ -20,7 +20,7 @@ const nextConfig = {
 			},
 		],
 	},
-	webpack(config) {
+	webpack(config, { isServer }) {
 		config.module.rules.push({
 			test: /\.svg$/i,
 			oneOf: [
@@ -32,6 +32,13 @@ const nextConfig = {
 				{ type: "asset" },
 			],
 		});
+
+		if (!isServer) {
+			config.module.rules.push({
+				test: /\.stories\.(ts|tsx)$/,
+				loader: "ignore-loader",
+			});
+		}
 
 		return config;
 	},

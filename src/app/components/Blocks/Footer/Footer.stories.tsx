@@ -12,7 +12,9 @@ export default meta;
 type Story = StoryObj<typeof Footer>;
 
 const defaultProps: FooterProps = {
-	signForDistributionFn: () => alert("Subscribed!"),
+	signForDistributionFn: async () => {
+		alert("Subscribed!");
+	},
 	ourMission: { title: "footer.mission.title", text: "footer.mission.text" },
 	contacts: {
 		email: "footer.contacts.email",

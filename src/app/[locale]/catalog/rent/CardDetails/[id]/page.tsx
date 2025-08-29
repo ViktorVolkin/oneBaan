@@ -2,7 +2,7 @@ import styles from "./styles.module.css";
 import Footer from "@/app/components/Blocks/Footer";
 import Header from "@/app/components/Blocks/Header";
 import RentCardDetailed from "@/app/components/Pages/RentCardDetailed";
-type PageProps = { params: { id: string } };
+type PageProps = { params: Promise<{ id: string }> };
 
 export default async function Page({ params }: PageProps) {
 	const { id } = await params;
