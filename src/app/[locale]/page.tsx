@@ -1,6 +1,6 @@
-import MainPage from "@/app/сomponents/Pages/MainPage";
-import Header from "../сomponents/Blocks/Header";
-import Footer from "../сomponents/Blocks/Footer";
+import MainPage from "@/app/components/Pages/MainPage";
+import Header from "../components/Blocks/Header";
+import Footer from "../components/Blocks/Footer";
 export default async function Home({
 	searchParams,
 }: {

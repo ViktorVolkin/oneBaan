@@ -157,10 +157,6 @@
 		"condo": "Кондо",
 		"studio": "Студия"
 	},
-
-	"typesOfProperty": {
-		"studio": "Студия"
-	},
 	"favourites": {
 		"savedSearches": {
 			"sortBy": {
@@ -215,5 +211,28 @@
 		"distanceToSeaRent": "До моря",
 		"levels": "Число этажей",
 		"apartments": "Апартаментов"
+	},
+	"tag": {
+		"code": {
+			"verified": "Объект проверен",
+			"onlyOnOneBaan": "Только на OneBaan",
+			"beneficialPrice": "Выгодная цена",
+			"withFurniture": "С мебелью",
+			"withParking": "Парковка",
+			"readyForRent": "Готово для сдачи в аренду",
+			"formOfOwnership": "Форма собственности: Leasehold",
+			"guards": "Охрана",
+			"viewOnMountains": "Вид на горы",
+			"withPool": "Бассейн",
+			"withGym": "Фитнес-зал",
+			"withChildClub": "Детский клуб",
+			"reception": "Ресепшен",
+			"withCameras": "Видеонаблюдение",
+			"guardedWholeDay": "Охрана 24/7",
+			"withCoworking": "Коворкинг",
+			"accessByCard": "Доступ по карточкам",
+			"withRestaurant": "Ресторан",
+			"withGarden": "Сад для прогулок"
+		}
 	}
 }

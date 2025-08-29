@@ -1,0 +1,868 @@
+.catalog__container,
+.rent__catalog__container {
+	display: flex;
+	width: 100%;
+	flex-grow: 1;
+	flex-direction: column;
+	margin: 88px auto 32px auto;
+	max-width: 369px;
+	height: auto;
+}
+.desktop__sortBy {
+	display: none;
+}
+.mainRow__container {
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+}
+.desktopIconsDisplay__button_rent {
+	width: 44px;
+	height: 44px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #553c9a;
+	border: 0;
+	border-radius: 10px;
+}
+.displayIcon__active_rent {
+	background-color: #553c9a;
+	color: white;
+}
+.title__container {
+	display: flex;
+	width: 100%;
+	margin: 0 auto;
+	justify-content: space-between;
+}
+
+.catalog__breadcrumbs {
+	display: none;
+}
+.card__separator {
+	display: none;
+}
+
+.catalog__title {
+	width: 231px;
+	height: 36px;
+	font-weight: 700;
+	font-size: 16px;
+	color: #2d3748;
+	align-self: center;
+}
+
+.open__advancedFilters {
+	width: 112px;
+	height: 40px;
+	border-radius: 10px;
+	border: 1px solid #2d3748;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 15px;
+	font-weight: 600;
+	cursor: pointer;
+}
+.openFilters__image {
+	width: 20px;
+	height: 20px;
+	margin-right: 8px;
+}
+
+.advancedFilters {
+	display: none;
+}
+
+.filterSearch {
+}
+
+.catalog__selector {
+}
+
+.catalog__selector_location {
+}
+
+.optionsOfApartment {
+}
+
+.optionsPrices__container {
+}
+.optionsPrices__title {
+}
+.customSelectorsContainer {
+}
+
+.buttonsContainer {
+}
+.resetQueryButton {
+}
+.findOffers {
+}
+
+.desktopIconsSort__buttonContainer {
+	display: none;
+}
+.desktopIconsSort__button {
+}
+.desktopIconsDisplay__button {
+}
+.desktopSortIcon {
+}
+.displayIcon__active {
+}
+.pagination {
+	margin-top: 30px;
+	display: flex;
+	width: 100%;
+	justify-content: center;
+	align-items: center;
+	gap: 24px;
+	height: 50px;
+}
+.pagination__button {
+	height: 100%;
+	width: 50px;
+	border-radius: 50%;
+	border: 0;
+}
+.activePage {
+	background-color: #2d3748;
+	color: white;
+}
+.phoneFilterOptions {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+	margin-bottom: 16px;
+}
+.filterContainer {
+	display: flex;
+	gap: 8px;
+	height: 32px;
+	font-size: 14px;
+}
+.cards__container {
+}
+
+.card__sortBy {
+	margin-top: 16px;
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+}
+.sortByContainer {
+	display: flex;
+}
+.amountOfFoundOffers {
+	color: #a0aec0;
+}
+.sortByContainer {
+}
+.sortText {
+	display: none;
+}
+.select__phoneSortBy {
+	background: transparent !important	;
+	& > * {
+		background-color: inherit !important;
+		border: 0 !important;
+	}
+}
+.mainIconsPhone__container {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	height: 36px;
+	gap: 2px;
+}
+.mainIconsButton {
+	display: flex;
+	flex-grow: 1;
+	height: 100%;
+	justify-content: center;
+	align-items: center;
+	background-color: #71809614;
+	color: #718096;
+	font-size: 14px;
+	font-weight: 600;
+	border: none;
+	&:last-of-type {
+		border-bottom-right-radius: 10px;
+		border-top-right-radius: 10px;
+	}
+	&:first-of-type {
+		border-bottom-left-radius: 10px;
+		border-top-left-radius: 10px;
+	}
+}
+.activeMainIconPhone {
+	background-color: #7180963d;
+	color: #1a202c;
+}
+.cards__wrapper {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 16px;
+	justify-content: center;
+}
+
+/*STYLES FOR POPUP BELOW.*/
+.Popup__content {
+	width: 100%;
+	max-width: 345px;
+	margin: 0 auto;
+}
+
+.popup__title {
+	max-width: 90%;
+	font-size: 20px;
+	font-weight: 700;
+	color: #1a202c;
+	margin-bottom: 20px;
+}
+
+.filterSearchPopup {
+	width: 100%;
+	height: 44px;
+
+	padding: 6px 12px;
+	border-radius: 10px;
+	border-width: 1px;
+	margin-bottom: 36px;
+}
+
+.catalog__selectorPopup {
+	width: 100%;
+	height: 44px;
+	border-radius: 10px;
+	background-color: white;
+	border: 1px solid #7180963d;
+	margin-bottom: 16px;
+	align-self: baseline;
+	button {
+		height: 44px;
+	}
+
+	& * {
+		background-color: inherit !important;
+		border: 0 !important;
+		&::before {
+			background-color: inherit !important;
+			border: 0 !important;
+		}
+	}
+}
+
+.optionsOfApartmentPopup {
+	display: flex;
+	width: 100%;
+	gap: 4px;
+	align-items: center;
+}
+
+.optionsPrices__containerPopup {
+	display: flex;
+	flex-direction: column;
+}
+
+.optionsPrices__titlePopup {
+	font-size: 14px;
+	margin-top: 20px;
+	color: #718096;
+}
+
+.customSelectorsContainerPopup {
+	margin-top: 15px;
+	display: flex;
+	height: 44px;
+	align-items: center;
+	gap: 3px;
+	align-items: center;
+}
+.buttonsContainerPopup {
+	margin-top: 150px;
+	display: flex;
+	width: 100%;
+	height: 44px;
+	gap: 10px;
+	button {
+		border-radius: 10px;
+		border: 0;
+		display: flex;
+		flex-grow: 1;
+		align-items: center;
+		justify-content: center;
+	}
+}
+.sortContainerPopup {
+	margin-top: 20px;
+}
+.resetQueryButtonPopup {
+	background-color: #71809614;
+}
+
+.findOffersPopup {
+	background-color: #2d3748;
+	font-size: 14px;
+	font-weight: 600;
+	color: white;
+}
+.hidden {
+	display: none;
+}
+.tabletSearchBoxContainer {
+	display: none;
+}
+.cardButtonContainer__rent {
+	height: 52px;
+}
+@media (min-width: 768px) and (max-width: 1439.5px) {
+	.catalog__container {
+		display: flex;
+		width: 100%;
+		flex-grow: 1;
+		flex-direction: column;
+		margin: 88px auto 32px auto;
+		max-width: 798px;
+	}
+	.rent__catalog__container {
+		display: flex;
+		width: 100%;
+		flex-grow: 1;
+		flex-direction: column;
+		margin: 88px auto 32px auto;
+		max-width: 660px;
+	}
+
+	.mainRow__container {
+		display: flex;
+		flex-direction: column;
+		gap: 24px;
+	}
+
+	.title__container {
+		display: flex;
+		width: 100%;
+		margin: 0 auto;
+		justify-content: space-between;
+	}
+
+	.catalog__breadcrumbs {
+		display: none;
+	}
+	.card__separator {
+		display: none;
+	}
+
+	.catalog__title {
+		width: auto;
+		height: auto;
+		font-weight: 700;
+		font-size: 24px;
+		color: #2d3748;
+		align-self: center;
+	}
+
+	.open__advancedFilters {
+		width: 131px;
+		height: 40px;
+		border-radius: 10px;
+		border: 1px solid #2d3748;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-size: 18px;
+		font-weight: 500;
+	}
+	.openFilters__image {
+		width: 20px;
+		height: 20px;
+		margin-right: 8px;
+	}
+
+	.phoneFilterOptions {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+		margin-bottom: 16px;
+	}
+	.filterContainer {
+		width: 450px;
+		display: flex;
+		gap: 8px;
+		height: 32px;
+		font-size: 14px;
+	}
+	.tabletContainer {
+		display: flex;
+		width: 100%;
+		align-items: center;
+		justify-content: space-between;
+	}
+	.tabletContainer__rent {
+		display: flex;
+		flex-direction: column;
+		gap: 14px;
+	}
+	.card__sortBy {
+		display: flex;
+		justify-content: space-between;
+		margin: 0;
+		align-items: center;
+
+		& button {
+			padding-right: 0;
+		}
+	}
+	.sortByContainer {
+		display: flex;
+	}
+
+	.sortText {
+		display: none;
+	}
+	.select__phoneSortBy {
+		background: none;
+		& * {
+			background-color: inherit;
+			border: 0;
+		}
+	}
+	.mainIconsPhone__container {
+		display: flex;
+		justify-content: space-between;
+		width: 100%;
+		height: 36px;
+		gap: 2px;
+	}
+	.mainIconsButton {
+		display: flex;
+		flex-grow: 1;
+		height: 100%;
+		justify-content: center;
+		align-items: center;
+		background-color: #71809614;
+		color: #718096;
+		font-size: 14px;
+		font-weight: 600;
+		border: none;
+		&:last-of-type {
+			border-bottom-right-radius: 10px;
+			border-top-right-radius: 10px;
+		}
+		&:first-of-type {
+			border-bottom-left-radius: 10px;
+			border-top-left-radius: 10px;
+		}
+	}
+	.activeMainIconPhone {
+		background-color: #7180963d;
+		color: #1a202c;
+	}
+	.cards__wrapper {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 16px;
+		justify-content: center;
+		height: auto;
+	}
+	.tabletSearchBoxContainer {
+		display: block;
+		width: 100%;
+		min-height: 44px;
+		color: #f7f8f9;
+		border: 0;
+		border-radius: 10px;
+		.tabletSearchBox {
+			width: 100%;
+			min-height: 44px;
+			background-color: #f7f8f9;
+			border: 0;
+			border-radius: 10px;
+		}
+	}
+
+	/*STYLES FOR POPUP BELOW.*/
+	.Popup__content {
+		width: 100%;
+		max-width: 345px;
+		margin: 0 auto;
+	}
+
+	.popup__title {
+		max-width: 90%;
+		font-size: 20px;
+		font-weight: 700;
+		color: #1a202c;
+		margin-bottom: 20px;
+	}
+
+	.filterSearchPopup {
+		width: 100%;
+		height: 44px;
+
+		padding: 6px 12px;
+		border-radius: 10px;
+		border-width: 1px;
+		margin-bottom: 36px;
+	}
+
+	.catalog__selectorPopup {
+		width: 100%;
+		height: 44px;
+		border-radius: 10px;
+		background-color: white;
+		border: 1px solid #7180963d;
+		margin-bottom: 16px;
+		align-self: baseline;
+		button {
+			height: 44px;
+		}
+	}
+
+	.optionsOfApartmentPopup {
+		display: flex;
+		width: 100%;
+		gap: 4px;
+		align-items: center;
+	}
+
+	.optionsPrices__containerPopup {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.optionsPrices__titlePopup {
+		font-size: 14px;
+		margin-top: 20px;
+		color: #718096;
+	}
+
+	.customSelectorsContainerPopup {
+		margin-top: 15px;
+		display: flex;
+		height: 44px;
+		align-items: center;
+		gap: 3px;
+		align-items: center;
+	}
+	.buttonsContainerPopup {
+		margin-top: 150px;
+		display: flex;
+		width: 100%;
+		height: 44px;
+		gap: 10px;
+		button {
+			border-radius: 10px;
+			border: 0;
+			display: flex;
+			flex-grow: 1;
+			align-items: center;
+			justify-content: center;
+		}
+	}
+	.sortContainerPopup {
+		margin-top: 20px;
+	}
+	.resetQueryButtonPopup {
+		background-color: #71809614;
+	}
+
+	.findOffersPopup {
+		background-color: #2d3748;
+		font-size: 14px;
+		font-weight: 600;
+		color: white;
+	}
+	.hidden {
+		display: none;
+	}
+	.cardButtonContainer__rent {
+		height: 44px;
+	}
+}
+@media (min-width: 1440px) {
+	.catalog__container,
+	.rent__catalog__container {
+		display: flex;
+		width: 100%;
+		flex-grow: 1;
+		flex-direction: column;
+		margin: 166px auto 32px auto;
+		max-width: 1200px;
+		position: relative;
+	}
+
+	.mainRow__container {
+		display: flex;
+		flex-direction: row;
+		gap: 0;
+	}
+
+	.title__container {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		margin: 0 auto;
+		justify-content: space-between;
+		gap: 9px;
+	}
+
+	.catalog__breadcrumbs {
+		display: block;
+		* {
+			text-decoration: none;
+			color: #718096;
+			font-size: 16px;
+		}
+	}
+	.card__separator {
+		display: inline;
+		margin: 0 4px;
+	}
+
+	.catalog__title {
+		width: 100%;
+		height: 28px;
+		font-weight: 700;
+		font-size: 30px;
+		color: #2d3748;
+		align-self: center;
+	}
+
+	.open__advancedFilters {
+		display: none;
+	}
+	.openFilters__image {
+		display: none;
+	}
+
+	.advancedFilters {
+		display: block;
+		position: absolute;
+		padding: 24px 20px;
+		width: 340px;
+		height: 500px;
+		display: flex;
+		flex-direction: column;
+		left: 0;
+		top: 82px;
+		background-color: #7180960f;
+		border-radius: 16px;
+	}
+	.rent__advancedFilters {
+		width: 380px;
+	}
+
+	.filterSearch {
+		width: 100%;
+		height: 44px;
+		background-color: white;
+		border-radius: 10px;
+		padding-left: 12px;
+		border: 1px solid #7180963d;
+	}
+
+	.catalog__selector {
+		width: 100%;
+		min-height: 42px;
+		margin-bottom: 16px;
+		border-radius: 10px;
+		border: 1px solid #7180963d;
+		background-color: #ffffff !important;
+		& * {
+			background-color: #ffffff !important;
+			border: 0 !important;
+			&::before {
+				background-color: #ffffff !important;
+				border: 0 !important;
+			}
+		}
+	}
+	.catalog__selector_location {
+		margin-top: 36px;
+	}
+
+	.optionsOfApartment {
+		display: flex;
+		gap: 8px;
+	}
+
+	.optionsPrices__container {
+		display: flex;
+		flex-direction: column;
+		height: 64px;
+	}
+	.optionsPrices__title {
+		margin-bottom: 6px;
+		color: #a0aec0;
+		font-size: 14px;
+	}
+	.customSelectorsContainer {
+		display: flex;
+		gap: 10px;
+	}
+
+	.buttonsContainer {
+		display: flex;
+		gap: 10px;
+		margin-top: 91px;
+	}
+	.resetQueryButton {
+		display: flex;
+		flex-grow: 1;
+		justify-content: center;
+		align-items: center;
+		background-color: #71809614;
+		border-radius: 10px;
+		color: #2d3748;
+		font-size: 16px;
+		border: 0;
+		height: 44px;
+	}
+	.findOffers {
+		display: flex;
+		flex-grow: 1;
+		justify-content: center;
+		align-items: center;
+		background-color: #2d3748;
+		color: white;
+		font-size: 16px;
+		border-radius: 10px;
+		border: 0;
+		height: 44px;
+	}
+
+	.desktopIconsSort__buttonContainer {
+		display: block;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 44px;
+		width: 203px;
+		gap: 9px;
+		align-self: last baseline;
+	}
+	.desktopIconsSort__button {
+		display: flex;
+		width: 44px;
+		height: 44px;
+		justify-content: center;
+		align-items: center;
+		border-radius: 10px;
+		border: 0;
+	}
+	.desktopIconsDisplay__button {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 44px;
+		height: 44px;
+		border-radius: 10px;
+		border: 0;
+	}
+	.desktopSortIcon {
+		width: 20px;
+		height: 20px;
+		color: #2d3748;
+	}
+	.displayIcon__active {
+		color: white;
+		background-color: #2d3748;
+	}
+
+	.phoneFilterOptions {
+		display: none;
+	}
+	.filterContainer {
+		display: none;
+	}
+	.cards__container {
+		display: flex;
+		flex-direction: column;
+		margin: 32px 0 0 auto;
+		width: 792px;
+	}
+	.desktop__sortBy {
+		display: flex;
+		width: 100%;
+		justify-content: space-between;
+		align-items: center;
+		padding: 0 12px;
+		margin-bottom: 10px;
+	}
+	.desktop__sortByText {
+		color: #718096;
+		font-size: 14px;
+	}
+	.desktop__sortBySelector {
+		width: 151px;
+		background-color: transparent !important;
+		& > * {
+			background-color: transparent !important;
+			border: 0 !important;
+		}
+	}
+	.desktop__sortByContainer {
+		display: flex;
+		gap: 10px;
+		width: 260px;
+		align-items: center;
+	}
+	.desktop__sortText {
+		color: #a0aec0;
+	}
+	.card__sortBy {
+		display: none;
+	}
+	.sortByContainer {
+		display: none;
+	}
+	.amountOfFoundOffers {
+		display: none;
+	}
+
+	.sortText {
+		display: none;
+	}
+	.select__phoneSortBy {
+		display: none;
+	}
+	.mainIconsPhone__container {
+		display: none;
+	}
+	.mainIconsButton {
+		display: none;
+	}
+	.activeMainIconPhone {
+		display: none;
+	}
+	.cards__wrapper {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 16px;
+		justify-content: center;
+	}
+
+	.Popup__content {
+		display: none;
+	}
+	.tabletSearchBoxContainer {
+		display: none;
+	}
+	.rent__advancedFilters .catalog__selector {
+		background-color: white;
+	}
+	.cardButtonContainer__rent {
+		height: 68px;
+	}
+}
+.rentColor {
+	background-color: #553c9a;
+	color: white;
+}
+.cardButtonContainer {
+	height: 52px;
+}

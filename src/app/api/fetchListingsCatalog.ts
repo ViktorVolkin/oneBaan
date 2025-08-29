@@ -77,14 +77,17 @@ export async function fetchListingsPage(
 	const transformedItems = data.items.map((item) => ({
 		...item,
 		stats: item.stats,
-		tags: item.tags.map((tag: any) => ({
-			label: tag.label,
-			color: tag.color,
-			svgIconComponent:
-				TAG_CODES_CONSTANT[
-					tag.code as keyof typeof TAG_CODES_CONSTANT
-				] || null,
-		})),
+		tags: item.tags.map((tag: any) => {
+			const tagConstant =
+				TAG_CODES_CONSTANT[tag.code as keyof typeof TAG_CODES_CONSTANT];
+			return {
+				label: tagConstant?.label,
+				icon: tagConstant?.icon,
+				bgColor: tagConstant?.bgColor,
+				borderColor: tagConstant?.borderColor,
+				textColor: tagConstant?.textColor,
+			};
+		}),
 	}));
 
 	return {

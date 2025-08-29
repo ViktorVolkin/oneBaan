@@ -25,7 +25,6 @@ export const sellCatalogListingCards: CatalogItem[] = [
 				translations: { en: "Phuket", ru: "Пхукет" },
 			},
 		],
-		isLiked: false,
 		ageDays: 5,
 		translations: {
 			en: {
@@ -40,13 +39,9 @@ export const sellCatalogListingCards: CatalogItem[] = [
 		tags: [
 			{
 				code: "object_verified",
-				color: "#10B981",
-				translations: { en: "Verified", ru: "Проверено" },
 			},
 			{
 				code: "beneficial_price",
-				color: "#3B82F6",
-				translations: { en: "Best price", ru: "Выгодно" },
 			},
 		],
 	},
@@ -60,6 +55,7 @@ export const sellCatalogListingCards: CatalogItem[] = [
 			amountOfBaths: 3,
 			area: 130,
 		},
+		ageDays: 5,
 		agentLogo: "/agent-logo.svg",
 		contactWhatsApp: { path: "https://wa.me/66612345678" },
 		contactWithSalesman: { path: "tel:+66612345678" },
@@ -74,8 +70,6 @@ export const sellCatalogListingCards: CatalogItem[] = [
 				translations: { en: "Karon", ru: "Карон" },
 			},
 		],
-		isLiked: true,
-		ageDays: 2,
 		translations: {
 			en: {
 				cardDescription: "Sea-view villa in Karon, 3 bedrooms",
@@ -89,13 +83,9 @@ export const sellCatalogListingCards: CatalogItem[] = [
 		tags: [
 			{
 				code: "with_furniture",
-				color: "#10B981",
-				translations: { en: "Furnished", ru: "С мебелью" },
 			},
 			{
 				code: "only_on_oneBaan",
-				color: "#3B82F6",
-				translations: { en: "Exclusive", ru: "Эксклюзив" },
 			},
 		],
 	},
@@ -123,7 +113,6 @@ export const sellCatalogListingCards: CatalogItem[] = [
 				translations: { en: "Kamala", ru: "Камала" },
 			},
 		],
-		isLiked: false,
 		ageDays: 7,
 		translations: {
 			en: {
@@ -138,13 +127,9 @@ export const sellCatalogListingCards: CatalogItem[] = [
 		tags: [
 			{
 				code: "object_verified",
-				color: "#10B981",
-				translations: { en: "Verified", ru: "Проверено" },
 			},
 			{
 				code: "with_furniture",
-				color: "#3B82F6",
-				translations: { en: "Furnished", ru: "С мебелью" },
 			},
 		],
 	},
@@ -172,7 +157,6 @@ export const sellCatalogListingCards: CatalogItem[] = [
 				translations: { en: "Patong", ru: "Патонг" },
 			},
 		],
-		isLiked: true,
 		ageDays: 1,
 		translations: {
 			en: {
@@ -187,13 +171,9 @@ export const sellCatalogListingCards: CatalogItem[] = [
 		tags: [
 			{
 				code: "beneficial_price",
-				color: "#10B981",
-				translations: { en: "Best price", ru: "Выгодно" },
 			},
 			{
 				code: "only_on_oneBaan",
-				color: "#3B82F6",
-				translations: { en: "Exclusive", ru: "Эксклюзив" },
 			},
 		],
 	},
@@ -221,7 +201,6 @@ export const sellCatalogListingCards: CatalogItem[] = [
 				translations: { en: "Rawai", ru: "Раваи" },
 			},
 		],
-		isLiked: false,
 		ageDays: 9,
 		translations: {
 			en: {
@@ -236,13 +215,9 @@ export const sellCatalogListingCards: CatalogItem[] = [
 		tags: [
 			{
 				code: "object_verified",
-				color: "#10B981",
-				translations: { en: "Verified", ru: "Проверено" },
 			},
 			{
 				code: "with_furniture",
-				color: "#3B82F6",
-				translations: { en: "Furnished", ru: "С мебелью" },
 			},
 		],
 	},
@@ -270,7 +245,6 @@ export const sellCatalogListingCards: CatalogItem[] = [
 				translations: { en: "Bang Tao", ru: "Банг Тао" },
 			},
 		],
-		isLiked: true,
 		ageDays: 3,
 		translations: {
 			en: {
@@ -285,13 +259,9 @@ export const sellCatalogListingCards: CatalogItem[] = [
 		tags: [
 			{
 				code: "beneficial_price",
-				color: "#10B981",
-				translations: { en: "Best price", ru: "Выгодно" },
 			},
 			{
 				code: "with_furniture",
-				color: "#3B82F6",
-				translations: { en: "Furnished", ru: "С мебелью" },
 			},
 		],
 	},
@@ -319,7 +289,6 @@ export const sellCatalogListingCards: CatalogItem[] = [
 				translations: { en: "Surin", ru: "Сурин" },
 			},
 		],
-		isLiked: false,
 		ageDays: 0,
 		translations: {
 			en: {
@@ -334,13 +303,9 @@ export const sellCatalogListingCards: CatalogItem[] = [
 		tags: [
 			{
 				code: "object_verified",
-				color: "#10B981",
-				translations: { en: "Verified", ru: "Проверено" },
 			},
 			{
 				code: "only_on_oneBaan",
-				color: "#3B82F6",
-				translations: { en: "Exclusive", ru: "Эксклюзив" },
 			},
 		],
 	},
@@ -368,7 +333,6 @@ export const sellCatalogListingCards: CatalogItem[] = [
 				translations: { en: "Chalong", ru: "Чалонг" },
 			},
 		],
-		isLiked: true,
 		ageDays: 4,
 		translations: {
 			en: {
@@ -383,13 +347,9 @@ export const sellCatalogListingCards: CatalogItem[] = [
 		tags: [
 			{
 				code: "with_furniture",
-				color: "#10B981",
-				translations: { en: "Furnished", ru: "С мебелью" },
 			},
 			{
 				code: "beneficial_price",
-				color: "#3B82F6",
-				translations: { en: "Best price", ru: "Выгодно" },
 			},
 		],
 	},
@@ -417,7 +377,6 @@ export const sellCatalogListingCards: CatalogItem[] = [
 				translations: { en: "Phuket Town", ru: "Пхукет-Таун" },
 			},
 		],
-		isLiked: false,
 		ageDays: 6,
 		translations: {
 			en: {
@@ -432,8 +391,6 @@ export const sellCatalogListingCards: CatalogItem[] = [
 		tags: [
 			{
 				code: "beneficial_price",
-				color: "#10B981",
-				translations: { en: "Best price", ru: "Выгодно" },
 			},
 		],
 	},
@@ -461,7 +418,6 @@ export const sellCatalogListingCards: CatalogItem[] = [
 				translations: { en: "Nai Harn", ru: "Най Харн" },
 			},
 		],
-		isLiked: true,
 		ageDays: 8,
 		translations: {
 			en: {
@@ -476,13 +432,9 @@ export const sellCatalogListingCards: CatalogItem[] = [
 		tags: [
 			{
 				code: "object_verified",
-				color: "#10B981",
-				translations: { en: "Verified", ru: "Проверено" },
 			},
 			{
 				code: "only_on_oneBaan",
-				color: "#3B82F6",
-				translations: { en: "Exclusive", ru: "Эксклюзив" },
 			},
 		],
 	},
@@ -510,7 +462,6 @@ export const sellCatalogListingCards: CatalogItem[] = [
 				translations: { en: "Mai Khao", ru: "Май Као" },
 			},
 		],
-		isLiked: false,
 		ageDays: 10,
 		translations: {
 			en: {
@@ -525,8 +476,6 @@ export const sellCatalogListingCards: CatalogItem[] = [
 		tags: [
 			{
 				code: "beneficial_price",
-				color: "#10B981",
-				translations: { en: "Best price", ru: "Выгодно" },
 			},
 		],
 	},
@@ -554,7 +503,6 @@ export const sellCatalogListingCards: CatalogItem[] = [
 				translations: { en: "Laguna", ru: "Лагуна" },
 			},
 		],
-		isLiked: true,
 		ageDays: 11,
 		translations: {
 			en: {
@@ -569,8 +517,6 @@ export const sellCatalogListingCards: CatalogItem[] = [
 		tags: [
 			{
 				code: "with_furniture",
-				color: "#10B981",
-				translations: { en: "Furnished", ru: "С мебелью" },
 			},
 		],
 	},
@@ -598,7 +544,6 @@ export const sellCatalogListingCards: CatalogItem[] = [
 				translations: { en: "Thalang", ru: "Таланг" },
 			},
 		],
-		isLiked: false,
 		ageDays: 12,
 		translations: {
 			en: {
@@ -613,8 +558,6 @@ export const sellCatalogListingCards: CatalogItem[] = [
 		tags: [
 			{
 				code: "object_verified",
-				color: "#10B981",
-				translations: { en: "Verified", ru: "Проверено" },
 			},
 		],
 	},
@@ -642,7 +585,6 @@ export const sellCatalogListingCards: CatalogItem[] = [
 				translations: { en: "Cape Panwa", ru: "Кейп Панва" },
 			},
 		],
-		isLiked: true,
 		ageDays: 4,
 		translations: {
 			en: {
@@ -657,8 +599,6 @@ export const sellCatalogListingCards: CatalogItem[] = [
 		tags: [
 			{
 				code: "only_on_oneBaan",
-				color: "#3B82F6",
-				translations: { en: "Exclusive", ru: "Эксклюзив" },
 			},
 		],
 	},

@@ -1,4 +1,4 @@
-import SellCardDetailedPage from "@/app/сomponents/Pages/SellCardDetailed";
+import SellCardDetailedPage from "@/app/components/Pages/SellCardDetailed";
 type PageProps = { params: { id: string } };
 
 export default async function Page({ params }: PageProps) {

@@ -3,7 +3,6 @@ import Check from "@/../public/BiCheckCircle.svg?component";
 import Logo from "@/../public/logoSmall.svg?component";
 import BenificialPrice from "@/../public/BiDollar.svg?component";
 import WithFurniture from "@/../public/MdOutlineChair.svg?component";
-
 import BiCar from "@/../public/iconTags/BiCar.svg?component";
 import BiCctv from "@/../public/iconTags/BiCctv.svg?component";
 import BiCheckShield from "@/../public/iconTags/BiCheckShield.svg?component";
@@ -19,7 +18,7 @@ import MdFitnessCenter from "@/../public/iconTags/MdFitnessCenter.svg?component"
 import MdHowToReg from "@/../public/iconTags/MdHowToReg.svg?component";
 import MdOutlineBusiness from "@/../public/iconTags/MdOutlineBusiness.svg?component";
 import MdOutlineGrass from "@/../public/iconTags/MdOutlineGrass.svg?component";
-
+import { CardTagProps } from "../types/CardTags.types";
 export const NAVIGATION_CONSTANTS = {
 	BURGER_OPTIONS: [
 		{ leadsTo: "/", text: "header.home" },
@@ -72,7 +71,7 @@ export const CATALOG_FILTER_OPTIONS_DEFAULT = {
 	],
 
 	optionsBedrooms: [
-		{ label: "typesOfProperty.studio", value: "0" },
+		{ label: "typesofProperty.studio", value: "0" },
 		{ label: "1", value: "1" },
 		{ label: "2", value: "2" },
 		{ label: "3", value: "3" },
@@ -117,24 +116,90 @@ export const CATALOG_FILTER_OPTIONS_DEFAULT = {
 	],
 };
 
-export const TAG_CODES_CONSTANT = {
-	object_verified: Check,
-	only_on_oneBaan: Logo,
-	beneficial_price: BenificialPrice,
-	with_furniture: WithFurniture,
-	with_parking: BiCar,
-	ready_for_rent: BiKey,
-	form_of_ownership: MdOutlineBusiness,
-	guards: BiShield,
-	view_on_mountains: BiLandscape,
-	with_pool: BiSwim,
-	with_gym: MdFitnessCenter,
-	with_child_club: MdChildCare,
-	reception: MdHowToReg,
-	with_cameras: BiCctv,
-	guarded_whole_day: BiCheckShield,
-	with_coworking: BiLaptop,
-	access_by_card: BiLock,
-	with_restaurant: BiRestaurant,
-	with_garden: MdOutlineGrass,
+export const TAG_CODES_CONSTANT: Record<string, CardTagProps> = {
+	object_verified: {
+		icon: Check,
+		label: "tag.code.verified",
+		bgColor: "#F0FFF4",
+		borderColor: "#C6F6D5",
+		textColor: "#38A169",
+	},
+	only_on_oneBaan: {
+		icon: Logo,
+		label: "tag.code.onlyOnOneBaan",
+		bgColor: "#EBF8FF",
+		borderColor: "#BEE3F8",
+		textColor: "#2C5282",
+	},
+	beneficial_price: {
+		icon: BenificialPrice,
+		label: "tag.code.beneficialPrice",
+		bgColor: "#FFFAF0",
+		borderColor: "#FEEBCB",
+		textColor: "#C05621",
+	},
+	with_furniture: {
+		icon: WithFurniture,
+		label: "tag.code.withFurniture",
+		bgColor: "#71809614",
+		borderColor: "#71809614",
+		textColor: "#2D3748",
+	},
+	with_parking: {
+		icon: BiCar,
+		label: "tag.code.withParking",
+	},
+	ready_for_rent: {
+		icon: BiKey,
+		label: "tag.code.readyForRent",
+	},
+	form_of_ownership: {
+		icon: MdOutlineBusiness,
+		label: "tag.code.formOfOwnership",
+	},
+	guards: { icon: BiShield, label: "tag.code.guards" },
+	view_on_mountains: {
+		icon: BiLandscape,
+		label: "tag.code.viewOnMountains",
+	},
+	with_pool: {
+		icon: BiSwim,
+		label: "tag.code.withPool",
+	},
+	with_gym: {
+		icon: MdFitnessCenter,
+		label: "tag.code.withGym",
+	},
+	with_child_club: {
+		icon: MdChildCare,
+		label: "tag.code.withChildClub",
+	},
+	reception: {
+		icon: MdHowToReg,
+		label: "tag.code.reception",
+	},
+	with_cameras: {
+		icon: BiCctv,
+		label: "tag.code.withCameras",
+	},
+	guarded_whole_day: {
+		icon: BiCheckShield,
+		label: "tag.code.guardedWholeDay",
+	},
+	with_coworking: {
+		icon: BiLaptop,
+		label: "tag.code.withCoworking",
+	},
+	access_by_card: {
+		icon: BiLock,
+		label: "tag.code.accessByCard",
+	},
+	with_restaurant: {
+		icon: BiRestaurant,
+		label: "tag.code.withRestaurant",
+	},
+	with_garden: {
+		icon: MdOutlineGrass,
+		label: "tag.code.withGarden",
+	},
 };

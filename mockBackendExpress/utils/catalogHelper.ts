@@ -39,12 +39,10 @@ const localizeBreadcrumbs = (
 
 const localizeTags = (
 	arr: ApiTag[],
-	locale: Locale
-): { code: ApiTag["code"]; color: string; label: string }[] =>
+	_locale: Locale
+): { code: ApiTag["code"] }[] =>
 	arr.map((t) => ({
 		code: t.code,
-		color: t.color,
-		label: pickLocale(t.translations, locale),
 	}));
 
 const toNum = (v: unknown) => {
@@ -140,9 +138,7 @@ export function makeCatalogHandler(data: CatalogItem[]) {
 				case "oldest":
 					list.sort((a, b) => b.ageDays - a.ageDays);
 					break;
-				case "popular":
-					list.sort((a, b) => Number(b.isLiked) - Number(a.isLiked));
-					break;
+				// "popular" сортировка убрана, т.к. isLiked больше не используется
 			}
 
 			const total = list.length;
@@ -169,7 +165,6 @@ export function makeCatalogHandler(data: CatalogItem[]) {
 					contactWithSalesman: c.contactWithSalesman,
 					whenPosted: whenPostedLabelFromAge(c.ageDays, q.locale),
 					breadcrumbs: localizeBreadcrumbs(c.breadcrumbs, q.locale),
-					isLiked: c.isLiked,
 				};
 			});
 

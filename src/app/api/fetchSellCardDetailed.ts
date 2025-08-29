@@ -43,32 +43,32 @@ export async function fetchSellCardDetailedPage(
 	}
 	const data = await res.json();
 
-	function mapTags(tags: any[] = []) {
-		return tags.map((tag) => ({
-			...tag,
-			svgIconComponent:
-				TAG_CODES_CONSTANT[
-					tag.code as keyof typeof TAG_CODES_CONSTANT
-				] || null,
-		}));
+	function normalizeTags(tags: any[] = []) {
+		return tags
+			.map((t) => (typeof t === "string" ? t : t?.code))
+			.filter(Boolean)
+			.map((code: string) => {
+				const meta = TAG_CODES_CONSTANT[code];
+				return meta ?? { label: code };
+			});
 	}
 
-	if (data.tagsSell) data.tagsSell.tags = mapTags(data.tagsSell.tags);
+	if (data.tagsSell) data.tagsSell.tags = normalizeTags(data.tagsSell.tags);
 	if (data.tagsDetailed)
-		data.tagsDetailed.tags = mapTags(data.tagsDetailed.tags);
-	if (data.complex) data.complex.tags = mapTags(data.complex.tags);
+		data.tagsDetailed.tags = normalizeTags(data.tagsDetailed.tags);
+	if (data.complex) data.complex.tags = normalizeTags(data.complex.tags);
 	if (data.moreFromComplex && Array.isArray(data.moreFromComplex.cards)) {
 		data.moreFromComplex.cards = data.moreFromComplex.cards.map(
 			(card: any) => ({
 				...card,
-				tags: mapTags(card.tags),
+				tags: normalizeTags(card.tags),
 			})
 		);
 	}
 	if (data.similar && Array.isArray(data.similar.cards)) {
 		data.similar.cards = data.similar.cards.map((card: any) => ({
 			...card,
-			tags: mapTags(card.tags),
+			tags: normalizeTags(card.tags),
 		}));
 	}
 

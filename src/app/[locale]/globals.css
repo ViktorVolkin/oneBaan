@@ -1,0 +1,41 @@
+*,
+footer,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html,
+body {
+	height: max-content;
+	display: flex;
+	flex-direction: column;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+	display: block;
+	max-width: 100%;
+	user-select: none;
+}
+
+input,
+button,
+textarea,
+select,
+a {
+	font: inherit;
+	user-select: none;
+	cursor: pointer;
+}
+.swiper-pagination-bullet {
+	background-color: #fff !important;
+}
+.swiper-pagination-bullet-active {
+	scale: 1.25 !important;
+}

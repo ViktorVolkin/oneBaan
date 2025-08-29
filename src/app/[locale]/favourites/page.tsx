@@ -1,6 +1,6 @@
-import Footer from "@/app/сomponents/Blocks/Footer";
-import Header from "@/app/сomponents/Blocks/Header/Header";
-import FavouritesPage from "@/app/сomponents/Pages/FavouritesPage/FavouritesPage";
+import Footer from "@/app/components/Blocks/Footer";
+import Header from "@/app/components/Blocks/Header/Header";
+import FavouritesPage from "@/app/components/Pages/FavouritesPage/FavouritesPage";
 
 export default function Page() {
 	return (

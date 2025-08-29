@@ -85,37 +85,29 @@ export const RENT_CARD_DETAILED_MOCKS: Record<string, RentListingDetailsDTO> = {
 			amountOfApartments: "123",
 		},
 		tagsSell: {
-			tags: [{ code: "with_parking", label: "Парковка", color: "green" }],
+			tags: [{ code: "with_parking" }],
 		},
 		offerFeatureText:
 			"Комплекс в шаговой доступности от моря; возможно полное обслуживание на ресепшене. Угловая квартира — больше света и меньше соседей.",
 		tagsDetailed: {
 			tags: [
-				{ code: "with_pool", label: "Бассейн", color: "#44337A" },
+				{ code: "with_pool" },
 				{
 					code: "view_on_mountains",
-					label: "Вид на горы",
-					color: "#44337A",
 				},
 
-				{ code: "with_gym", label: "Фитнес", color: "#44337A" },
-				{ code: "guards", label: "Охрана 24/7", color: "#44337A" },
+				{ code: "with_gym" },
+				{ code: "guards" },
 				{
 					code: "with_child_club",
-					label: "Детская зона",
-					color: "#44337A",
 				},
 				{
 					code: "with_coworking",
-					label: "Коворкинг",
-					color: "#44337A",
 				},
 				{
 					code: "with_restaurant",
-					label: "Ресторан",
-					color: "#44337A",
 				},
-				{ code: "with_garden", label: "Сад", color: "#44337A" },
+				{ code: "with_garden" },
 			],
 		},
 		detailsOnOneBaan: { daysOnOneBaan: 12, amountOfViews: 14 },
@@ -150,23 +142,15 @@ export const RENT_CARD_DETAILED_MOCKS: Record<string, RentListingDetailsDTO> = {
 					tags: [
 						{
 							code: "with_furniture",
-							label: "С мебелью",
-							color: "green",
 						},
 						{
 							code: "with_furniture",
-							label: "С мебелью",
-							color: "green",
 						},
 						{
 							code: "with_furniture",
-							label: "С мебелью",
-							color: "green",
 						},
 						{
 							code: "with_furniture",
-							label: "С мебелью",
-							color: "green",
 						},
 					],
 					contactWhatsApp: { path: "" },
@@ -253,9 +237,7 @@ export const RENT_CARD_DETAILED_MOCKS: Record<string, RentListingDetailsDTO> = {
 					details: "Ресторан и детская зона",
 					cardDescription: "Описание карточки 6",
 					agentLogo: "/agent-logo.svg",
-					tags: [
-						{ code: "with_garden", label: "Сад", color: "green" },
-					],
+					tags: [{ code: "with_garden" }],
 					contactWhatsApp: { path: "" },
 					contactWithSalesman: { path: "" },
 					whenPosted: "Сегодня",
@@ -272,10 +254,7 @@ export const RENT_CARD_DETAILED_MOCKS: Record<string, RentListingDetailsDTO> = {
 					details: "Коворкинг и фитнес",
 					cardDescription: "Описание карточки 7",
 					agentLogo: "/agent-logo.svg",
-					tags: [
-						{ code: "with_pool", label: "Бассейн", color: "green" },
-						{ code: "with_gym", label: "Фитнес", color: "green" },
-					],
+					tags: [{ code: "with_pool" }, { code: "with_gym" }],
 					contactWhatsApp: { path: "" },
 					contactWithSalesman: { path: "" },
 					whenPosted: "Вчера",

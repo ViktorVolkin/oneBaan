@@ -1,0 +1,294 @@
+.card__container,
+.card__container__sell {
+	display: flex;
+	flex-direction: row;
+	border: 1px solid #71809614;
+	border-radius: 10px;
+	overflow: hidden;
+	box-shadow: 0px 4px 10px 2px #0000001a;
+	background: #71809614;
+	transition: box-shadow 0.2s ease;
+	width: 100%;
+	max-width: 370px;
+	min-width: 320px;
+	height: 130px;
+}
+
+.card__image {
+	width: clamp(100px, 25vw, 120px);
+	height: 100%;
+	img {
+		width: 100%;
+		height: 100%;
+	}
+}
+
+.card__info {
+	flex: 1;
+	padding: 0 12px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	max-width: 168px;
+	white-space: nowrap;
+	flex-wrap: nowrap;
+}
+
+.card__price {
+	font-size: 1.2rem;
+	font-weight: 700;
+	margin: 0;
+}
+
+.card__price_per_meter {
+	font-size: 0.8rem;
+	color: #718096;
+	margin: 4px 0 12px 0;
+}
+
+.card__details {
+	font-size: 0.9rem;
+	color: #777;
+	margin-top: auto;
+	max-width: 100%;
+	min-width: 0;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+.icons__container {
+	justify-self: flex-end;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px 10px 10px 0;
+	margin-right: 0;
+	box-sizing: border-box;
+}
+
+.icon__container {
+	width: 30px;
+	height: 30px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: 0;
+	background-color: #71809614;
+	border-radius: 50%;
+}
+.icon__container:last-of-type {
+	background-color: transparent;
+}
+.icon__container:first-of-type .icon {
+	width: 22px;
+	height: 22px;
+}
+.icon__container:last-of-type .icon {
+	width: 30px;
+	height: 30px;
+}
+
+.icon {
+	width: 16px;
+	height: 16px;
+	cursor: pointer;
+	transition: transform 0.2s ease;
+	align-self: center;
+}
+.icon:hover {
+	transform: scale(1.1);
+}
+.hidden {
+	display: none;
+}
+.offer__conditions {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	gap: 6px;
+	min-width: 0;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	max-width: 175px;
+}
+
+.data__container {
+	display: flex;
+	flex-grow: 1;
+	justify-content: space-between;
+}
+.SellCardWrapper {
+	display: none;
+}
+
+.IconRow {
+	display: none !important;
+}
+.IconRowPhone {
+	display: flex !important;
+}
+.SellCardWrapper {
+	display: none;
+	width: 282px;
+}
+
+.buttonContainer {
+	height: 36px;
+}
+@media (min-width: 768px) and (max-width: 1439.9px) {
+	.IconRow {
+		display: flex !important;
+		width: max-content !important;
+	}
+	.card__container__sell {
+		display: none;
+	}
+	.IconRowPhone {
+		display: none !important;
+	}
+	.SellCardWrapper {
+		display: block;
+	}
+
+	.card__container {
+		width: 322px;
+		height: 342px;
+		flex-direction: column;
+	}
+
+	.card__image {
+		width: 100%;
+		height: 200px;
+	}
+
+	.data__container {
+		display: flex;
+		height: 100%;
+		justify-content: space-between;
+		flex-wrap: nowrap;
+		overflow: visible;
+	}
+
+	.card__info {
+		flex-direction: column;
+		width: 240px;
+		flex-wrap: nowrap;
+		max-width: none;
+	}
+
+	.card__price {
+		font-size: 24px;
+		color: #000000;
+	}
+
+	.icons__container {
+		justify-content: space-between;
+		height: 100%;
+		padding: 16px;
+	}
+
+	.icon__container {
+		width: 34px;
+		height: 34px;
+	}
+	.icon__container:first-of-type .icon {
+		width: 26px;
+		height: 26px;
+	}
+	.icon__container:last-of-type .icon {
+		width: 34px;
+		height: 34px;
+	}
+	.offer__conditions {
+		max-width: none;
+		width: max-content;
+	}
+	.icon {
+		width: 20px;
+		height: 20px;
+		cursor: pointer;
+		transition: transform 0.2s ease;
+		align-self: center;
+	}
+	.SellCardWrapper {
+		display: block;
+	}
+}
+
+@media (min-width: 1440px) {
+	.IconRow {
+		display: flex !important;
+		width: max-content !important;
+	}
+	.card__container__sell {
+		display: none;
+	}
+	.SellCardWrapper {
+		display: block;
+	}
+	.IconRowPhone {
+		display: none !important;
+	}
+	.offer__conditions {
+		max-width: none;
+		width: max-content;
+	}
+	.card__container {
+		width: 385px;
+		height: 350px;
+		flex-direction: column;
+	}
+
+	.card__image {
+		width: 100%;
+		height: 200px;
+	}
+
+	.data__container {
+		display: flex;
+		height: 100%;
+		justify-content: space-between;
+	}
+
+	.card__info {
+		flex-direction: column;
+		max-width: 385px;
+	}
+
+	.card__price {
+		font-size: 28px;
+		color: #000000;
+		font-weight: 700;
+	}
+
+	.icons__container {
+		justify-content: space-around;
+		height: 100%;
+		padding: 20px;
+	}
+
+	.icon__container {
+		width: 34px;
+		height: 34px;
+	}
+	.icon__container:first-of-type .icon {
+		width: 26px;
+		height: 26px;
+	}
+	.icon__container:last-of-type .icon {
+		width: 34px;
+		height: 34px;
+	}
+
+	.icon {
+		width: 20px;
+		height: 20px;
+		cursor: pointer;
+		transition: transform 0.2s ease;
+		align-self: center;
+	}
+	.SellCardWrapper {
+		display: block;
+	}
+}

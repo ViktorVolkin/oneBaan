@@ -1,6 +1,6 @@
-import SellApartmentsCatalog from "@/app/сomponents/Pages/SellApartmentsCatalog";
+import SellApartmentsCatalog from "@/app/components/Pages/SellApartmentsCatalog";
 import { CATALOG_FILTER_OPTIONS_DEFAULT } from "@/app/constants/common";
-import Footer from "@/app/сomponents/Blocks/Footer";
+import Footer from "@/app/components/Blocks/Footer";
 
 export default function Page() {
 	return (

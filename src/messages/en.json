@@ -1,67 +1,238 @@
 {
 	"header": {
-		"home": "Home",
-		"catalog": "Real Estate Catalog",
-		"sell": "Want to sell?",
-		"agents": "For Agents"
+		"home": "Главная",
+		"catalog": "Каталог недвижимости",
+		"sell": "Хотите продать?",
+		"agents": "Для агентов",
+		"catalogPlaceholder": "Район или Проект"
 	},
 	"footer": {
 		"mission": {
-			"title": "Mission",
-			"text": "Our mission is to make the secondary real estate market accessible and safe"
+			"title": "Миссия",
+			"text": "Наша миссия — сделать рынок вторичной недвижимости доступным и безопасным"
 		},
 		"contacts": {
-			"title": "Contacts",
+			"title": "Контакты",
 			"email": "contact@onebaan.com",
-			"adress": "4/2 Blue Tree Project, Srisoonthorn Road, Choeng Thale, Thalang, Phuket, 83110",
+			"adress": "4/2 Blue Tree Project, ул. Срисунтхон, Чоэнг Тале, Таланг, Пхукет, 83110",
 			"phoneNumber": "+66 906 555 919"
 		},
 		"subscribe": {
-			"title": "Subscribe to our newsletter",
-			"placeholder": "Your email"
+			"title": "Подписаться на рассылку",
+			"placeholder": "Ваша почта"
 		}
 	},
 	"nav": {
-		"home": "Home",
-		"sell": "Properties for Sale",
-		"rent": "Properties for Rent",
-		"compare": "Compare",
-		"favourites": "Favourites"
+		"home": "Главная",
+		"sell": "Недвижимость на продажу",
+		"rent": "Недвижимость в аренду",
+		"compare": "Сравнить",
+		"favourites": "Избранное"
 	},
 	"RealEstateSpecialist": {
-		"title": "Are you a Phuket real estate specialist?",
-		"ps": "OneBaan will help your clients:",
-		"text": "a property on the secondary market",
-		"button": { "text": "Go to the agents page" }
+		"title": "Вы специалист рынка недвижимости Пхукета?",
+		"ps": "OneBaan поможет вашим клиентам:",
+		"text": "объект на вторичном рынке",
+		"button": { "text": "Перейти на страницу для агентов" }
 	},
-	"sell": "Sell",
-	"buy": "Buy",
+	"sell": "Продать",
+	"buy": "Купить",
 	"NewObjectsSaleBlock": {
-		"title": "New Properties for Sale from Owners"
+		"title": "Новые объекты на продажу от собстенников"
 	},
 	"properties": {
-		"bangtaoApartment2br": "Bangtao, Apartment, 2 bedrooms",
-		"patongStudio1br": "Patong, Studio, 1 bedroom",
-		"kamalaVilla3br": "Kamala, Villa, 3 bedrooms",
-		"cherngtalayTownhouse2br": "Cherng Talay, Townhouse, 2 bedrooms",
-		"rawaiCondo2br": "Rawai, Condo, 2 bedrooms"
+		"bangtaoApartment2br": "Бангтао, Апартаменты, 2 спальни",
+		"patongStudio1br": "Патонг, Студия, 1 спальня",
+		"kamalaVilla3br": "Камала, Вилла, 3 спальни",
+		"cherngtalayTownhouse2br": "Ченгталай, Таунхаус, 2 спальни",
+		"rawaiCondo2br": "Равай, Кондо, 2 спальни"
 	},
 	"MainPage": {
 		"image": {
-			"title": "Phuket Real Estate Directly from Owners",
-			"text": "Up-to-date listings and assistance with paperwork"
+			"title": "Недвижимость Пхукета напрямую от собственников",
+			"text": "Актуальные предложения и помощь в оформлении"
 		}
 	},
 	"guideBlock": {
-		"title": "Want to sell an apartment or villa in Phuket?",
-		"text": "Add your property to the OneBaan catalog and it will be seen by hundreds of potential clients",
+		"title": "Хотите продать апартаменты или виллу на Пхукете?",
+		"text": "Добавьте свой объект в каталог OneBaan и его увидят сотни потенциальных клиентов",
 		"cards": {
-			"form": "You fill out a detailed form",
-			"managerDetails": "Your manager will contact you to clarify details",
-			"finalStep": "Your property is published on the OneBaan platform"
+			"form": "Вы заполняете детальную форму",
+			"managerDetails": "Ваш менеджер свяжется с вами для уточнения деталей",
+			"finalStep": "Ваш объект публикуется на платформе OneBaan"
 		},
-		"importantDetail": "Important: Your contact details will not be shared with third parties without your consent. All communication takes place through your OneBaan manager."
+		"importantDetail": "Важно: Ваши контактные данные не передаются третьим лицам без вашего ведома, вся коммуникация происходит через менеджера OneBaan"
 	},
-	"extra": "added for showcase",
-	"exampleOfLink": "Link"
+	"extra": "Добавлено для демонстрации",
+	"exampleOfLink": "ссылка",
+	"offer": {
+		"type": {
+			"rent": "Аренда",
+			"buy": "Покупка",
+			"label": "Тип предложения:"
+		}
+	},
+	"search": {
+		"placeholder": "Поиск в {location}...",
+		"locations": {
+			"Phuket": "Пхукете"
+		}
+	},
+	"offers": {
+		"cozy": {
+			"title": "Уютная квартира",
+			"description": "Описание уютной квартиры"
+		},
+		"villa": {
+			"title": "Вилла у моря",
+			"description": "Описание виллы у моря"
+		},
+		"condo": {
+			"title": "Кондо в центре",
+			"description": "Описание кондо в центре"
+		}
+	},
+
+	"catalog": {
+		"mainPage": "Главная",
+		"property": "Каталог недвижимости",
+		"rentPage": "Аренда",
+		"filter": "Фильтр",
+		"searchPlaceholder": "Район или проект",
+
+		"resetQuery": "Сбросить фильтры",
+		"amountOfObjects": "{ count, plural, one {# объект} few {# объекта} many {# объектов} other {# объектов}}",
+		"sortBy": "Сортировать",
+
+		"sort": {
+			"location": "Локация",
+			"typeOfProperty": "Тип недвижимости",
+			"baths": "Санузлы",
+			"bedrooms": "Спальни",
+			"priceTitle": "Цена",
+			"minPrice": "Мин цена",
+			"maxPrice": "Макс цена"
+		},
+		"all": "Все",
+		"ready": "Готовые",
+		"building": "Строящиеся",
+
+		"selector": {
+			"type": "Тип",
+			"bedrooms": "Спальни",
+			"price": "Цена"
+		},
+
+		"foundOffers": "{ count, plural, one {# объект найден} few {# объекта найдено} many {# объектов найдено} other {# объектов найдено}}"
+	},
+
+	"cards": {
+		"sort": "Сортировка",
+		"removeFromFav": "убрать из избранного",
+		"addToFav": "добавить в избранное",
+		"talkToSalesman": "Связаться с продавцом",
+		"perMonth": "/мес"
+	},
+
+	"sortBy": {
+		"newest": "Сначала новые",
+		"oldest": "Сначала старые",
+		"recommended": "Рекомендуемые",
+		"popular": "Популярные"
+	},
+
+	"locations": {
+		"phuket": "Пхукет",
+		"bangkok": "Бангкок",
+		"pattaya": "Паттайя",
+		"samui": "Самуи",
+		"Phang_Nga": "Пханг-Нга"
+	},
+
+	"typesofProperty": {
+		"apartments": "Апартаменты",
+		"villa": "Вилла",
+		"house": "Дом",
+		"townhouse": "Таунхаус",
+		"condo": "Кондо",
+		"studio": "Студия"
+	},
+	"favourites": {
+		"savedSearches": {
+			"sortBy": {
+				"params": "По параметрам"
+			}
+		},
+		"redactSettings": {
+			"edit": "Редактировать",
+			"delete": "Удалить"
+		}
+	},
+	"textGoBack": "Вернуться",
+	"CardDetailed": {
+		"offerFeature": "Особенности предложения",
+		"yearOfBuilding": "Год строительства",
+		"distanceToSea": "Расстояние до моря",
+		"level": "Этаж",
+		"check": "Посмотреть",
+		"onMap": "на карте",
+		"blueprint": "Фото и план",
+		"conveniences": "Удобства в ",
+		"moreOffers": "Еще предложения в ",
+		"complex": {
+			"year": "Год строительства: ",
+			"amountOfApartments": "Всего апартаментов: ",
+			"builder": "Застройщик: "
+		},
+		"showMore": "Показать еще",
+		"subscribe": {
+			"title": "Подпишитесь на уведомления",
+			"newOffers": "Новые предложение в Blue Canyon Golf And Country Club Home",
+			"discounts": "Скидка на существующие предложения",
+			"button": "Подписаться",
+			"popupTitle": "Подписка на уведомления",
+			"popupText": "Мы обязательно напишем Вам, когда появятся новые предложения или скидки на существующие",
+			"placeholder": "Ваш email"
+		},
+		"location": "Локация",
+		"checkOnMap": "Смотреть на карте",
+		"listingGranted": {
+			"title": "Листинг предоставлен",
+			"experienceOnPhuket": "Опыт на Пхукете: ",
+			"workingHoursOnPhuket": "Время работы по Пхукету: ",
+			"languages": "Языки: ",
+			"allOffers": "Смотреть все предложения"
+		},
+		"beds": "{ count, plural, one {# спальня} few {# спальни} many {# спален} other {# спален}}",
+		"baths": "{ count, plural, one {# ванна} few {# ванные} many {# ванных} other {# ванных}}",
+		"amountOfDetails": "{count,plural,one}",
+		"amountOfDays": "{days, plural, one {# день} few {# дня} many {# дней} other {# дней}} на OneBaan | {views, plural, one {# просмотр} few {# просмотра} many {# просмотров} other {# просмотров}}",
+		"similarOffers": "Похожие предложения",
+		"distanceToSeaRent": "До моря",
+		"levels": "Число этажей",
+		"apartments": "Апартаментов"
+	},
+	"tag": {
+		"code": {
+			"verified": "Объект проверен",
+			"onlyOnOneBaan": "Только на OneBaan",
+			"beneficialPrice": "Выгодная цена",
+			"withFurniture": "С мебелью",
+			"withParking": "Парковка",
+			"readyForRent": "Готово для сдачи в аренду",
+			"formOfOwnership": "Форма собственности: Leasehold",
+			"guards": "Охрана",
+			"viewOnMountains": "Вид на горы",
+			"withPool": "Бассейн",
+			"withGym": "Фитнес-зал",
+			"withChildClub": "Детский клуб",
+			"reception": "Ресепшен",
+			"withCameras": "Видеонаблюдение",
+			"guardedWholeDay": "Охрана 24/7",
+			"withCoworking": "Коворкинг",
+			"accessByCard": "Доступ по карточкам",
+			"withRestaurant": "Ресторан",
+			"withGarden": "Сад для прогулок"
+		}
+	}
 }

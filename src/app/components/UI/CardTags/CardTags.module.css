@@ -1,0 +1,20 @@
+.tags__container {
+	display: flex;
+	flex-wrap: wrap;
+}
+.tag {
+	display: flex;
+	align-items: center;
+	width: fit-content;
+	font-weight: 600;
+	font-size: clamp(11px, 0.7rem, 14px);
+	border-radius: 10px;
+	padding: 3px 8px 3px 5px;
+	border: none;
+}
+.tag[data-showborder="show"] {
+	border: 1px solid;
+}
+.text {
+	z-index: 5;
+}

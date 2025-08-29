@@ -1,14 +1,17 @@
 import type { FunctionComponent, SVGProps } from "react";
 
 export interface CardTagProps {
-	svgIconComponent: FunctionComponent<SVGProps<SVGSVGElement>>;
+	icon: FunctionComponent<SVGProps<SVGSVGElement>>;
 	label: string;
-	color: string;
+	bgColor?: string;
+	borderColor?: string;
+	textColor?: string;
 }
 
 export interface CardTagsProps {
 	tags: CardTagProps[];
 	sizeOfTheIcons?: "16px" | "18px";
-	fillTagColor?: string;
 	gapClamp?: string;
+	gapBetweenTags?: string;
+	showBorder?: boolean;
 }

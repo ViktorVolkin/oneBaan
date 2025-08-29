@@ -1,5 +1,5 @@
 export type Breadcrumb = { href: string; label: string };
-export type TagDTO = { code: string; label: string; color?: string };
+export type TagDTO = { code: string };
 
 export type ListingCardBaseDTO = {
 	idOfCard: string;
@@ -115,43 +115,31 @@ export const SELL_CARD_DETAILED_MOCKS: Record<string, ListingDetailsDTO> = {
 			checkOnMapHref: "/2gis",
 		},
 		tagsSell: {
-			tags: [
-				{ code: "with_furniture", label: "Парковка", color: "yellow" },
-			],
+			tags: [{ code: "with_furniture" }],
 		},
 		offerFeatureText:
 			"Комплекс в шаговой доступности от моря; возможно полное обслуживание на ресепшене. Угловая квартира — больше света и меньше соседей.",
 		tagsDetailed: {
 			tags: [
-				{ code: "with_pool", label: "Бассейн", color: "#44337A" },
+				{ code: "with_pool" },
 				{
 					code: "view_on_mountains",
-					label: "Вид на горы",
-					color: "#44337A",
 				},
 				{
-					code: "with_furniture",
-					label: "С мебелью",
-					color: "#44337A",
+					code: "guards",
 				},
-				{ code: "with_gym", label: "Фитнес", color: "#44337A" },
-				{ code: "guards", label: "Охрана 24/7", color: "#44337A" },
+				{ code: "with_gym" },
+				{ code: "guards" },
 				{
 					code: "with_child_club",
-					label: "Детская зона",
-					color: "#44337A",
 				},
 				{
 					code: "with_coworking",
-					label: "Коворкинг",
-					color: "#44337A",
 				},
 				{
 					code: "with_restaurant",
-					label: "Ресторан",
-					color: "#44337A",
 				},
-				{ code: "with_garden", label: "Сад", color: "#44337A" },
+				{ code: "with_garden" },
 			],
 		},
 		detailsOnOneBaan: { daysOnOneBaan: 12, amountOfViews: 14 },
@@ -164,8 +152,6 @@ export const SELL_CARD_DETAILED_MOCKS: Record<string, ListingDetailsDTO> = {
 			builder: "Sino-Thai Engineering & Construction",
 			tags: Array.from({ length: 6 }).map(() => ({
 				code: "with_parking",
-				label: "Парковка",
-				color: "#44337A",
 			})),
 		},
 
@@ -185,24 +171,16 @@ export const SELL_CARD_DETAILED_MOCKS: Record<string, ListingDetailsDTO> = {
 					agentLogo: "/agent-logo.svg",
 					tags: [
 						{
-							code: "with_furniture",
-							label: "С мебелью",
-							color: "green",
+							code: "object_verified",
+						},
+						{
+							code: "only_on_oneBaan",
+						},
+						{
+							code: "beneficial_price",
 						},
 						{
 							code: "with_furniture",
-							label: "С мебелью",
-							color: "green",
-						},
-						{
-							code: "with_furniture",
-							label: "С мебелью",
-							color: "green",
-						},
-						{
-							code: "with_furniture",
-							label: "С мебелью",
-							color: "green",
 						},
 					],
 					contactWhatsApp: { path: "" },
@@ -290,9 +268,7 @@ export const SELL_CARD_DETAILED_MOCKS: Record<string, ListingDetailsDTO> = {
 					details: "Короткое описание 6",
 					cardDescription: "Описание карточки 6",
 					agentLogo: "/agent-logo.svg",
-					tags: [
-						{ code: "with_garden", label: "Сад", color: "green" },
-					],
+					tags: [{ code: "with_garden" }],
 					contactWhatsApp: { path: "" },
 					contactWithSalesman: { path: "" },
 					whenPosted: "2025-08-21T11:15:00.000Z",
@@ -309,10 +285,7 @@ export const SELL_CARD_DETAILED_MOCKS: Record<string, ListingDetailsDTO> = {
 					details: "Короткое описание 7",
 					cardDescription: "Описание карточки 7",
 					agentLogo: "/agent-logo.svg",
-					tags: [
-						{ code: "with_pool", label: "Бассейн", color: "green" },
-						{ code: "with_gym", label: "Фитнес", color: "green" },
-					],
+					tags: [{ code: "with_pool" }, { code: "with_gym" }],
 					contactWhatsApp: { path: "" },
 					contactWithSalesman: { path: "" },
 					whenPosted: "2025-08-22T09:00:00.000Z",
@@ -371,9 +344,14 @@ export const SELL_CARD_DETAILED_MOCKS: Record<string, ListingDetailsDTO> = {
 				pricePerMeter: "$15,200 за м²",
 				stats: { amountOfBeds: 2, amountOfBaths: 3, area: 2010 },
 				details: i % 2 === 0 ? "Вид на море" : "Вид на горы",
-				cardDescription: "Апартаменты с видом на море",
+				cardDescription: "Апартаменты на продажу",
 				agentLogo: "/agent-logo.svg",
-				tags: [],
+				tags: [
+					{ code: "object_verified" },
+					{ code: "only_on_oneBaan" },
+					{ code: "beneficial_price" },
+					{ code: "with_furniture" },
+				],
 				contactWhatsApp: { path: "" },
 				contactWithSalesman: { path: "" },
 				whenPosted: "Сегодня",

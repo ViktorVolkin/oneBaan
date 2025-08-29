@@ -1,0 +1,100 @@
+.cardButtons {
+	display: flex;
+	gap: 8px;
+	width: 100%;
+	height: 100%;
+}
+.cardButton {
+	display: flex;
+	align-items: center;
+	flex-grow: 1;
+	width: 100%;
+	height: 100%;
+	justify-content: center;
+	text-decoration: none;
+	border-radius: 10px;
+	text-align: center;
+}
+.cardButton__contactWithSalesman {
+	background-color: #edf2f7;
+	color: #2d3748;
+	font-weight: 700;
+	font-size: 12px;
+}
+.cardButton__whatsApp {
+	background-color: #48bb78;
+	color: white;
+	font-weight: 700;
+	font-size: 18px;
+	gap: 6px;
+}
+.inlineWhatsAppIcon {
+	display: none;
+	height: 18px;
+	width: 18px;
+}
+
+.iconPhone {
+	width: 16px;
+	height: 16px;
+}
+.cardButton__onlyIcon {
+	height: 100%;
+	width: 60px;
+}
+.cardButton__withText {
+	height: 100%;
+}
+.rentDetailedPhoneIconMode {
+	width: 32px;
+	min-width: 32px;
+	height: 100%;
+	background-color: #f1e6ff;
+	font-size: 12px;
+}
+.iconPhoneRentDetailedMode {
+	width: 16px;
+	height: 16px;
+}
+@media (min-width: 768px) and (max-width: 1439.9px) {
+	.textWithIcon {
+		display: none;
+	}
+	.inlineWhatsAppIcon {
+		display: inline-block;
+	}
+	.cardButton__withText {
+		width: 44px;
+		min-width: 44px;
+	}
+	.rentDetailedPhoneIconMode {
+		width: 42px;
+		min-width: 42px;
+		height: 100%;
+		background-color: #f1e6ff;
+		font-size: 16px;
+	}
+	.iconPhoneRentDetailedMode {
+		width: 20px;
+		height: 20px;
+	}
+}
+@media (min-width: 1440px) {
+	.textWithIcon {
+		display: inline-block;
+	}
+	.inlineWhatsAppIcon {
+		display: inline-block;
+	}
+	.rentDetailedPhoneIconMode {
+		width: 54px;
+		min-width: 54px;
+		height: 100%;
+		background-color: #f1e6ff;
+		font-size: 18px;
+	}
+	.iconPhoneRentDetailedMode {
+		width: 24px;
+		height: 24px;
+	}
+}

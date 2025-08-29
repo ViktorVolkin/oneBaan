@@ -5,9 +5,22 @@ export type ApiTag = {
 		| "object_verified"
 		| "only_on_oneBaan"
 		| "beneficial_price"
-		| "with_furniture";
-	color: string;
-	translations: Record<Locale, string>;
+		| "with_furniture"
+		| "with_parking"
+		| "ready_for_rent"
+		| "form_of_ownership"
+		| "guards"
+		| "view_on_mountains"
+		| "with_pool"
+		| "with_gym"
+		| "with_child_club"
+		| "reception"
+		| "with_cameras"
+		| "guarded_whole_day"
+		| "with_coworking"
+		| "access_by_card"
+		| "with_restaurant"
+		| "with_garden";
 };
 
 export type CatalogBreadcrumb = {
@@ -29,7 +42,6 @@ export type CatalogItem = {
 	contactWhatsApp: { path: string };
 	contactWithSalesman: { path: string };
 	breadcrumbs: CatalogBreadcrumb[];
-	isLiked: boolean;
 	ageDays: number;
 	translations: {
 		en: { cardDescription: string; details: string };
@@ -46,10 +58,9 @@ export type ListingCardBase = {
 	details: string;
 	cardDescription: string;
 	agentLogo: string;
-	tags: { code: ApiTag["code"]; color: string; label: string }[];
+	tags: { code: ApiTag["code"] }[];
 	contactWhatsApp: { path: string };
 	contactWithSalesman: { path: string };
 	whenPosted: string;
 	breadcrumbs: { href: string; label: string }[];
-	isLiked: boolean;
 };

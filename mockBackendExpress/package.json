@@ -1,0 +1,19 @@
+{
+	"name": "mock-backend-express",
+	"version": "1.0.0",
+	"private": true,
+	"scripts": {
+		"dev": "tsx index.ts",
+		"mock": "tsx index.ts"
+	},
+	"dependencies": {
+		"cors": "^2.8.5",
+		"dotenv": "^17.2.1",
+		"express": "^5.1.0"
+	},
+	"devDependencies": {
+		"@types/cors": "^2.8.19",
+		"tsx": "^4.20.5",
+		"typescript": "^5"
+	}
+}

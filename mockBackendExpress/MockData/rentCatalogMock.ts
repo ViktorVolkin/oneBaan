@@ -24,30 +24,18 @@ export const rentCatalogMock: Omit<CatalogItem, "pricePerMeterUsd">[] = [
 				translations: { en: "Phuket", ru: "Пхукет" },
 			},
 		],
-		isLiked: false,
 		ageDays: 5,
 		translations: {
 			en: {
 				cardDescription: "2-bedroom condo in Kata with sea view",
-				details: "Phuket • Sea view • 10 min to beach",
+				details: "3/7 fl | sea view",
 			},
 			ru: {
 				cardDescription: "Кондо в Ката, 2 спальни, вид на море",
-				details: "Пхукет • Вид на море • 10 мин до пляжа",
+				details: "3/7 этаж | вид на море",
 			},
 		},
-		tags: [
-			{
-				code: "object_verified",
-				color: "#10B981",
-				translations: { en: "Verified", ru: "Проверено" },
-			},
-			{
-				code: "beneficial_price",
-				color: "#3B82F6",
-				translations: { en: "Best price", ru: "Выгодно" },
-			},
-		],
+		tags: [{ code: "object_verified" }, { code: "beneficial_price" }],
 	},
 	{
 		idOfCard: "ph-002",
@@ -72,30 +60,18 @@ export const rentCatalogMock: Omit<CatalogItem, "pricePerMeterUsd">[] = [
 				translations: { en: "Karon", ru: "Карон" },
 			},
 		],
-		isLiked: true,
 		ageDays: 2,
 		translations: {
 			en: {
 				cardDescription: "Sea-view villa in Karon, 3 bedrooms",
-				details: "Karon • Sea view • 5 min to beach",
+				details: "2/2 fl | sea view",
 			},
 			ru: {
 				cardDescription: "Вилла в Карон, 3 спальни, вид на море",
-				details: "Карон • Вид на море • 5 мин до пляжа",
+				details: "2/2 этаж | вид на море",
 			},
 		},
-		tags: [
-			{
-				code: "with_furniture",
-				color: "#10B981",
-				translations: { en: "Furnished", ru: "С мебелью" },
-			},
-			{
-				code: "only_on_oneBaan",
-				color: "#3B82F6",
-				translations: { en: "Exclusive", ru: "Эксклюзив" },
-			},
-		],
+		tags: [{ code: "with_furniture" }, { code: "only_on_oneBaan" }],
 	},
 	{
 		idOfCard: "ph-003",
@@ -120,30 +96,18 @@ export const rentCatalogMock: Omit<CatalogItem, "pricePerMeterUsd">[] = [
 				translations: { en: "Kamala", ru: "Камала" },
 			},
 		],
-		isLiked: false,
 		ageDays: 7,
 		translations: {
 			en: {
 				cardDescription: "Kamala hillside apartment, 2 bedrooms",
-				details: "Kamala • Hillside • 7 min to beach",
+				details: "5/8 fl | hill view",
 			},
 			ru: {
 				cardDescription: "Апартаменты на холме Камала, 2 спальни",
-				details: "Камала • На возвышенности • 7 мин до пляжа",
+				details: "5/8 этаж | вид на холмы",
 			},
 		},
-		tags: [
-			{
-				code: "object_verified",
-				color: "#10B981",
-				translations: { en: "Verified", ru: "Проверено" },
-			},
-			{
-				code: "with_furniture",
-				color: "#3B82F6",
-				translations: { en: "Furnished", ru: "С мебелью" },
-			},
-		],
+		tags: [{ code: "object_verified" }, { code: "with_furniture" }],
 	},
 	{
 		idOfCard: "ph-004",
@@ -168,30 +132,18 @@ export const rentCatalogMock: Omit<CatalogItem, "pricePerMeterUsd">[] = [
 				translations: { en: "Patong", ru: "Патонг" },
 			},
 		],
-		isLiked: true,
 		ageDays: 1,
 		translations: {
 			en: {
 				cardDescription: "Patong city condo, 1 bedroom",
-				details: "Patong • City view • 12 min to beach",
+				details: "8/15 fl | city view",
 			},
 			ru: {
 				cardDescription: "Кондо Патонг, 1 спальня",
-				details: "Патонг • Вид на город • 12 мин до пляжа",
+				details: "8/15 этаж | вид на город",
 			},
 		},
-		tags: [
-			{
-				code: "beneficial_price",
-				color: "#10B981",
-				translations: { en: "Best price", ru: "Выгодно" },
-			},
-			{
-				code: "only_on_oneBaan",
-				color: "#3B82F6",
-				translations: { en: "Exclusive", ru: "Эксклюзив" },
-			},
-		],
+		tags: [{ code: "beneficial_price" }, { code: "only_on_oneBaan" }],
 	},
 	{
 		idOfCard: "ph-005",
@@ -216,30 +168,18 @@ export const rentCatalogMock: Omit<CatalogItem, "pricePerMeterUsd">[] = [
 				translations: { en: "Rawai", ru: "Раваи" },
 			},
 		],
-		isLiked: false,
 		ageDays: 9,
 		translations: {
 			en: {
 				cardDescription: "Rawai family villa, 4 bedrooms",
-				details: "Rawai • Quiet area • 8 min to beach",
+				details: "2/2 fl | garden view",
 			},
 			ru: {
 				cardDescription: "Семейная вилла в Раваи, 4 спальни",
-				details: "Раваи • Тихий район • 8 мин до пляжа",
+				details: "2/2 этаж | вид на сад",
 			},
 		},
-		tags: [
-			{
-				code: "object_verified",
-				color: "#10B981",
-				translations: { en: "Verified", ru: "Проверено" },
-			},
-			{
-				code: "with_furniture",
-				color: "#3B82F6",
-				translations: { en: "Furnished", ru: "С мебелью" },
-			},
-		],
+		tags: [{ code: "object_verified" }, { code: "with_furniture" }],
 	},
 	{
 		idOfCard: "ph-006",
@@ -264,30 +204,18 @@ export const rentCatalogMock: Omit<CatalogItem, "pricePerMeterUsd">[] = [
 				translations: { en: "Bang Tao", ru: "Банг Тао" },
 			},
 		],
-		isLiked: true,
 		ageDays: 3,
 		translations: {
 			en: {
 				cardDescription: "Bang Tao resort apartment, 2 bedrooms",
-				details: "Bang Tao • Pool access • 6 min to beach",
+				details: "4/6 fl | pool access",
 			},
 			ru: {
 				cardDescription: "Апартаменты в Банг Тао, 2 спальни",
-				details: "Банг Тао • Выход к бассейну • 6 мин до пляжа",
+				details: "4/6 этаж | у бассейна",
 			},
 		},
-		tags: [
-			{
-				code: "beneficial_price",
-				color: "#10B981",
-				translations: { en: "Best price", ru: "Выгодно" },
-			},
-			{
-				code: "with_furniture",
-				color: "#3B82F6",
-				translations: { en: "Furnished", ru: "С мебелью" },
-			},
-		],
+		tags: [{ code: "beneficial_price" }, { code: "with_furniture" }],
 	},
 	{
 		idOfCard: "ph-007",
@@ -312,30 +240,18 @@ export const rentCatalogMock: Omit<CatalogItem, "pricePerMeterUsd">[] = [
 				translations: { en: "Surin", ru: "Сурин" },
 			},
 		],
-		isLiked: false,
 		ageDays: 0,
 		translations: {
 			en: {
 				cardDescription: "Surin modern condo, 3 bedrooms",
-				details: "Surin • Modern • 9 min to beach",
+				details: "7/12 fl | sea view",
 			},
 			ru: {
 				cardDescription: "Современное кондо Сурин, 3 спальни",
-				details: "Сурин • Современный комплекс • 9 мин до пляжа",
+				details: "7/12 этаж | вид на море",
 			},
 		},
-		tags: [
-			{
-				code: "object_verified",
-				color: "#10B981",
-				translations: { en: "Verified", ru: "Проверено" },
-			},
-			{
-				code: "only_on_oneBaan",
-				color: "#3B82F6",
-				translations: { en: "Exclusive", ru: "Эксклюзив" },
-			},
-		],
+		tags: [{ code: "object_verified" }, { code: "only_on_oneBaan" }],
 	},
 	{
 		idOfCard: "ph-008",
@@ -360,30 +276,18 @@ export const rentCatalogMock: Omit<CatalogItem, "pricePerMeterUsd">[] = [
 				translations: { en: "Chalong", ru: "Чалонг" },
 			},
 		],
-		isLiked: true,
 		ageDays: 4,
 		translations: {
 			en: {
 				cardDescription: "Chalong cozy condo, 2 bedrooms",
-				details: "Chalong • Mountain view • 15 min to beach",
+				details: "6/9 fl | mountain view",
 			},
 			ru: {
 				cardDescription: "Уютное кондо Чалонг, 2 спальни",
-				details: "Чалонг • Вид на горы • 15 мин до пляжа",
+				details: "6/9 этаж | вид на горы",
 			},
 		},
-		tags: [
-			{
-				code: "with_furniture",
-				color: "#10B981",
-				translations: { en: "Furnished", ru: "С мебелью" },
-			},
-			{
-				code: "beneficial_price",
-				color: "#3B82F6",
-				translations: { en: "Best price", ru: "Выгодно" },
-			},
-		],
+		tags: [{ code: "with_furniture" }, { code: "beneficial_price" }],
 	},
 	{
 		idOfCard: "ph-009",
@@ -408,25 +312,18 @@ export const rentCatalogMock: Omit<CatalogItem, "pricePerMeterUsd">[] = [
 				translations: { en: "Phuket Town", ru: "Пхукет-Таун" },
 			},
 		],
-		isLiked: false,
 		ageDays: 6,
 		translations: {
 			en: {
 				cardDescription: "Phuket Town studio",
-				details: "Phuket Town • City center • 5 min to cafe",
+				details: "3/8 fl | city center",
 			},
 			ru: {
 				cardDescription: "Студия в Пхукет-Тауне",
-				details: "Пхукет-Таун • Центр • 5 мин до кафе",
+				details: "3/8 этаж | центр",
 			},
 		},
-		tags: [
-			{
-				code: "beneficial_price",
-				color: "#10B981",
-				translations: { en: "Best price", ru: "Выгодно" },
-			},
-		],
+		tags: [{ code: "beneficial_price" }],
 	},
 	{
 		idOfCard: "ph-010",
@@ -451,30 +348,18 @@ export const rentCatalogMock: Omit<CatalogItem, "pricePerMeterUsd">[] = [
 				translations: { en: "Nai Harn", ru: "Най Харн" },
 			},
 		],
-		isLiked: true,
 		ageDays: 8,
 		translations: {
 			en: {
 				cardDescription: "Nai Harn luxury villa, 5 bedrooms",
-				details: "Nai Harn • Private pool • 4 min to beach",
+				details: "2/2 fl | private pool",
 			},
 			ru: {
 				cardDescription: "Роскошная вилла Най Харн, 5 спален",
-				details: "Най Харн • Личный бассейн • 4 мин до пляжа",
+				details: "2/2 этаж | личный бассейн",
 			},
 		},
-		tags: [
-			{
-				code: "object_verified",
-				color: "#10B981",
-				translations: { en: "Verified", ru: "Проверено" },
-			},
-			{
-				code: "only_on_oneBaan",
-				color: "#3B82F6",
-				translations: { en: "Exclusive", ru: "Эксклюзив" },
-			},
-		],
+		tags: [{ code: "object_verified" }, { code: "only_on_oneBaan" }],
 	},
 	{
 		idOfCard: "ph-011",
@@ -499,25 +384,18 @@ export const rentCatalogMock: Omit<CatalogItem, "pricePerMeterUsd">[] = [
 				translations: { en: "Mai Khao", ru: "Май Као" },
 			},
 		],
-		isLiked: false,
 		ageDays: 10,
 		translations: {
 			en: {
 				cardDescription: "Mai Khao townhouse, 2BR 3BA",
-				details: "Mai Khao • Quiet area • 8 min to beach",
+				details: "1/2 fl | quiet area",
 			},
 			ru: {
 				cardDescription: "Таунхаус Май Као, 2 спальни 3 с/у",
-				details: "Май Као • Тихий район • 8 мин до пляжа",
+				details: "1/2 этаж | тихий район",
 			},
 		},
-		tags: [
-			{
-				code: "beneficial_price",
-				color: "#10B981",
-				translations: { en: "Best price", ru: "Выгодно" },
-			},
-		],
+		tags: [{ code: "beneficial_price" }],
 	},
 	{
 		idOfCard: "ph-012",
@@ -542,25 +420,18 @@ export const rentCatalogMock: Omit<CatalogItem, "pricePerMeterUsd">[] = [
 				translations: { en: "Laguna", ru: "Лагуна" },
 			},
 		],
-		isLiked: true,
 		ageDays: 11,
 		translations: {
 			en: {
 				cardDescription: "Laguna condo, 1 bedroom",
-				details: "Laguna • Lagoon view • 8 min to beach",
+				details: "4/6 fl | lagoon view",
 			},
 			ru: {
 				cardDescription: "Кондо Лагуна, 1 спальня",
-				details: "Лагуна • Вид на лагуну • 8 мин до пляжа",
+				details: "4/6 этаж | вид на лагуну",
 			},
 		},
-		tags: [
-			{
-				code: "with_furniture",
-				color: "#10B981",
-				translations: { en: "Furnished", ru: "С мебелью" },
-			},
-		],
+		tags: [{ code: "with_furniture" }],
 	},
 	{
 		idOfCard: "ph-013",
@@ -585,25 +456,18 @@ export const rentCatalogMock: Omit<CatalogItem, "pricePerMeterUsd">[] = [
 				translations: { en: "Thalang", ru: "Таланг" },
 			},
 		],
-		isLiked: false,
 		ageDays: 12,
 		translations: {
 			en: {
 				cardDescription: "Thalang condo, 3 bedrooms",
-				details: "Thalang • Family area • 20 min to beach",
+				details: "9/12 fl | family area",
 			},
 			ru: {
 				cardDescription: "Кондо Таланг, 3 спальни",
-				details: "Таланг • Семейный район • 20 мин до пляжа",
+				details: "9/12 этаж | семейный район",
 			},
 		},
-		tags: [
-			{
-				code: "object_verified",
-				color: "#10B981",
-				translations: { en: "Verified", ru: "Проверено" },
-			},
-		],
+		tags: [{ code: "object_verified" }],
 	},
 	{
 		idOfCard: "ph-014",
@@ -628,24 +492,17 @@ export const rentCatalogMock: Omit<CatalogItem, "pricePerMeterUsd">[] = [
 				translations: { en: "Cape Panwa", ru: "Кейп Панва" },
 			},
 		],
-		isLiked: true,
 		ageDays: 4,
 		translations: {
 			en: {
 				cardDescription: "Cape Panwa loft, 1BR 2BA",
-				details: "Cape Panwa • Sea glimpse • 14 min to beach",
+				details: "5/7 fl | near sea",
 			},
 			ru: {
 				cardDescription: "Лофт Кейп Панва, 1 спальня 2 с/у",
-				details: "Кейп Панва • Море рядом • 14 мин до пляжа",
+				details: "5/7 этаж | близко к морю",
 			},
 		},
-		tags: [
-			{
-				code: "only_on_oneBaan",
-				color: "#3B82F6",
-				translations: { en: "Exclusive", ru: "Эксклюзив" },
-			},
-		],
+		tags: [{ code: "only_on_oneBaan" }],
 	},
 ];
