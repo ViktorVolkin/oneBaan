@@ -1,4 +1,4 @@
-import mockImage from "@/../public/backgroundImage.png";
+const mockImage = "/backgroundImage.png";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Card } from "./Card";
 import { IntlProvider } from "next-intl";

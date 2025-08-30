@@ -11,7 +11,5 @@ export default meta;
 type Story = StoryObj<typeof RealEstateSpecialistBlock>;
 
 export const Default: Story = {
-	args: {
-		// Add default props here as needed
-	},
+	args: {},
 };

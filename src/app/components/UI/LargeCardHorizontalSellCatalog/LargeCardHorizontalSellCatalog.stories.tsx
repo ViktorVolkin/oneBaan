@@ -1,16 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { LargeCardHorizontalSellCatalog } from "./LargeCardHorizontalSellCatalog";
-import type { ILargeCardHorizontal } from "../../types/ILargeCardHorizontal";
-import BiBed from "../../assets/BiBed.svg";
-import BiBath from "../../assets/BiBath.svg";
-import BiBorderOuter from "../../assets/BiBorderOuter.svg";
-import Check from "../../assets/BiCheckCircle.svg?react";
-import Price from "../../assets/BiDollar.svg?react";
-import Mebel from "../../assets/MdOutlineChair.svg?react";
-import Logo from "../../assets/logo.svg?react";
-import authorIcon from "../../assets/agent-logo.svg";
+const authorIcon = "/agent-logo.svg";
+import { TAG_CODES_CONSTANT } from "../../../constants/common";
 
-const meta: Meta<ILargeCardHorizontal> = {
+const meta: Meta<typeof LargeCardHorizontalSellCatalog> = {
 	title: "Cards/LargeCardHorizontal",
 	component: LargeCardHorizontalSellCatalog,
 	tags: ["autodocs"],
@@ -18,7 +11,7 @@ const meta: Meta<ILargeCardHorizontal> = {
 };
 
 export default meta;
-type Story = StoryObj<ILargeCardHorizontal>;
+type Story = StoryObj<typeof LargeCardHorizontalSellCatalog>;
 
 export const Default: Story = {
 	args: {
@@ -32,16 +25,15 @@ export const Default: Story = {
 		pricePerMeter: "$15,200 за м²",
 		cardDescription: "Просторная квартира с видом на горы",
 		details: "3/6 этаж | Вид на горы",
-		iconRow: [
-			{ iconPath: BiBed, value: 2 },
-			{ iconPath: BiBath, value: 4 },
-			{ iconPath: BiBorderOuter, value: "2038 м²" },
-		],
+		stats: {
+			amountOfBeds: 2,
+			amountOfBaths: 4,
+			area: 2038,
+		},
 		tags: [
-			{ label: "Новостройка", color: "green", svgIconComponent: Check },
-			{ label: "Ремонт", color: "blue", svgIconComponent: Price },
-			{ label: "Новостройка", color: "yellow", svgIconComponent: Mebel },
-			{ label: "Новостройка", color: "black", svgIconComponent: Logo },
+			TAG_CODES_CONSTANT["object_verified"],
+			TAG_CODES_CONSTANT["with_furniture"],
+			TAG_CODES_CONSTANT["beneficial_price"],
 		],
 		agentLogo: authorIcon,
 		contactWithSalesman: { path: "#" },

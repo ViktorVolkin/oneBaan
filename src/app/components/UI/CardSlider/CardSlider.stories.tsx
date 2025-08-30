@@ -1,5 +1,5 @@
-import image1 from "@/../public/backgroundImage.png";
-import image2 from "@/../public/realEstateSpecialistBlock_image.jpg";
+const image1 = "/backgroundImage.png";
+const image2 = "/realEstateSpecialistBlock_image.jpg";
 
 import type { Meta, StoryObj } from "@storybook/react";
 import CardSlider from "./CardSlider";

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { NewObjectsSaleBlock } from "./NewObjectsSaleBlock";
-import MockImage from "@/../public/backgroundImage.png";
+const MockImage = "/backgroundImage.png";
 
 const fakeRecentlyAddedForSale = [
 	{

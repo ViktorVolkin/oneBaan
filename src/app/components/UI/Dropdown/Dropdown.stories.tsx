@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Dropdown } from "./Dropdown";
-import russianFlag from "@/../public/russianFlag.png";
+const russianFlag = "/russianFlag.png";
 
 const meta: Meta<typeof Dropdown> = {
 	title: "Components/Dropdown",

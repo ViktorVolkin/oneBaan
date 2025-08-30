@@ -34,13 +34,3 @@ export const Default: Story = {
 		],
 	},
 };
-
-export const WithStaticImageData: Story = {
-	args: {
-		images: [
-			{ src: "https://picsum.photos/seed/abc/800/400" },
-			{ src: "https://picsum.photos/seed/def/800/400" },
-			{ src: "https://picsum.photos/seed/ghi/800/400" },
-		],
-	},
-};

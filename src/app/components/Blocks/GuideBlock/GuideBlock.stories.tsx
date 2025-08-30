@@ -1,9 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { GuideBlock } from "./GuideBlock";
-import type { IGuideBlockProps } from "@/app/types/GuideBlock.types";
-import icon1 from "@/../public/GuideBlock__paperclip.svg";
-import icon2 from "@/../public/GuideBlock__phone.svg";
-import icon3 from "@/../public/GuideBlock__house.svg";
+import type { IGuideBlockProps } from "../../../types/GuideBlock.types";
 
 const meta: Meta<typeof GuideBlock> = {
 	title: "Components/GuideBlock",
@@ -15,14 +12,18 @@ export default meta;
 type Story = StoryObj<typeof GuideBlock>;
 
 const guideCards = [
-	{ icon: icon1, number: "01", text: "Вы заполняете детальную форму" },
 	{
-		icon: icon2,
+		icon: "../../../../../public/GuideBlock__house.svg",
+		number: "01",
+		text: "Вы заполняете детальную форму",
+	},
+	{
+		icon: "../../../../../public/GuideBlock__house.svg",
 		number: "02",
 		text: "Ваш менеджер свяжется с вами для уточнения деталей",
 	},
 	{
-		icon: icon3,
+		icon: "../../../../../public/GuideBlock__house.svg",
 		number: "03",
 		text: "Ваш объект публикуется на платформе OneBaan ",
 	},

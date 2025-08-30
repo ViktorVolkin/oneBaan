@@ -1,12 +1,8 @@
-import type { Preview } from "@storybook/nextjs-vite";
 import type { Decorator } from "@storybook/react";
 import { NextIntlClientProvider } from "next-intl";
 import translationsEn from "../src/messages/en.json";
 import translationsRu from "../src/messages/ru.json";
-import "../src/app/[locale]/reset.css";
 import "./storybook-overrides.css";
-import Header from "../src/app/сomponents/Header";
-import Footer from "../src/app/сomponents/Footer";
 
 const messages = {
 	en: translationsEn,
@@ -22,23 +18,34 @@ const withNextIntl: Decorator = (Story, context) => {
 	);
 };
 
-export const decorators = [withNextIntl];
+const withSiteLayout: Decorator = (Story) => (
+	<div
+		style={{
+			minHeight: "100vh",
+			display: "flex",
+			justifyContent: "center",
+		}}
+	>
+		<Story />
+	</div>
+);
 
-export const globalTypes = {
-	locale: {
-		name: "Locale",
-		description: "Internationalization locale",
-		defaultValue: "en",
-		toolbar: {
-			icon: "globe",
-			items: [
-				{ value: "en", right: "🇺🇸", title: "English" },
-				{ value: "ru", right: "🇷🇺", title: "Russian" },
-			],
+const preview = {
+	decorators: [withSiteLayout, withNextIntl],
+	globalTypes: {
+		locale: {
+			name: "Locale",
+			description: "Internationalization locale",
+			defaultValue: "en",
+			toolbar: {
+				icon: "globe",
+				items: [
+					{ value: "en", right: "🇺🇸", title: "English" },
+					{ value: "ru", right: "🇷🇺", title: "Russian" },
+				],
+			},
 		},
 	},
-};
-const preview: Preview = {
 	parameters: {
 		viewport: {
 			options: {
@@ -66,7 +73,7 @@ const preview: Preview = {
 		},
 	},
 	initialGlobals: {
-		viewport: { value: "desktop1440" }, // начальный глобальный viewport
+		viewport: { value: "desktop1440" },
 	},
 };
 

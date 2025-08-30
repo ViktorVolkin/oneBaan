@@ -21,27 +21,14 @@ export default meta;
 type Story = StoryObj<typeof IconRow>;
 
 export const Default: Story = {
-	argTypes: {
-		icons: {
-			description: `
-Array of icon objects to display in the row.
-
-Each icon object has:
-- \`iconPath\`: either a string URL or an imported static image
-- \`value\`: text or number displayed next to the icon.
-`,
-			control: { type: "object" },
-		},
-		sizeForIconsinRow: {
-			description: `
-Controls the size of icons and their labels.
-
-Possible values:
-- \`sm\` – small
-- \`md\` – medium (default)
-- \`lg\` – large
-`,
-			control: { type: "text" },
-		},
+	args: {
+		icons: [
+			{ iconPath: "/BiBed.svg", value: 2 },
+			{ iconPath: "/BiBath.svg", value: 1 },
+			{ iconPath: "/BiBorderOuter.svg", value: "80 м²" },
+		],
+		sizeForIconsinRow: "md",
+		showLines: true,
+		className: "",
 	},
 };

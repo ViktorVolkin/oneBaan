@@ -1,12 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { CardSellCatalog } from "./CardSellCatalog";
-import BiBed from "../../assets/BiBed.svg";
-import BiBath from "../../assets/BiBath.svg";
-import BiBorderOuter from "../../assets/BiBorderOuter.svg";
-import Check from "../../assets/BiCheckCircle.svg?react";
-import Price from "../../assets/BiDollar.svg?react";
-import Mebel from "../../assets/MdOutlineChair.svg?react";
-import authorIcon from "../../assets/agent-logo.svg";
+
+const authorIcon = "/agent-logo.svg";
+import { TAG_CODES_CONSTANT } from "../../../constants/common";
 
 const meta: Meta<typeof CardSellCatalog> = {
 	title: "Cards/Card",
@@ -35,15 +31,15 @@ export const Example: Story = {
 			{ href: "#", label: "Москва" },
 			{ href: "#", label: "ЖК Счастье" },
 		],
-		iconRow: [
-			{ iconPath: BiBed, value: 3 },
-			{ iconPath: BiBath, value: 2 },
-			{ iconPath: BiBorderOuter, value: "110 м²" },
-		],
+		stats: {
+			amountOfBeds: 3,
+			amountOfBaths: 2,
+			area: 110,
+		},
 		tags: [
-			{ label: "Новостройка", color: "green", svgIconComponent: Check },
-			{ label: "Ремонт", color: "blue", svgIconComponent: Price },
-			{ label: "Мебель", color: "yellow", svgIconComponent: Mebel },
+			TAG_CODES_CONSTANT["object_verified"],
+			TAG_CODES_CONSTANT["with_furniture"],
+			TAG_CODES_CONSTANT["beneficial_price"],
 		],
 		agentLogo: authorIcon,
 		contactWithSalesman: {

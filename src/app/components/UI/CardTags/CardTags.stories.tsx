@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { CardTags } from "./CardTags";
-import Check from "../../assets/BiCheckCircle.svg?react";
+import { TAG_CODES_CONSTANT } from "../../../constants/common";
 const meta: Meta<typeof CardTags> = {
 	title: "Components/CardTags",
 	component: CardTags,
@@ -26,17 +26,9 @@ type Story = StoryObj<typeof CardTags>;
 export const Default: Story = {
 	args: {
 		tags: [
-			{
-				label: "New",
-				color: "#4CAF50",
-				rasterImage:
-					"https://cdn-icons-png.flaticon.com/512/888/888879.png",
-			},
-			{
-				label: "Featured",
-				color: "red",
-				svgIconComponent: Check,
-			},
+			TAG_CODES_CONSTANT["object_verified"],
+			TAG_CODES_CONSTANT["with_furniture"],
+			TAG_CODES_CONSTANT["beneficial_price"],
 		],
 	},
 };

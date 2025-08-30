@@ -20,6 +20,7 @@
 	color: #2d3748;
 	font-weight: 700;
 	font-size: 12px;
+	line-clamp: 2;
 }
 .cardButton__whatsApp {
 	background-color: #48bb78;

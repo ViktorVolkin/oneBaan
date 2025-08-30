@@ -41,7 +41,7 @@ export function SellApartmentsCatalog({
 	optionsSortBy,
 	optionsPriceForPhoneMode,
 }: SellApartmentsCatalogProps) {
-	const isPhoneMode = useMediaQuery("(max-width:767.9)");
+	const isPhoneMode = useMediaQuery("(max-width:767.9px)");
 	const { set, get, clear, setMany } = useQueryParams();
 	const t = useTranslations();
 	const locale = useLocale();
@@ -665,7 +665,7 @@ export function SellApartmentsCatalog({
 				lockScroll={true}
 				showBackdrop={true}
 				placement="top-right"
-				maxHeight={isPhoneMode ? 852 : 724}
+				maxHeight={724}
 				maxWidth={446}
 				offset={0}
 			>
