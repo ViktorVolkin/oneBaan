@@ -1,5 +1,5 @@
 const mockImage = "/backgroundImage.png";
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 import { Card } from "./Card";
 import { IntlProvider } from "next-intl";
 import React from "react";

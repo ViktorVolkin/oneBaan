@@ -1,7 +1,7 @@
 const image1 = "/backgroundImage.png";
 const image2 = "/realEstateSpecialistBlock_image.jpg";
 
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 import CardSlider from "./CardSlider";
 import { IntlProvider } from "next-intl";
 import React from "react";

@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 import { AccordionMenuItem } from "./AccordionMenuItem";
 import React from "react";
 

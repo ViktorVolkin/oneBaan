@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 import { MoreOffersFromThisComplexCard } from "./MoreOffersFromThisComplexCard";
 import type { ListingCardBase } from "../../../types/LargeCardHorizontalSellCatalog.types";
 import { TAG_CODES_CONSTANT } from "../../../constants/common";

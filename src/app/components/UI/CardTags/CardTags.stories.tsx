@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 import { CardTags } from "./CardTags";
 import { TAG_CODES_CONSTANT } from "../../../constants/common";
 const meta: Meta<typeof CardTags> = {

@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 import { LargeCardHorizontalSellCatalog } from "./LargeCardHorizontalSellCatalog";
 const authorIcon = "/agent-logo.svg";
 import { TAG_CODES_CONSTANT } from "../../../constants/common";

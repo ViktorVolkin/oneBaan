@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 import ButtonGoBack from "./buttonGoBack";
 
 const meta: Meta<typeof ButtonGoBack> = {

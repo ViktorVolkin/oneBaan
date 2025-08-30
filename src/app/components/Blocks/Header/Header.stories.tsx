@@ -1,6 +1,5 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 import Header from "../HeaderDesktopMode";
-import type { HeaderProps } from "@/app/types/Header.types";
 import React from "react";
 import HeaderTabletMode from "../HeaderTabletMode";
 import HeaderPhoneMode from "../HeaderPhoneMode";
