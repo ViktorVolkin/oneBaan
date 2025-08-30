@@ -9,7 +9,7 @@ export const Default = {
 	args: {
 		title: "Поиск: Пхукет, до $200k",
 		description: "2 спальни, кондо, море рядом",
-		typeTag: "Квартира",
+		typeTag: "Push-уведомления",
 		onMore: () => alert("More clicked"),
 	},
 };

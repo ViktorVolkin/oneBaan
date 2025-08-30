@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/nextjs";
 import { ComplexConveniences } from "./ComplexConveniences";
 import type { CardTagProps } from "../../../types/CardTags.types";
 import { TAG_CODES_CONSTANT } from "../../../constants/common";
@@ -7,9 +7,7 @@ const meta: Meta<typeof ComplexConveniences> = {
 	component: ComplexConveniences,
 };
 export default meta;
-type Story = StoryObj<typeof ComplexConveniences>;
-
-export const Default: Story = {
+export const Default = {
 	args: {
 		complexName: "ЖК Солнечный",
 		complexImage:

@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/nextjs";
 import { DetailsOfOffer } from "./DetailsOfOffer";
 import type { SellCardDetailedProps } from "../../../types/CardDetailed.types";
 import { TAG_CODES_CONSTANT } from "../../../constants/common";
@@ -8,9 +8,8 @@ const meta: Meta<typeof DetailsOfOffer> = {
 	component: DetailsOfOffer,
 };
 export default meta;
-type Story = StoryObj<typeof DetailsOfOffer>;
 
-export const Default: Story = {
+export const Default = {
 	args: {
 		offerId: "123",
 		offerDetail:
@@ -28,9 +27,9 @@ export const Default: Story = {
 		],
 		propDetailsCard: [
 			{
-				title: "Апартаменты",
-				text: "Blue Canyon Golf And Country Club Home",
-				icon: "/BiBed.svg",
+				title: "Расстояние до моря",
+				text: "500м",
+				icon: "/distanceToWater.svg",
 			},
 		],
 		stats: { amountOfBeds: 4, amountOfBaths: 2, area: 1204 },

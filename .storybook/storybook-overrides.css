@@ -1,9 +1,0 @@
-/* Remove all default paddings from Storybook canvas and docs */
-.sb-main-padded,
-.docs-story,
-.sb-show-main > div,
-.sbdocs-wrapper {
-	padding: 0 !important;
-	margin: 0 !important;
-	box-sizing: border-box;
-}

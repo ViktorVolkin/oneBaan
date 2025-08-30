@@ -12,7 +12,7 @@ type Story = StoryObj<typeof DetailsCard>;
 export const Default: Story = {
 	args: {
 		title: "Заголовок",
-		text: "Описание карточки",
+		text: "Описание",
 		icon: "/BiBed.svg",
 		isRent: false,
 	} as DetailsCardProps,

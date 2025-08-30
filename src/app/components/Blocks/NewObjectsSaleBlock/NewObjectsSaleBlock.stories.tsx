@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/nextjs";
 import { NewObjectsSaleBlock } from "./NewObjectsSaleBlock";
 const MockImage = "/backgroundImage.png";
 
@@ -42,9 +42,8 @@ const meta: Meta<typeof NewObjectsSaleBlock> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof NewObjectsSaleBlock>;
 
-export const Default: Story = {
+export const Default = {
 	args: {
 		data: fakeRecentlyAddedForSale,
 	},

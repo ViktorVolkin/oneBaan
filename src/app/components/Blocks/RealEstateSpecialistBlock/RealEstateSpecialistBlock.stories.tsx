@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/nextjs";
 import { RealEstateSpecialistBlock } from "./RealEstateSpecialistBlock";
 
 const meta: Meta<typeof RealEstateSpecialistBlock> = {
@@ -8,8 +8,7 @@ const meta: Meta<typeof RealEstateSpecialistBlock> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof RealEstateSpecialistBlock>;
 
-export const Default: Story = {
+export const Default = {
 	args: {},
 };

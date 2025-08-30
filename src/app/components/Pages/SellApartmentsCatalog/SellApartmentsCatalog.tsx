@@ -635,6 +635,7 @@ export function SellApartmentsCatalog({
 								key={item.idOfCard}
 								{...item}
 								isRentCard={isRentPage}
+								reserveHeightForSecondLine={true}
 							/>
 						))}
 					</div>

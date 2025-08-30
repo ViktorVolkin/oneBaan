@@ -1,3 +1,5 @@
+// sellCardDetailedMock.ts
+
 export type Breadcrumb = { href: string; label: string };
 export type TagDTO = { code: string };
 
@@ -114,31 +116,19 @@ export const SELL_CARD_DETAILED_MOCKS: Record<string, ListingDetailsDTO> = {
 			level: "12",
 			checkOnMapHref: "/2gis",
 		},
-		tagsSell: {
-			tags: [{ code: "with_furniture" }],
-		},
+		tagsSell: { tags: [{ code: "with_furniture" }] },
 		offerFeatureText:
 			"Комплекс в шаговой доступности от моря; возможно полное обслуживание на ресепшене. Угловая квартира — больше света и меньше соседей.",
 		tagsDetailed: {
 			tags: [
 				{ code: "with_pool" },
-				{
-					code: "view_on_mountains",
-				},
-				{
-					code: "guards",
-				},
+				{ code: "view_on_mountains" },
+				{ code: "guards" },
 				{ code: "with_gym" },
 				{ code: "guards" },
-				{
-					code: "with_child_club",
-				},
-				{
-					code: "with_coworking",
-				},
-				{
-					code: "with_restaurant",
-				},
+				{ code: "with_child_club" },
+				{ code: "with_coworking" },
+				{ code: "with_restaurant" },
 				{ code: "with_garden" },
 			],
 		},
@@ -170,18 +160,10 @@ export const SELL_CARD_DETAILED_MOCKS: Record<string, ListingDetailsDTO> = {
 					cardDescription: "Описание карточки",
 					agentLogo: "/agent-logo.svg",
 					tags: [
-						{
-							code: "object_verified",
-						},
-						{
-							code: "only_on_oneBaan",
-						},
-						{
-							code: "beneficial_price",
-						},
-						{
-							code: "with_furniture",
-						},
+						{ code: "object_verified" },
+						{ code: "only_on_oneBaan" },
+						{ code: "beneficial_price" },
+						{ code: "with_furniture" },
 					],
 					contactWhatsApp: { path: "" },
 					contactWithSalesman: { path: "" },
@@ -202,7 +184,7 @@ export const SELL_CARD_DETAILED_MOCKS: Record<string, ListingDetailsDTO> = {
 					tags: [],
 					contactWhatsApp: { path: "" },
 					contactWithSalesman: { path: "" },
-					whenPosted: "2025-08-10T12:00:00.000Z",
+					whenPosted: "21 день назад",
 					breadcrumbs: [],
 				},
 				{
@@ -219,7 +201,7 @@ export const SELL_CARD_DETAILED_MOCKS: Record<string, ListingDetailsDTO> = {
 					tags: [],
 					contactWhatsApp: { path: "" },
 					contactWithSalesman: { path: "" },
-					whenPosted: "2025-08-15T09:30:00.000Z",
+					whenPosted: "16 дней назад",
 					breadcrumbs: [],
 				},
 				{
@@ -236,10 +218,9 @@ export const SELL_CARD_DETAILED_MOCKS: Record<string, ListingDetailsDTO> = {
 					tags: [],
 					contactWhatsApp: { path: "" },
 					contactWithSalesman: { path: "" },
-					whenPosted: "2025-08-18T14:00:00.000Z",
+					whenPosted: "13 дней назад",
 					breadcrumbs: [],
 				},
-
 				{
 					idOfCard: "5",
 					apartmentImages: {
@@ -254,7 +235,7 @@ export const SELL_CARD_DETAILED_MOCKS: Record<string, ListingDetailsDTO> = {
 					tags: [],
 					contactWhatsApp: { path: "" },
 					contactWithSalesman: { path: "" },
-					whenPosted: "2025-08-20T10:00:00.000Z",
+					whenPosted: "11 дней назад",
 					breadcrumbs: [],
 				},
 				{
@@ -271,7 +252,7 @@ export const SELL_CARD_DETAILED_MOCKS: Record<string, ListingDetailsDTO> = {
 					tags: [{ code: "with_garden" }],
 					contactWhatsApp: { path: "" },
 					contactWithSalesman: { path: "" },
-					whenPosted: "2025-08-21T11:15:00.000Z",
+					whenPosted: "10 дней назад",
 					breadcrumbs: [],
 				},
 				{
@@ -288,7 +269,7 @@ export const SELL_CARD_DETAILED_MOCKS: Record<string, ListingDetailsDTO> = {
 					tags: [{ code: "with_pool" }, { code: "with_gym" }],
 					contactWhatsApp: { path: "" },
 					contactWithSalesman: { path: "" },
-					whenPosted: "2025-08-22T09:00:00.000Z",
+					whenPosted: "9 дней назад",
 					breadcrumbs: [],
 				},
 				{
@@ -305,7 +286,7 @@ export const SELL_CARD_DETAILED_MOCKS: Record<string, ListingDetailsDTO> = {
 					tags: [],
 					contactWhatsApp: { path: "" },
 					contactWithSalesman: { path: "" },
-					whenPosted: "2025-08-23T16:45:00.000Z",
+					whenPosted: "8 дней назад",
 					breadcrumbs: [],
 				},
 			],
