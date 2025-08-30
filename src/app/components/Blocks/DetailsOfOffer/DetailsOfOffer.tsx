@@ -3,7 +3,7 @@
 import { useTranslations } from "next-intl";
 import styles from "./DetailsOfOffer.module.css";
 import { Link } from "@/i18n/navigation";
-import DetailsCard from "../../UI/DetailsCard";
+import DetailsCard from "../../UI/detailsCard";
 import CardTags from "../../UI/CardTags";
 
 import type { SellCardDetailedProps } from "@/app/types/CardDetailed.types";
