@@ -83,7 +83,7 @@ export function MoreOffersFromThisComplex({
 						onChange={(value) =>
 							setMany({
 								beds: value,
-								page: shouldUsePaging ? "1" : (null as any),
+								page: shouldUsePaging ? "1" : null,
 							})
 						}
 						prefixSrc="/BiBed.svg"
@@ -112,7 +112,7 @@ export function MoreOffersFromThisComplex({
 								setMany({
 									"min-price": both ? min : null,
 									"max-price": both ? max : null,
-									page: shouldUsePaging ? "1" : (null as any),
+									page: shouldUsePaging ? "1" : null,
 								});
 							}}
 						/>
@@ -125,7 +125,7 @@ export function MoreOffersFromThisComplex({
 					onChange={(v) =>
 						setMany({
 							sortBy: v,
-							page: shouldUsePaging ? "1" : (null as any),
+							page: shouldUsePaging ? "1" : null,
 						})
 					}
 					value={get("sortBy")}

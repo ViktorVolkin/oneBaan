@@ -52,9 +52,20 @@ export function useCatalogPagination(
 				setItems(data.items);
 				setTotal(data.total);
 				setHasMore(data.hasMore);
-			} catch (e: any) {
-				if (e?.name === "AbortError") return;
-				setError(e?.message ?? "Failed to load");
+			} catch (e) {
+				if (
+					typeof e === "object" &&
+					e !== null &&
+					"name" in e &&
+					(e as { name?: string }).name === "AbortError"
+				)
+					return;
+				setError(
+					typeof e === "object" && e !== null && "message" in e
+						? (e as { message?: string }).message ??
+								"Failed to load"
+						: "Failed to load"
+				);
 			} finally {
 				if (!cancelled) setLoading(false);
 			}

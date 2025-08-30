@@ -1,4 +1,5 @@
 import { TAG_CODES_CONSTANT } from "../constants/common";
+import type { CardTagProps } from "@/app/types/CardTags.types";
 
 export type SellCardDetailedQuery = {
 	locale?: string;
@@ -43,7 +44,9 @@ export async function fetchSellCardDetailedPage(
 	}
 	const data = await res.json();
 
-	function normalizeTags(tags: any[] = []) {
+	function normalizeTags(
+		tags: Array<string | { code: string }> = []
+	): CardTagProps[] {
 		return tags
 			.map((t) => (typeof t === "string" ? t : t?.code))
 			.filter(Boolean)
@@ -59,17 +62,19 @@ export async function fetchSellCardDetailedPage(
 	if (data.complex) data.complex.tags = normalizeTags(data.complex.tags);
 	if (data.moreFromComplex && Array.isArray(data.moreFromComplex.cards)) {
 		data.moreFromComplex.cards = data.moreFromComplex.cards.map(
-			(card: any) => ({
+			(card: Record<string, any>) => ({
 				...card,
 				tags: normalizeTags(card.tags),
 			})
 		);
 	}
 	if (data.similar && Array.isArray(data.similar.cards)) {
-		data.similar.cards = data.similar.cards.map((card: any) => ({
-			...card,
-			tags: normalizeTags(card.tags),
-		}));
+		data.similar.cards = data.similar.cards.map(
+			(card: Record<string, any>) => ({
+				...card,
+				tags: normalizeTags(card.tags),
+			})
+		);
 	}
 
 	return data;

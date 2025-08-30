@@ -34,7 +34,7 @@ const HeaderPhoneMode = ({
 			(typesOfCurrency as readonly string[]).includes(fromUrl) &&
 			fromUrl !== currentCurrency
 		) {
-			setCurrency(fromUrl as any);
+			setCurrency(fromUrl as (typeof typesOfCurrency)[number]);
 		}
 	}, [get, typesOfCurrency, currentCurrency]);
 
@@ -58,7 +58,7 @@ const HeaderPhoneMode = ({
 				method: "replace",
 				scroll: false,
 			});
-			setCurrency(next as any);
+			setCurrency(next as (typeof typesOfCurrency)[number]);
 		},
 		[currentCurrency, set]
 	);

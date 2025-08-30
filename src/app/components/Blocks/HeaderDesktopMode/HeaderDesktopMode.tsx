@@ -23,7 +23,7 @@ const HeaderDesktopMode = ({
 	useEffect(() => {
 		const c = (get("currency") || "").toUpperCase();
 		if (c && (typesOfCurrency as readonly string[]).includes(c)) {
-			setCurrency(c as any);
+			setCurrency(c as (typeof typesOfCurrency)[number]);
 		}
 	}, [get, typesOfCurrency]);
 
@@ -34,7 +34,7 @@ const HeaderDesktopMode = ({
 			method: "replace",
 			scroll: false,
 		}); // <<
-		setCurrency(next as any);
+	setCurrency(next as (typeof typesOfCurrency)[number]);
 	};
 
 	return (
