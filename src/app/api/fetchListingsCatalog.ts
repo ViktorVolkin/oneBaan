@@ -1,7 +1,12 @@
-import type { ListingCardBase } from "@/app/types/LargeCardHorizontalSellCatalog.types";
-import { routing } from "@/i18n/routing";
 import { TAG_CODES_CONSTANT } from "../constants/common";
-type Locale = (typeof routing.locales)[number];
+import type {
+	ApiCatalogPage,
+	ApiCatalogItemDTO,
+	CatalogPageUI,
+	CatalogCardUI,
+	Locale,
+	Currency,
+} from "@/app/types/api/apiCatalog";
 
 export type CatalogQuery = {
 	search?: string | null;
@@ -15,19 +20,11 @@ export type CatalogQuery = {
 	page?: number;
 	limit?: number;
 	locale?: Locale | null;
-	currency?: "USD" | "THB" | "RUB" | "EUR";
+	currency?: Currency;
 	state?: string;
 };
 
-export type CatalogPage = {
-	items: ListingCardBase[];
-	page: number;
-	limit: number;
-	total: number;
-	hasMore: boolean;
-};
-
-export function putIfHasValue(
+function putIfHasValue(
 	params: URLSearchParams,
 	key: string,
 	value?: string | null
@@ -52,15 +49,21 @@ export function buildSearchParams(q: CatalogQuery) {
 	putIfHasValue(qs, "locale", q.locale ?? "en");
 	putIfHasValue(qs, "currency", q.currency ?? null);
 	putIfHasValue(qs, "state", q.state);
-
 	return qs;
 }
+
+const normalizeCard = (item: ApiCatalogItemDTO): CatalogCardUI => ({
+	...item,
+	tags: item.tags.map(
+		({ code }) => TAG_CODES_CONSTANT[code] ?? { label: code }
+	),
+});
 
 export async function fetchListingsPage(
 	query: CatalogQuery,
 	signal?: AbortSignal,
 	path = "/sell-catalog-offers"
-): Promise<CatalogPage> {
+): Promise<CatalogPageUI> {
 	const base = process.env.NEXT_PUBLIC_BACKEND_HOST;
 	if (!base) throw new Error("NEXT_PUBLIC_BACKEND_HOST is not set");
 
@@ -73,26 +76,10 @@ export async function fetchListingsPage(
 		throw new Error(`HTTP ${res.status}: ${text}`);
 	}
 
-	const data: CatalogPage = await res.json();
-	const transformedItems = data.items.map((item) => ({
-		...item,
-		stats: item.stats,
-		// eslint-disable-next-line @typescript-eslint/no-explicit-any
-		tags: item.tags.map((tag: any) => {
-			const tagConstant =
-				TAG_CODES_CONSTANT[tag.code as keyof typeof TAG_CODES_CONSTANT];
-			return {
-				label: tagConstant?.label,
-				icon: tagConstant?.icon,
-				bgColor: tagConstant?.bgColor,
-				borderColor: tagConstant?.borderColor,
-				textColor: tagConstant?.textColor,
-			};
-		}),
-	}));
+	const data = (await res.json()) as ApiCatalogPage;
 
 	return {
 		...data,
-		items: transformedItems,
+		items: data.items.map(normalizeCard),
 	};
 }
