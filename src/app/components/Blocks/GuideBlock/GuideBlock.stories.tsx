@@ -13,17 +13,17 @@ type Story = StoryObj<typeof GuideBlock>;
 
 const guideCards = [
 	{
-		icon: "../../../../../public/GuideBlock__house.svg",
+		icon: "/GuideBlock__house.svg",
 		number: "01",
 		text: "Вы заполняете детальную форму",
 	},
 	{
-		icon: "../../../../../public/GuideBlock__house.svg",
+		icon: "/GuideBlock__house.svg",
 		number: "02",
 		text: "Ваш менеджер свяжется с вами для уточнения деталей",
 	},
 	{
-		icon: "../../../../../public/GuideBlock__house.svg",
+		icon: "/GuideBlock__house.svg",
 		number: "03",
 		text: "Ваш объект публикуется на платформе OneBaan ",
 	},
