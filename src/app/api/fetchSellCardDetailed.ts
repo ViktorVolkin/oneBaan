@@ -62,6 +62,7 @@ export async function fetchSellCardDetailedPage(
 	if (data.complex) data.complex.tags = normalizeTags(data.complex.tags);
 	if (data.moreFromComplex && Array.isArray(data.moreFromComplex.cards)) {
 		data.moreFromComplex.cards = data.moreFromComplex.cards.map(
+			/** eslint-disable-next-line @typescript-eslint/no-explicit-any */
 			(card: Record<string, any>) => ({
 				...card,
 				tags: normalizeTags(card.tags),
@@ -70,6 +71,7 @@ export async function fetchSellCardDetailedPage(
 	}
 	if (data.similar && Array.isArray(data.similar.cards)) {
 		data.similar.cards = data.similar.cards.map(
+			/** eslint-disable-next-line @typescript-eslint/no-explicit-any */
 			(card: Record<string, any>) => ({
 				...card,
 				tags: normalizeTags(card.tags),

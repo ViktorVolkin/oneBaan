@@ -77,6 +77,7 @@ export async function fetchListingsPage(
 	const transformedItems = data.items.map((item) => ({
 		...item,
 		stats: item.stats,
+		/** eslint-disable-next-line @typescript-eslint/no-explicit-any */
 		tags: item.tags.map((tag: any) => {
 			const tagConstant =
 				TAG_CODES_CONSTANT[tag.code as keyof typeof TAG_CODES_CONSTANT];

@@ -23,10 +23,10 @@ interface additionalProps {
 	reserveHeightForSecondLine?: boolean;
 }
 export const CardSellCatalog = (props: ListingCardBase & additionalProps) => {
-	let displayPhoneWithoutText = props.displayPhoneWithoutText ?? false;
-	let displayWhatsAppIconWithText =
+	const displayPhoneWithoutText = props.displayPhoneWithoutText ?? false;
+	const displayWhatsAppIconWithText =
 		props.displayWhatsAppIconWithText ?? false;
-	let reserveHeightForSecondLine = props.reserveHeightForSecondLine ?? true;
+	const reserveHeightForSecondLine = props.reserveHeightForSecondLine ?? true;
 	const t = useTranslations();
 	const { liked, toggle } = useOfferLike(props.idOfCard, false);
 	const WhichHeartToDisplay = liked ? Liked : Like;
@@ -97,7 +97,7 @@ export const CardSellCatalog = (props: ListingCardBase & additionalProps) => {
 									: ""
 							}`}
 							style={{
-								height: !props.reserveHeightForSecondLine
+								height: !reserveHeightForSecondLine
 									? "min-content"
 									: "",
 							}}

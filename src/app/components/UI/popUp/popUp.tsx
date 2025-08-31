@@ -41,7 +41,7 @@ export function PopUp({
 	const styleVars: React.CSSProperties = {
 		maxWidth: maxWidth ?? undefined,
 		maxHeight: maxHeight ?? undefined,
-		["--pop-offset" as any]: `${offset}px`,
+		["--pop-offset" as number | string]: `${offset}px`,
 	};
 
 	return (
