@@ -1,12 +1,5 @@
 import { TAG_CODES_CONSTANT } from "../constants/common";
 import type { CardTagProps } from "@/app/types/CardTags.types";
-import type {
-	ApiSellCardDetailedResponse,
-	ApiListingCardBaseDTO,
-	SellCardDetailedResponseNormalized,
-	ListingCardBaseNormalized,
-	ApiTag,
-} from "@/app/types/api/apiDetailedCard";
 
 export type SellCardDetailedQuery = {
 	locale?: string;
@@ -34,25 +27,12 @@ function buildSellCardDetailedSearchParams(q: SellCardDetailedQuery) {
 	return qs;
 }
 
-const normalizeTags = (tags: ApiTag[] = []): CardTagProps[] =>
-	tags
-		.map((t) => t.code)
-		.filter((code): code is string => Boolean(code))
-		.map((code) => TAG_CODES_CONSTANT[code] ?? { label: code });
-
-const normalizeCard = (
-	c: ApiListingCardBaseDTO
-): ListingCardBaseNormalized => ({
-	...c,
-	tags: normalizeTags(c.tags),
-});
-
 export async function fetchSellCardDetailedPage(
 	id: string,
 	query: SellCardDetailedQuery = {},
 	signal?: AbortSignal,
 	path = "/sell-card-detailed/"
-): Promise<SellCardDetailedResponseNormalized> {
+) {
 	const base = process.env.NEXT_PUBLIC_BACKEND_HOST;
 	const url = new URL(path + id, base);
 	url.search = buildSellCardDetailedSearchParams(query).toString();
@@ -62,30 +42,40 @@ export async function fetchSellCardDetailedPage(
 		const text = await res.text().catch(() => "");
 		throw new Error(`HTTP ${res.status}: ${text}`);
 	}
+	const data = await res.json();
 
-	const raw: ApiSellCardDetailedResponse = await res.json();
+	function normalizeTags(
+		tags: Array<string | { code: string }> = []
+	): CardTagProps[] {
+		return tags
+			.map((t) => (typeof t === "string" ? t : t?.code))
+			.filter(Boolean)
+			.map((code: string) => {
+				const meta = TAG_CODES_CONSTANT[code];
+				return meta ?? { label: code };
+			});
+	}
 
-	const normalized: SellCardDetailedResponseNormalized = {
-		...raw,
-		tagsSell: raw.tagsSell
-			? { tags: normalizeTags(raw.tagsSell.tags) }
-			: undefined,
-		tagsDetailed: raw.tagsDetailed
-			? { tags: normalizeTags(raw.tagsDetailed.tags) }
-			: undefined,
-		complex: {
-			...raw.complex,
-			tags: normalizeTags(raw.complex.tags),
-		},
-		moreFromComplex: {
-			...raw.moreFromComplex,
-			cards: raw.moreFromComplex.cards.map(normalizeCard),
-		},
-		similar: {
-			...raw.similar,
-			cards: raw.similar.cards.map(normalizeCard),
-		},
-	};
+	if (data.tagsSell) data.tagsSell.tags = normalizeTags(data.tagsSell.tags);
+	if (data.tagsDetailed)
+		data.tagsDetailed.tags = normalizeTags(data.tagsDetailed.tags);
+	if (data.complex) data.complex.tags = normalizeTags(data.complex.tags);
+	if (data.moreFromComplex && Array.isArray(data.moreFromComplex.cards)) {
+		data.moreFromComplex.cards = data.moreFromComplex.cards.map(
+			(card: Record<string, any>) => ({
+				...card,
+				tags: normalizeTags(card.tags),
+			})
+		);
+	}
+	if (data.similar && Array.isArray(data.similar.cards)) {
+		data.similar.cards = data.similar.cards.map(
+			(card: Record<string, any>) => ({
+				...card,
+				tags: normalizeTags(card.tags),
+			})
+		);
+	}
 
-	return normalized;
+	return data;
 }
