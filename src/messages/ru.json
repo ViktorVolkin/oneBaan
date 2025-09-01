@@ -98,16 +98,16 @@
 		"property": "Каталог недвижимости",
 		"rentPage": "Аренда",
 		"filter": "Фильтр",
-		"searchPlaceholder": "Район или проект",
+		"searchPlaceholder": "Поиск по названию",
 
-		"resetQuery": "Сбросить фильтры",
+		"resetQuery": "Сбросить",
 		"amountOfObjects": "{ count, plural, one {# объект} few {# объекта} many {# объектов} other {# объектов}}",
 		"sortBy": "Сортировать",
 
 		"sort": {
-			"location": "Локация",
+			"location": "Расположение",
 			"typeOfProperty": "Тип недвижимости",
-			"baths": "Санузлы",
+			"baths": "Ванные комнаты",
 			"bedrooms": "Спальни",
 			"priceTitle": "Цена",
 			"minPrice": "Мин цена",
@@ -158,6 +158,7 @@
 		"studio": "Студия"
 	},
 	"favourites": {
+		"title": "Избранное",
 		"savedSearches": {
 			"sortBy": {
 				"params": "По параметрам"
@@ -166,6 +167,11 @@
 		"redactSettings": {
 			"edit": "Редактировать",
 			"delete": "Удалить"
+		},
+		"noSaves": {
+			"title": "Нет сохраненных объектов",
+			"text": "добавить",
+			"button": "создать"
 		}
 	},
 	"textGoBack": "Вернуться",

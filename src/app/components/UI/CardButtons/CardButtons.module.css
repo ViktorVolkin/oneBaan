@@ -20,7 +20,9 @@
 	color: #2d3748;
 	font-weight: 700;
 	font-size: 12px;
-	line-clamp: 2;
+	white-space: wrap;
+	max-width: 50%;
+	padding: 10px 20px;
 }
 .cardButton__whatsApp {
 	background-color: #48bb78;
@@ -52,10 +54,12 @@
 	height: 100%;
 	background-color: #f1e6ff;
 	font-size: 12px;
+	display: flex;
+	align-items: stretch;
 }
 .iconPhoneRentDetailedMode {
-	width: 16px;
-	height: 16px;
+	min-width: 16px;
+	min-height: 16px;
 }
 @media (min-width: 768px) and (max-width: 1439.9px) {
 	.textWithIcon {
@@ -76,8 +80,8 @@
 		font-size: 16px;
 	}
 	.iconPhoneRentDetailedMode {
-		width: 20px;
-		height: 20px;
+		min-width: 20px;
+		min-height: 20px;
 	}
 }
 @media (min-width: 1440px) {
@@ -95,7 +99,7 @@
 		font-size: 18px;
 	}
 	.iconPhoneRentDetailedMode {
-		width: 24px;
-		height: 24px;
+		min-width: 24px;
+		min-height: 24px;
 	}
 }

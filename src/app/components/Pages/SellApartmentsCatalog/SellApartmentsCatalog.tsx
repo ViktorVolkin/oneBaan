@@ -666,7 +666,7 @@ export function SellApartmentsCatalog({
 				lockScroll={true}
 				showBackdrop={true}
 				placement="top-right"
-				maxHeight={724}
+				maxHeight={isPhoneMode ? 852 : 724}
 				maxWidth={446}
 				offset={0}
 			>
@@ -675,7 +675,7 @@ export function SellApartmentsCatalog({
 						{t("catalog.filter")}
 					</h4>
 					<SearchBox
-						className={styles.filterSearchPopup}
+						containerClassName={styles.filterSearchPopup}
 						placeholder={t("catalog.searchPlaceholder")}
 						onCommit={(v) => setSearchDraft(v)}
 						clearable={false}
@@ -775,6 +775,9 @@ export function SellApartmentsCatalog({
 						</div>
 					</div>
 					<div className={styles.sortContainerPopup}>
+						<h5 className={styles.sortContainerPopup__title}>
+							{t("cards.sort")}
+						</h5>
 						<CustomSelect
 							placeholder={"catalog.sortBy.recommended"}
 							options={optionsSortBy}

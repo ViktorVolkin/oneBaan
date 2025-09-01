@@ -7,11 +7,16 @@ import type { ListingCardBase } from "@/app/types/LargeCardHorizontalSellCatalog
 import { useTranslations } from "next-intl";
 import Like from "@/../public/like.svg?component";
 import Liked from "@/../public/liked.svg?component";
-import { readIds, useOfferLike } from "@/app/customHooks/useOfferLike";
-import { useMemo } from "react";
+import { useOfferLike } from "@/app/customHooks/useOfferLike";
+import { useRouter } from "@/i18n/navigation";
 export const LargeCardHorizontalSellCatalog = (props: ListingCardBase) => {
 	const t = useTranslations();
+	const router = useRouter();
 
+	const handleCardClick = () => {
+		const basePath = props.isRentCard ? "/catalog/rent" : "/catalog/sell";
+		router.push(`${basePath}/CardDetails/${props.idOfCard}`);
+	};
 	const { liked, toggle } = useOfferLike(props.idOfCard, false);
 	const WhichIconToDisplay = liked ? Liked : Like;
 	const icons = [
@@ -32,7 +37,10 @@ export const LargeCardHorizontalSellCatalog = (props: ListingCardBase) => {
 			</div>
 
 			<div className={styles.card__content_container}>
-				<div className={styles.content__without_contacts}>
+				<div
+					className={styles.content__without_contacts}
+					onClick={handleCardClick}
+				>
 					<div className={styles.card__content}>
 						<h3 className={styles.card__description}>
 							{props.cardDescription}

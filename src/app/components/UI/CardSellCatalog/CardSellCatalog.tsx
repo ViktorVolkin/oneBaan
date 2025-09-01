@@ -10,6 +10,7 @@ import { useTranslations } from "next-intl";
 import { useOfferLike } from "@/app/customHooks/useOfferLike";
 import { Link } from "@/i18n/navigation";
 import CardButtons from "../CardButtons";
+import { useRouter } from "@/i18n/navigation";
 interface additionalProps {
 	mainImage?: string;
 	displayPhoneWithoutText?: boolean;
@@ -31,6 +32,12 @@ export const CardSellCatalog = (props: ListingCardBase & additionalProps) => {
 	const { liked, toggle } = useOfferLike(props.idOfCard, false);
 	const WhichHeartToDisplay = liked ? Liked : Like;
 	const breadcrumbs = props.breadcrumbs;
+	const router = useRouter();
+
+	const handleCardClick = () => {
+		const basePath = props.isRentCard ? "/catalog/rent" : "/catalog";
+		router.push(`${basePath}/CardDetails/${props.idOfCard}`);
+	};
 
 	return (
 		<div
@@ -88,6 +95,7 @@ export const CardSellCatalog = (props: ListingCardBase & additionalProps) => {
 					className={`${styles.card__info} ${
 						props.isRentCard ? styles.rent__card__info : ""
 					}`}
+					onClick={handleCardClick}
 				>
 					<div className={styles.card__main_info}>
 						<div

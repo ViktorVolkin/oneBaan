@@ -1,6 +1,7 @@
 export type SearchBoxProps = {
 	placeholder: string;
 	className?: string;
+	containerClassName?: string;
 	param?: string;
 	changeOnEnter?: boolean;
 	onCommit?: (v: string) => void;

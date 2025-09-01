@@ -105,6 +105,7 @@ export function SimilarOffers({ tags, isRent, cards }: SimilarOffersProps) {
 								{...item}
 								displayPhoneWithoutText={true}
 								mainImage={item.mainImage}
+								reserveHeightForSecondLine={false}
 							/>
 						</SwiperSlide>
 					))}

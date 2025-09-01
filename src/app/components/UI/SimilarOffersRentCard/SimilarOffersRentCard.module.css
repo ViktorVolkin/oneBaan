@@ -19,9 +19,12 @@
 .card__content {
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: space-between;
 	padding: 12px;
 	gap: 6px;
+}
+.info__container {
+	cursor: pointer;
 }
 .card__title {
 	color: #a0aec0;

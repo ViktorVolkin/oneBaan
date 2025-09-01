@@ -6,9 +6,16 @@ import type { ListingCardBase } from "@/app/types/LargeCardHorizontalSellCatalog
 import { useOfferLike } from "@/app/customHooks/useOfferLike";
 import { useTranslations } from "next-intl";
 import CardSellCatalog from "../CardSellCatalog";
+import { useRouter } from "@/i18n/navigation";
 export const MoreOffersFromThisComplexCard = (props: ListingCardBase) => {
 	const t = useTranslations();
 	const { toggle, liked } = useOfferLike(props.idOfCard, false);
+	const router = useRouter();
+
+	const handleCardClick = () => {
+		const basePath = props.isRentCard ? "/catalog/rent" : "/catalog";
+		router.push(`${basePath}/CardDetails/${props.idOfCard}`);
+	};
 	const statsIcons = [
 		{
 			iconPath: "/BiBed.svg",
@@ -40,7 +47,10 @@ export const MoreOffersFromThisComplexCard = (props: ListingCardBase) => {
 				</div>
 
 				<div className={styles.data__container}>
-					<div className={styles.card__info}>
+					<div
+						className={styles.card__info}
+						onClick={handleCardClick}
+					>
 						<div>
 							<h4 className={styles.card__price}>
 								{props.price}

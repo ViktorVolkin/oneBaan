@@ -4,10 +4,16 @@ import FavouritesPage from "@/app/components/Pages/FavouritesPage/FavouritesPage
 
 export default function Page() {
 	return (
-		<>
+		<div
+			style={{
+				height: "100vh",
+				display: "flex",
+				flexDirection: "column",
+			}}
+		>
 			<Header />
 			<FavouritesPage />
-			<Footer></Footer>
-		</>
+			<Footer />
+		</div>
 	);
 }

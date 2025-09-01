@@ -101,3 +101,14 @@
 	align-items: center;
 	justify-content: center;
 }
+.accordionButton {
+	background: none;
+	border: 0;
+	padding: 0;
+	font-size: clamp(14px, 3vw, 26px) !important;
+	color: inherit;
+	cursor: pointer;
+	* {
+		font-size: inherit;
+	}
+}

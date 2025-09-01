@@ -14,6 +14,7 @@ export function SearchBox({
 	changeOnEnter = true,
 	clearable = true,
 	withIcon = false,
+	containerClassName,
 }: SearchBoxProps) {
 	const { get, set } = useQueryParams();
 
@@ -48,14 +49,14 @@ export function SearchBox({
 	};
 
 	return (
-		<div className={styles.inputContainer}>
+		<div className={`${styles.inputContainer} ${containerClassName}`}>
 			{withIcon && <SearchIcon className={styles.searchBox__icon} />}
 			<input
 				value={value}
 				onChange={(e) => setValue(e.target.value)}
 				onKeyDown={onKeyDown}
 				placeholder={placeholder}
-				className={`${className} ${
+				className={`${className ?? ""} ${
 					withIcon ? styles.searchBox__inputWithIcon : ""
 				}`}
 			/>

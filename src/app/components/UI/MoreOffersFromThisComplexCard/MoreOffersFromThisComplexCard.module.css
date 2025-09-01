@@ -32,6 +32,7 @@
 	max-width: 168px;
 	white-space: nowrap;
 	flex-wrap: nowrap;
+	cursor: pointer;
 }
 
 .card__price {

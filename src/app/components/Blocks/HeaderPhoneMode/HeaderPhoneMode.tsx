@@ -11,7 +11,7 @@ import SidebarMenu from "@/app/components/UI/SidebarMenu";
 import AccordionMenuItem from "../../UI/AccordionMenuItem";
 import SearchIcon from "@/../public/searchIcon.svg?component";
 import { useQueryParams } from "@/app/customHooks/useQueryParams";
-import SearchBox from "../../UI/searchBox";
+import SearchBox from "../../UI/searchBox/index";
 const HeaderPhoneMode = ({
 	burgerOptions,
 	handleLanguageChange,
@@ -152,6 +152,7 @@ const HeaderPhoneMode = ({
 								.map((currency) => (
 									<button
 										key={currency}
+										className={styles.accordionButton}
 										onClick={() => {
 											updateCurrencyInUrl(currency);
 											setIsSidebarOpen(false);
@@ -171,6 +172,7 @@ const HeaderPhoneMode = ({
 									.map((item) => (
 										<button
 											key={item}
+											className={styles.accordionButton}
 											onClick={() =>
 												handleLanguageChange(
 													item as SupportedLngs
