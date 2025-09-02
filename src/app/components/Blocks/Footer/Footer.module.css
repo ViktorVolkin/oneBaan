@@ -312,9 +312,14 @@
 		padding: 12px;
 		background-color: #4a5568;
 		border: 0;
+		color: white;
+		font-size: 14px;
 		&::placeholder {
 			color: white;
 			font-size: 14px;
+		}
+		&:focus-visible {
+			outline: none;
 		}
 	}
 	.distributionSign__button {

@@ -126,10 +126,7 @@ app.get("/rent-catalog-offers/preview", (req, res) => {
 app.get("/sell-catalog-offers", makeCatalogHandler(sellCatalogListingCards));
 app.get("/rent-catalog-offers", makeCatalogHandler(rentCatalogMock));
 app.get("/sell-card-detailed/:id", (req, res) => {
-	const { id } = req.params;
-
-	const original = SELL_CARD_DETAILED_MOCKS[id];
-	if (!original) return res.status(404).json({ error: "Not found" });
+	const original = SELL_CARD_DETAILED_MOCKS["123"];
 
 	const data = JSON.parse(JSON.stringify(original));
 
@@ -168,10 +165,7 @@ app.get("/sell-card-detailed/:id", (req, res) => {
 	return res.json(data);
 });
 app.get("/rent-card-detailed/:id", (req, res) => {
-	const { id } = req.params;
-
-	const original = RENT_CARD_DETAILED_MOCKS[id];
-	if (!original) return res.status(404).json({ error: "Not found" });
+	const original = RENT_CARD_DETAILED_MOCKS["123"];
 
 	const data = JSON.parse(JSON.stringify(original));
 
