@@ -157,6 +157,9 @@ export const CardSellCatalog = (props: ListingCardBase & additionalProps) => {
 										? styles.rent__card__breadcrumbs
 										: ""
 								}`}
+								onClick={(e) => {
+									e.stopPropagation();
+								}}
 							>
 								<img
 									src="/adress.svg"

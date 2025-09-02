@@ -39,7 +39,10 @@ export function SimilarOffersRentCard(props: SimilarRentCard) {
 					</p>
 					<p className={styles.card__detail}>{props.details}</p>
 					{props.breadcrumbs && props.breadcrumbs.length > 0 && (
-						<nav className={styles.card__breadcrumbs}>
+						<nav
+							className={styles.card__breadcrumbs}
+							onClick={(e) => e.stopPropagation()}
+						>
 							{props.breadcrumbs.map((crumb, index) => (
 								<span key={index}>
 									<Link href={crumb.href}>{crumb.label}</Link>

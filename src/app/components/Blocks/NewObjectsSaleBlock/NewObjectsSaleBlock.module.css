@@ -16,8 +16,6 @@
 	position: relative;
 }
 .SaleBlock__info {
-	height: 44px;
-	width: 223px;
 	display: flex;
 	align-items: center;
 	justify-content: flex-start;

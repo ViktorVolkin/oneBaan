@@ -200,7 +200,6 @@ export function SellApartmentsCatalog({
 			"type",
 			"search",
 			"sortMode",
-			"sortBy",
 			"page",
 		],
 		[]
@@ -491,7 +490,7 @@ export function SellApartmentsCatalog({
 									className={styles.phoneFilterOption}
 									chipWhenSelected={true}
 									clearable={true}
-									lockWhenSelected={true}
+									lockWhenSelected={false}
 								></CustomSelect>
 								<CustomSelect
 									options={optionsBedrooms}
@@ -504,7 +503,7 @@ export function SellApartmentsCatalog({
 									chipWhenSelected={true}
 									className={styles.phoneFilterOption}
 									clearable={true}
-									lockWhenSelected={true}
+									lockWhenSelected={false}
 									placeholder={"catalog.selector.bedrooms"}
 								></CustomSelect>
 								<CustomSelect
@@ -534,7 +533,7 @@ export function SellApartmentsCatalog({
 									className={styles.phoneFilterOption}
 									chipWhenSelected={true}
 									clearable={true}
-									lockWhenSelected={true}
+									lockWhenSelected={false}
 									placeholder={"catalog.selector.price"}
 								/>
 							</div>
@@ -671,127 +670,130 @@ export function SellApartmentsCatalog({
 				offset={0}
 			>
 				<div className={styles.Popup__content}>
-					<h4 className={styles.popup__title}>
-						{t("catalog.filter")}
-					</h4>
-					<SearchBox
-						containerClassName={styles.filterSearchPopup}
-						placeholder={t("catalog.searchPlaceholder")}
-						onCommit={(v) => setSearchDraft(v)}
-						clearable={false}
-						changeOnEnter={false}
-					/>
-
-					<CustomSelect
-						placeholder={"catalog.sort.location"}
-						options={optionsLocation}
-						value={filtersDraft.location}
-						className={styles.catalog__selectorPopup}
-						onChange={(value) =>
-							setFiltersDraft((p) => ({
-								...p,
-								location: value ?? "",
-							}))
-						}
-					/>
-
-					<CustomSelect
-						placeholder={"catalog.sort.typeOfProperty"}
-						options={optionsTypesOfProperty}
-						value={filtersDraft.typeOfProperty}
-						className={styles.catalog__selectorPopup}
-						onChange={(value) =>
-							setFiltersDraft((p) => ({
-								...p,
-								typeOfProperty: value ?? "",
-							}))
-						}
-					/>
-
-					<div className={styles.optionsOfApartmentPopup}>
-						<CustomSelect
-							placeholder={"catalog.sort.baths"}
-							options={optionsBaths}
-							value={filtersDraft.amountOfBaths}
-							className={styles.catalog__selectorPopup}
-							onChange={(value) =>
-								setFiltersDraft((p) => ({
-									...p,
-									amountOfBaths: value ?? "",
-								}))
-							}
-						/>
-
-						<CustomSelect
-							placeholder={"catalog.sort.bedrooms"}
-							options={optionsBedrooms}
-							className={styles.catalog__selectorPopup}
-							value={filtersDraft.amountOfBedrooms}
-							onChange={(value) =>
-								setFiltersDraft((p) => ({
-									...p,
-									amountOfBedrooms: value ?? "",
-								}))
-							}
-						/>
-					</div>
-
-					<div className={styles.optionsPrices__containerPopup}>
-						<h4 className={styles.optionsPrices__titlePopup}>
-							{t("catalog.sort.priceTitle")}
+					<div className={styles.popup__without__buttons}>
+						<h4 className={styles.popup__title}>
+							{t("catalog.filter")}
 						</h4>
-						<div className={styles.customSelectorsContainerPopup}>
+						<SearchBox
+							containerClassName={styles.filterSearchPopup}
+							placeholder={t("catalog.searchPlaceholder")}
+							onCommit={(v) => setSearchDraft(v)}
+							clearable={false}
+							changeOnEnter={false}
+						/>
+
+						<CustomSelect
+							placeholder={"catalog.sort.location"}
+							options={optionsLocation}
+							value={filtersDraft.location}
+							className={styles.catalog__selectorPopup}
+							onChange={(value) =>
+								setFiltersDraft((p) => ({
+									...p,
+									location: value ?? "",
+								}))
+							}
+						/>
+
+						<CustomSelect
+							placeholder={"catalog.sort.typeOfProperty"}
+							options={optionsTypesOfProperty}
+							value={filtersDraft.typeOfProperty}
+							className={styles.catalog__selectorPopup}
+							onChange={(value) =>
+								setFiltersDraft((p) => ({
+									...p,
+									typeOfProperty: value ?? "",
+								}))
+							}
+						/>
+
+						<div className={styles.optionsOfApartmentPopup}>
 							<CustomSelect
-								placeholder={"catalog.sort.minPrice"}
-								options={optionsMinPrice}
+								placeholder={"catalog.sort.baths"}
+								options={optionsBaths}
+								value={filtersDraft.amountOfBaths}
 								className={styles.catalog__selectorPopup}
-								value={filtersDraft.price.minPrice}
 								onChange={(value) =>
-									setFiltersDraft((prev) => ({
-										...prev,
-										price: {
-											...prev.price,
-											minPrice: value ?? "",
-										},
+									setFiltersDraft((p) => ({
+										...p,
+										amountOfBaths: value ?? "",
 									}))
 								}
 							/>
-							-
+
 							<CustomSelect
-								placeholder={"catalog.sort.maxPrice"}
-								options={optionsMaxPrice}
+								placeholder={"catalog.sort.bedrooms"}
+								options={optionsBedrooms}
 								className={styles.catalog__selectorPopup}
-								value={filtersDraft.price.maxPrice}
+								value={filtersDraft.amountOfBedrooms}
+								onChange={(value) =>
+									setFiltersDraft((p) => ({
+										...p,
+										amountOfBedrooms: value ?? "",
+									}))
+								}
+							/>
+						</div>
+
+						<div className={styles.optionsPrices__containerPopup}>
+							<h4 className={styles.optionsPrices__titlePopup}>
+								{t("catalog.sort.priceTitle")}
+							</h4>
+							<div
+								className={styles.customSelectorsContainerPopup}
+							>
+								<CustomSelect
+									placeholder={"catalog.sort.minPrice"}
+									options={optionsMinPrice}
+									className={styles.catalog__selectorPopup}
+									value={filtersDraft.price.minPrice}
+									onChange={(value) =>
+										setFiltersDraft((prev) => ({
+											...prev,
+											price: {
+												...prev.price,
+												minPrice: value ?? "",
+											},
+										}))
+									}
+								/>
+								-
+								<CustomSelect
+									placeholder={"catalog.sort.maxPrice"}
+									options={optionsMaxPrice}
+									className={styles.catalog__selectorPopup}
+									value={filtersDraft.price.maxPrice}
+									onChange={(value) =>
+										setFiltersDraft((prev) => ({
+											...prev,
+											price: {
+												...prev.price,
+												maxPrice: value ?? "",
+											},
+										}))
+									}
+								/>
+							</div>
+						</div>
+						<div className={styles.sortContainerPopup}>
+							<h5 className={styles.sortContainerPopup__title}>
+								{t("cards.sort")}
+							</h5>
+							<CustomSelect
+								placeholder={"catalog.sortBy.recommended"}
+								options={optionsSortBy}
+								className={styles.catalog__selectorPopup}
+								value={filtersDraft.sortBy}
 								onChange={(value) =>
 									setFiltersDraft((prev) => ({
 										...prev,
-										price: {
-											...prev.price,
-											maxPrice: value ?? "",
-										},
+										sortBy: value ?? "",
 									}))
 								}
 							/>
 						</div>
 					</div>
-					<div className={styles.sortContainerPopup}>
-						<h5 className={styles.sortContainerPopup__title}>
-							{t("cards.sort")}
-						</h5>
-						<CustomSelect
-							placeholder={"catalog.sortBy.recommended"}
-							options={optionsSortBy}
-							className={styles.catalog__selectorPopup}
-							value={filtersDraft.sortBy}
-							onChange={(value) =>
-								setFiltersDraft((prev) => ({
-									...prev,
-									sortBy: value ?? "",
-								}))
-							}
-						/>
-					</div>
-
 					<div className={styles.buttonsContainerPopup}>
 						<button
 							className={styles.resetQueryButtonPopup}

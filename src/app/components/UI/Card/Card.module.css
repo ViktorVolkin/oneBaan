@@ -44,7 +44,7 @@
 	flex-direction: column;
 	bottom: 18px;
 	left: 12px;
-	width: 191px;
+	width: max-content;
 	height: 84px;
 }
 .card__price {

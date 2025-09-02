@@ -1,5 +1,3 @@
-// sellCardDetailedMock.ts
-
 export type Breadcrumb = { href: string; label: string };
 export type TagDTO = { code: string };
 
