@@ -19,6 +19,7 @@
 	transform: translateY(-50%);
 	border: none;
 	background-color: inherit;
+	color: inherit !important;
 }
 .searchBox__icon {
 	position: absolute;

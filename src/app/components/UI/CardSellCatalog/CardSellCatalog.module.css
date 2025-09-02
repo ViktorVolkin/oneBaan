@@ -50,6 +50,7 @@
 	top: 15px;
 	right: 15px;
 	border-radius: 10px;
+	color: #2d3748 !important;
 }
 .card__header {
 	display: flex;
