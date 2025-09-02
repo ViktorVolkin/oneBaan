@@ -30,11 +30,20 @@ textarea,
 select,
 a {
 	font: inherit;
-	user-select: none;
+}
+button,
+a {
 	cursor: pointer;
 	-webkit-appearance: none !important;
 	-moz-appearance: none !important;
 	appearance: none !important;
+	user-select: none;
+
+	* {
+		-webkit-appearance: none !important;
+		-moz-appearance: none !important;
+		appearance: none !important;
+	}
 }
 .swiper-pagination-bullet {
 	background-color: #fff !important;
