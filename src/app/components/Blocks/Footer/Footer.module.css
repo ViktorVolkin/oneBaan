@@ -39,7 +39,8 @@
 	font-weight: 400;
 	font-size: 10px;
 	line-height: 14px;
-	color: #7d8faf;
+	color: #7d8faf !important;
+	text-decoration: none;
 }
 
 .footer__contacts {

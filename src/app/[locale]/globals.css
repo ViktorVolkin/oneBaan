@@ -8,7 +8,9 @@ footer,
 	-webkit-appearance: none !important;
 	-moz-appearance: none !important;
 	appearance: none !important;
-	-webkit-tap-highlight-color: transparent !important;
+	background: none;
+	border: none;
+	text-decoration: none;
 }
 
 html,
