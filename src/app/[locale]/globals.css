@@ -5,9 +5,6 @@ footer,
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
-	-webkit-appearance: none !important;
-	-moz-appearance: none !important;
-	appearance: none !important;
 }
 
 html,
@@ -35,6 +32,9 @@ a {
 	font: inherit;
 	user-select: none;
 	cursor: pointer;
+	-webkit-appearance: none !important;
+	-moz-appearance: none !important;
+	appearance: none !important;
 }
 .swiper-pagination-bullet {
 	background-color: #fff !important;
