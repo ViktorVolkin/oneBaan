@@ -1,6 +1,7 @@
 .popUp {
 	position: fixed;
 	inset: 0;
+	height: 100dvh;
 	z-index: 1000;
 	background: transparent;
 }
@@ -15,8 +16,8 @@
 	border-radius: 12px;
 	box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
 	padding: 16px;
-	width: 100vw;
-	height: 100vh;
+	width: 100%;
+	height: 100%;
 	overflow: auto;
 	display: flex;
 }
