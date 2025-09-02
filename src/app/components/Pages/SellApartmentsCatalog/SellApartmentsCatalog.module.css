@@ -216,7 +216,7 @@
 
 /*STYLES FOR POPUP BELOW.*/
 .Popup__content {
-	width: 100%;
+	width: 100svh;
 	max-width: 345px;
 	margin: 0 auto;
 	display: flex;
