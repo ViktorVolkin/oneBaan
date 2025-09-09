@@ -5,24 +5,43 @@ import styles from "./DetailsOfOffer.module.css";
 import { Link } from "@/i18n/navigation";
 import DetailsCard from "../../UI/DetailsCard";
 import CardTags from "../../UI/CardTags";
+import ComplexCardsMinPrices from "../../UI/ComplexCardsMinPrices";
 
 import type { SellCardDetailedProps } from "@/app/types/CardDetailed.types";
-type DetailsOfOfferProps = Omit<SellCardDetailedProps, "images">;
+import type { ComplexCardsMinPricesProps } from "../../UI/ComplexCardsMinPrices/ComplexCardsMinPrices";
 
-export function DetailsOfOffer({
-	offerDetail,
-	isRent,
-	price,
-	subText,
-	breadcrumbs,
-	propDetailsCard,
-	stats,
-	tagsSell,
-	tagsDetailed,
-	offerFeatureText,
-	detailsOnOneBaan,
-}: DetailsOfOfferProps) {
+type Base = Omit<SellCardDetailedProps, "images">;
+
+type NonComplexProps = Base & {
+	isComplex?: false;
+};
+
+type ComplexProps = Omit<
+	Base,
+	| "tagsSell"
+	| "tagsDetailed"
+	| "price"
+	| "offerFeatureText"
+	| "detailsOnOneBaan"
+	| "subText"
+	| "stats"
+> & {
+	isComplex: true;
+	cards: ComplexCardsMinPricesProps["cards"];
+	price?: never;
+	subText?: never;
+	stats?: never;
+	tagsSell?: never;
+	tagsDetailed?: never;
+	offerFeatureText?: never;
+	detailsOnOneBaan?: never;
+};
+
+type DetailsOfOfferProps = NonComplexProps | ComplexProps;
+
+export function DetailsOfOffer(props: DetailsOfOfferProps) {
 	const t = useTranslations();
+	const { offerDetail, isRent, breadcrumbs, propDetailsCard } = props;
 
 	return (
 		<div
@@ -38,55 +57,81 @@ export function DetailsOfOffer({
 				/>
 				{t("CardDetailed.blueprint")}
 			</p>
-			<p className={styles.offerDetail}>{offerDetail}</p>
 
-			<div className={styles.priceBlock}>
-				<h4 className={styles.card__price}>
-					{price}
-					{isRent ? ` ${t("cards.perMonth")}` : ""}
-				</h4>
+			<p
+				className={`${styles.offerDetail} ${
+					props.isComplex ? styles.offerDetail__with_complex : ""
+				}`}
+			>
+				{offerDetail}
+			</p>
 
-				{subText && (
-					<span className={styles.card__price_per_meter}>
-						{subText}
-					</span>
-				)}
-			</div>
+			{!props.isComplex && (
+				<>
+					<div className={styles.priceBlock}>
+						<h4 className={styles.card__price}>
+							{props.price}
+							{isRent ? ` ${t("cards.perMonth")}` : ""}
+						</h4>
 
-			<ul className={styles.icons__list}>
-				<li className={styles.icon__item}>
-					<img
-						src={"/BiBed.svg"}
-						alt="icon"
-						className={styles.icon}
-					/>
-					<span className={styles.icon__value}>
-						{t("CardDetailed.beds", { count: stats.amountOfBeds })}
-					</span>
-				</li>
-				<li className={styles.icon__item}>
-					<img
-						src={"/BiBed.svg"}
-						alt="icon"
-						className={styles.icon}
-					/>
-					<span className={styles.icon__value}>
-						{t("CardDetailed.baths", {
-							count: stats.amountOfBaths,
-						})}
-					</span>
-				</li>
-				<li className={styles.icon__item}>
-					<img
-						src={"/BiBorderOuter.svg"}
-						alt="icon"
-						className={styles.icon}
-					/>
-					<span className={styles.icon__value}>{stats.area}</span>
-				</li>
-			</ul>
+						{props.subText && (
+							<span className={styles.card__price_per_meter}>
+								{props.subText}
+							</span>
+						)}
+					</div>
+
+					<ul className={styles.icons__list}>
+						<li className={styles.icon__item}>
+							<img
+								src={"/BiBed.svg"}
+								alt="icon"
+								className={styles.icon}
+							/>
+							<span className={styles.icon__value}>
+								{t("CardDetailed.beds", {
+									count: props.stats.amountOfBeds,
+								})}
+							</span>
+						</li>
+						<li className={styles.icon__item}>
+							<img
+								src={"/BiBed.svg"}
+								alt="icon"
+								className={styles.icon}
+							/>
+							<span className={styles.icon__value}>
+								{t("CardDetailed.baths", {
+									count: props.stats.amountOfBaths,
+								})}
+							</span>
+						</li>
+						<li className={styles.icon__item}>
+							<img
+								src={"/BiBorderOuter.svg"}
+								alt="icon"
+								className={styles.icon}
+							/>
+							<span className={styles.icon__value}>
+								{props.stats.area}
+							</span>
+						</li>
+					</ul>
+				</>
+			)}
+
+			{props.isComplex && (
+				<div className={styles.complex__cards}>
+					<ComplexCardsMinPrices cards={props.cards} size="md" />
+				</div>
+			)}
+
 			{breadcrumbs.length > 0 && (
-				<nav className={styles.breadcrumbs}>
+				<nav
+					className={`${styles.breadcrumbs} ${
+						props.isComplex ? styles.breadcrumbs__with_complex : ""
+					}`}
+				>
 					{breadcrumbs.map((crumb, index) => (
 						<span
 							key={`${crumb.href}-${index}`}
@@ -102,6 +147,7 @@ export function DetailsOfOffer({
 					))}
 				</nav>
 			)}
+
 			<div className={styles.cardDetails__container}>
 				{propDetailsCard.map((item) =>
 					item.leadsTo && !isRent ? (
@@ -121,20 +167,25 @@ export function DetailsOfOffer({
 					)
 				)}
 			</div>
-			<div className={styles.offerFeatureBlock}>
-				<h4 className={styles.offerFeature__title}>
-					{t("CardDetailed.offerFeature")}
-				</h4>
-				{tagsSell && <CardTags {...tagsSell} />}
-				<p className={styles.offerFeature__text}>{offerFeatureText}</p>
-				<CardTags {...tagsDetailed} sizeOfTheIcons="16px" />
-				<p className={styles.detailsOnOneBaan}>
-					{t("CardDetailed.amountOfDays", {
-						days: detailsOnOneBaan.daysOnOneBaan,
-						views: detailsOnOneBaan.amountOfViews,
-					})}
-				</p>
-			</div>
+
+			{!props.isComplex && (
+				<div className={styles.offerFeatureBlock}>
+					<h4 className={styles.offerFeature__title}>
+						{t("CardDetailed.offerFeature")}
+					</h4>
+					{props.tagsSell && <CardTags {...props.tagsSell} />}
+					<p className={styles.offerFeature__text}>
+						{props.offerFeatureText}
+					</p>
+					<CardTags {...props.tagsDetailed} sizeOfTheIcons="16px" />
+					<p className={styles.detailsOnOneBaan}>
+						{t("CardDetailed.amountOfDays", {
+							days: props.detailsOnOneBaan.daysOnOneBaan,
+							views: props.detailsOnOneBaan.amountOfViews,
+						})}
+					</p>
+				</div>
+			)}
 		</div>
 	);
 }

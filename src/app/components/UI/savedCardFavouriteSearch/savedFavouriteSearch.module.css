@@ -3,6 +3,7 @@
 	background-color: #71809614;
 	border-radius: 12px;
 	height: 96px;
+	position: relative;
 }
 .savedSearches__main_info {
 	display: flex;
@@ -12,16 +13,25 @@
 	cursor: pointer;
 	width: 20px;
 	height: 20px;
+	position: absolute;
+	top: 12px;
+	right: 12px;
+	display: block;
 }
 .savedSearches__title {
-	font-size: 14px;
+	font-size: 13px;
+	height: 16px;
 	font-weight: 600;
 	color: #1a202c;
-	margin-bottom: 6px;
+	max-width: 90%;
+	text-overflow: ellipsis;
+	min-width: 0;
 }
 .savedSearches__description {
 	color: #718096;
+	height: 14px;
 	font-size: 12px;
+	margin-top: 6px;
 	margin-bottom: 10px;
 }
 .savedSearches__type {
@@ -30,6 +40,7 @@
 	width: max-content;
 	background-color: #e9d8fd;
 	color: #44337a;
+	font-size: 12px;
 }
 
 @media (min-width: 768px) and (max-width: 1439.99px) {
@@ -41,33 +52,45 @@
 	.savedSearches__more {
 		width: 24px;
 		height: 24px;
+		right: 14px;
+		top: 14px;
 	}
 	.savedSearches__title {
 		font-size: 16px;
-		margin-bottom: 8px;
+		height: 19px;
 	}
 	.savedSearches__description {
 		font-size: 14px;
 		margin-bottom: 12px;
+		margin-top: 8px;
+		height: 18px;
 	}
 }
 
 @media (min-width: 1440px) {
 	.savedSearches__item {
-		padding: 14px;
-		border-radius: 14px;
-		height: 110px;
+		padding: 20px;
+		border-radius: 16px;
+		height: 134px;
 	}
 	.savedSearches__more {
 		width: 24px;
 		height: 24px;
+		top: 20px;
+		right: 20px;
 	}
 	.savedSearches__title {
 		font-size: 18px;
-		margin-bottom: 8px;
+		font-weight: 600;
+		height: 22px;
 	}
 	.savedSearches__description {
 		font-size: 16px;
+		margin-top: 8px;
 		margin-bottom: 14px;
+		height: 20px;
+	}
+	.savedSearches__type {
+		font-size: 14px;
 	}
 }

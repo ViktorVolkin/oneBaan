@@ -2,7 +2,7 @@
 
 import { useEffect, useCallback } from "react";
 import styles from "./popupFavourites.module.css";
-
+import { useRef } from "react";
 type Props = {
 	open: boolean;
 	onClose?: () => void;
@@ -18,6 +18,7 @@ export function PopupFavourites({
 	contentClassName,
 	blockScroll = true,
 }: Props) {
+	const contentRef = useRef<HTMLDivElement>(null);
 	const handleKey = useCallback(
 		(e: KeyboardEvent) => {
 			if (e.key === "Escape") onClose?.();
@@ -30,6 +31,7 @@ export function PopupFavourites({
 		document.addEventListener("keydown", handleKey);
 		const prev = document.body.style.overflow;
 		document.body.style.overflow = "hidden";
+		window.scrollTo(0, contentRef.current?.getBoundingClientRect().y ?? 0);
 		return () => {
 			document.removeEventListener("keydown", handleKey);
 			document.body.style.overflow = prev;
@@ -46,6 +48,7 @@ export function PopupFavourites({
 			onMouseDown={(e) => {
 				if (e.target === e.currentTarget) onClose?.();
 			}}
+			ref={contentRef}
 		>
 			<div className={`${styles.content} ${contentClassName ?? ""}`}>
 				{children}

@@ -83,6 +83,7 @@
 	flex-direction: column;
 	gap: 12px;
 	cursor: pointer;
+	flex-grow: 1;
 }
 
 .card__main_info {

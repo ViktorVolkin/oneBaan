@@ -23,7 +23,6 @@
 	flex-direction: column;
 	align-items: center;
 	justify-content: space-between;
-	width: 262px;
 	margin-top: 60px;
 	align-self: center;
 }
@@ -43,12 +42,15 @@
 	color: #000000;
 	font-size: 20px;
 	font-weight: 700;
+	text-align: center;
 }
 .saveSearches__informing_text {
 	color: #718096;
 	font-weight: 400;
 	font-size: 12px;
 	margin-bottom: 6px;
+	max-width: 205px;
+	text-align: center;
 }
 .saveSearches__button {
 	background-color: #edf2f7;
@@ -60,6 +62,7 @@
 	justify-content: center;
 	align-items: center;
 	width: 229px;
+	font-size: 12px;
 }
 
 .savedSearches__container {
@@ -140,6 +143,7 @@
 	background-color: #edf2f7;
 	border-radius: 8px;
 	border: 0;
+	color: #2d3748;
 }
 
 .redactSettings {
@@ -204,6 +208,7 @@
 	.noSaves__container {
 		flex-direction: row;
 		width: 570px;
+		gap: 30px;
 	}
 	.previewImage {
 		width: 231px;
@@ -215,16 +220,24 @@
 		min-width: 310px;
 		min-height: 180px;
 		margin-top: 0;
+		* {
+			text-align: start;
+		}
 	}
 	.saveSearches__title {
-		font-size: 24px;
+		font-size: 23px;
+		font-weight: 700;
 	}
 	.saveSearches__informing_text {
 		font-size: 14px;
+		min-width: 226px;
+		margin: 0;
 	}
 	.saveSearches__button {
 		height: 44px;
 		width: 237px;
+		font-size: 14px;
+		font-weight: 600;
 	}
 
 	.savedSearches__container {
@@ -290,6 +303,7 @@
 	.noSaves__container {
 		width: 671px;
 		flex-direction: row;
+		gap: 40px;
 	}
 	.previewImage {
 		width: 261px;
@@ -298,12 +312,16 @@
 	.saveSearches__text {
 		gap: 20px;
 		align-items: flex-start;
+
 		min-width: 370px;
 		min-height: 206px;
 		margin-top: 0;
+		* {
+			text-align: start;
+		}
 	}
 	.saveSearches__title {
-		font-size: 28px;
+		font-size: 27px;
 	}
 	.saveSearches__informing_text {
 		font-size: 14px;
@@ -313,6 +331,9 @@
 	.saveSearches__button {
 		height: 54px;
 		width: 305px;
+		color: black;
+		font-weight: 600;
+		font-size: 16px;
 	}
 
 	.savedSearches__container {

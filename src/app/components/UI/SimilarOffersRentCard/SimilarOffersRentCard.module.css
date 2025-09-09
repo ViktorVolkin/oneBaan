@@ -21,9 +21,12 @@
 	flex-direction: column;
 	justify-content: space-between;
 	padding: 12px;
-	gap: 6px;
 }
 .info__container {
+	display: flex;
+	flex-direction: column;
+	gap: inherit;
+	gap: 6px;
 	cursor: pointer;
 }
 .card__title {

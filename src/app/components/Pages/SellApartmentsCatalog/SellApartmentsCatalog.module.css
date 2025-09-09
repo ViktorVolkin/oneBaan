@@ -815,7 +815,7 @@
 		font-size: 14px;
 	}
 	.desktop__sortBySelector {
-		width: 151px;
+		max-width: max-content;
 		background-color: transparent !important;
 		& > * {
 			background-color: transparent !important;
@@ -827,9 +827,12 @@
 		gap: 10px;
 		width: 260px;
 		align-items: center;
+		justify-content: flex-end;
 	}
 	.desktop__sortText {
 		color: #a0aec0;
+		white-space: nowrap;
+		width: max-content;
 	}
 	.card__sortBy {
 		display: none;

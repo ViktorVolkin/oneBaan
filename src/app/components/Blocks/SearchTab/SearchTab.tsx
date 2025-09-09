@@ -116,7 +116,7 @@ export default function SearchesTab() {
 			<PopupFavourites
 				open={areSettingsOpen}
 				onClose={() => setAreSettingsOpen(false)}
-				blockScroll={false}
+				blockScroll={true}
 			>
 				<div className={styles.redactSettings}>
 					<h3 className={styles.redactSettings__searchTitle}>
@@ -151,7 +151,7 @@ export default function SearchesTab() {
 			<PopupFavourites
 				open={popUpOpen}
 				onClose={() => setPopUpOpen(false)}
-				blockScroll={false}
+				blockScroll={true}
 			>
 				<div className={styles.saveSearch}>
 					<h3 className={styles.saveSearch__title}>

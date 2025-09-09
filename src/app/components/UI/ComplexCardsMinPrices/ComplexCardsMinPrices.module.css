@@ -1,0 +1,113 @@
+.cards__container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+}
+.cards__container__sm {
+	gap: 6px;
+}
+.cards__container__md {
+	gap: 8px;
+}
+
+.card {
+	display: flex;
+	flex-grow: 1;
+	flex-direction: column;
+	gap: 4px;
+	background-color: #553c9a;
+	border-radius: 10px;
+}
+.card__sm {
+	padding: 6px 10px;
+}
+.card__md {
+	padding: 12px;
+}
+
+.card__header {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	color: #e9d8fd;
+}
+.card__header__sm {
+	font-size: 5px;
+}
+.card__header__md {
+	font-size: 10px;
+}
+
+.card__type {
+	color: inherit;
+	font-size: inherit;
+}
+
+.card__apartments {
+	color: inherit;
+	font-size: inherit;
+}
+
+.card__price {
+	color: #ffffff;
+	font-weight: 600;
+}
+.card__price__sm {
+	font-size: 10px;
+}
+.card__price__md {
+	font-size: 16px;
+}
+
+@media (min-width: 768px) and (max-width: 1439.9px) {
+	.card__sm {
+		padding: 12px 16px;
+	}
+	.card__md {
+		padding: 16px;
+	}
+	.card__header__sm {
+		font-size: 10px;
+	}
+	.card__header__md {
+		font-size: 14px;
+	}
+
+	.card__price {
+		color: #ffffff;
+		font-weight: 700;
+	}
+	.card__price__sm {
+		font-size: 16px;
+	}
+	.card__price__md {
+		font-size: 24px;
+	}
+}
+
+@media (min-width: 1440px) {
+	.card__sm {
+		padding: 12px 16px;
+	}
+	.card__md {
+		padding: 20px;
+	}
+	.card__header__sm {
+		font-size: 12px;
+	}
+	.card__header__md {
+		font-size: 16px;
+	}
+
+	.card__price {
+		color: #ffffff;
+		font-weight: 700;
+	}
+	.card__price__sm {
+		font-size: 18px;
+	}
+	.card__price__md {
+		font-size: 28px;
+	}
+}

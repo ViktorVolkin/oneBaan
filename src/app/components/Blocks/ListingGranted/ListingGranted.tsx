@@ -13,6 +13,7 @@ interface ListingGrantedProps {
 	phoneHref: string;
 	whatsAppHref: string;
 	isRent?: boolean;
+	title?: string;
 }
 
 export function ListingGranted({
@@ -26,6 +27,7 @@ export function ListingGranted({
 	phoneHref,
 	whatsAppHref,
 	isRent = false,
+	title = "CardDetailed.listingGranted.title",
 }: ListingGrantedProps) {
 	const t = useTranslations();
 
@@ -44,7 +46,7 @@ export function ListingGranted({
 						: styles.listingGranted__title
 				}
 			>
-				{t("CardDetailed.listingGranted.title")}
+				{t(title)}
 			</h4>
 
 			<div
@@ -113,7 +115,7 @@ export function ListingGranted({
 									: styles.listingGranted__title_PC
 							}
 						>
-							{t("CardDetailed.listingGranted.title")}
+							{t(title)}
 						</h4>
 
 						<h2
