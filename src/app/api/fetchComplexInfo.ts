@@ -1,4 +1,20 @@
-import { buildSearchParams } from "./fetchListingsCatalog";
+function buildComplexCardSearchParams(params: {
+	locale: string;
+	currency: string;
+	moreOffersPageSell: number;
+	moreOffersPageRent: number;
+	limitSell: number;
+	limitRent: number;
+}) {
+	const qs = new URLSearchParams();
+	qs.set("locale", params.locale);
+	qs.set("currency", params.currency);
+	qs.set("moreOffersPageSell", String(params.moreOffersPageSell));
+	qs.set("moreOffersPageRent", String(params.moreOffersPageRent));
+	qs.set("limitSell", String(params.limitSell));
+	qs.set("limitRent", String(params.limitRent));
+	return qs;
+}
 import { routing } from "@/i18n/routing";
 import type { CatalogQuery } from "./fetchListingsCatalog";
 import { normalizeTags } from "../utils/normalizeTags";
@@ -30,14 +46,15 @@ export async function fetchComplexInfo({
 	if (!base) throw new Error("NEXT_PUBLIC_BACKEND_HOST is not set");
 
 	const url = new URL(`/complex-card/${id}`, base);
-	const qs = buildSearchParams({
+
+	const qs = buildComplexCardSearchParams({
 		locale,
 		currency: currency ?? "USD",
 		moreOffersPageSell,
 		moreOffersPageRent,
 		limitSell,
 		limitRent,
-	} as CatalogQuery & { moreOffersPageSell: number; moreOffersPageRent: number; limitSell: number; limitRent: number });
+	});
 	url.search = qs.toString();
 
 	const res = await fetch(url.toString(), { signal, cache: "no-store" });
