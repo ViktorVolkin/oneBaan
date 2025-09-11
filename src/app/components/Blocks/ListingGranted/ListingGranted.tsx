@@ -6,31 +6,32 @@ interface ListingGrantedProps {
 	agentIcon: string;
 	agentName: string;
 	agentStatus: { text: string; img: string };
-	agentExperienceOnPhuket: string;
-	phuketWorkingHours: string;
-	languages: string;
 	allOffers: { href: string; amountOfOffers: string };
 	phoneHref: string;
 	whatsAppHref: string;
-	isRent?: boolean;
 	title?: string;
+	mode: "Rent" | "Sell";
+	agentDetails: Array<{
+		label: string;
+		value: string;
+	}>;
+	additionalText?: string;
 }
 
 export function ListingGranted({
 	agentIcon,
 	agentName,
 	agentStatus,
-	phuketWorkingHours,
-	languages,
-	agentExperienceOnPhuket,
 	allOffers,
 	phoneHref,
 	whatsAppHref,
-	isRent = false,
+	mode,
 	title = "CardDetailed.listingGranted.title",
+	agentDetails,
+	additionalText,
 }: ListingGrantedProps) {
 	const t = useTranslations();
-
+	const isRent = mode === "Rent";
 	return (
 		<div
 			className={
@@ -154,65 +155,32 @@ export function ListingGranted({
 						isRent ? styles.agent__paramsRent : styles.agent__params
 					}
 				>
-					<p
-						className={
-							isRent
-								? styles.agent__data__containerRent
-								: styles.agent__data__container
-						}
-					>
-						{t("CardDetailed.listingGranted.experienceOnPhuket")}
-						<span
+					{agentDetails.map((detail, index) => (
+						<p
 							className={
 								isRent
-									? styles.agent__dataRent
-									: styles.agent__data
+									? styles.agent__data__containerRent
+									: styles.agent__data__container
 							}
+							key={index}
 						>
-							{agentExperienceOnPhuket}
-						</span>
-					</p>
-
-					<p
-						className={
-							isRent
-								? styles.agent__data__containerRent
-								: styles.agent__data__container
-						}
-					>
-						{t("CardDetailed.listingGranted.workingHoursOnPhuket")}
-						<span
-							className={
-								isRent
-									? styles.agent__dataRent
-									: styles.agent__data
-							}
-						>
-							{phuketWorkingHours}
-						</span>
-					</p>
-
-					<p
-						className={
-							isRent
-								? styles.agent__data__containerRent
-								: styles.agent__data__container
-						}
-					>
-						{t("CardDetailed.listingGranted.languages")}
-						<span
-							className={
-								isRent
-									? styles.agent__dataRent
-									: styles.agent__data
-							}
-						>
-							{languages}
-						</span>
-					</p>
+							{detail.label}
+							<span
+								className={
+									isRent
+										? styles.agent__dataRent
+										: styles.agent__data
+								}
+							>
+								{detail.value}
+							</span>
+						</p>
+					))}
 				</div>
 			</div>
-
+			{additionalText && (
+				<p className={styles.additionalText}>{additionalText}</p>
+			)}
 			<Link
 				href={allOffers.href}
 				className={isRent ? styles.toAllOffersRent : styles.toAllOffers}

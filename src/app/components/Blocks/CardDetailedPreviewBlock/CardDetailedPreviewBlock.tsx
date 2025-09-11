@@ -10,10 +10,11 @@ import { useMemo } from "react";
 import type { CardDetailedProps } from "@/app/types/CardDetailed.types";
 type CardDetailedPreviewBlockProps = Pick<
 	CardDetailedProps,
-	"images" | "offerId" | "isRent"
+	"images" | "offerId"
 > & {
 	amountOfLikes?: number;
 	className?: string;
+	mode: "Rent" | "Sell";
 };
 
 export default function CardDetailedPreviewBlock({
@@ -21,7 +22,7 @@ export default function CardDetailedPreviewBlock({
 	amountOfLikes,
 	offerId,
 	className,
-	isRent,
+	mode,
 }: CardDetailedPreviewBlockProps) {
 	const isLikedInit = useMemo(
 		() => readIds("favourites:ids").includes(offerId.toString()),
@@ -29,6 +30,7 @@ export default function CardDetailedPreviewBlock({
 	);
 	const { liked, toggle } = useOfferLike(offerId, isLikedInit);
 	const t = useTranslations();
+	const isRent = mode === "Rent";
 
 	return (
 		<div

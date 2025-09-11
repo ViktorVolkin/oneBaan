@@ -144,6 +144,9 @@
 	.filters__container__rent {
 		display: none;
 	}
+	.moreOffersBlock {
+		gap: 20px;
+	}
 }
 @media (min-width: 1440px) {
 	.moreOffers__complex {
@@ -207,5 +210,8 @@
 	}
 	.filters__container__rent {
 		display: none;
+	}
+	.moreOffersBlock {
+		gap: 24px;
 	}
 }

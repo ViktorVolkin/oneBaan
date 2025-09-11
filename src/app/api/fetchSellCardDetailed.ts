@@ -1,5 +1,4 @@
-import { TAG_CODES_CONSTANT } from "../constants/common";
-import type { CardTagProps } from "@/app/types/CardTags.types";
+import { normalizeTags } from "../utils/normalizeTags";
 
 export type SellCardDetailedQuery = {
 	locale?: string;
@@ -9,7 +8,7 @@ export type SellCardDetailedQuery = {
 	beds?: string;
 	baths?: string;
 	sortBy?: string;
-	page?: string | number;
+	moreOffersPage?: string | number;
 	limit?: string | number;
 };
 
@@ -22,7 +21,8 @@ function buildSellCardDetailedSearchParams(q: SellCardDetailedQuery) {
 	if (q.beds) qs.set("beds", q.beds);
 	if (q.baths) qs.set("baths", q.baths);
 	if (q.sortBy) qs.set("sortBy", q.sortBy);
-	if (q.page != null) qs.set("page", String(q.page));
+	if (q.moreOffersPage != null)
+		qs.set("moreOffersPage", String(q.moreOffersPage));
 	if (q.limit != null) qs.set("limit", String(q.limit));
 	return qs;
 }
@@ -43,18 +43,6 @@ export async function fetchSellCardDetailedPage(
 		throw new Error(`HTTP ${res.status}: ${text}`);
 	}
 	const data = await res.json();
-
-	function normalizeTags(
-		tags: Array<string | { code: string }> = []
-	): CardTagProps[] {
-		return tags
-			.map((t) => (typeof t === "string" ? t : t?.code))
-			.filter(Boolean)
-			.map((code: string) => {
-				const meta = TAG_CODES_CONSTANT[code];
-				return meta ?? { label: code };
-			});
-	}
 
 	if (data.tagsSell) data.tagsSell.tags = normalizeTags(data.tagsSell.tags);
 	if (data.tagsDetailed)

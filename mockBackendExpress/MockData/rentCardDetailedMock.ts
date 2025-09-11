@@ -28,7 +28,7 @@ export type RentListingDetailsDTO = {
 
 	moreFromComplex: {
 		nameOfComplex: string;
-		cards: ListingCardBaseDTO[];
+		cards: Omit<ListingCardBaseDTO, "pricePerMeter">[];
 	};
 
 	location: {
@@ -134,7 +134,6 @@ export const RENT_CARD_DETAILED_MOCKS: Record<string, RentListingDetailsDTO> = {
 						images: Array(6).fill("/backgroundImage.png"),
 					},
 					price: "$1,900",
-					pricePerMeter: "$25 / м²",
 					stats: { amountOfBeds: 2, amountOfBaths: 3, area: 2010 },
 					details: "Вид на море",
 					cardDescription: "Описание карточки",
@@ -164,7 +163,6 @@ export const RENT_CARD_DETAILED_MOCKS: Record<string, RentListingDetailsDTO> = {
 						images: Array(6).fill("/backgroundImage.png"),
 					},
 					price: "$2,300",
-					pricePerMeter: "$28 / м²",
 					stats: { amountOfBeds: 3, amountOfBaths: 2, area: 1750 },
 					details: "Вид на горы",
 					cardDescription: "Описание карточки 2",
@@ -181,7 +179,6 @@ export const RENT_CARD_DETAILED_MOCKS: Record<string, RentListingDetailsDTO> = {
 						images: Array(6).fill("/backgroundImage.png"),
 					},
 					price: "$1,750",
-					pricePerMeter: "$26 / м²",
 					stats: { amountOfBeds: 2, amountOfBaths: 2, area: 1800 },
 					details: "С мебелью",
 					cardDescription: "Описание карточки 3",
@@ -198,7 +195,6 @@ export const RENT_CARD_DETAILED_MOCKS: Record<string, RentListingDetailsDTO> = {
 						images: Array(6).fill("/backgroundImage.png"),
 					},
 					price: "$3,100",
-					pricePerMeter: "$32 / м²",
 					stats: { amountOfBeds: 4, amountOfBaths: 4, area: 2200 },
 					details: "Бассейн и фитнес",
 					cardDescription: "Описание карточки 4",
@@ -215,7 +211,6 @@ export const RENT_CARD_DETAILED_MOCKS: Record<string, RentListingDetailsDTO> = {
 						images: Array(6).fill("/backgroundImage.png"),
 					},
 					price: "$2,000",
-					pricePerMeter: "$27 / м²",
 					stats: { amountOfBeds: 3, amountOfBaths: 3, area: 1900 },
 					details: "Сад и охрана 24/7",
 					cardDescription: "Описание карточки 5",
@@ -232,7 +227,6 @@ export const RENT_CARD_DETAILED_MOCKS: Record<string, RentListingDetailsDTO> = {
 						images: Array(6).fill("/backgroundImage.png"),
 					},
 					price: "$1,600",
-					pricePerMeter: "$24 / м²",
 					stats: { amountOfBeds: 2, amountOfBaths: 2, area: 1760 },
 					details: "Ресторан и детская зона",
 					cardDescription: "Описание карточки 6",
@@ -249,7 +243,6 @@ export const RENT_CARD_DETAILED_MOCKS: Record<string, RentListingDetailsDTO> = {
 						images: Array(6).fill("/backgroundImage.png"),
 					},
 					price: "$2,800",
-					pricePerMeter: "$30 / м²",
 					stats: { amountOfBeds: 4, amountOfBaths: 3, area: 2300 },
 					details: "Коворкинг и фитнес",
 					cardDescription: "Описание карточки 7",
@@ -266,7 +259,6 @@ export const RENT_CARD_DETAILED_MOCKS: Record<string, RentListingDetailsDTO> = {
 						images: Array(6).fill("/backgroundImage.png"),
 					},
 					price: "$2,400",
-					pricePerMeter: "$29 / м²",
 					stats: { amountOfBeds: 3, amountOfBaths: 3, area: 2100 },
 					details: "Вид на море и горы",
 					cardDescription: "Описание карточки 8",

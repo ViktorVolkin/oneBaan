@@ -1,13 +1,10 @@
 "use client";
 import styles from "./SellCardDetailed.module.css";
-
 import CardDetailedPreviewBlock from "../../Blocks/CardDetailedPreviewBlock/CardDetailedPreviewBlock";
 import DetailsOfOffer from "../../Blocks/DetailsOfOffer";
-import ComplexConveniences from "../../Blocks/ComplexConveniences";
 import MoreOffersFromThisComplex from "../../Blocks/MoreOffersFromThisComplex";
 import { CATALOG_FILTER_OPTIONS_DEFAULT } from "@/app/constants/common";
 import SubscribeForNotifications from "../../Blocks/SubscribeForNotifications";
-import CardDetailedLocation from "../../Blocks/CardDetailedLocation";
 import ListingGranted from "../../Blocks/ListingGranted";
 import SimilarOffers from "../../Blocks/SimilarOffers";
 import { useLocale, useTranslations } from "next-intl";
@@ -18,6 +15,8 @@ import { useQueryParams } from "@/app/customHooks/useQueryParams";
 import { useMediaQuery } from "@/app/customHooks/MediaQuery";
 import type { ListingCardBase } from "@/app/types/LargeCardHorizontalSellCatalog.types";
 import Footer from "../../Blocks/Footer";
+import ComplexConveniences from "../../Blocks/ComplexConveniences";
+import CardDetailedLocation from "../../Blocks/CardDetailedLocation";
 
 type CardItem = Omit<ListingCardBase, "isRentCard">;
 
@@ -33,16 +32,16 @@ export function SellCardDetailedPage(props: { id: string }) {
 	const { get } = useQueryParams();
 	const t = useTranslations();
 	const pageSize = 4;
-
 	const qLocale = useLocale();
 	const qBeds = get("beds");
 	const qCurr = get("currency");
 	const qMinPrice = get("min-price");
 	const qMaxPrice = get("max-price");
 	const qSortBy = get("sortBy");
-
-	const qPageRaw = isPhone ? get("page") : null;
-	const effectivePage = isPhone ? Number(qPageRaw || 1) : null;
+	const qMoreOffersPageRaw = isPhone ? get("moreOffersPage") : null;
+	const effectiveMoreOffersPage = isPhone
+		? Number(qMoreOffersPageRaw || 1)
+		: undefined;
 
 	const id = props.id;
 
@@ -53,8 +52,9 @@ export function SellCardDetailedPage(props: { id: string }) {
 			minPrice: qMinPrice ?? "",
 			maxPrice: qMaxPrice ?? "",
 			sortBy: qSortBy ?? "recommended",
+			moreOffersPage: effectiveMoreOffersPage,
+			limit: pageSize,
 			beds: qBeds ?? "",
-			...(effectivePage ? { page: effectivePage, limit: pageSize } : {}),
 		}),
 		[
 			qLocale,
@@ -62,8 +62,8 @@ export function SellCardDetailedPage(props: { id: string }) {
 			qMinPrice,
 			qMaxPrice,
 			qSortBy,
+			effectiveMoreOffersPage,
 			qBeds,
-			effectivePage,
 			pageSize,
 		]
 	);
@@ -89,8 +89,7 @@ export function SellCardDetailedPage(props: { id: string }) {
 				const serverHasMore = Boolean(
 					(result as any)?.moreFromComplex?.hasMore
 				);
-
-				if ((effectivePage ?? 1) > 1) {
+				if ((effectiveMoreOffersPage ?? 1) > 1) {
 					setAccMoreCards((prev) => [...prev, ...incoming]);
 				} else {
 					setAccMoreCards(incoming);
@@ -101,7 +100,7 @@ export function SellCardDetailedPage(props: { id: string }) {
 			}
 		})();
 		return () => ac.abort();
-	}, [id, baseQuery, effectivePage]);
+	}, [id, baseQuery, effectiveMoreOffersPage]);
 
 	return data ? (
 		<div className={styles.sellCardContainer}>
@@ -109,12 +108,12 @@ export function SellCardDetailedPage(props: { id: string }) {
 				images={data.images}
 				amountOfLikes={data.amountOfLikes}
 				offerId={id}
-				isRent={false}
+				mode="Sell"
 			/>
 
 			<div className={styles.sellCardContent}>
 				<DetailsOfOffer
-					isRent={false}
+					mode="Sell"
 					offerDetail={data.offerDetail}
 					price={data.price}
 					propDetailsCard={[
@@ -157,16 +156,32 @@ export function SellCardDetailedPage(props: { id: string }) {
 					<ComplexConveniences
 						complexName={data.complex.complexName}
 						complexImage={data.complex.complexImage}
-						yearOfBuilding={data.complex.yearOfBuilding}
-						amountOfApartments={data.complex.amountOfApartments}
-						builder={data.complex.builder}
+						details={[
+							{
+								label: t("CardDetailed.complex.year"),
+								value: data.complex.yearOfBuilding,
+							},
+							{
+								label: t(
+									"CardDetailed.complex.amountOfApartments"
+								),
+
+								value: data.complex.amountOfApartments,
+							},
+							{
+								label: t("CardDetailed.complex.builder"),
+								value: data.complex.builder,
+							},
+						]}
 						tags={data.complex.tags}
+						mode="Sell"
 					/>
 				</div>
 
 				<div className={styles.moreOffersFromComplex}>
 					<MoreOffersFromThisComplex
 						nameOfComplex={data.moreFromComplex.nameOfComplex}
+						cardsBasePath="/catalog/CardDetails"
 						optionsBedrooms={
 							CATALOG_FILTER_OPTIONS_DEFAULT.optionsBedrooms
 						}
@@ -177,8 +192,10 @@ export function SellCardDetailedPage(props: { id: string }) {
 							CATALOG_FILTER_OPTIONS_DEFAULT.optionsMinAndMaxPriceForPhoneMode
 						}
 						cards={accMoreCards}
-						isRent={false}
+						mode="Sell"
 						hasMore={hasMore}
+						shouldUsePaging={isPhone}
+						enableScroll={!isPhone}
 					/>
 				</div>
 
@@ -192,22 +209,39 @@ export function SellCardDetailedPage(props: { id: string }) {
 						breadcrumbs={data.location.breadcrumbs}
 						toLocationHref={data.location.toLocationHref}
 						countryName={data.location.countryName}
+						mode="Sell"
 					/>
 				</div>
 
 				<div className={styles.listingGranted}>
 					<ListingGranted
+						mode="Sell"
 						agentIcon={data.agent.agentIcon}
 						agentName={data.agent.agentName}
-						agentExperienceOnPhuket={
-							data.agent.agentExperienceOnPhuket
-						}
-						phuketWorkingHours={data.agent.phuketWorkingHours}
-						languages={data.agent.languages}
 						allOffers={data.agent.allOffers}
 						agentStatus={data.agent.agentStatus}
 						phoneHref={data.agent.phoneHref}
 						whatsAppHref={data.agent.whatsAppHref}
+						agentDetails={[
+							{
+								label: t(
+									"CardDetailed.listingGranted.experienceOnPhuket"
+								),
+								value: data.agent.agentExperienceOnPhuket,
+							},
+							{
+								label: t(
+									"CardDetailed.listingGranted.workingHoursOnPhuket"
+								),
+								value: data.agent.phuketWorkingHours,
+							},
+							{
+								label: t(
+									"CardDetailed.listingGranted.languages"
+								),
+								value: data.agent.languages,
+							},
+						]}
 					/>
 				</div>
 

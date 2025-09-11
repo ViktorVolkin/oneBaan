@@ -9,11 +9,12 @@ import ComplexCardsMinPrices from "../../UI/ComplexCardsMinPrices";
 
 import type { SellCardDetailedProps } from "@/app/types/CardDetailed.types";
 import type { ComplexCardsMinPricesProps } from "../../UI/ComplexCardsMinPrices/ComplexCardsMinPrices";
+import { classModeHelper } from "@/app/utils/classModeHelper";
 
 type Base = Omit<SellCardDetailedProps, "images">;
 
 type NonComplexProps = Base & {
-	isComplex?: false;
+	mode: "Rent" | "Sell";
 };
 
 type ComplexProps = Omit<
@@ -26,7 +27,6 @@ type ComplexProps = Omit<
 	| "subText"
 	| "stats"
 > & {
-	isComplex: true;
 	cards: ComplexCardsMinPricesProps["cards"];
 	price?: never;
 	subText?: never;
@@ -35,21 +35,20 @@ type ComplexProps = Omit<
 	tagsDetailed?: never;
 	offerFeatureText?: never;
 	detailsOnOneBaan?: never;
+	mode: "Complex";
 };
 
 type DetailsOfOfferProps = NonComplexProps | ComplexProps;
 
 export function DetailsOfOffer(props: DetailsOfOfferProps) {
 	const t = useTranslations();
-	const { offerDetail, isRent, breadcrumbs, propDetailsCard } = props;
-
+	const { offerDetail, breadcrumbs, propDetailsCard } = props;
+	const isComplex = props.mode === "Complex";
+	const rentOrComplex = props.mode === "Rent" || props.mode === "Complex";
+	const cx = classModeHelper(styles, props.mode);
 	return (
-		<div
-			className={
-				isRent ? styles.detailsOfOfferRent : styles.detailsOfOfferSell
-			}
-		>
-			<p className={isRent ? styles.blueprintRent : styles.blueprintSell}>
+		<div className={cx("detailsOfOffer", props.mode)}>
+			<p className={cx("blueprint", props.mode)}>
 				<img
 					src="/photoChip.svg"
 					alt="img"
@@ -60,18 +59,20 @@ export function DetailsOfOffer(props: DetailsOfOfferProps) {
 
 			<p
 				className={`${styles.offerDetail} ${
-					props.isComplex ? styles.offerDetail__with_complex : ""
+					isComplex ? styles.offerDetail__with_complex : ""
 				}`}
 			>
 				{offerDetail}
 			</p>
 
-			{!props.isComplex && (
+			{!isComplex && (
 				<>
 					<div className={styles.priceBlock}>
 						<h4 className={styles.card__price}>
 							{props.price}
-							{isRent ? ` ${t("cards.perMonth")}` : ""}
+							{props.mode === "Rent"
+								? ` ${t("cards.perMonth")}`
+								: ""}
 						</h4>
 
 						{props.subText && (
@@ -120,7 +121,7 @@ export function DetailsOfOffer(props: DetailsOfOfferProps) {
 				</>
 			)}
 
-			{props.isComplex && (
+			{isComplex && (
 				<div className={styles.complex__cards}>
 					<ComplexCardsMinPrices cards={props.cards} size="md" />
 				</div>
@@ -129,7 +130,7 @@ export function DetailsOfOffer(props: DetailsOfOfferProps) {
 			{breadcrumbs.length > 0 && (
 				<nav
 					className={`${styles.breadcrumbs} ${
-						props.isComplex ? styles.breadcrumbs__with_complex : ""
+						isComplex ? styles.breadcrumbs__with_complex : ""
 					}`}
 				>
 					{breadcrumbs.map((crumb, index) => (
@@ -148,27 +149,28 @@ export function DetailsOfOffer(props: DetailsOfOfferProps) {
 				</nav>
 			)}
 
-			<div className={styles.cardDetails__container}>
-				{propDetailsCard.map((item) =>
-					item.leadsTo && !isRent ? (
-						<Link
-							href={item.leadsTo}
-							key={item.title}
-							className={styles.textDecoration__none}
-						>
-							<DetailsCard {...item} isRent={isRent} />
-						</Link>
-					) : (
-						<DetailsCard
-							key={item.title}
-							{...item}
-							isRent={isRent}
-						/>
-					)
-				)}
-			</div>
-
-			{!props.isComplex && (
+			{!isComplex && (
+				<div className={styles.cardDetails__container}>
+					{propDetailsCard.map((item) =>
+						item.leadsTo ? (
+							<Link
+								href={item.leadsTo}
+								key={item.title}
+								className={styles.textDecoration__none}
+							>
+								<DetailsCard {...item} isRent={rentOrComplex} />
+							</Link>
+						) : (
+							<DetailsCard
+								key={item.title}
+								{...item}
+								isRent={rentOrComplex}
+							/>
+						)
+					)}
+				</div>
+			)}
+			{!isComplex && (
 				<div className={styles.offerFeatureBlock}>
 					<h4 className={styles.offerFeature__title}>
 						{t("CardDetailed.offerFeature")}

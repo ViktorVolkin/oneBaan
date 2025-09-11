@@ -13,7 +13,7 @@ export interface CardDetailedBaseProps {
 }
 
 export interface SellCardDetailedProps extends CardDetailedBaseProps {
-	isRent: boolean;
+	mode: "Sell" | "Rent" | "Complex";
 	tagsSell?: import("./CardTags.types").CardTagsProps;
 	offerFeatureText: string;
 	tagsDetailed: import("./CardTags.types").CardTagsProps;

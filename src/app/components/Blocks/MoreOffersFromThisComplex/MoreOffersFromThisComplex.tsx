@@ -15,7 +15,6 @@ import {
 import type { Option } from "@/app/types/CustomSelect.types";
 import { ListingCardBase } from "@/app/types/LargeCardHorizontalSellCatalog.types";
 import MoreOffersFromThisComplexCard from "@/app/components/UI/MoreOffersFromThisComplexCard";
-import { useMediaQuery } from "@/app/customHooks/MediaQuery";
 import { useEffect } from "react";
 
 interface MoreOffersFromThisComplexProps {
@@ -24,8 +23,14 @@ interface MoreOffersFromThisComplexProps {
 	optionsSortBy: Option[];
 	optionsPriceForPhoneMode: Option[];
 	cards: Omit<ListingCardBase, "isRentCard">[];
-	isRent?: boolean;
+	mode: "Rent" | "Sell" | "Complex";
 	hasMore: boolean;
+	showFilters?: boolean;
+	titleKey?: string;
+	cardsBasePath: string;
+	pageName?: string;
+	shouldUsePaging: boolean;
+	enableScroll: boolean;
 }
 
 export function MoreOffersFromThisComplex({
@@ -34,21 +39,25 @@ export function MoreOffersFromThisComplex({
 	optionsPriceForPhoneMode,
 	optionsSortBy,
 	cards,
-	isRent = false,
+	mode,
 	hasMore,
+	showFilters = true,
+	titleKey = "CardDetailed.moreOffers",
+	cardsBasePath,
+	pageName = "moreOffersPage",
+	enableScroll,
+	shouldUsePaging,
 }: MoreOffersFromThisComplexProps) {
 	const t = useTranslations();
 	const { set, setMany, get } = useQueryParams();
 
-	const isPhone = useMediaQuery("(max-width:768px)");
-	const shouldUsePaging = isRent || isPhone;
+	const isSell = mode === "Sell";
 
-	const enableScroll = !isRent && !isPhone;
-	const pageFromUrl = shouldUsePaging ? get("page") ?? "1" : "1";
+	const moreOffersPageFromUrl = shouldUsePaging ? get(pageName) ?? "1" : "1";
 
 	useEffect(() => {
-		if (!shouldUsePaging) set("page", null);
-	}, [shouldUsePaging, set]);
+		if (!shouldUsePaging) set(pageName, null);
+	}, [shouldUsePaging, pageName, set]);
 
 	const phonePriceRaw = makePhonePriceValue(
 		get("min-price"),
@@ -56,91 +65,100 @@ export function MoreOffersFromThisComplex({
 	);
 
 	const onShowMore = () => {
-		const next = String(Math.max(1, Number(pageFromUrl || "1") + 1));
-		set("page", next);
+		const next = String(
+			Math.max(1, Number(moreOffersPageFromUrl || "1") + 1)
+		);
+		set(pageName, next);
 	};
 
 	return (
 		<div className={styles.moreOffersBlock}>
 			<h4 className={styles.moreOffers__title}>
-				{t("CardDetailed.moreOffers")}
-				<span className={isRent ? "" : styles.moreOffers__complex}>
-					{nameOfComplex}
-				</span>
+				{t(titleKey)}
+				{
+					<span className={isSell ? styles.moreOffers__complex : ""}>
+						{nameOfComplex}
+					</span>
+				}
 			</h4>
 
-			<div
-				className={`${styles.filters__container} ${
-					isRent ? styles.filters__container__rent : ""
-				}`}
-			>
-				<div className={styles.filters}>
+			{showFilters && (
+				<div
+					className={`${styles.filters__container} ${
+						!isSell ? styles.filters__container__rent : ""
+					}`}
+				>
+					<div className={styles.filters}>
+						<CustomSelect
+							options={optionsBedrooms ?? []}
+							placeholder={"catalog.selector.bedrooms"}
+							value={get("beds")}
+							className={styles.bedsSelect}
+							onChange={(value) =>
+								setMany({
+									beds: value,
+									[pageName]: shouldUsePaging ? "1" : null,
+								})
+							}
+							prefixSrc="/BiBed.svg"
+						/>
+
+						{isSell && (
+							<CustomSelect
+								options={optionsPriceForPhoneMode ?? []}
+								placeholder={"catalog.selector.price"}
+								className={styles.priceSelect}
+								value={phonePriceRaw}
+								allowMissingValue={true}
+								missingValueLabelFactory={(v) => {
+									const [min = "", max = ""] = String(
+										v ?? ""
+									).split("-");
+									return (
+										formatMillionsRange(min, max) ||
+										t("catalog.selector.price")
+									);
+								}}
+								onChange={(value) => {
+									const [min = "", max = ""] = String(
+										value ?? ""
+									).split("-");
+									const both = min.trim() && max.trim();
+									setMany({
+										"min-price": both ? min : null,
+										"max-price": both ? max : null,
+										[pageName]: shouldUsePaging
+											? "1"
+											: null,
+									});
+								}}
+							/>
+						)}
+					</div>
+
 					<CustomSelect
-						options={optionsBedrooms ?? []}
-						placeholder={"catalog.selector.bedrooms"}
-						value={get("beds")}
-						className={styles.bedsSelect}
-						onChange={(value) =>
+						options={optionsSortBy}
+						placeholder={"sortBy.recommended"}
+						onChange={(v) =>
 							setMany({
-								beds: value,
-								page: shouldUsePaging ? "1" : null,
+								sortBy: v,
+								[pageName]: shouldUsePaging ? "1" : null,
 							})
 						}
-						prefixSrc="/BiBed.svg"
+						value={get("sortBy")}
+						className={styles.sortBy}
+						caretSrc=""
+						prefixSrc="/sortIcon.svg"
 					/>
-					{!isRent && (
-						<CustomSelect
-							options={optionsPriceForPhoneMode ?? []}
-							placeholder={"catalog.selector.price"}
-							className={styles.priceSelect}
-							value={phonePriceRaw}
-							allowMissingValue={true}
-							missingValueLabelFactory={(v) => {
-								const [min = "", max = ""] = String(
-									v ?? ""
-								).split("-");
-								return (
-									formatMillionsRange(min, max) ||
-									t("catalog.selector.price")
-								);
-							}}
-							onChange={(value) => {
-								const [min = "", max = ""] = String(
-									value ?? ""
-								).split("-");
-								const both = min.trim() && max.trim();
-								setMany({
-									"min-price": both ? min : null,
-									"max-price": both ? max : null,
-									page: shouldUsePaging ? "1" : null,
-								});
-							}}
-						/>
-					)}
 				</div>
-
-				<CustomSelect
-					options={optionsSortBy}
-					placeholder={"sortBy.recommended"}
-					onChange={(v) =>
-						setMany({
-							sortBy: v,
-							page: shouldUsePaging ? "1" : null,
-						})
-					}
-					value={get("sortBy")}
-					className={styles.sortBy}
-					caretSrc=""
-					prefixSrc="/sortIcon.svg"
-				/>
-			</div>
+			)}
 
 			<div className={styles.moreOffers}>
 				<div
 					className={
-						isRent
-							? styles.cards__container
-							: styles.cards__container__sell
+						isSell
+							? styles.cards__container__sell
+							: styles.cards__container
 					}
 				>
 					{cards.map((item) => (
@@ -150,7 +168,8 @@ export function MoreOffersFromThisComplex({
 						>
 							<MoreOffersFromThisComplexCard
 								{...item}
-								isRentCard={isRent}
+								mode={mode}
+								cardsBasePath={cardsBasePath}
 							/>
 						</div>
 					))}
@@ -159,9 +178,9 @@ export function MoreOffersFromThisComplex({
 				{shouldUsePaging && (
 					<button
 						className={
-							isRent
-								? styles.get__more_offers
-								: styles.get__more_offers__sell
+							isSell
+								? styles.get__more_offers__sell
+								: styles.get__more_offers
 						}
 						onClick={onShowMore}
 						disabled={!hasMore}
@@ -175,7 +194,7 @@ export function MoreOffersFromThisComplex({
 					</button>
 				)}
 
-				{!isRent && (
+				{isSell && (
 					<div className={styles.cards__wrapper}>
 						<Swiper
 							modules={[Scrollbar, FreeMode, Mousewheel]}
@@ -208,15 +227,12 @@ export function MoreOffersFromThisComplex({
 							{cards.map((item) => (
 								<SwiperSlide
 									key={item.idOfCard}
-									className={
-										isRent
-											? styles.swiperSlideRent
-											: styles.swiperSlide
-									}
+									className={styles.swiperSlide}
 								>
 									<MoreOffersFromThisComplexCard
 										{...item}
-										isRentCard={isRent}
+										mode={"Sell"}
+										cardsBasePath={cardsBasePath}
 									/>
 								</SwiperSlide>
 							))}

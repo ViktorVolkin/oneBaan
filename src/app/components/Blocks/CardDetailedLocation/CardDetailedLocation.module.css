@@ -4,34 +4,29 @@
 	width: 100%;
 	gap: 16px;
 }
+
 .location__title {
-	color: #1a202c;
-	font-size: 24px;
 	font-weight: 700;
 }
+
 .location__details {
 	display: flex;
 	position: relative;
-	height: 191px;
 	object-fit: cover;
 }
 
 .bgImage {
 	width: 100%;
-	z-index: -1;
 	border-radius: 10px;
+	z-index: -1;
 }
 
 .location__data_container {
 	position: absolute;
 	flex-direction: column;
-	left: 20px;
-	top: 20px;
-	right: 20px;
-	bottom: 20px;
-	background-color: #ffffffcc;
 	border-radius: 10px;
 }
+
 .location__text_container {
 	padding: 18px;
 	display: flex;
@@ -40,57 +35,108 @@
 	height: 100%;
 	width: 100%;
 }
+
 .location__data__wrapper {
 	display: flex;
 	align-items: center;
-	gap: 14px;
 }
+
 .location__data {
 	display: flex;
 	flex-direction: column;
-	gap: 4px;
 }
+
 .location__icon {
 	width: 50px;
 	height: 50px;
 }
+
 .location__country {
-	color: #4a5568;
-	font-size: 18px;
 	text-decoration: none;
 }
 
 .card__breadcrumbs {
 	display: flex;
 	align-items: center;
-	a {
-		color: #4a5568;
-		font-size: 18px;
-		text-decoration: none;
-	}
 }
+.card__breadcrumbs a {
+	text-decoration: none;
+}
+
 .card__separator {
 	margin: 0 4px;
 }
+
 .checkOnMap {
-	color: #2d3748;
-	font-weight: 700;
-	font-size: 20px;
 	text-decoration: none;
 	display: flex;
 	align-items: center;
+	font-weight: 700;
 }
 .checkOnMap__arrow {
-	color: #2d3748;
-	font-weight: 700;
-	font-size: 20px;
 	text-decoration: none;
 	margin-left: 8px;
 }
+
+.mapIconButton {
+	display: none;
+}
+.mapIconForTablet {
+	width: 26px;
+	height: 26px;
+}
+
+.location__containerSell {
+	gap: 16px;
+}
+.location__titleSell {
+	color: #1a202c;
+	font-size: 24px;
+}
+.location__detailsSell {
+	height: 191px;
+}
+
+.location__data_containerSell {
+	left: 20px;
+	top: 20px;
+	right: 20px;
+	bottom: 20px;
+	background-color: #ffffffcc;
+}
+
+.location__data__wrapperSell {
+	gap: 14px;
+}
+.location__dataSell {
+	gap: 4px;
+}
+
+.location__countrySell {
+	color: #4a5568;
+	font-size: 18px;
+}
+
+.card__breadcrumbsSell {
+}
+.card__breadcrumbsSell a {
+	color: #4a5568;
+	font-size: 18px;
+}
+.card__separatorSell {
+	margin: 0 4px;
+}
+
+.checkOnMapSell {
+	color: #2d3748;
+	font-size: 20px;
+}
+.checkOnMap__arrowSell {
+	color: #2d3748;
+	font-size: 20px;
+}
+
 .location__containerRent {
-	display: flex;
-	flex-direction: column;
-	width: 100%;
 	gap: 16px;
 }
 .location__titleRent {
@@ -98,7 +144,7 @@
 	font-size: 20px;
 	font-weight: 700;
 }
-.location__details_rent {
+.location__detailsRent {
 	width: 100%;
 	height: 132px;
 	position: relative;
@@ -111,8 +157,6 @@
 }
 
 .location__data_containerRent {
-	position: absolute;
-	flex-direction: column;
 	left: 12px;
 	top: 12px;
 	right: 12px;
@@ -122,10 +166,10 @@
 		rgba(255, 255, 255, 0.8) 0%,
 		rgba(255, 255, 255, 0.4) 100%
 	);
-
 	backdrop-filter: blur(8px);
 	border-radius: 10px;
 }
+
 .location__text_containerRent {
 	display: flex;
 	flex-direction: column;
@@ -170,30 +214,14 @@
 .checkOnMap__arrowRent {
 	margin-left: 8px;
 }
-.mapIconButton {
-	display: none;
-}
+
 @media (min-width: 768px) {
 	.location__containerRent {
-		display: flex;
-		flex-direction: column;
-		width: 100%;
 		gap: 24px;
 	}
-	.location__titleRent {
-		color: #000000;
-		font-size: 20px;
-		font-weight: 700;
-	}
-	.location__details_rent {
-		width: 100%;
-		height: 300px;
-		position: relative;
-	}
 
-	.bgImageRent {
-		width: 100%;
-		height: 100%;
+	.location__detailsRent {
+		height: 300px;
 	}
 
 	.location__data_containerRent {
@@ -205,8 +233,8 @@
 		backdrop-filter: unset;
 		flex-direction: row;
 	}
+
 	.location__text_containerRent {
-		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
 		padding: 0;
@@ -214,22 +242,20 @@
 		height: 50px;
 		align-items: center;
 	}
+
 	.location__data__wrapperRent {
-		display: flex;
 		gap: 4px;
 		align-items: center;
 	}
 	.location__dataRent {
-		display: flex;
-		flex-direction: column;
 		gap: 6px;
 	}
+
 	.mapIconButton {
 		border-radius: 10px;
-		display: block;
+		display: flex;
 		width: 50px;
 		height: 50px;
-		display: flex;
 		justify-content: center;
 		align-items: center;
 		background: linear-gradient(
@@ -237,7 +263,6 @@
 			rgba(140, 140, 140, 0.5) 0%,
 			rgba(140, 140, 140, 0.3) 100%
 		);
-
 		border-image-source: linear-gradient(
 			97.58deg,
 			#ffffff 0%,
@@ -246,20 +271,13 @@
 			#ffffff 100%
 		);
 		box-shadow: 0px 2px 12px 0px #00000033;
-
 		backdrop-filter: blur(8px);
 		border: 1px solid white;
-	}
-	.mapIconForTablet {
-		width: 26px;
-		height: 26px;
 	}
 	.location__iconRent {
 		display: none;
 	}
 	.location__countryRent {
-		font-size: 14px;
-		color: #2d3748;
 		display: none;
 	}
 
@@ -273,7 +291,6 @@
 			rgba(140, 140, 140, 0.5) 0%,
 			rgba(140, 140, 140, 0.3) 100%
 		);
-
 		border-image-source: linear-gradient(
 			97.58deg,
 			#ffffff 0%,
@@ -282,17 +299,9 @@
 			#ffffff 100%
 		);
 		box-shadow: 0px 2px 12px 0px #00000033;
-
 		backdrop-filter: blur(8px);
 		border: 1px solid white;
 		color: #ffffff;
-	}
-	.card__breadcrumbsRent a {
-		text-decoration: none;
-		color: inherit;
-	}
-	.card__separatorRent {
-		margin: 0 8px;
 	}
 
 	.checkOnMapRent {
@@ -304,8 +313,5 @@
 		background-color: #ffffff;
 		border: none;
 		color: black;
-	}
-	.checkOnMap__arrowRent {
-		margin-left: 8px;
 	}
 }

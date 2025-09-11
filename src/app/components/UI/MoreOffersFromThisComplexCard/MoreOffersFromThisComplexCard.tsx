@@ -7,14 +7,22 @@ import { useOfferLike } from "@/app/customHooks/useOfferLike";
 import { useTranslations } from "next-intl";
 import CardSellCatalog from "../CardSellCatalog";
 import { useRouter } from "@/i18n/navigation";
-export const MoreOffersFromThisComplexCard = (props: ListingCardBase) => {
+type MoreOffersFromThisComplexCardProps = Omit<
+	ListingCardBase,
+	"isRentCard"
+> & {
+	mode: "Rent" | "Sell" | "Complex";
+	cardsBasePath: string;
+};
+export const MoreOffersFromThisComplexCard = (
+	props: MoreOffersFromThisComplexCardProps
+) => {
 	const t = useTranslations();
 	const { toggle, liked } = useOfferLike(props.idOfCard, false);
 	const router = useRouter();
-
+	const isRentCard = props.mode === "Rent" || props.mode === "Complex";
 	const handleCardClick = () => {
-		const basePath = props.isRentCard ? "/catalog/rent" : "/catalog";
-		router.push(`${basePath}/CardDetails/${props.idOfCard}`);
+		router.push(`${props.cardsBasePath}/${props.idOfCard}`);
 	};
 	const statsIcons = [
 		{
@@ -34,7 +42,7 @@ export const MoreOffersFromThisComplexCard = (props: ListingCardBase) => {
 		<>
 			<div
 				className={`${
-					props.isRentCard
+					isRentCard
 						? styles.card__container
 						: styles.card__container__sell
 				}`}
@@ -46,24 +54,26 @@ export const MoreOffersFromThisComplexCard = (props: ListingCardBase) => {
 					/>
 				</div>
 
-				<div className={styles.data__container}>
-					<div
-						className={styles.card__info}
-						onClick={handleCardClick}
-					>
+				<div
+					className={styles.data__container}
+					onClick={handleCardClick}
+				>
+					<div className={styles.card__info}>
 						<div>
-							<h4 className={styles.card__price}>
-								{props.price}
-								{props.isRentCard
-									? ` ${t("cards.perMonth")}`
-									: ""}
-							</h4>
-
-							{props.pricePerMeter && !props.isRentCard && (
-								<p className={styles.card__price_per_meter}>
-									{props.pricePerMeter}
-								</p>
-							)}
+							<div className={styles.card__price_container}>
+								<h4 className={styles.card__price}>
+									{props.price}
+									{isRentCard
+										? ` ${t("cards.perMonth")}`
+										: ""}
+								</h4>
+								{props.pricePerMeter &&
+									props.mode === "Complex" && (
+										<p className={styles.subPrice}>
+											{props.pricePerMeter}
+										</p>
+									)}
+							</div>
 						</div>
 
 						<div className={styles.offer__conditions}>
@@ -85,7 +95,10 @@ export const MoreOffersFromThisComplexCard = (props: ListingCardBase) => {
 						</div>
 					</div>
 
-					<div className={styles.icons__container}>
+					<div
+						className={styles.icons__container}
+						onClick={(e) => e.stopPropagation()}
+					>
 						<button
 							onClick={toggle}
 							className={styles.icon__container}
@@ -132,12 +145,10 @@ export const MoreOffersFromThisComplexCard = (props: ListingCardBase) => {
 					</div>
 				</div>
 			</div>
-			{!props.isRentCard && (
+			{props.mode === "Sell" && (
 				<div
 					className={
-						props.isRentCard
-							? styles.hidden
-							: styles.SellCardWrapper
+						isRentCard ? styles.hidden : styles.SellCardWrapper
 					}
 				>
 					<CardSellCatalog
@@ -147,6 +158,7 @@ export const MoreOffersFromThisComplexCard = (props: ListingCardBase) => {
 						whatsAppBgColor="#C6F6D5"
 						whatsAppTextColor="#25855A"
 						reserveHeightForSecondLine={false}
+						isRentCard={false}
 					/>
 				</div>
 			)}

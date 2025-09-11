@@ -30,15 +30,15 @@ export function RentCardDetailed({ id }: { id: string }) {
 	const pageSize = 4;
 
 	useEffect(() => {
-		if (!get("page")) set("page", "1");
+		if (!get("moreOffersPage")) set("moreOffersPage", "1");
 	}, []);
 
 	const qLocale = useLocale();
 	const qBeds = get("beds");
 	const qCurr = get("currency");
 	const qSortBy = get("sortBy");
-	const pageRaw = get("page");
-	const page = Math.max(1, Number(pageRaw || 1));
+	const moreOffersPageRaw = get("moreOffersPage");
+	const moreOffersPage = Math.max(1, Number(moreOffersPageRaw || 1));
 
 	const baseQuery = useMemo(
 		() => ({
@@ -46,10 +46,10 @@ export function RentCardDetailed({ id }: { id: string }) {
 			currency: qCurr ?? "USD",
 			sortBy: qSortBy ?? "recommended",
 			beds: qBeds ?? "",
-			page,
+			moreOffersPage,
 			limit: pageSize,
 		}),
-		[qLocale, qCurr, qSortBy, qBeds, page]
+		[qLocale, qCurr, qSortBy, qBeds, moreOffersPage]
 	);
 
 	useEffect(() => {
@@ -68,7 +68,8 @@ export function RentCardDetailed({ id }: { id: string }) {
 					result.moreFromComplex?.cards ?? [];
 				const serverHasMore = Boolean(result.moreFromComplex?.hasMore);
 
-				if (page > 1) setAccMoreCards((prev) => [...prev, ...incoming]);
+				if (moreOffersPage > 1)
+					setAccMoreCards((prev) => [...prev, ...incoming]);
 				else setAccMoreCards(incoming);
 
 				setHasMore(serverHasMore);
@@ -77,20 +78,20 @@ export function RentCardDetailed({ id }: { id: string }) {
 			}
 		})();
 		return () => ac.abort();
-	}, [id, baseQuery, page]);
+	}, [id, baseQuery, moreOffersPage]);
 
 	return data ? (
 		<div className={styles.rentCardContainer}>
 			<CardDetailedPreviewBlock
 				images={data.images}
 				offerId={id}
-				isRent={true}
+				mode="Rent"
 			/>
 
 			<div className={styles.rentCardContent}>
 				<div className={styles.DetailsOfOffer}>
 					<DetailsOfOffer
-						isRent={true}
+						mode="Rent"
 						offerDetail={data.offerDetail}
 						price={data.price}
 						propDetailsCard={[
@@ -133,11 +134,25 @@ export function RentCardDetailed({ id }: { id: string }) {
 					<ComplexConveniences
 						complexName={data.complex.complexName}
 						complexImage={data.complex.complexImage}
-						yearOfBuilding={data.complex.yearOfBuilding}
-						amountOfApartments={data.complex.amountOfApartments}
-						builder={data.complex.builder}
+						details={[
+							{
+								label: t("CardDetailed.complex.year"),
+								value: data.complex.yearOfBuilding,
+							},
+							{
+								label: t(
+									"CardDetailed.complex.amountOfApartments"
+								),
+
+								value: data.complex.amountOfApartments,
+							},
+							{
+								label: t("CardDetailed.complex.builder"),
+								value: data.complex.builder,
+							},
+						]}
 						tags={data.complex.tags}
-						isRent={true}
+						mode="Rent"
 					/>
 				</div>
 
@@ -154,8 +169,11 @@ export function RentCardDetailed({ id }: { id: string }) {
 							CATALOG_FILTER_OPTIONS_DEFAULT.optionsMinAndMaxPriceForPhoneMode
 						}
 						cards={accMoreCards}
-						isRent={true}
+						cardsBasePath="/catalog/rent/CardDetails"
+						mode="Rent"
 						hasMore={hasMore}
+						shouldUsePaging={true}
+						enableScroll={false}
 					/>
 				</div>
 
@@ -169,7 +187,7 @@ export function RentCardDetailed({ id }: { id: string }) {
 						breadcrumbs={data.location.breadcrumbs}
 						toLocationHref={data.location.toLocationHref}
 						countryName={data.location.countryName}
-						isRent={true}
+						mode="Rent"
 					/>
 				</div>
 
@@ -177,16 +195,31 @@ export function RentCardDetailed({ id }: { id: string }) {
 					<ListingGranted
 						agentIcon={data.agent.agentIcon}
 						agentName={data.agent.agentName}
-						agentExperienceOnPhuket={
-							data.agent.agentExperienceOnPhuket
-						}
-						phuketWorkingHours={data.agent.phuketWorkingHours}
-						languages={data.agent.languages}
 						allOffers={data.agent.allOffers}
 						agentStatus={data.agent.agentStatus}
 						phoneHref={data.agent.phoneHref}
 						whatsAppHref={data.agent.whatsAppHref}
-						isRent={true}
+						mode="Rent"
+						agentDetails={[
+							{
+								label: t(
+									"CardDetailed.listingGranted.experienceOnPhuket"
+								),
+								value: data.agent.agentExperienceOnPhuket,
+							},
+							{
+								label: t(
+									"CardDetailed.listingGranted.workingHoursOnPhuket"
+								),
+								value: data.agent.phuketWorkingHours,
+							},
+							{
+								label: t(
+									"CardDetailed.listingGranted.languages"
+								),
+								value: data.agent.languages,
+							},
+						]}
 					/>
 				</div>
 

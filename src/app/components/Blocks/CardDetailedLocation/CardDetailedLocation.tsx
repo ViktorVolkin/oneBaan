@@ -1,13 +1,14 @@
-import { useTranslations } from "next-intl";
+"use client";
+import { classModeHelper } from "@/app/utils/classModeHelper";
 import styles from "./CardDetailedLocation.module.css";
+import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-
 interface CardDetailedLocationProps {
 	image: string;
 	countryName: string;
 	breadcrumbs: { label: string; href: string }[];
 	toLocationHref: string;
-	isRent?: boolean;
+	mode: "Rent" | "Sell";
 }
 
 export function CardDetailedLocation({
@@ -15,70 +16,26 @@ export function CardDetailedLocation({
 	countryName,
 	breadcrumbs,
 	toLocationHref,
-	isRent = false,
+	mode,
 }: CardDetailedLocationProps) {
 	const t = useTranslations();
-
+	const cx = classModeHelper(styles);
 	return (
-		<div
-			className={
-				isRent
-					? styles.location__containerRent
-					: styles.location__container
-			}
-		>
-			<h4
-				className={
-					isRent ? styles.location__titleRent : styles.location__title
-				}
-			>
+		<div className={cx("location__container", mode)}>
+			<h4 className={cx("location__title", mode)}>
 				{t("CardDetailed.location")}
 			</h4>
-
-			<div
-				className={
-					isRent
-						? styles.location__details_rent
-						: styles.location__details
-				}
-			>
-				<img
-					src={image}
-					alt=""
-					className={isRent ? styles.bgImageRent : styles.bgImage}
-				/>
-
-				<div
-					className={
-						isRent
-							? styles.location__data_containerRent
-							: styles.location__data_container
-					}
-				>
-					<div
-						className={
-							isRent
-								? styles.location__text_containerRent
-								: styles.location__text_container
-						}
-					>
-						<div
-							className={
-								isRent
-									? styles.location__data__wrapperRent
-									: styles.location__data__wrapper
-							}
-						>
+			<div className={cx("location__details", mode)}>
+				<img src={image} alt="" className={cx("bgImage", mode)} />
+				<div className={cx("location__data_container", mode)}>
+					<div className={cx("location__text_container", mode)}>
+						<div className={cx("location__data__wrapper", mode)}>
 							<img
 								src="/adress.svg"
 								alt=""
-								className={
-									isRent
-										? styles.location__iconRent
-										: styles.location__icon
-								}
+								className={cx("location__icon", mode)}
 							/>
-							{isRent && (
+							{mode === "Rent" && (
 								<button className={styles.mapIconButton}>
 									<img
 										src="/footer__adress.svg"
@@ -87,31 +44,16 @@ export function CardDetailedLocation({
 									/>
 								</button>
 							)}
-
-							<div
-								className={
-									isRent
-										? styles.location__dataRent
-										: styles.location__data
-								}
-							>
-								<p
-									className={
-										isRent
-											? styles.location__countryRent
-											: styles.location__country
-									}
-								>
+							<div className={cx("location__data", mode)}>
+								<p className={cx("location__country", mode)}>
 									{countryName}
 								</p>
-
 								{breadcrumbs && breadcrumbs.length > 0 && (
 									<nav
-										className={
-											isRent
-												? styles.card__breadcrumbsRent
-												: styles.card__breadcrumbs
-										}
+										className={cx(
+											"card__breadcrumbs",
+											mode
+										)}
 									>
 										{breadcrumbs.map((crumb, index) => (
 											<span key={index}>
@@ -121,11 +63,10 @@ export function CardDetailedLocation({
 												{index <
 													breadcrumbs.length - 1 && (
 													<span
-														className={
-															isRent
-																? styles.card__separatorRent
-																: styles.card__separator
-														}
+														className={cx(
+															"card__separator",
+															mode
+														)}
 													>
 														→
 													</span>
@@ -136,23 +77,12 @@ export function CardDetailedLocation({
 								)}
 							</div>
 						</div>
-
 						<Link
 							href={toLocationHref}
-							className={
-								isRent
-									? styles.checkOnMapRent
-									: styles.checkOnMap
-							}
+							className={cx("checkOnMap", mode)}
 						>
 							{t("CardDetailed.checkOnMap")}
-							<span
-								className={
-									isRent
-										? styles.checkOnMap__arrowRent
-										: styles.checkOnMap__arrow
-								}
-							>
+							<span className={cx("checkOnMap__arrow", mode)}>
 								→
 							</span>
 						</Link>

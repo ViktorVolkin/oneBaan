@@ -11,6 +11,7 @@ import { makeCatalogHandler } from "./utils/catalogHelper";
 import { rentCatalogMock } from "./MockData/rentCatalogMock";
 import { SELL_CARD_DETAILED_MOCKS } from "./MockData/sellCardDetailedMock";
 import { RENT_CARD_DETAILED_MOCKS } from "./MockData/rentCardDetailedMock";
+import { COMPLEX__MOCK_DATA } from "./MockData/complexMockData";
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -130,11 +131,11 @@ app.get("/sell-card-detailed/:id", (req, res) => {
 
 	const data = JSON.parse(JSON.stringify(original));
 
-	const pageRaw = req.query.page as string | undefined;
+	const moreOffersRaw = req.query.moreOffersPage as string | undefined;
 	const limitRaw = req.query.limit as string | undefined;
 
-	if (pageRaw && limitRaw && data?.moreFromComplex?.cards) {
-		const p = Math.max(1, parseInt(pageRaw, 10) || 1);
+	if (moreOffersRaw && limitRaw && data?.moreFromComplex?.cards) {
+		const p = Math.max(1, parseInt(moreOffersRaw, 10) || 1);
 		const l = Math.max(1, parseInt(limitRaw, 10) || Infinity);
 
 		const all = data.moreFromComplex.cards || [];
@@ -148,7 +149,7 @@ app.get("/sell-card-detailed/:id", (req, res) => {
 		data.moreFromComplex = {
 			...data.moreFromComplex,
 			cards: items,
-			page: p,
+			moreOffersPage: p,
 			limit: l,
 			total,
 			hasMore,
@@ -169,11 +170,11 @@ app.get("/rent-card-detailed/:id", (req, res) => {
 
 	const data = JSON.parse(JSON.stringify(original));
 
-	const pageRaw = req.query.page as string | undefined;
+	const moreOffersRaw = req.query.moreOffersPage as string | undefined;
 	const limitRaw = req.query.limit as string | undefined;
 
-	if (pageRaw && limitRaw && data?.moreFromComplex?.cards) {
-		const p = Math.max(1, parseInt(pageRaw, 10) || 1);
+	if (moreOffersRaw && limitRaw && data?.moreFromComplex?.cards) {
+		const p = Math.max(1, parseInt(moreOffersRaw, 10) || 1);
 		const l = Math.max(1, parseInt(limitRaw, 10) || 4);
 
 		const all = data.moreFromComplex.cards || [];
@@ -187,7 +188,7 @@ app.get("/rent-card-detailed/:id", (req, res) => {
 		data.moreFromComplex = {
 			...data.moreFromComplex,
 			cards: items,
-			page: p,
+			moreOffersPage: p,
 			limit: l,
 			total,
 			hasMore,
@@ -200,6 +201,56 @@ app.get("/rent-card-detailed/:id", (req, res) => {
 			};
 		}
 	}
+
+	return res.json(data);
+});
+
+app.get("/complex-card/:id", (req, res) => {
+	const original = COMPLEX__MOCK_DATA["123"];
+	const data = JSON.parse(JSON.stringify(original));
+
+	const allSell = data.moreFromComplex.sellCards;
+	const allRent = data.moreFromComplex.rentCards;
+
+	const moreOffersPageSellRaw = req.query.moreOffersPageSell as
+		| string
+		| undefined;
+	const moreOffersPageRentRaw = req.query.moreOffersPageRent as
+		| string
+		| undefined;
+	const limitSellRaw = req.query.limitSell as string | undefined;
+	const limitRentRaw = req.query.limitRent as string | undefined;
+
+	let sellPage = Math.max(1, parseInt(moreOffersPageSellRaw ?? "1", 10) || 1);
+	let sellLimit = Math.max(1, parseInt(limitSellRaw ?? "4", 10) || 4);
+	const sellStart = (sellPage - 1) * sellLimit;
+	const sellEnd = sellStart + sellLimit;
+	let sellCards = allSell.slice(sellStart, sellEnd);
+	let sellHasMore = sellEnd < allSell.length;
+
+	let rentPage = Math.max(1, parseInt(moreOffersPageRentRaw ?? "1", 10) || 1);
+	let rentLimit = Math.max(1, parseInt(limitRentRaw ?? "4", 10) || 4);
+	const rentStart = (rentPage - 1) * rentLimit;
+	const rentEnd = rentStart + rentLimit;
+	let rentCards = allRent.slice(rentStart, rentEnd);
+	let rentHasMore = rentEnd < allRent.length;
+
+	data.moreFromComplexSell = {
+		nameOfComplex: data.complex.complexName,
+		cards: sellCards,
+		hasMore: sellHasMore,
+		moreOffersPageSell: sellPage,
+		limitSell: sellLimit,
+		totalSell: allSell.length,
+	};
+	data.moreFromComplexRent = {
+		nameOfComplex: data.complex.complexName,
+		cards: rentCards,
+		hasMore: rentHasMore,
+		moreOffersPageRent: rentPage,
+		limitRent: rentLimit,
+		totalRent: allRent.length,
+	};
 
 	return res.json(data);
 });

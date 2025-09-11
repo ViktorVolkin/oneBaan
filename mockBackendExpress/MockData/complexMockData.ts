@@ -1,0 +1,218 @@
+import { Breadcrumb, ListingCardBaseDTO, TagDTO } from "./sellCardDetailedMock";
+
+export type ComplexType = {
+	images: string[];
+	offerDetail: string;
+	breadcrumbs: Breadcrumb[];
+	complex: {
+		complexName: string;
+		complexImage: string;
+		yearOfBuilding?: number;
+		amountOfApartments?: number;
+		builder?: string;
+		tags: TagDTO[];
+	};
+
+	moreFromComplex: {
+		nameOfComplex: string;
+		sellCards: Omit<
+			ListingCardBaseDTO,
+			"tags" | "breadcrumbs" | "whenPosted" | "cardDescription"
+		>[];
+		rentCards: Omit<
+			ListingCardBaseDTO,
+			"tags" | "breadcrumbs" | "whenPosted"
+		>[];
+	};
+
+	location: {
+		image: string;
+		breadcrumbs: Breadcrumb[];
+		toLocationHref: string;
+		countryName: string;
+	};
+	agent: {
+		agentIcon: string;
+		agentName: string;
+		agentExperienceOnPhuket?: string;
+		phuketWorkingHours?: string;
+		languages?: string;
+		allOffers: { href: string; amountOfOffers: string };
+		agentStatus: { text: string; img: string };
+		phoneHref: string;
+		whatsAppHref: string;
+	};
+
+	similar: {
+		tags: string[];
+		cards: ListingCardBaseDTO[];
+	};
+};
+
+export const COMPLEX__MOCK_DATA: Record<string, ComplexType> = {
+	"123": {
+		images: [
+			"/backgroundImage.png",
+			"/backgroundImage.png",
+			"/backgroundImage.png",
+			"/backgroundImage.png",
+			"/backgroundImage.png",
+		],
+
+		offerDetail:
+			"Апартаменты на продажу в Blue Canyon Golf And Country Club Home",
+		breadcrumbs: [
+			{ href: "/thailand/phuket", label: "Пхукет" },
+			{ href: "/thailand/phuket/bangtao", label: "Бангтао" },
+			{
+				href: "/thailand/phuket/bangtao/apartments",
+				label: "Апартаменты",
+			},
+		],
+
+		complex: {
+			complexName: "Blue Canyon Golf And Country Club Home",
+			complexImage: "/backgroundImage.png",
+			yearOfBuilding: 20212,
+			amountOfApartments: 2132,
+			builder: "Sino-Thai Engineering & Construction",
+			tags: [
+				{
+					code: "with_restaurant",
+				},
+				{
+					code: "with_coworking",
+				},
+				{
+					code: "with_pool",
+				},
+				{
+					code: "with_gym",
+				},
+				{
+					code: "with_cameras",
+				},
+			],
+		},
+
+		moreFromComplex: {
+			nameOfComplex: "Blue Canyon Golf And Country Club Home",
+			sellCards: Array.from({ length: 8 }).map((_, i) => ({
+				idOfCard: `${i + 1}`,
+				apartmentImages: {
+					images: Array(6).fill("/backgroundImage.png"),
+				},
+				price: `$${1900 + i * 200}`,
+				stats: {
+					amountOfBeds: 2 + (i % 3),
+					amountOfBaths: 1 + (i % 2),
+					area: 1500 + i * 100,
+				},
+				details: [
+					"Вид на море",
+					"Вид на горы",
+					"С мебелью",
+					"Бассейн и фитнес",
+					"Сад и охрана 24/7",
+					"Ресторан и детская зона",
+					"Пентхаус",
+					"Терраса",
+				][i],
+				agentLogo: "/agent-logo.svg",
+				contactWhatsApp: { path: "" },
+				contactWithSalesman: { path: "" },
+				pricePerMeter: `${20 + i * 10}$`,
+			})),
+			rentCards: Array.from({ length: 8 }).map((_, i) => ({
+				idOfCard: `${i + 101}`,
+				apartmentImages: {
+					images: Array(6).fill("/backgroundImage.png"),
+				},
+				price: `$${1200 + i * 150}`,
+				stats: {
+					amountOfBeds: 1 + (i % 2),
+					amountOfBaths: 1 + (i % 2),
+					area: 900 + i * 80,
+				},
+				details: [
+					"Вид на сад",
+					"Бассейн и фитнес",
+					"С мебелью",
+					"Вид на море",
+					"Терраса",
+					"Пентхаус",
+					"Ресторан и детская зона",
+					"Сад и охрана 24/7",
+				][i],
+				cardDescription: `Описание карточки ${i + 1} (аренда)`,
+				agentLogo: "/agent-logo.svg",
+				contactWhatsApp: { path: "" },
+				contactWithSalesman: { path: "" },
+				pricePerMeter: `${15 + i * 5}$`,
+			})),
+		},
+
+		location: {
+			image: "/backgroundImage.png",
+			breadcrumbs: [
+				{ label: "Пхукет", href: "/thailand/phuket" },
+				{ label: "Пляж Багтао", href: "/thailand/phuket/bangtao" },
+			],
+			toLocationHref: "https://maps.google.com/?q=Phuket%20Bangtao",
+			countryName: "Таиланд",
+		},
+
+		agent: {
+			agentIcon: "/agent-logo.svg",
+			agentName: "Apart Homes Pattaya Incorporated",
+			agentExperienceOnPhuket: "20 лет",
+			phuketWorkingHours: "12-22",
+			languages: "Английский,Русский,Тайский",
+			allOffers: { href: "/agents/ahpi/offers", amountOfOffers: "122" },
+			agentStatus: { text: "online", img: "/onlineIcon.svg" },
+			phoneHref: "tel:+6699999999",
+			whatsAppHref: "https://wa.me/6699999999",
+		},
+
+		similar: {
+			tags: ["Вид на море", "С мебелью", "Рассрочка"],
+			cards: Array.from({ length: 6 }).map((_, i) => ({
+				idOfCard: `S${i + 1}`,
+				apartmentImages: {
+					images: ["/backgroundImage.png", "/backgroundImage.png"],
+				},
+				price: `$${i % 2 === 0 ? 2300 + i * 100 : 1800 + i * 120}`,
+				pricePerMeter: "$27 / м²",
+				stats: { amountOfBeds: 2, amountOfBaths: 3, area: 2010 },
+				details:
+					i === 0
+						? "Вид на море"
+						: i === 1
+						? "Вид на горы"
+						: i === 2
+						? "С мебелью"
+						: i === 3
+						? "Бассейн и фитнес"
+						: i === 4
+						? "Сад и охрана 24/7"
+						: "Ресторан и детская зона",
+				cardDescription: "Апартаменты с видом на море",
+				agentLogo: "/agent-logo.svg",
+				tags: [],
+				contactWhatsApp: { path: "" },
+				contactWithSalesman: { path: "" },
+				whenPosted:
+					i === 0
+						? "Сегодня"
+						: i === 1
+						? "Вчера"
+						: `${i + 1} дня назад`,
+				breadcrumbs: [
+					{ label: "Пхукет", href: "/thailand/phuket" },
+					{ label: "Бангтао", href: "/thailand/phuket/bangtao" },
+				],
+				mainImage: "/backgroundImage.png",
+			})) as unknown as ListingCardBaseDTO[],
+		},
+	},
+};

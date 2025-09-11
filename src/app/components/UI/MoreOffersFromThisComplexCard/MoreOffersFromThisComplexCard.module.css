@@ -13,6 +13,11 @@
 	min-width: 320px;
 	height: 130px;
 }
+.subPrice {
+	color: #8a8a8a;
+	font-size: 12px;
+	margin-top: 4px;
+}
 
 .card__image {
 	width: clamp(100px, 25vw, 120px);
@@ -28,11 +33,11 @@
 	padding: 0 12px;
 	display: flex;
 	flex-direction: column;
-	justify-content: space-around;
 	max-width: 168px;
 	white-space: nowrap;
 	flex-wrap: nowrap;
-	cursor: pointer;
+	height: max-content;
+	gap: 14px;
 }
 
 .card__price {
@@ -48,7 +53,7 @@
 }
 
 .card__details {
-	font-size: 0.9rem;
+	font-size: 12px;
 	color: #777;
 	margin-top: auto;
 	max-width: 100%;
@@ -63,9 +68,11 @@
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: center;
+	height: 100%;
 	padding: 10px 10px 10px 0;
 	margin-right: 0;
 	box-sizing: border-box;
+	cursor: default;
 }
 
 .icon__container {
@@ -118,6 +125,8 @@
 	display: flex;
 	flex-grow: 1;
 	justify-content: space-between;
+	align-items: center;
+	cursor: pointer;
 }
 .SellCardWrapper {
 	display: none;
@@ -176,6 +185,7 @@
 		width: 240px;
 		flex-wrap: nowrap;
 		max-width: none;
+		padding: 0 16px;
 	}
 
 	.card__price {
@@ -214,6 +224,12 @@
 	}
 	.SellCardWrapper {
 		display: block;
+	}
+	.subPrice {
+		font-size: 14px;
+	}
+	.card__details {
+		font-size: 14px;
 	}
 }
 
@@ -255,6 +271,7 @@
 	.card__info {
 		flex-direction: column;
 		max-width: 385px;
+		padding: 0 20px;
 	}
 
 	.card__price {
@@ -291,5 +308,11 @@
 	}
 	.SellCardWrapper {
 		display: block;
+	}
+	.subPrice {
+		font-size: 14px;
+	}
+	.card__details {
+		font-size: 14px;
 	}
 }

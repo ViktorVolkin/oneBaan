@@ -2,8 +2,11 @@ import type { Decorator } from "@storybook/react";
 import { NextIntlClientProvider } from "next-intl";
 import translationsEn from "../src/messages/en.json";
 import translationsRu from "../src/messages/ru.json";
+import { Manrope } from "next/font/google";
 import "../src/app/[locale]/globals.css";
+
 const messages = { en: translationsEn, ru: translationsRu };
+const manrope = Manrope({ subsets: ["latin", "cyrillic"] });
 
 const withNextIntl: Decorator = (Story, context) => {
 	const locale = (context.globals.locale as "en" | "ru") || "en";
@@ -15,7 +18,7 @@ const withNextIntl: Decorator = (Story, context) => {
 };
 
 const withSiteLayout: Decorator = (Story) => (
-	<div>
+	<div className={manrope.className}>
 		<Story />
 	</div>
 );

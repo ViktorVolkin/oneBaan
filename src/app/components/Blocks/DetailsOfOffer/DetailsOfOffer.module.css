@@ -1,4 +1,6 @@
-.detailsOfOfferSell {
+.detailsOfOfferSell,
+.detailsOfOfferRent,
+.detailsOfOfferComplex {
 	display: flex;
 	flex-direction: column;
 	width: 100%;
@@ -7,7 +9,8 @@
 	text-decoration: none;
 }
 .blueprintRent,
-.blueprintSell {
+.blueprintSell,
+.blueprintComplex {
 	display: flex;
 	border-radius: 10px;
 	padding: 0 12px 0 8px;
@@ -123,7 +126,7 @@
 	margin: 22px 0;
 }
 .breadcrumbs__with_complex {
-	margin-top: 0 !important;
+	margin: 0 !important;
 }
 .offerDetail__with_complex {
 	margin-bottom: 0 !important;
@@ -136,7 +139,8 @@
 		flex-direction: column;
 		width: 100%;
 	}
-	.blueprintRent {
+	.blueprintRent,
+	.blueprintComplex {
 		display: none;
 	}
 	.blueprintSell {
@@ -243,7 +247,8 @@
 		width: 100%;
 	}
 	.blueprintRent,
-	.blueprintSell {
+	.blueprintSell,
+	.blueprintComplex {
 		display: none;
 	}
 

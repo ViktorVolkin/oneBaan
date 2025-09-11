@@ -218,7 +218,6 @@
 		},
 		"beds": "{ count, plural, one {# спальня} few {# спальни} many {# спален} other {# спален}}",
 		"baths": "{ count, plural, one {# ванна} few {# ванные} many {# ванных} other {# ванных}}",
-		"amountOfDetails": "{count,plural,one}",
 		"amountOfDays": "{days, plural, one {# день} few {# дня} many {# дней} other {# дней}} на OneBaan | {views, plural, one {# просмотр} few {# просмотра} many {# просмотров} other {# просмотров}}",
 		"similarOffers": "Похожие предложения",
 		"distanceToSeaRent": "До моря",
@@ -253,6 +252,9 @@
 		"forSale": "На продажу",
 		"forRent": "В аренду",
 		"amountOfApartments": "{count, plural, one {# квартира} few {# квартиры} many {# квартир} other {# квартир}}",
-		"fromPrice": "от {minPrice}"
+		"fromPrice": "от {minPrice}",
+		"moreOffersSell": "Предложения на продажу в ",
+		"moreOffersRent": "Предложения по аренде в",
+		"sellPricePerMeter": "за м²"
 	}
 }

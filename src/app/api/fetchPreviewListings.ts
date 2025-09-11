@@ -11,8 +11,6 @@ export async function fetchListingsPreview(
 	const url = new URL(path, base);
 	const qs = buildSearchParams({
 		...query,
-		page: 1,
-		limit: 1,
 	});
 	url.search = qs.toString();
 

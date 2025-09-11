@@ -27,6 +27,7 @@
 .listingGranted__card,
 .listingGranted__cardRent {
 	display: flex;
+	flex-direction: column;
 }
 
 .agent__container,
@@ -89,12 +90,7 @@
 	font-size: 14px;
 }
 
-.agent__data__container,
-.agent__data__containerRent {
-}
-
-.agent__data,
-.agent__dataRent {
+.agent__data {
 	color: #2d3748;
 }
 
@@ -152,9 +148,6 @@
 	text-decoration: none;
 }
 
-.agent__data__containerRent {
-	color: #a3a3a3;
-}
 .agent__dataRent {
 	color: #121212;
 }
@@ -169,6 +162,11 @@
 	font-size: 14px;
 	font-weight: 600;
 	color: white;
+}
+.additionalText {
+	color: #a3a3a3;
+	font-size: 12px;
+	margin-top: 12px;
 }
 @media (min-width: 768px) and (max-width: 1439.9px) {
 	.listingGranted__container {
@@ -253,6 +251,7 @@
 	.listingGranted__cardRent {
 		display: flex;
 		flex-direction: row;
+		gap: 40px;
 	}
 	.listingGranted__containerRent {
 		height: max-content;
@@ -269,6 +268,10 @@
 	.agent__dataRent {
 		color: #121212;
 		font-weight: 700;
+	}
+	.additionalText {
+		font-size: 14px;
+		margin-top: 16px;
 	}
 }
 
@@ -384,6 +387,10 @@
 	.toAllOffersRent {
 		height: 50px;
 	}
+	.additionalText {
+		font-size: 14px;
+		margin-top: 12px;
+	}
 }
 
 @media (min-width: 1920px) {
@@ -479,5 +486,42 @@
 		text-decoration: none;
 		font-size: 16px;
 		font-weight: 700;
+	}
+
+	.listingGranted__containerRent {
+		position: absolute;
+		top: 0;
+		left: calc(100% + 60px);
+		width: 390px;
+		height: max-content;
+		padding: 20px;
+	}
+	.listingGranted__titleRent {
+		color: #121212;
+		font-weight: 700;
+		font-size: 28px;
+		margin-bottom: 20px;
+	}
+	.agent__containerRent {
+		width: 350px;
+		gap: 12px;
+		margin-bottom: 20px;
+	}
+	.agent__paramsRent {
+		margin: 0;
+		font-size: 14px;
+		color: #121212;
+	}
+	.agent__dataRent {
+		color: #121212;
+		font-weight: 700;
+		font-size: 18px;
+	}
+	.toAllOffersRent {
+		height: 50px;
+	}
+	.additionalText {
+		font-size: 14px;
+		margin-top: 12px;
 	}
 }

@@ -10,112 +10,103 @@ import CardDetailedLocation from "../../Blocks/CardDetailedLocation";
 import ListingGranted from "../../Blocks/ListingGranted";
 import SimilarOffers from "../../Blocks/SimilarOffers";
 import { useLocale, useTranslations } from "next-intl";
-import { useEffect, useMemo, useState } from "react";
-import { fetchSellCardDetailedPage } from "@/app/api/fetchSellCardDetailed";
+import { useEffect, useState } from "react";
+import { ComplexCardItem, fetchComplexInfo } from "@/app/api/fetchComplexInfo";
 import { useQueryParams } from "@/app/customHooks/useQueryParams";
-import type { ListingCardBase } from "@/app/types/LargeCardHorizontalSellCatalog.types";
 import { Link } from "@/i18n/navigation";
-
-type CardItem = Omit<ListingCardBase, "isRentCard">;
+import { routing } from "@/i18n/routing";
 
 export function ComplexInfoPage({ id }: { id: string }) {
-	type DataType = Awaited<ReturnType<typeof fetchSellCardDetailedPage>>;
-	const [data, setData] = useState<DataType | null>(null);
-	const [accMoreCards, setAccMoreCards] = useState<CardItem[]>([]);
-	const [hasMore, setHasMore] = useState(false);
-
 	const { get, set } = useQueryParams();
+	const [sellCards, setSellCards] = useState<ComplexCardItem[]>([]);
+	const [rentCards, setRentCards] = useState<ComplexCardItem[]>([]);
+	const [sellHasMore, setSellHasMore] = useState(false);
+	const [rentHasMore, setRentHasMore] = useState(false);
+	const [data, setData] = useState<any>(null);
 	const t = useTranslations();
-
 	const pageSize = 4;
+	const qLocale = useLocale() as (typeof routing.locales)[number];
+	const qCurr = get("currency") ?? "USD";
 
+	const [sellPage, setSellPage] = useState(
+		Number(get("moreOffersPageSell") || 1)
+	);
+	const [rentPage, setRentPage] = useState(
+		Number(get("moreOffersPageRent") || 1)
+	);
 	useEffect(() => {
-		if (!get("page")) set("page", "1");
+		if (!get("moreOffersPageSell")) set("moreOffersPageSell", "1");
+		if (!get("moreOffersPageRent")) set("moreOffersPageRent", "1");
 	}, []);
 
-	const qLocale = useLocale();
-	const qBeds = get("beds");
-	const qCurr = get("currency");
-	const qSortBy = get("sortBy");
-	const pageRaw = get("page");
-	const page = Math.max(1, Number(pageRaw || 1));
+	useEffect(() => {
+		const sell = Number(get("moreOffersPageSell") || 1);
+		const rent = Number(get("moreOffersPageRent") || 1);
+		setSellPage(sell);
+		setRentPage(rent);
+	}, [get("moreOffersPageSell"), get("moreOffersPageRent")]);
 
-	const baseQuery = useMemo(
-		() => ({
-			locale: qLocale,
-			currency: qCurr ?? "USD",
-			sortBy: qSortBy ?? "recommended",
-			beds: qBeds ?? "",
-			page,
-			limit: pageSize,
-		}),
-		[qLocale, qCurr, qSortBy, qBeds, page]
-	);
+	useEffect(() => {
+		setSellCards([]);
+		setRentCards([]);
+	}, [id, qLocale, qCurr]);
 
 	useEffect(() => {
 		const ac = new AbortController();
 		(async () => {
 			try {
-				const result = await fetchSellCardDetailedPage(
+				const result = await fetchComplexInfo({
 					id,
-					baseQuery,
-					ac.signal,
-					"/rent-card-detailed/"
-				);
+					locale: qLocale ?? "en",
+					currency: qCurr,
+					moreOffersPageSell: sellPage,
+					moreOffersPageRent: rentPage,
+					limitSell: pageSize,
+					limitRent: pageSize,
+					signal: ac.signal,
+				});
 				setData(result);
-
-				const incoming: CardItem[] =
-					result.moreFromComplex?.cards ?? [];
-				const serverHasMore = Boolean(result.moreFromComplex?.hasMore);
-
-				if (page > 1) setAccMoreCards((prev) => [...prev, ...incoming]);
-				else setAccMoreCards(incoming);
-
-				setHasMore(serverHasMore);
+				setSellHasMore(result.moreFromComplexSell?.hasMore ?? false);
+				setRentHasMore(result.moreFromComplexRent?.hasMore ?? false);
+				setSellCards((prev) =>
+					sellPage > 1
+						? [
+								...prev,
+								...(result.moreFromComplexSell?.cards ?? []),
+						  ]
+						: result.moreFromComplexSell?.cards ?? []
+				);
+				setRentCards((prev) =>
+					rentPage > 1
+						? [
+								...prev,
+								...(result.moreFromComplexRent?.cards ?? []),
+						  ]
+						: result.moreFromComplexRent?.cards ?? []
+				);
 			} catch (e) {
 				console.error(e);
 			}
 		})();
 		return () => ac.abort();
-	}, [id, baseQuery, page]);
+	}, [id, qLocale, qCurr, sellPage, rentPage]);
 
-	return data ? (
+	if (!data) return <></>;
+
+	return (
 		<div className={styles.rentCardContainer}>
 			<CardDetailedPreviewBlock
 				images={data.images}
 				offerId={id}
-				isRent={true}
+				mode="Rent"
 			/>
 
 			<div className={styles.rentCardContent}>
 				<div className={styles.DetailsOfOffer}>
 					<DetailsOfOffer
-						isComplex={true}
-						isRent={true}
+						mode="Complex"
 						offerDetail={data.offerDetail}
-						propDetailsCard={[
-							{
-								title: t("CardDetailed.yearOfBuilding"),
-								text: data.detailValues.yearOfBuilding ?? "",
-								icon: "/yearOfBuilding.svg",
-							},
-							{
-								title: t("CardDetailed.distanceToSeaRent"),
-								text: data.detailValues.distanceToSea ?? "",
-								icon: "/distanceToWater.svg",
-							},
-							{
-								title: t("CardDetailed.levels"),
-								text: data.detailValues.level ?? "",
-								icon: "/levels.svg",
-							},
-							{
-								title: t("CardDetailed.apartments"),
-								text:
-									data.detailValues.amountOfApartments ?? "",
-								icon: "/amountOfApartments.svg",
-							},
-						]}
+						propDetailsCard={[]}
 						breadcrumbs={data.breadcrumbs}
 						cards={[
 							{
@@ -131,7 +122,7 @@ export function ComplexInfoPage({ id }: { id: string }) {
 							{
 								type: t("complex.forRent"),
 								priceStartsFrom: `${t("complex.fromPrice", {
-									minPrice: 12314,
+									minPrice: 5424,
 								})}${t("cards.perMonth")}`,
 								amountOfApartments: t(
 									"complex.amountOfApartments",
@@ -147,17 +138,31 @@ export function ComplexInfoPage({ id }: { id: string }) {
 					<ComplexConveniences
 						complexName={data.complex.complexName}
 						complexImage={data.complex.complexImage}
-						yearOfBuilding={data.complex.yearOfBuilding}
-						amountOfApartments={data.complex.amountOfApartments}
-						builder={data.complex.builder}
+						details={[
+							{
+								label: t("CardDetailed.complex.year"),
+								value: data.complex.yearOfBuilding,
+							},
+							{
+								label: t(
+									"CardDetailed.complex.amountOfApartments"
+								),
+
+								value: data.complex.amountOfApartments,
+							},
+							{
+								label: t("CardDetailed.complex.builder"),
+								value: data.complex.builder,
+							},
+						]}
 						tags={data.complex.tags}
-						isRent={true}
+						mode="Rent"
 					/>
 				</div>
 
 				<div className={styles.moreOffersFromComplex}>
 					<MoreOffersFromThisComplex
-						nameOfComplex={data.moreFromComplex.nameOfComplex}
+						nameOfComplex={data.moreFromComplexSell.nameOfComplex}
 						optionsBedrooms={
 							CATALOG_FILTER_OPTIONS_DEFAULT.optionsBedrooms
 						}
@@ -167,14 +172,58 @@ export function ComplexInfoPage({ id }: { id: string }) {
 						optionsPriceForPhoneMode={
 							CATALOG_FILTER_OPTIONS_DEFAULT.optionsMinAndMaxPriceForPhoneMode
 						}
-						cards={accMoreCards}
-						isRent={true}
-						hasMore={hasMore}
+						mode="Complex"
+						hasMore={sellHasMore}
+						showFilters={false}
+						titleKey={"complex.moreOffersSell"}
+						cardsBasePath={"/catalog/CardDetails"}
+						shouldUsePaging={true}
+						enableScroll={false}
+						pageName="moreOffersPageSell"
+						cards={sellCards.map((card) => {
+							return {
+								...card,
+								pricePerMeter: `${card.pricePerMeter} ${t(
+									"complex.sellPricePerMeter"
+								)}`,
+							};
+						})}
 					/>
 				</div>
-
 				<div className={styles.subscribeForNotifications}>
 					<SubscribeForNotifications isRent={true} />
+				</div>
+				<div className={styles.moreOffersFromComplex}>
+					<MoreOffersFromThisComplex
+						nameOfComplex={data.moreFromComplexRent.nameOfComplex}
+						optionsBedrooms={
+							CATALOG_FILTER_OPTIONS_DEFAULT.optionsBedrooms
+						}
+						optionsSortBy={
+							CATALOG_FILTER_OPTIONS_DEFAULT.optionsSortBy
+						}
+						optionsPriceForPhoneMode={
+							CATALOG_FILTER_OPTIONS_DEFAULT.optionsMinAndMaxPriceForPhoneMode
+						}
+						cards={rentCards.map((card) => {
+							return {
+								...card,
+								pricePerMeter: card.pricePerMeter
+									? `${card.pricePerMeter} ${t(
+											"cards.perMonth"
+									  )}`
+									: "",
+							};
+						})}
+						mode="Complex"
+						hasMore={rentHasMore}
+						showFilters={false}
+						titleKey={"complex.moreOffersRent"}
+						cardsBasePath={"/catalog/rent/CardDetails"}
+						shouldUsePaging={true}
+						enableScroll={false}
+						pageName="moreOffersPageRent"
+					/>
 				</div>
 
 				<div className={styles.location}>
@@ -183,7 +232,7 @@ export function ComplexInfoPage({ id }: { id: string }) {
 						breadcrumbs={data.location.breadcrumbs}
 						toLocationHref={data.location.toLocationHref}
 						countryName={data.location.countryName}
-						isRent={true}
+						mode="Rent"
 					/>
 				</div>
 
@@ -191,22 +240,38 @@ export function ComplexInfoPage({ id }: { id: string }) {
 					<ListingGranted
 						agentIcon={data.agent.agentIcon}
 						agentName={data.agent.agentName}
-						agentExperienceOnPhuket={
-							data.agent.agentExperienceOnPhuket
-						}
-						phuketWorkingHours={data.agent.phuketWorkingHours}
-						languages={data.agent.languages}
 						allOffers={data.agent.allOffers}
 						agentStatus={data.agent.agentStatus}
 						phoneHref={data.agent.phoneHref}
 						whatsAppHref={data.agent.whatsAppHref}
-						isRent={true}
+						mode="Rent"
+						agentDetails={[
+							{
+								label: t(
+									"CardDetailed.listingGranted.experienceOnPhuket"
+								),
+								value: data.agent.agentExperienceOnPhuket,
+							},
+							{
+								label: t(
+									"CardDetailed.listingGranted.workingHoursOnPhuket"
+								),
+								value: data.agent.phuketWorkingHours,
+							},
+							{
+								label: t(
+									"CardDetailed.listingGranted.languages"
+								),
+								value: data.agent.languages,
+							},
+						]}
+						additionalText="Группа компаний Country Group  — один из самых стабильных застройщиков на острове Пхукет, который работает в сфере недвижимости уже более 12 лет, а на Пхукете больше 6 лет."
 					/>
 				</div>
 
 				<div className={styles.similarOffers}>
 					<SimilarOffers
-						tags={data.similar.tags}
+						tags={[]}
 						isRent={true}
 						cards={data.similar.cards}
 					/>
@@ -257,7 +322,5 @@ export function ComplexInfoPage({ id }: { id: string }) {
 				</div>
 			</div>
 		</div>
-	) : (
-		<></>
 	);
 }
