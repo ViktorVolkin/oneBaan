@@ -25,7 +25,7 @@ const rentCards = [
 		],
 		mode: "Rent" as const,
 		stats: { amountOfBeds: 2, amountOfBaths: 1, area: 45 },
-		price: "60 000 ₽/мес",
+		price: "60 000",
 	},
 	{
 		idOfCard: "rent2",
@@ -41,7 +41,7 @@ const rentCards = [
 		],
 		mode: "Rent" as const,
 		stats: { amountOfBeds: 1, amountOfBaths: 1, area: 28 },
-		price: "45 000 ₽/мес",
+		price: "45 000",
 	},
 ];
 
@@ -51,8 +51,8 @@ const sellCards = [
 		mainImage: "/backgroundImage.png",
 		apartmentImages: { images: ["/backgroundImage.png"] },
 		cardDescription: "Просторная квартира с видом на парк.",
-		price: "12 500 000 ₽",
-		pricePerMeter: "250 000 ₽/м²",
+		price: "12 500 000",
+		pricePerMeter: "250 000",
 		stats: { amountOfBeds: 3, amountOfBaths: 2, area: 50 },
 		details: "3-комн. 50 м², 10/16 эт.",
 		agentLogo: "/agent-logo.svg",
@@ -71,8 +71,8 @@ const sellCards = [
 		mainImage: "/backgroundImage.png",
 		apartmentImages: { images: ["/backgroundImage.png"] },
 		cardDescription: "Квартира в новом ЖК, развитая инфраструктура.",
-		price: "9 800 000 ₽",
-		pricePerMeter: "196 000 ₽/м²",
+		price: "9 800 000",
+		pricePerMeter: "196 000",
 		stats: { amountOfBeds: 2, amountOfBaths: 1, area: 40 },
 		details: "2-комн. 40 м², 3/12 эт.",
 		agentLogo: "/agent-logo.svg",
@@ -104,8 +104,8 @@ const complexCards = [
 		],
 		mode: "Complex" as const,
 		complexMinPrices: {
-			sell: { amountOfApartments: 5, minPrice: "8000$" },
-			rent: { amountOfApartments: 2, minPrice: "3000$" },
+			sell: { amountOfApartments: 5, minPrice: "8000" },
+			rent: { amountOfApartments: 2, minPrice: "3000" },
 		},
 	},
 ];

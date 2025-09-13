@@ -76,3 +76,21 @@ export const Sell = {
 		mode: "Sell",
 	},
 };
+export const Complex = {
+	args: {
+		...baseArgs,
+		mode: "Complex",
+		cards: [
+			{
+				type: "На продажу",
+				priceStartsFrom: "от 8 000 000 ₽",
+				amountOfApartments: "5 квартир",
+			},
+			{
+				type: "В аренду",
+				priceStartsFrom: "от 35 000 ₽/мес",
+				amountOfApartments: "2 квартиры",
+			},
+		],
+	},
+};
