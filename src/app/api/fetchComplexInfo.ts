@@ -1,3 +1,7 @@
+import { routing } from "@/i18n/routing";
+import { normalizeTags } from "../utils/normalizeTags";
+import { ListingCardBase } from "../types/LargeCardHorizontalSellCatalog.types";
+export type ComplexCardItem = Omit<ListingCardBase, "isRentCard">;
 function buildComplexCardSearchParams(params: {
 	locale: string;
 	currency: string;
@@ -15,12 +19,7 @@ function buildComplexCardSearchParams(params: {
 	qs.set("limitRent", String(params.limitRent));
 	return qs;
 }
-import { routing } from "@/i18n/routing";
-import type { CatalogQuery } from "./fetchListingsCatalog";
-import { normalizeTags } from "../utils/normalizeTags";
-import { ListingCardBase } from "../types/LargeCardHorizontalSellCatalog.types";
 
-export type ComplexCardItem = Omit<ListingCardBase, "isRentCard">;
 interface FetchComplexInfoParams {
 	id: string;
 	locale: (typeof routing.locales)[number];

@@ -139,10 +139,8 @@ app.get("/sell-card-detailed/:id", (req, res) => {
 		const l = Math.max(1, parseInt(limitRaw, 10) || Infinity);
 
 		const all = data.moreFromComplex.cards || [];
-		const start = (p - 1) * l;
-		const end = start + l;
-
-		const items = all.slice(start, end);
+		const end = p * l;
+		const items = all.slice(0, end);
 		const total = all.length;
 		const hasMore = end < total;
 
@@ -178,10 +176,8 @@ app.get("/rent-card-detailed/:id", (req, res) => {
 		const l = Math.max(1, parseInt(limitRaw, 10) || 4);
 
 		const all = data.moreFromComplex.cards || [];
-		const start = (p - 1) * l;
-		const end = start + l;
-
-		const items = all.slice(start, end);
+		const end = p * l;
+		const items = all.slice(0, end);
 		const total = all.length;
 		const hasMore = end < total;
 
@@ -223,16 +219,14 @@ app.get("/complex-card/:id", (req, res) => {
 
 	let sellPage = Math.max(1, parseInt(moreOffersPageSellRaw ?? "1", 10) || 1);
 	let sellLimit = Math.max(1, parseInt(limitSellRaw ?? "4", 10) || 4);
-	const sellStart = (sellPage - 1) * sellLimit;
-	const sellEnd = sellStart + sellLimit;
-	let sellCards = allSell.slice(sellStart, sellEnd);
+	const sellEnd = sellPage * sellLimit;
+	let sellCards = allSell.slice(0, sellEnd);
 	let sellHasMore = sellEnd < allSell.length;
 
 	let rentPage = Math.max(1, parseInt(moreOffersPageRentRaw ?? "1", 10) || 1);
 	let rentLimit = Math.max(1, parseInt(limitRentRaw ?? "4", 10) || 4);
-	const rentStart = (rentPage - 1) * rentLimit;
-	const rentEnd = rentStart + rentLimit;
-	let rentCards = allRent.slice(rentStart, rentEnd);
+	const rentEnd = rentPage * rentLimit;
+	let rentCards = allRent.slice(0, rentEnd);
 	let rentHasMore = rentEnd < allRent.length;
 
 	data.moreFromComplexSell = {

@@ -5,16 +5,20 @@ export default {
 	component: CardDetailedLocation,
 };
 
+const baseArgs = {
+	image: "/backgroundImage.png",
+	countryName: "Таиланд",
+	breadcrumbs: [
+		{ label: "Главная", href: "/" },
+		{ label: "Таиланд", href: "/thailand" },
+		{ label: "Пхукет", href: "/thailand/phuket" },
+	],
+	toLocationHref: "/thailand/phuket",
+};
+
 export const Default = {
 	args: {
-		image: "/backgroundImage.png",
-		countryName: "Таиланд",
-		breadcrumbs: [
-			{ label: "Главная", href: "/" },
-			{ label: "Таиланд", href: "/thailand" },
-			{ label: "Пхукет", href: "/thailand/phuket" },
-		],
-		toLocationHref: "/thailand/phuket",
-		isRent: false,
+		...baseArgs,
+		mode: "Rent",
 	},
 };

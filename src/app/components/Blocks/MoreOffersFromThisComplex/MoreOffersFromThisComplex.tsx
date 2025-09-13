@@ -15,7 +15,7 @@ import {
 import type { Option } from "@/app/types/CustomSelect.types";
 import { ListingCardBase } from "@/app/types/LargeCardHorizontalSellCatalog.types";
 import MoreOffersFromThisComplexCard from "@/app/components/UI/MoreOffersFromThisComplexCard";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 interface MoreOffersFromThisComplexProps {
 	nameOfComplex: string;
@@ -50,11 +50,9 @@ export function MoreOffersFromThisComplex({
 }: MoreOffersFromThisComplexProps) {
 	const t = useTranslations();
 	const { set, setMany, get } = useQueryParams();
-
 	const isSell = mode === "Sell";
 
 	const moreOffersPageFromUrl = shouldUsePaging ? get(pageName) ?? "1" : "1";
-
 	useEffect(() => {
 		if (!shouldUsePaging) set(pageName, null);
 	}, [shouldUsePaging, pageName, set]);
@@ -161,10 +159,10 @@ export function MoreOffersFromThisComplex({
 							: styles.cards__container
 					}
 				>
-					{cards.map((item) => (
+					{cards.map((item, idx) => (
 						<div
 							className={styles.card__container}
-							key={item.idOfCard}
+							key={`${item.idOfCard}-${pageName}-${idx}`}
 						>
 							<MoreOffersFromThisComplexCard
 								{...item}
@@ -226,7 +224,7 @@ export function MoreOffersFromThisComplex({
 						>
 							{cards.map((item) => (
 								<SwiperSlide
-									key={item.idOfCard}
+									key={`${item.idOfCard}-${pageName}`}
 									className={styles.swiperSlide}
 								>
 									<MoreOffersFromThisComplexCard

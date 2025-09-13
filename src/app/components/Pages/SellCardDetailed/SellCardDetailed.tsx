@@ -26,7 +26,6 @@ export function SellCardDetailedPage(props: { id: string }) {
 
 	const isPhone = useMediaQuery("(max-width: 768px)");
 
-	const [accMoreCards, setAccMoreCards] = useState<CardItem[]>([]);
 	const [hasMore, setHasMore] = useState(false);
 
 	const { get } = useQueryParams();
@@ -69,7 +68,6 @@ export function SellCardDetailedPage(props: { id: string }) {
 	);
 
 	useEffect(() => {
-		setAccMoreCards([]);
 		setHasMore(false);
 	}, [id, qLocale, qCurr, qMinPrice, qMaxPrice, qSortBy, qBeds]);
 
@@ -83,17 +81,9 @@ export function SellCardDetailedPage(props: { id: string }) {
 					ac.signal
 				);
 				setData(result);
-
-				const incoming: CardItem[] =
-					result.moreFromComplex?.cards ?? [];
 				const serverHasMore = Boolean(
 					(result as any)?.moreFromComplex?.hasMore
 				);
-				if ((effectiveMoreOffersPage ?? 1) > 1) {
-					setAccMoreCards((prev) => [...prev, ...incoming]);
-				} else {
-					setAccMoreCards(incoming);
-				}
 				setHasMore(serverHasMore);
 			} catch (error: any) {
 				if (error?.name !== "AbortError") console.error(error);
@@ -191,7 +181,7 @@ export function SellCardDetailedPage(props: { id: string }) {
 						optionsPriceForPhoneMode={
 							CATALOG_FILTER_OPTIONS_DEFAULT.optionsMinAndMaxPriceForPhoneMode
 						}
-						cards={accMoreCards}
+						cards={data.moreFromComplex.cards}
 						mode="Sell"
 						hasMore={hasMore}
 						shouldUsePaging={isPhone}
@@ -248,8 +238,9 @@ export function SellCardDetailedPage(props: { id: string }) {
 				<div className={styles.similarOffers}>
 					<SimilarOffers
 						tags={data.similar.tags}
-						isRent={false}
+						mode="Sell"
 						cards={data.similar.cards}
+						cardsBasePath="/catalog/CardDetails"
 					/>
 				</div>
 

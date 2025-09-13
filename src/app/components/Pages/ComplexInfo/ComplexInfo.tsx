@@ -18,38 +18,14 @@ import { routing } from "@/i18n/routing";
 
 export function ComplexInfoPage({ id }: { id: string }) {
 	const { get, set } = useQueryParams();
-	const [sellCards, setSellCards] = useState<ComplexCardItem[]>([]);
-	const [rentCards, setRentCards] = useState<ComplexCardItem[]>([]);
-	const [sellHasMore, setSellHasMore] = useState(false);
-	const [rentHasMore, setRentHasMore] = useState(false);
 	const [data, setData] = useState<any>(null);
 	const t = useTranslations();
 	const pageSize = 4;
 	const qLocale = useLocale() as (typeof routing.locales)[number];
 	const qCurr = get("currency") ?? "USD";
 
-	const [sellPage, setSellPage] = useState(
-		Number(get("moreOffersPageSell") || 1)
-	);
-	const [rentPage, setRentPage] = useState(
-		Number(get("moreOffersPageRent") || 1)
-	);
-	useEffect(() => {
-		if (!get("moreOffersPageSell")) set("moreOffersPageSell", "1");
-		if (!get("moreOffersPageRent")) set("moreOffersPageRent", "1");
-	}, []);
-
-	useEffect(() => {
-		const sell = Number(get("moreOffersPageSell") || 1);
-		const rent = Number(get("moreOffersPageRent") || 1);
-		setSellPage(sell);
-		setRentPage(rent);
-	}, [get("moreOffersPageSell"), get("moreOffersPageRent")]);
-
-	useEffect(() => {
-		setSellCards([]);
-		setRentCards([]);
-	}, [id, qLocale, qCurr]);
+	const sellPage = Number(get("moreOffersPageSell") || 1);
+	const rentPage = Number(get("moreOffersPageRent") || 1);
 
 	useEffect(() => {
 		const ac = new AbortController();
@@ -66,24 +42,6 @@ export function ComplexInfoPage({ id }: { id: string }) {
 					signal: ac.signal,
 				});
 				setData(result);
-				setSellHasMore(result.moreFromComplexSell?.hasMore ?? false);
-				setRentHasMore(result.moreFromComplexRent?.hasMore ?? false);
-				setSellCards((prev) =>
-					sellPage > 1
-						? [
-								...prev,
-								...(result.moreFromComplexSell?.cards ?? []),
-						  ]
-						: result.moreFromComplexSell?.cards ?? []
-				);
-				setRentCards((prev) =>
-					rentPage > 1
-						? [
-								...prev,
-								...(result.moreFromComplexRent?.cards ?? []),
-						  ]
-						: result.moreFromComplexRent?.cards ?? []
-				);
 			} catch (e) {
 				console.error(e);
 			}
@@ -106,27 +64,55 @@ export function ComplexInfoPage({ id }: { id: string }) {
 					<DetailsOfOffer
 						mode="Complex"
 						offerDetail={data.offerDetail}
-						propDetailsCard={[]}
+						propDetailsCard={[
+							{
+								title: t("CardDetailed.yearOfBuilding"),
+								text: data.detailValues.yearOfBuilding ?? "",
+								icon: "/yearOfBuilding.svg",
+							},
+							{
+								title: t("CardDetailed.distanceToSeaRent"),
+								text: data.detailValues.distanceToSea ?? "",
+								icon: "/distanceToWater.svg",
+							},
+							{
+								title: t("CardDetailed.levels"),
+								text: data.detailValues.level ?? "",
+								icon: "/levels.svg",
+							},
+							{
+								title: t("CardDetailed.apartments"),
+								text:
+									data.detailValues.amountOfApartments ?? "",
+								icon: "/amountOfApartments.svg",
+							},
+						]}
 						breadcrumbs={data.breadcrumbs}
 						cards={[
 							{
 								type: t("complex.forSale"),
-								priceStartsFrom: t("complex.fromPrice", {
-									minPrice: 12314,
-								}),
+								priceStartsFrom: `${t("complex.fromPrice")}${
+									data.complexMinPrices.sell.minPrice
+								}`,
 								amountOfApartments: t(
 									"complex.amountOfApartments",
-									{ count: 23 }
+									{
+										count: data.complexMinPrices.sell
+											.amountOfApartments,
+									}
 								),
 							},
 							{
 								type: t("complex.forRent"),
-								priceStartsFrom: `${t("complex.fromPrice", {
-									minPrice: 5424,
-								})}${t("cards.perMonth")}`,
+								priceStartsFrom: `${t("complex.fromPrice")}${
+									data.complexMinPrices.rent.minPrice
+								}${t("cards.perMonth")}`,
 								amountOfApartments: t(
 									"complex.amountOfApartments",
-									{ count: 23 }
+									{
+										count: data.complexMinPrices.rent
+											.amountOfApartments,
+									}
 								),
 							},
 						]}
@@ -173,21 +159,23 @@ export function ComplexInfoPage({ id }: { id: string }) {
 							CATALOG_FILTER_OPTIONS_DEFAULT.optionsMinAndMaxPriceForPhoneMode
 						}
 						mode="Complex"
-						hasMore={sellHasMore}
+						hasMore={data.moreFromComplexSell?.hasMore ?? false}
 						showFilters={false}
 						titleKey={"complex.moreOffersSell"}
 						cardsBasePath={"/catalog/CardDetails"}
 						shouldUsePaging={true}
 						enableScroll={false}
 						pageName="moreOffersPageSell"
-						cards={sellCards.map((card) => {
-							return {
-								...card,
-								pricePerMeter: `${card.pricePerMeter} ${t(
-									"complex.sellPricePerMeter"
-								)}`,
-							};
-						})}
+						cards={
+							data.moreFromComplexSell?.cards?.map(
+								(card: ComplexCardItem) => ({
+									...card,
+									pricePerMeter: `${card.pricePerMeter} ${t(
+										"complex.sellPricePerMeter"
+									)}`,
+								})
+							) ?? []
+						}
 					/>
 				</div>
 				<div className={styles.subscribeForNotifications}>
@@ -205,18 +193,20 @@ export function ComplexInfoPage({ id }: { id: string }) {
 						optionsPriceForPhoneMode={
 							CATALOG_FILTER_OPTIONS_DEFAULT.optionsMinAndMaxPriceForPhoneMode
 						}
-						cards={rentCards.map((card) => {
-							return {
-								...card,
-								pricePerMeter: card.pricePerMeter
-									? `${card.pricePerMeter} ${t(
-											"cards.perMonth"
-									  )}`
-									: "",
-							};
-						})}
+						cards={
+							data.moreFromComplexRent?.cards?.map(
+								(card: ComplexCardItem) => ({
+									...card,
+									pricePerMeter: card.pricePerMeter
+										? `${card.pricePerMeter} ${t(
+												"cards.perMonth"
+										  )}`
+										: "",
+								})
+							) ?? []
+						}
 						mode="Complex"
-						hasMore={rentHasMore}
+						hasMore={data.moreFromComplexRent?.hasMore ?? false}
 						showFilters={false}
 						titleKey={"complex.moreOffersRent"}
 						cardsBasePath={"/catalog/rent/CardDetails"}
@@ -271,9 +261,11 @@ export function ComplexInfoPage({ id }: { id: string }) {
 
 				<div className={styles.similarOffers}>
 					<SimilarOffers
-						tags={[]}
-						isRent={true}
+						tags={data.similar.tags}
 						cards={data.similar.cards}
+						mode="Complex"
+						cardsBasePath="/complexInfo"
+						titleKey="complex.title"
 					/>
 				</div>
 			</div>

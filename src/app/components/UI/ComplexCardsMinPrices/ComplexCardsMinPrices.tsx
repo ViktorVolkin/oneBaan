@@ -1,4 +1,3 @@
-import { useTranslations } from "next-intl";
 import styles from "./ComplexCardsMinPrices.module.css";
 
 export interface ComplexCardsMinPricesProps {

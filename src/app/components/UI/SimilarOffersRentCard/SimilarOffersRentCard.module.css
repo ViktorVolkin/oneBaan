@@ -98,6 +98,51 @@
 .iconRowTablet {
 	display: none;
 }
+/* START COMPLEX STYLES*/
+.similarOffersComplexCard__container {
+	display: flex;
+	flex-direction: column;
+	border-radius: 10px;
+	box-shadow: 0px 1px 3px 0px #0000000d, 0px 5px 5px 0px #0000000a,
+		0px 10px 6px 0px #00000008, 0px 18px 7px 0px #00000003,
+		0px 29px 8px 0px #00000000;
+	border: 1px solid #e5e5e5;
+}
+.imageComplex {
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	height: 120px;
+	width: 100%;
+}
+.info__containerComplex {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	margin-bottom: 12px;
+}
+.cardComplex__content {
+	padding: 12px;
+}
+.button__containerComplex {
+	display: flex;
+	width: 100%;
+	margin-top: 6px;
+	height: 32px;
+}
+.card__titleComplex {
+	font-size: 12px;
+	min-height: 42px;
+	color: #a0aec0;
+	font-weight: 400;
+	white-space: wrap !important;
+	flex-wrap: wrap;
+}
+.card__detailComplex {
+	font-size: 12px;
+	font-weight: 700;
+	color: #2d3748;
+}
+
 @media (min-width: 768px) and (max-width: 1439.9px) {
 	.iconRowPhone {
 		display: none;
@@ -195,6 +240,35 @@
 	}
 	.button__container {
 		height: 42px;
+	}
+
+	.imageComplex {
+		border-top-left-radius: 12px;
+		border-top-right-radius: 12px;
+		height: 180px;
+	}
+	.info__containerComplex {
+		gap: 10px;
+		margin-bottom: 16px;
+	}
+	.cardComplex__content {
+		padding: 16px;
+	}
+	.button__containerComplex {
+		display: flex;
+		height: 42px;
+	}
+	.card__titleComplex {
+		font-size: 12px;
+		min-height: 30px;
+		width: 65%;
+		color: #a0aec0;
+		font-weight: 400;
+		white-space: wrap !important;
+		flex-wrap: wrap;
+	}
+	.card__detailComplex {
+		font-size: 18px;
 	}
 }
 @media (min-width: 1440px) {
@@ -294,5 +368,34 @@
 	}
 	.button__container {
 		height: 54px;
+	}
+	.imageComplex {
+		border-top-left-radius: 12px;
+		border-top-right-radius: 12px;
+		height: 200px;
+	}
+	.info__containerComplex {
+		gap: 14px;
+		margin-bottom: 20px;
+	}
+	.cardComplex__content {
+		padding: 20px;
+	}
+	.button__containerComplex {
+		display: flex;
+		height: 42px;
+		width: 100%;
+	}
+	.card__titleComplex {
+		font-size: 14px;
+		min-height: 40px;
+		width: 72%;
+		color: #a0aec0;
+		font-weight: 400;
+		white-space: wrap !important;
+		flex-wrap: wrap;
+	}
+	.card__detailComplex {
+		font-size: 18px;
 	}
 }

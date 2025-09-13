@@ -14,7 +14,13 @@ import CardSellCatalog from "../../UI/CardSellCatalog";
 import SimilarOffersRentCard from "../../UI/SimilarOffersRentCard";
 import { useMediaQuery } from "@/app/customHooks/MediaQuery";
 
-export function SimilarOffers({ tags, isRent, cards }: SimilarOffersProps) {
+export function SimilarOffers({
+	tags,
+	mode,
+	cards,
+	cardsBasePath,
+	titleKey = "CardDetailed.similarOffers",
+}: SimilarOffersProps) {
 	const t = useTranslations();
 	const isDesktop = useMediaQuery("(min-width:1440px)");
 	const isPhone = useMediaQuery("(max-width:768px)");
@@ -23,20 +29,20 @@ export function SimilarOffers({ tags, isRent, cards }: SimilarOffersProps) {
 	const [nextEl, setNextEl] = useState<HTMLElement | null>(null);
 	const prevRef = useCallback((el: HTMLElement | null) => setPrevEl(el), []);
 	const nextRef = useCallback((el: HTMLElement | null) => setNextEl(el), []);
-
+	const rentOrComplex = mode === "Rent" || mode === "Complex";
 	return (
 		<div className={styles.similarOffers__container}>
 			<h4
 				className={
-					isRent
+					rentOrComplex
 						? styles.similiraOffers__title__rent
 						: styles.similarOffers__title
 				}
 			>
-				{t("CardDetailed.similarOffers")}
+				{t(titleKey)}
 			</h4>
 
-			<div className={isRent ? styles.row__rent : styles.row}>
+			<div className={rentOrComplex ? styles.row__rent : styles.row}>
 				<div className={styles.tags__container}>
 					{tags.map((tag, index) => (
 						<p className={styles.tag} key={`${tag}-idx-${index}`}>
@@ -45,7 +51,7 @@ export function SimilarOffers({ tags, isRent, cards }: SimilarOffersProps) {
 					))}
 				</div>
 
-				{isRent && (
+				{rentOrComplex && (
 					<div className={styles.swiper__buttons}>
 						<button
 							ref={prevRef}
@@ -76,7 +82,7 @@ export function SimilarOffers({ tags, isRent, cards }: SimilarOffersProps) {
 				)}
 			</div>
 
-			{!isRent && cards && (
+			{mode === "Sell" && cards && (
 				<Swiper
 					modules={[Scrollbar, FreeMode, Mousewheel]}
 					slidesPerView="auto"
@@ -98,7 +104,7 @@ export function SimilarOffers({ tags, isRent, cards }: SimilarOffersProps) {
 						>
 							<CardSellCatalog
 								classNameButtonContainer={
-									isRent
+									rentOrComplex
 										? styles.button__container__rent
 										: styles.button__container
 								}
@@ -112,7 +118,7 @@ export function SimilarOffers({ tags, isRent, cards }: SimilarOffersProps) {
 				</Swiper>
 			)}
 
-			{isRent && prevEl && nextEl && (
+			{mode === "Rent" && prevEl && nextEl && (
 				<Swiper
 					modules={[Scrollbar, FreeMode, Mousewheel, Navigation]}
 					slidesPerView="auto"
@@ -133,7 +139,41 @@ export function SimilarOffers({ tags, isRent, cards }: SimilarOffersProps) {
 							key={item.idOfCard}
 							className={styles.swiperSlideRent}
 						>
-							<SimilarOffersRentCard {...item} />
+							<SimilarOffersRentCard
+								{...item}
+								cardsBasePath={cardsBasePath}
+								mode={"Rent"}
+							/>
+						</SwiperSlide>
+					))}
+				</Swiper>
+			)}
+			{mode === "Complex" && prevEl && nextEl && (
+				<Swiper
+					modules={[Scrollbar, FreeMode, Mousewheel, Navigation]}
+					slidesPerView="auto"
+					spaceBetween={isDesktop ? 20 : isPhone ? 8 : 16}
+					freeMode={{ enabled: true, momentum: true, sticky: false }}
+					scrollbar={{ draggable: true, hide: false }}
+					mousewheel={{ forceToAxis: true }}
+					navigation={{ prevEl, nextEl }}
+					loop={false}
+					style={{
+						width: "100%",
+						height: "100%",
+						position: "relative",
+					}}
+				>
+					{cards.map((item) => (
+						<SwiperSlide
+							key={item.idOfCard}
+							className={styles.swiperSlideComplex}
+						>
+							<SimilarOffersRentCard
+								{...item}
+								cardsBasePath={cardsBasePath}
+								mode={"Complex"}
+							/>
 						</SwiperSlide>
 					))}
 				</Swiper>

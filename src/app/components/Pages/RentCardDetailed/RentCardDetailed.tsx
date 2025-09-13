@@ -226,8 +226,9 @@ export function RentCardDetailed({ id }: { id: string }) {
 				<div className={styles.similarOffers}>
 					<SimilarOffers
 						tags={data.similar.tags}
-						isRent={true}
+						mode="Rent"
 						cards={data.similar.cards}
+						cardsBasePath="/catalog/rent/CardDetails"
 					/>
 				</div>
 			</div>

@@ -56,7 +56,6 @@ export function DetailsOfOffer(props: DetailsOfOfferProps) {
 				/>
 				{t("CardDetailed.blueprint")}
 			</p>
-
 			<p
 				className={`${styles.offerDetail} ${
 					isComplex ? styles.offerDetail__with_complex : ""
@@ -64,7 +63,6 @@ export function DetailsOfOffer(props: DetailsOfOfferProps) {
 			>
 				{offerDetail}
 			</p>
-
 			{!isComplex && (
 				<>
 					<div className={styles.priceBlock}>
@@ -120,13 +118,11 @@ export function DetailsOfOffer(props: DetailsOfOfferProps) {
 					</ul>
 				</>
 			)}
-
 			{isComplex && (
 				<div className={styles.complex__cards}>
 					<ComplexCardsMinPrices cards={props.cards} size="md" />
 				</div>
 			)}
-
 			{breadcrumbs.length > 0 && (
 				<nav
 					className={`${styles.breadcrumbs} ${
@@ -149,27 +145,32 @@ export function DetailsOfOffer(props: DetailsOfOfferProps) {
 				</nav>
 			)}
 
-			{!isComplex && (
-				<div className={styles.cardDetails__container}>
-					{propDetailsCard.map((item) =>
-						item.leadsTo ? (
-							<Link
-								href={item.leadsTo}
-								key={item.title}
-								className={styles.textDecoration__none}
-							>
-								<DetailsCard {...item} isRent={rentOrComplex} />
-							</Link>
-						) : (
-							<DetailsCard
-								key={item.title}
-								{...item}
-								isRent={rentOrComplex}
-							/>
-						)
-					)}
-				</div>
-			)}
+			<div
+				className={
+					isComplex
+						? styles.cardDetails__containerComplex
+						: styles.cardDetails__container
+				}
+			>
+				{propDetailsCard.map((item) =>
+					item.leadsTo ? (
+						<Link
+							href={item.leadsTo}
+							key={item.title}
+							className={styles.textDecoration__none}
+						>
+							<DetailsCard {...item} isRent={rentOrComplex} />
+						</Link>
+					) : (
+						<DetailsCard
+							key={item.title}
+							{...item}
+							isRent={rentOrComplex}
+						/>
+					)
+				)}
+			</div>
+
 			{!isComplex && (
 				<div className={styles.offerFeatureBlock}>
 					<h4 className={styles.offerFeature__title}>

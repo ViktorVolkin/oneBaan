@@ -7,20 +7,41 @@ const meta: Meta<typeof ComplexConveniences> = {
 	component: ComplexConveniences,
 };
 export default meta;
-export const Default = {
+
+const baseArgs = {
+	complexName: "ЖК Солнечный",
+	complexImage:
+		"https://images.unsplash.com/photo-1506744038136-46273834b3fb",
+	tags: [
+		TAG_CODES_CONSTANT["with_furniture"],
+		TAG_CODES_CONSTANT["only_on_oneBaan"],
+		TAG_CODES_CONSTANT["beneficial_price"],
+		TAG_CODES_CONSTANT["object_verified"],
+	] as CardTagProps[],
+	details: [
+		{ label: "Год постройки", value: "2020" },
+		{ label: "Квартир", value: "120" },
+		{ label: "Застройщик", value: "ООО СтройИнвест" },
+	],
+};
+
+export const Rent = {
 	args: {
-		complexName: "ЖК Солнечный",
-		complexImage:
-			"https://images.unsplash.com/photo-1506744038136-46273834b3fb",
-		yearOfBuilding: 2020,
-		amountOfApartments: 120,
-		builder: "ООО СтройИнвест",
-		tags: [
-			TAG_CODES_CONSTANT["with_furniture"],
-			TAG_CODES_CONSTANT["only_on_oneBaan"],
-			TAG_CODES_CONSTANT["beneficial_price"],
-			TAG_CODES_CONSTANT["object_verified"],
-		] as CardTagProps[],
-		isRent: false,
+		...baseArgs,
+		mode: "Rent",
+	},
+};
+
+export const Sell = {
+	args: {
+		...baseArgs,
+		mode: "Sell",
+	},
+};
+
+export const Complex = {
+	args: {
+		...baseArgs,
+		mode: "Complex",
 	},
 };

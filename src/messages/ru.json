@@ -249,12 +249,13 @@
 	},
 
 	"complex": {
+		"title": "Похожие проекты",
 		"forSale": "На продажу",
 		"forRent": "В аренду",
 		"amountOfApartments": "{count, plural, one {# квартира} few {# квартиры} many {# квартир} other {# квартир}}",
-		"fromPrice": "от {minPrice}",
+		"fromPrice": "от ",
 		"moreOffersSell": "Предложения на продажу в ",
-		"moreOffersRent": "Предложения по аренде в",
+		"moreOffersRent": "Предложения по аренде в ",
 		"sellPricePerMeter": "за м²"
 	}
 }

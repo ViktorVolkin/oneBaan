@@ -5,12 +5,22 @@ export default {
 	component: CardDetailedPreviewBlock,
 };
 
-export const Default = {
+export const Rent = {
 	args: {
 		images: ["/backgroundImage.png", "/backgroundImage.png"],
 		amountOfLikes: 12,
 		offerId: "ph-001",
-		isRent: false,
 		className: "",
+		mode: "Rent",
+	},
+};
+
+export const Sell = {
+	args: {
+		images: ["/backgroundImage.png", "/backgroundImage.png"],
+		amountOfLikes: 12,
+		offerId: "ph-001",
+		className: "",
+		mode: "Sell",
 	},
 };

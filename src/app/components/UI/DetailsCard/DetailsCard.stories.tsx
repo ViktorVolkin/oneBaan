@@ -9,7 +9,16 @@ const meta: Meta<typeof DetailsCard> = {
 export default meta;
 type Story = StoryObj<typeof DetailsCard>;
 
-export const Default: Story = {
+export const Rent: Story = {
+	args: {
+		title: "Заголовок",
+		text: "Описание",
+		icon: "/BiBed.svg",
+		isRent: true,
+	} as DetailsCardProps,
+};
+
+export const Sell: Story = {
 	args: {
 		title: "Заголовок",
 		text: "Описание",

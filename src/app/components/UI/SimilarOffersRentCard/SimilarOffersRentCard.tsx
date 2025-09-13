@@ -1,44 +1,100 @@
+"use client";
 import { useTranslations } from "next-intl";
 import styles from "./SimilarOffersRentCard.module.css";
-import type { SimilarRentCard } from "@/app/types/similarOffers.types";
+import type { SimilarCard } from "@/app/types/similarOffers.types";
 import { Link, useRouter } from "@/i18n/navigation";
 import IconRow from "@/app/components/UI/IconRow";
 import CardButtons from "@/app/components/UI/CardButtons";
-export function SimilarOffersRentCard(props: SimilarRentCard) {
+import ComplexCardsMinPrices from "../ComplexCardsMinPrices";
+
+export function SimilarOffersRentCard(props: SimilarCard) {
 	const router = useRouter();
+	const t = useTranslations();
+	const isComplex = props.mode === "Complex";
 
 	const handleCardClick = () => {
-		router.push(`/catalog/rent/CardDetails/${props.idOfCard}`);
+		router.push(`${props.cardsBasePath}/${props.idOfCard}`);
 	};
-	const t = useTranslations();
-	const statsIcons: { iconPath: string; value: string | number }[] = [
-		...(props.stats?.amountOfBeds !== undefined
-			? [{ iconPath: "/BiBed.svg", value: props.stats.amountOfBeds }]
-			: []),
-		...(props.stats?.amountOfBaths !== undefined
-			? [{ iconPath: "/BiBath.svg", value: props.stats.amountOfBaths }]
-			: []),
-		...(props.stats?.area !== undefined
-			? [{ iconPath: "/BiBorderOuter.svg", value: props.stats.area }]
-			: []),
-	];
+
+	const statsIcons =
+		props.mode === "Rent"
+			? [
+					{
+						iconPath: "/BiBed.svg",
+						value: props.stats.amountOfBeds ?? "-",
+					},
+					{
+						iconPath: "/BiBath.svg",
+						value: props.stats.amountOfBaths ?? "-",
+					},
+					{
+						iconPath: "/BiBorderOuter.svg",
+						value: props.stats.area ?? "-",
+					},
+			  ]
+			: [
+					{ iconPath: "/BiBed.svg", value: "-" },
+					{ iconPath: "/BiBath.svg", value: "-" },
+					{ iconPath: "/BiBorderOuter.svg", value: "-" },
+			  ];
+
 	return (
-		<div className={styles.similarOffersRentCard__container}>
-			<img src={props.mainImage} alt="" className={styles.image} />
-			<div className={styles.card__content}>
+		<div
+			className={
+				isComplex
+					? styles.similarOffersComplexCard__container
+					: styles.similarOffersRentCard__container
+			}
+		>
+			<img
+				src={props.mainImage}
+				alt=""
+				className={isComplex ? styles.imageComplex : styles.image}
+			/>
+
+			<div
+				className={
+					isComplex
+						? styles.cardComplex__content
+						: styles.card__content
+				}
+				onClick={handleCardClick}
+			>
 				<div
-					className={styles.info__container}
-					onClick={handleCardClick}
+					className={
+						isComplex
+							? styles.info__containerComplex
+							: styles.info__container
+					}
 				>
-					<h4 className={styles.card__title}>
+					<h4
+						className={
+							isComplex
+								? styles.card__titleComplex
+								: styles.card__title
+						}
+					>
 						{props.cardDescription}
 					</h4>
-					<p className={styles.card__price}>
-						{props.price}
-						{t("cards.perMonth")}
+
+					{!isComplex && (
+						<p className={styles.card__price}>
+							{props.price}
+							{t("cards.perMonth")}
+						</p>
+					)}
+
+					<p
+						className={
+							isComplex
+								? styles.card__detailComplex
+								: styles.card__detail
+						}
+					>
+						{props.details}
 					</p>
-					<p className={styles.card__detail}>{props.details}</p>
-					{props.breadcrumbs && props.breadcrumbs.length > 0 && (
+
+					{props.breadcrumbs?.length > 0 && (
 						<nav
 							className={styles.card__breadcrumbs}
 							onClick={(e) => e.stopPropagation()}
@@ -57,21 +113,76 @@ export function SimilarOffersRentCard(props: SimilarRentCard) {
 							))}
 						</nav>
 					)}
-					<div className={styles.iconRowPhone}>
-						<IconRow icons={statsIcons} sizeForIconsinRow="sm" />
-					</div>
-					<div className={styles.iconRowTablet}>
-						<IconRow icons={statsIcons} sizeForIconsinRow="md" />
-					</div>
+
+					{!isComplex && (
+						<>
+							<div className={styles.iconRowPhone}>
+								<IconRow
+									icons={statsIcons}
+									sizeForIconsinRow="sm"
+								/>
+							</div>
+							<div className={styles.iconRowTablet}>
+								<IconRow
+									icons={statsIcons}
+									sizeForIconsinRow="md"
+								/>
+							</div>
+						</>
+					)}
 				</div>
-				<div className={styles.button__container}>
+				{isComplex && (
+					<div className={styles.cards__container}>
+						<ComplexCardsMinPrices
+							cards={[
+								{
+									type: t("complex.forSale"),
+									priceStartsFrom: `${t(
+										"complex.fromPrice"
+									)}${props.complexMinPrices.sell.minPrice}`,
+									amountOfApartments: t(
+										"complex.amountOfApartments",
+										{
+											count: props.complexMinPrices.sell
+												.amountOfApartments,
+										}
+									),
+								},
+								{
+									type: t("complex.forRent"),
+									priceStartsFrom: `${t(
+										"complex.fromPrice"
+									)}${
+										props.complexMinPrices.rent.minPrice
+									}${t("cards.perMonth")}`,
+									amountOfApartments: t(
+										"complex.amountOfApartments",
+										{
+											count: props.complexMinPrices.rent
+												.amountOfApartments,
+										}
+									),
+								},
+							]}
+							size="sm"
+						/>
+					</div>
+				)}
+				<div
+					className={
+						isComplex
+							? styles.button__containerComplex
+							: styles.button__container
+					}
+					onClick={(e) => e.stopPropagation()}
+				>
 					<CardButtons
 						displayWhatsAppIconWithText={false}
 						rentDetailedPhoneIconMode={true}
 						displayPhoneWithoutText={false}
 						contactSalesmanHref={props.phoneHref}
 						contactSalesmanWhatsAppHref={props.whatsAppHref}
-					></CardButtons>
+					/>
 				</div>
 			</div>
 		</div>

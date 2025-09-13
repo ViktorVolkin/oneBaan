@@ -40,10 +40,9 @@
 .swiperSlideSell {
 	width: 282px;
 }
-.swiperSlideRent {
-	width: 385px;
+.swiperSlideComplex {
+	width: clamp(220px, 220px, 250px);
 }
-
 .swiper__buttons {
 	display: flex;
 	gap: 8px;
@@ -76,10 +75,6 @@
 	opacity: 0.4;
 	cursor: default;
 	box-shadow: none;
-}
-.prevBtn {
-}
-.nextBtn {
 }
 
 .similarOffers__container :global(.swiper-scrollbar) {
@@ -124,6 +119,10 @@
 	.swiperSlideRent {
 		width: 320px;
 	}
+
+	.swiperSlideComplex {
+		width: 410px;
+	}
 }
 @media (min-width: 1440px) {
 	.arrow {
@@ -149,5 +148,8 @@
 	}
 	.swiperSlideRent {
 		width: 385px;
+	}
+	.swiperSlideComplex {
+		width: clamp(385px, 385px, 430px);
 	}
 }

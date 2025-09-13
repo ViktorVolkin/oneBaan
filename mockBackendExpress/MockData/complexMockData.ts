@@ -4,6 +4,22 @@ export type ComplexType = {
 	images: string[];
 	offerDetail: string;
 	breadcrumbs: Breadcrumb[];
+	complexMinPrices: {
+		sell: {
+			amountOfApartments?: number;
+			minPrice?: string;
+		};
+		rent: {
+			amountOfApartments?: number;
+			minPrice?: string;
+		};
+	};
+	detailValues: {
+		yearOfBuilding?: string;
+		distanceToSea?: string;
+		level?: string;
+		amountOfApartments: string;
+	};
 	complex: {
 		complexName: string;
 		complexImage: string;
@@ -45,7 +61,27 @@ export type ComplexType = {
 
 	similar: {
 		tags: string[];
-		cards: ListingCardBaseDTO[];
+
+		cards: {
+			cardDescription: string;
+			mainImage: string;
+			idOfCard: string;
+			phoneHref: string;
+			whatsAppHref: string;
+			cardsBasePath: string;
+			details: string;
+			breadcrumbs: { label: string; href: string }[];
+			complexMinPrices: {
+				sell: {
+					amountOfApartments?: number;
+					minPrice?: string;
+				};
+				rent: {
+					amountOfApartments?: number;
+					minPrice?: string;
+				};
+			};
+		}[];
 	};
 };
 
@@ -58,7 +94,16 @@ export const COMPLEX__MOCK_DATA: Record<string, ComplexType> = {
 			"/backgroundImage.png",
 			"/backgroundImage.png",
 		],
-
+		complexMinPrices: {
+			sell: { amountOfApartments: 23, minPrice: "$120,000" },
+			rent: { amountOfApartments: 17, minPrice: "$1,200" },
+		},
+		detailValues: {
+			yearOfBuilding: "2022",
+			distanceToSea: "450 м",
+			level: "12",
+			amountOfApartments: "123",
+		},
 		offerDetail:
 			"Апартаменты на продажу в Blue Canyon Golf And Country Club Home",
 		breadcrumbs: [
@@ -98,7 +143,7 @@ export const COMPLEX__MOCK_DATA: Record<string, ComplexType> = {
 		moreFromComplex: {
 			nameOfComplex: "Blue Canyon Golf And Country Club Home",
 			sellCards: Array.from({ length: 8 }).map((_, i) => ({
-				idOfCard: `${i + 1}`,
+				idOfCard: `Sell_${i}`,
 				apartmentImages: {
 					images: Array(6).fill("/backgroundImage.png"),
 				},
@@ -124,7 +169,7 @@ export const COMPLEX__MOCK_DATA: Record<string, ComplexType> = {
 				pricePerMeter: `${20 + i * 10}$`,
 			})),
 			rentCards: Array.from({ length: 8 }).map((_, i) => ({
-				idOfCard: `${i + 101}`,
+				idOfCard: `Rent_${i}`,
 				apartmentImages: {
 					images: Array(6).fill("/backgroundImage.png"),
 				},
@@ -176,14 +221,12 @@ export const COMPLEX__MOCK_DATA: Record<string, ComplexType> = {
 
 		similar: {
 			tags: ["Вид на море", "С мебелью", "Рассрочка"],
+
 			cards: Array.from({ length: 6 }).map((_, i) => ({
 				idOfCard: `S${i + 1}`,
-				apartmentImages: {
-					images: ["/backgroundImage.png", "/backgroundImage.png"],
-				},
-				price: `$${i % 2 === 0 ? 2300 + i * 100 : 1800 + i * 120}`,
-				pricePerMeter: "$27 / м²",
-				stats: { amountOfBeds: 2, amountOfBaths: 3, area: 2010 },
+				mainImage: "/backgroundImage.png",
+				cardDescription:
+					"Комплекс апартаментов Blue Canyon Golf And Country Club Home",
 				details:
 					i === 0
 						? "Вид на море"
@@ -196,23 +239,31 @@ export const COMPLEX__MOCK_DATA: Record<string, ComplexType> = {
 						: i === 4
 						? "Сад и охрана 24/7"
 						: "Ресторан и детская зона",
-				cardDescription: "Апартаменты с видом на море",
-				agentLogo: "/agent-logo.svg",
-				tags: [],
-				contactWhatsApp: { path: "" },
-				contactWithSalesman: { path: "" },
-				whenPosted:
-					i === 0
-						? "Сегодня"
-						: i === 1
-						? "Вчера"
-						: `${i + 1} дня назад`,
+				phoneHref: "tel:+6699999999",
+				whatsAppHref: "https://wa.me/6699999999",
+				cardsBasePath: "/catalog/rent/CardDetails",
 				breadcrumbs: [
 					{ label: "Пхукет", href: "/thailand/phuket" },
 					{ label: "Бангтао", href: "/thailand/phuket/bangtao" },
 				],
-				mainImage: "/backgroundImage.png",
-			})) as unknown as ListingCardBaseDTO[],
+
+				complexMinPrices: {
+					sell: { amountOfApartments: 23, minPrice: "$120,000" },
+					rent: { amountOfApartments: 17, minPrice: "$1,200" },
+				},
+				apartmentImages: {
+					images: ["/backgroundImage.png", "/backgroundImage.png"],
+				},
+				price: `$${i % 2 === 0 ? 2300 + i * 100 : 1800 + i * 120}`,
+				pricePerMeter: "$27 / м²",
+				stats: { amountOfBeds: 2, amountOfBaths: 3, area: 2010 },
+				agentLogo: "/agent-logo.svg",
+				contactWhatsApp: { path: "" },
+				contactWithSalesman: { path: "" },
+				whenPosted: "2 days ago",
+				isRentCard: true,
+				cards: [{}],
+			})),
 		},
 	},
 };

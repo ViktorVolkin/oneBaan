@@ -126,11 +126,17 @@
 	margin: 22px 0;
 }
 .breadcrumbs__with_complex {
-	margin: 0 !important;
+	margin: 0 0 22px 0 !important;
 }
 .offerDetail__with_complex {
 	margin-bottom: 0 !important;
 	color: #8a8a8a !important;
+}
+.cardDetails__containerComplex {
+	display: grid;
+	grid-template-rows: repeat(2, 1fr);
+	grid-template-columns: repeat(2, 1fr);
+	gap: 8px;
 }
 
 @media (min-width: 768px) and (max-width: 1439.9px) {
@@ -238,6 +244,10 @@
 	.complex__cards {
 		margin: 14px 0 22px 0;
 	}
+	.cardDetails__containerComplex {
+		display: flex;
+		gap: 8px;
+	}
 }
 
 @media (min-width: 1440px) {
@@ -332,5 +342,9 @@
 	}
 	.complex__cards {
 		margin: 14px 0 22px 0;
+	}
+	.cardDetails__containerComplex {
+		display: flex;
+		gap: 10px;
 	}
 }
