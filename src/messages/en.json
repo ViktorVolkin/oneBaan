@@ -32,8 +32,7 @@
 	"RealEstateSpecialist": {
 		"title": "Are you a Phuket real estate professional?",
 		"ps": "OneBaan helps your clients:",
-		"sell": "Sell resale properties",
-		"buy": "Buy resale properties",
+		"text": "resale properties",
 		"button": {
 			"text": "Go to Agents Page"
 		}
@@ -151,10 +150,15 @@
 		"condo": "Condo",
 		"studio": "Studio"
 	},
-	"typesOfProperty": {
-		"studio": "Studio"
-	},
 	"favourites": {
+		"title": "Избранное",
+		"advertisement": "Обьявления",
+		"searches": "Поиски",
+		"saveSearch": {
+			"title": "Сохранение поиска",
+			"inputPlaceholder": "Ваш предыдущий поиск",
+			"button": "Сохранить поиск"
+		},
 		"savedSearches": {
 			"sortBy": {
 				"params": "By Parameters"
@@ -163,6 +167,11 @@
 		"redactSettings": {
 			"edit": "Edit",
 			"delete": "Delete"
+		},
+		"noSaves": {
+			"title": "Сохраняйте ваши фильтры и адреса объектов",
+			"text": "Напишем про новые объявления, как только они появятся",
+			"button": "Сохранить последний поиск"
 		}
 	},
 	"textGoBack": "Go Back",
@@ -202,11 +211,43 @@
 		},
 		"beds": "{ count, plural, one {# bedroom} other {# bedrooms}}",
 		"baths": "{ count, plural, one {# bathroom} other {# bathrooms}}",
-		"amountOfDetails": "{count,plural,one}",
 		"amountOfDays": "{days, plural, one {# day} other {# days}} on OneBaan | {views, plural, one {# view} other {# views}}",
 		"similarOffers": "Similar Properties",
 		"distanceToSeaRent": "Distance to the Sea",
 		"levels": "Number of Floors",
 		"apartments": "Apartments"
+	},
+	"tag": {
+		"code": {
+			"verified": "Объект проверен",
+			"onlyOnOneBaan": "Только на OneBaan",
+			"beneficialPrice": "Выгодная цена",
+			"withFurniture": "С мебелью",
+			"withParking": "Парковка",
+			"readyForRent": "Готово для сдачи в аренду",
+			"formOfOwnership": "Форма собственности: Leasehold",
+			"guards": "Охрана",
+			"viewOnMountains": "Вид на горы",
+			"withPool": "Бассейн",
+			"withGym": "Фитнес-зал",
+			"withChildClub": "Детский клуб",
+			"reception": "Ресепшен",
+			"withCameras": "Видеонаблюдение",
+			"guardedWholeDay": "Охрана 24/7",
+			"withCoworking": "Коворкинг",
+			"accessByCard": "Доступ по карточкам",
+			"withRestaurant": "Ресторан",
+			"withGarden": "Сад для прогулок"
+		}
+	},
+	"complex": {
+		"title": "Похожие проекты",
+		"forSale": "На продажу",
+		"forRent": "В аренду",
+		"amountOfApartments": "{count, plural, one {# квартира} few {# квартиры} many {# квартир} other {# квартир}}",
+		"fromPrice": "от ",
+		"moreOffersSell": "Предложения на продажу в ",
+		"moreOffersRent": "Предложения по аренде в ",
+		"sellPricePerMeter": "за м²"
 	}
 }

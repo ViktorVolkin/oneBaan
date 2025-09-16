@@ -15,7 +15,7 @@ import {
 import type { Option } from "@/app/types/CustomSelect.types";
 import { ListingCardBase } from "@/app/types/LargeCardHorizontalSellCatalog.types";
 import MoreOffersFromThisComplexCard from "@/app/components/UI/MoreOffersFromThisComplexCard";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 interface MoreOffersFromThisComplexProps {
 	nameOfComplex: string;

@@ -1,8 +1,10 @@
-export type Offer = {
+export interface Offer {
 	id: string;
 	type: "rent" | "buy";
 	translations: {
 		en: { title: string; description?: string };
 		ru: { title: string; description?: string };
 	};
-};
+}
+
+export type Offers = Array<Offer>;

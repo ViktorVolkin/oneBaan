@@ -1,90 +1,6 @@
-export type Breadcrumb = { href: string; label: string };
-export type TagDTO = { code: string };
+import { ListingSellDetailsDTO } from "../types/sellCardDetailed";
 
-export type ListingCardBaseDTO = {
-	idOfCard: string;
-	apartmentImages: { images: string[] };
-
-	price: string;
-	pricePerMeter?: string;
-
-	stats: {
-		amountOfBeds: number;
-		amountOfBaths: number;
-		area: number;
-	};
-
-	details?: string;
-	cardDescription?: string;
-	agentLogo?: string;
-	tags: TagDTO[];
-
-	contactWhatsApp: { path: string };
-	contactWithSalesman: { path: string };
-	whenPosted: string;
-	breadcrumbs: Breadcrumb[];
-
-	isRentCard?: boolean;
-	mainImage?: string;
-};
-
-export type ListingDetailsDTO = {
-	images: string[];
-	amountOfLikes: number;
-	offerDetail: string;
-	price: string;
-	subText?: string;
-	breadcrumbs: Breadcrumb[];
-	stats: { amountOfBeds: number; amountOfBaths: number; area: number };
-	detailValues: {
-		yearOfBuilding?: string;
-		distanceToSea?: string;
-		level?: string;
-		checkOnMapHref: string;
-	};
-	tagsSell?: { tags: TagDTO[] };
-	offerFeatureText?: string;
-	tagsDetailed?: { tags: TagDTO[] };
-	detailsOnOneBaan?: { daysOnOneBaan: number; amountOfViews: number };
-	complex: {
-		complexName: string;
-		complexImage: string;
-		yearOfBuilding?: number;
-		amountOfApartments?: number;
-		builder?: string;
-		tags: TagDTO[];
-	};
-
-	moreFromComplex: {
-		nameOfComplex: string;
-		cards: ListingCardBaseDTO[];
-	};
-
-	location: {
-		image: string;
-		breadcrumbs: Breadcrumb[];
-		toLocationHref: string;
-		countryName: string;
-	};
-	agent: {
-		agentIcon: string;
-		agentName: string;
-		agentExperienceOnPhuket?: string;
-		phuketWorkingHours?: string;
-		languages?: string;
-		allOffers: { href: string; amountOfOffers: string };
-		agentStatus: { text: string; img: string };
-		phoneHref: string;
-		whatsAppHref: string;
-	};
-
-	similar: {
-		tags: string[];
-		cards: ListingCardBaseDTO[];
-	};
-};
-
-export const SELL_CARD_DETAILED_MOCKS: Record<string, ListingDetailsDTO> = {
+export const SELL_CARD_DETAILED_MOCKS: Record<string, ListingSellDetailsDTO> = {
 	"123": {
 		images: [
 			"/backgroundImage.png",
@@ -99,6 +15,7 @@ export const SELL_CARD_DETAILED_MOCKS: Record<string, ListingDetailsDTO> = {
 			"Апартаменты на продажу в Blue Canyon Golf And Country Club Home",
 		price: "$1,200,000",
 		subText: "$15,200 / м²",
+		stats: { amountOfBeds: 4, amountOfBaths: 2, area: 1204 },
 		breadcrumbs: [
 			{ href: "/thailand/phuket", label: "Пхукет" },
 			{ href: "/thailand/phuket/bangtao", label: "Бангтао" },
@@ -107,7 +24,6 @@ export const SELL_CARD_DETAILED_MOCKS: Record<string, ListingDetailsDTO> = {
 				label: "Апартаменты",
 			},
 		],
-		stats: { amountOfBeds: 4, amountOfBaths: 2, area: 1204 },
 		detailValues: {
 			yearOfBuilding: "2022",
 			distanceToSea: "450 м",
@@ -165,8 +81,10 @@ export const SELL_CARD_DETAILED_MOCKS: Record<string, ListingDetailsDTO> = {
 					],
 					contactWhatsApp: { path: "" },
 					contactWithSalesman: { path: "" },
-					whenPosted: "2 дня назад",
-					breadcrumbs: [],
+					breadcrumbs: [
+						{ label: "Пхукет", href: "/thailand/phuket" },
+						{ label: "Бангтао", href: "/thailand/phuket/bangtao" },
+					],
 				},
 				{
 					idOfCard: "2",
@@ -182,7 +100,6 @@ export const SELL_CARD_DETAILED_MOCKS: Record<string, ListingDetailsDTO> = {
 					tags: [],
 					contactWhatsApp: { path: "" },
 					contactWithSalesman: { path: "" },
-					whenPosted: "21 день назад",
 					breadcrumbs: [],
 				},
 				{
@@ -199,7 +116,6 @@ export const SELL_CARD_DETAILED_MOCKS: Record<string, ListingDetailsDTO> = {
 					tags: [],
 					contactWhatsApp: { path: "" },
 					contactWithSalesman: { path: "" },
-					whenPosted: "16 дней назад",
 					breadcrumbs: [],
 				},
 				{
@@ -216,7 +132,6 @@ export const SELL_CARD_DETAILED_MOCKS: Record<string, ListingDetailsDTO> = {
 					tags: [],
 					contactWhatsApp: { path: "" },
 					contactWithSalesman: { path: "" },
-					whenPosted: "13 дней назад",
 					breadcrumbs: [],
 				},
 				{
@@ -233,7 +148,6 @@ export const SELL_CARD_DETAILED_MOCKS: Record<string, ListingDetailsDTO> = {
 					tags: [],
 					contactWhatsApp: { path: "" },
 					contactWithSalesman: { path: "" },
-					whenPosted: "11 дней назад",
 					breadcrumbs: [],
 				},
 				{
@@ -250,7 +164,6 @@ export const SELL_CARD_DETAILED_MOCKS: Record<string, ListingDetailsDTO> = {
 					tags: [{ code: "with_garden" }],
 					contactWhatsApp: { path: "" },
 					contactWithSalesman: { path: "" },
-					whenPosted: "10 дней назад",
 					breadcrumbs: [],
 				},
 				{
@@ -267,7 +180,6 @@ export const SELL_CARD_DETAILED_MOCKS: Record<string, ListingDetailsDTO> = {
 					tags: [{ code: "with_pool" }, { code: "with_gym" }],
 					contactWhatsApp: { path: "" },
 					contactWithSalesman: { path: "" },
-					whenPosted: "9 дней назад",
 					breadcrumbs: [],
 				},
 				{
@@ -284,7 +196,6 @@ export const SELL_CARD_DETAILED_MOCKS: Record<string, ListingDetailsDTO> = {
 					tags: [],
 					contactWhatsApp: { path: "" },
 					contactWithSalesman: { path: "" },
-					whenPosted: "8 дней назад",
 					breadcrumbs: [],
 				},
 			],
@@ -333,7 +244,6 @@ export const SELL_CARD_DETAILED_MOCKS: Record<string, ListingDetailsDTO> = {
 				],
 				contactWhatsApp: { path: "" },
 				contactWithSalesman: { path: "" },
-				whenPosted: "Сегодня",
 				breadcrumbs: [
 					{ label: "Пхукет", href: "/thailand/phuket" },
 					{ label: "Бангтао", href: "/thailand/phuket/bangtao" },

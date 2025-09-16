@@ -54,7 +54,7 @@
 .swiperSlide {
 	width: 282px;
 	height: 100% !important;
-	max-height: 490px;
+	max-height: 500px;
 }
 .cards__wrapper {
 	display: none;

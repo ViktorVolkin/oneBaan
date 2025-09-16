@@ -32,7 +32,7 @@ export type CatalogItem = {
 	idOfCard: string;
 	apartmentImages: { images: string[] };
 	priceUsd: number;
-	pricePerMeterUsd?: number;
+	pricePerMeterUsd: number;
 	stats?: {
 		amountOfBeds: number;
 		amountOfBaths: number;
@@ -49,6 +49,12 @@ export type CatalogItem = {
 	};
 	tags: ApiTag[];
 };
+type SetOptional<T, K extends keyof T> = Omit<T, K> & Partial<Pick<T, K>>;
+
+export type CatalogItemForUtil = SetOptional<
+	CatalogItem,
+	"pricePerMeterUsd" | "tags"
+>;
 
 export type ListingCardBase = {
 	idOfCard: string;

@@ -21,7 +21,6 @@ type CardItem = Omit<ListingCardBase, "isRentCard">;
 export function RentCardDetailed({ id }: { id: string }) {
 	type DataType = Awaited<ReturnType<typeof fetchSellCardDetailedPage>>;
 	const [data, setData] = useState<DataType | null>(null);
-	const [accMoreCards, setAccMoreCards] = useState<CardItem[]>([]);
 	const [hasMore, setHasMore] = useState(false);
 
 	const { get, set } = useQueryParams();
@@ -64,13 +63,7 @@ export function RentCardDetailed({ id }: { id: string }) {
 				);
 				setData(result);
 
-				const incoming: CardItem[] =
-					result.moreFromComplex?.cards ?? [];
 				const serverHasMore = Boolean(result.moreFromComplex?.hasMore);
-
-				if (moreOffersPage > 1)
-					setAccMoreCards((prev) => [...prev, ...incoming]);
-				else setAccMoreCards(incoming);
 
 				setHasMore(serverHasMore);
 			} catch (e) {
@@ -168,7 +161,7 @@ export function RentCardDetailed({ id }: { id: string }) {
 						optionsPriceForPhoneMode={
 							CATALOG_FILTER_OPTIONS_DEFAULT.optionsMinAndMaxPriceForPhoneMode
 						}
-						cards={accMoreCards}
+						cards={data.moreFromComplex.cards}
 						cardsBasePath="/catalog/rent/CardDetails"
 						mode="Rent"
 						hasMore={hasMore}

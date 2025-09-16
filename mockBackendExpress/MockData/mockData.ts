@@ -1,4 +1,4 @@
-import { Offer } from "../types/offers";
+import { Offers } from "../types/offers";
 import { Subscriber } from "../types/subscriber";
 export const CURRENCY_RATES: Record<string, number> = {
 	USD: 1,
@@ -23,7 +23,7 @@ export function formatPrice(
 	};
 }
 
-export const OFFERS: Offer[] = [
+export const OFFERS: Offers = [
 	{
 		id: "1",
 		type: "rent",

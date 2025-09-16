@@ -91,6 +91,12 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	&:first-of-type {
+		background-color: #71809614;
+
+		border-radius: 12px;
+		backdrop-filter: blur(20.53333282470703px);
+	}
 }
 
 .icon {
@@ -100,10 +106,6 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-}
-.isLiked {
-	background-color: rgb(240, 240, 240);
-	border-radius: 12px;
 }
 
 .card__contacts {

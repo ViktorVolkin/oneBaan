@@ -3,6 +3,7 @@ import { CURRENCY_RATES } from "../MockData/mockData";
 import type {
 	ApiTag,
 	CatalogItem,
+	CatalogItemForUtil,
 	ListingCardBase,
 } from "../types/ApiListingCard";
 import { ListQuery } from "../types/ListQuery";
@@ -38,12 +39,14 @@ const localizeBreadcrumbs = (
 	}));
 
 const localizeTags = (
-	arr: ApiTag[],
+	arr: ApiTag[] | undefined,
 	_locale: Locale
-): { code: ApiTag["code"] }[] =>
-	arr.map((t) => ({
+): { code: ApiTag["code"] }[] => {
+	if (!arr) return [];
+	return arr.map((t) => ({
 		code: t.code,
 	}));
+};
 
 const toNum = (v: unknown) => {
 	const n = Number(v);
@@ -96,7 +99,7 @@ function matchesLocation(breadcrumbs: CatalogItem["breadcrumbs"], loc: string) {
 	});
 }
 
-export function makeCatalogHandler(data: CatalogItem[]) {
+export function makeCatalogHandler(data: CatalogItemForUtil[]) {
 	return function catalogHandler(req: Request, res: Response) {
 		try {
 			const q = parseListQuery(req.query as any);
@@ -138,7 +141,6 @@ export function makeCatalogHandler(data: CatalogItem[]) {
 				case "oldest":
 					list.sort((a, b) => b.ageDays - a.ageDays);
 					break;
-				// "popular" сортировка убрана, т.к. isLiked больше не используется
 			}
 
 			const total = list.length;

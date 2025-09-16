@@ -38,7 +38,6 @@ export const CardSellCatalog = (props: ListingCardBase & additionalProps) => {
 		const basePath = props.isRentCard ? "/catalog/rent" : "/catalog";
 		router.push(`${basePath}/CardDetails/${props.idOfCard}`);
 	};
-
 	return (
 		<div
 			className={`${styles.card__wrapper} ${
@@ -121,7 +120,7 @@ export const CardSellCatalog = (props: ListingCardBase & additionalProps) => {
 							)}
 						</div>
 
-						<div>
+						<div className={styles.price__container}>
 							<h4
 								className={`${styles.card__price} ${
 									props.isRentCard
@@ -227,7 +226,12 @@ export const CardSellCatalog = (props: ListingCardBase & additionalProps) => {
 						<CardTags tags={props.tags} gapBetweenTags="2px" />
 					)}
 				</div>
-				<div className={props.classNameButtonContainer}>
+				<div
+					className={props.classNameButtonContainer}
+					onClick={(e) => {
+						e.stopPropagation();
+					}}
+				>
 					<CardButtons
 						contactSalesmanHref={
 							props.contactWithSalesman.path ?? ""

@@ -77,43 +77,10 @@
 	display: none;
 }
 
-.filterSearch {
-}
-
-.catalog__selector {
-}
-
-.catalog__selector_location {
-}
-
-.optionsOfApartment {
-}
-
-.optionsPrices__container {
-}
-.optionsPrices__title {
-}
-.customSelectorsContainer {
-}
-
-.buttonsContainer {
-}
-.resetQueryButton {
-}
-.findOffers {
-}
-
 .desktopIconsSort__buttonContainer {
 	display: none;
 }
-.desktopIconsSort__button {
-}
-.desktopIconsDisplay__button {
-}
-.desktopSortIcon {
-}
-.displayIcon__active {
-}
+
 .pagination {
 	margin-top: 30px;
 	display: flex;
@@ -128,6 +95,7 @@
 	width: 50px;
 	border-radius: 50%;
 	border: 0;
+	color: black;
 }
 .activePage {
 	background-color: #2d3748;

@@ -14,7 +14,6 @@ import type { IGuideBlockProps } from "@/app/types/GuideBlock.types";
 import type { ICard } from "@/app/types/Card.types";
 import { getTranslations, getLocale } from "next-intl/server";
 import type { IMainPage } from "@/app/types/MainPage.types";
-import Footer from "../../Blocks/Footer";
 export type ApiOffer = {
 	id: string;
 	type: "rent" | "buy";

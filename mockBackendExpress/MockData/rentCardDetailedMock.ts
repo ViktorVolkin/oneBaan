@@ -1,59 +1,5 @@
-import { Breadcrumb, ListingCardBaseDTO, TagDTO } from "./sellCardDetailedMock";
-
-export type RentListingDetailsDTO = {
-	images: string[];
-	offerDetail: string;
-	price: string;
-	subText?: string;
-	breadcrumbs: Breadcrumb[];
-	stats: { amountOfBeds: number; amountOfBaths: number; area: number };
-	detailValues: {
-		yearOfBuilding?: string;
-		distanceToSea?: string;
-		level?: string;
-		amountOfApartments: string;
-	};
-	tagsSell?: { tags: TagDTO[] };
-	offerFeatureText?: string;
-	tagsDetailed?: { tags: TagDTO[] };
-	detailsOnOneBaan?: { daysOnOneBaan: number; amountOfViews: number };
-	complex: {
-		complexName: string;
-		complexImage: string;
-		yearOfBuilding?: number;
-		amountOfApartments?: number;
-		builder?: string;
-		tags: TagDTO[];
-	};
-
-	moreFromComplex: {
-		nameOfComplex: string;
-		cards: Omit<ListingCardBaseDTO, "pricePerMeter">[];
-	};
-
-	location: {
-		image: string;
-		breadcrumbs: Breadcrumb[];
-		toLocationHref: string;
-		countryName: string;
-	};
-	agent: {
-		agentIcon: string;
-		agentName: string;
-		agentExperienceOnPhuket?: string;
-		phuketWorkingHours?: string;
-		languages?: string;
-		allOffers: { href: string; amountOfOffers: string };
-		agentStatus: { text: string; img: string };
-		phoneHref: string;
-		whatsAppHref: string;
-	};
-
-	similar: {
-		tags: string[];
-		cards: ListingCardBaseDTO[];
-	};
-};
+import { RentListingDetailsDTO } from "../types/rentCardDetailed";
+import { ListingCardBaseDTO } from "../types/sellCardDetailed";
 
 export const RENT_CARD_DETAILED_MOCKS: Record<string, RentListingDetailsDTO> = {
 	"123": {
@@ -120,8 +66,6 @@ export const RENT_CARD_DETAILED_MOCKS: Record<string, RentListingDetailsDTO> = {
 			builder: "Sino-Thai Engineering & Construction",
 			tags: Array.from({ length: 6 }).map(() => ({
 				code: "with_parking",
-				label: "Парковка",
-				color: "#44337A",
 			})),
 		},
 
@@ -136,26 +80,7 @@ export const RENT_CARD_DETAILED_MOCKS: Record<string, RentListingDetailsDTO> = {
 					price: "$1,900",
 					stats: { amountOfBeds: 2, amountOfBaths: 3, area: 2010 },
 					details: "Вид на море",
-					cardDescription: "Описание карточки",
 					agentLogo: "/agent-logo.svg",
-					tags: [
-						{
-							code: "with_furniture",
-						},
-						{
-							code: "with_furniture",
-						},
-						{
-							code: "with_furniture",
-						},
-						{
-							code: "with_furniture",
-						},
-					],
-					contactWhatsApp: { path: "" },
-					contactWithSalesman: { path: "" },
-					whenPosted: "2 дня назад",
-					breadcrumbs: [],
 				},
 				{
 					idOfCard: "2",
@@ -165,13 +90,7 @@ export const RENT_CARD_DETAILED_MOCKS: Record<string, RentListingDetailsDTO> = {
 					price: "$2,300",
 					stats: { amountOfBeds: 3, amountOfBaths: 2, area: 1750 },
 					details: "Вид на горы",
-					cardDescription: "Описание карточки 2",
 					agentLogo: "/agent-logo.svg",
-					tags: [],
-					contactWhatsApp: { path: "" },
-					contactWithSalesman: { path: "" },
-					whenPosted: "5 дней назад",
-					breadcrumbs: [],
 				},
 				{
 					idOfCard: "3",
@@ -181,13 +100,7 @@ export const RENT_CARD_DETAILED_MOCKS: Record<string, RentListingDetailsDTO> = {
 					price: "$1,750",
 					stats: { amountOfBeds: 2, amountOfBaths: 2, area: 1800 },
 					details: "С мебелью",
-					cardDescription: "Описание карточки 3",
 					agentLogo: "/agent-logo.svg",
-					tags: [],
-					contactWhatsApp: { path: "" },
-					contactWithSalesman: { path: "" },
-					whenPosted: "3 дня назад",
-					breadcrumbs: [],
 				},
 				{
 					idOfCard: "4",
@@ -197,13 +110,7 @@ export const RENT_CARD_DETAILED_MOCKS: Record<string, RentListingDetailsDTO> = {
 					price: "$3,100",
 					stats: { amountOfBeds: 4, amountOfBaths: 4, area: 2200 },
 					details: "Бассейн и фитнес",
-					cardDescription: "Описание карточки 4",
 					agentLogo: "/agent-logo.svg",
-					tags: [],
-					contactWhatsApp: { path: "" },
-					contactWithSalesman: { path: "" },
-					whenPosted: "Неделю назад",
-					breadcrumbs: [],
 				},
 				{
 					idOfCard: "5",
@@ -213,13 +120,7 @@ export const RENT_CARD_DETAILED_MOCKS: Record<string, RentListingDetailsDTO> = {
 					price: "$2,000",
 					stats: { amountOfBeds: 3, amountOfBaths: 3, area: 1900 },
 					details: "Сад и охрана 24/7",
-					cardDescription: "Описание карточки 5",
 					agentLogo: "/agent-logo.svg",
-					tags: [],
-					contactWhatsApp: { path: "" },
-					contactWithSalesman: { path: "" },
-					whenPosted: "10 дней назад",
-					breadcrumbs: [],
 				},
 				{
 					idOfCard: "6",
@@ -229,13 +130,7 @@ export const RENT_CARD_DETAILED_MOCKS: Record<string, RentListingDetailsDTO> = {
 					price: "$1,600",
 					stats: { amountOfBeds: 2, amountOfBaths: 2, area: 1760 },
 					details: "Ресторан и детская зона",
-					cardDescription: "Описание карточки 6",
 					agentLogo: "/agent-logo.svg",
-					tags: [{ code: "with_garden" }],
-					contactWhatsApp: { path: "" },
-					contactWithSalesman: { path: "" },
-					whenPosted: "Сегодня",
-					breadcrumbs: [],
 				},
 				{
 					idOfCard: "7",
@@ -245,13 +140,7 @@ export const RENT_CARD_DETAILED_MOCKS: Record<string, RentListingDetailsDTO> = {
 					price: "$2,800",
 					stats: { amountOfBeds: 4, amountOfBaths: 3, area: 2300 },
 					details: "Коворкинг и фитнес",
-					cardDescription: "Описание карточки 7",
 					agentLogo: "/agent-logo.svg",
-					tags: [{ code: "with_pool" }, { code: "with_gym" }],
-					contactWhatsApp: { path: "" },
-					contactWithSalesman: { path: "" },
-					whenPosted: "Вчера",
-					breadcrumbs: [],
 				},
 				{
 					idOfCard: "8",
@@ -261,13 +150,7 @@ export const RENT_CARD_DETAILED_MOCKS: Record<string, RentListingDetailsDTO> = {
 					price: "$2,400",
 					stats: { amountOfBeds: 3, amountOfBaths: 3, area: 2100 },
 					details: "Вид на море и горы",
-					cardDescription: "Описание карточки 8",
 					agentLogo: "/agent-logo.svg",
-					tags: [],
-					contactWhatsApp: { path: "" },
-					contactWithSalesman: { path: "" },
-					whenPosted: "3 часа назад",
-					breadcrumbs: [],
 				},
 			],
 		},
@@ -288,21 +171,17 @@ export const RENT_CARD_DETAILED_MOCKS: Record<string, RentListingDetailsDTO> = {
 			agentExperienceOnPhuket: "20 лет",
 			phuketWorkingHours: "12-22",
 			languages: "Английский,Русский,Тайский",
-			allOffers: { href: "/agents/ahpi/offers", amountOfOffers: "122" },
+			allOffers: { href: "/agents/ahpi/offers", amountOfOffers: "967" },
 			agentStatus: { text: "online", img: "/onlineIcon.svg" },
 			phoneHref: "tel:+6699999999",
-			whatsAppHref: "https://wa.me/6699999999",
+			whatsAppHref: "https://wa.me/669999999",
 		},
 
 		similar: {
 			tags: ["Вид на море", "С мебелью", "Рассрочка"],
 			cards: Array.from({ length: 6 }).map((_, i) => ({
 				idOfCard: `S${i + 1}`,
-				apartmentImages: {
-					images: ["/backgroundImage.png", "/backgroundImage.png"],
-				},
 				price: `$${i % 2 === 0 ? 2300 + i * 100 : 1800 + i * 120}`,
-				pricePerMeter: "$27 / м²",
 				stats: { amountOfBeds: 2, amountOfBaths: 3, area: 2010 },
 				details:
 					i === 0
@@ -318,21 +197,14 @@ export const RENT_CARD_DETAILED_MOCKS: Record<string, RentListingDetailsDTO> = {
 						: "Ресторан и детская зона",
 				cardDescription: "Апартаменты с видом на море",
 				agentLogo: "/agent-logo.svg",
-				tags: [],
 				contactWhatsApp: { path: "" },
 				contactWithSalesman: { path: "" },
-				whenPosted:
-					i === 0
-						? "Сегодня"
-						: i === 1
-						? "Вчера"
-						: `${i + 1} дня назад`,
 				breadcrumbs: [
 					{ label: "Пхукет", href: "/thailand/phuket" },
 					{ label: "Бангтао", href: "/thailand/phuket/bangtao" },
 				],
 				mainImage: "/backgroundImage.png",
-			})) as unknown as ListingCardBaseDTO[],
+			})),
 		},
 	},
 };

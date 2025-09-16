@@ -122,6 +122,7 @@
 }
 .cardComplex__content {
 	padding: 12px;
+	cursor: pointer;
 }
 .button__containerComplex {
 	display: flex;

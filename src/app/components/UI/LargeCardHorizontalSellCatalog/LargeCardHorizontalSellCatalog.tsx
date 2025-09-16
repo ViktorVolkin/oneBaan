@@ -14,7 +14,7 @@ export const LargeCardHorizontalSellCatalog = (props: ListingCardBase) => {
 	const router = useRouter();
 
 	const handleCardClick = () => {
-		const basePath = props.isRentCard ? "/catalog/rent" : "/catalog/sell";
+		const basePath = props.isRentCard ? "/catalog/rent" : "/catalog";
 		router.push(`${basePath}/CardDetails/${props.idOfCard}`);
 	};
 	const { liked, toggle } = useOfferLike(props.idOfCard, false);
@@ -66,7 +66,10 @@ export const LargeCardHorizontalSellCatalog = (props: ListingCardBase) => {
 						<CardTags tags={props.tags} />
 					</div>
 
-					<div className={styles.card__interaction}>
+					<div
+						className={styles.card__interaction}
+						onClick={(e) => e.stopPropagation()}
+					>
 						<button
 							onClick={toggle}
 							className={`${styles.icon__container} ${

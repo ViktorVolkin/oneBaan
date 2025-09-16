@@ -1,4 +1,4 @@
-import type { CatalogItem, Locale } from "../types/ApiListingCard";
+import type { CatalogItem } from "../types/ApiListingCard";
 
 export const sellCatalogListingCards: CatalogItem[] = [
 	{

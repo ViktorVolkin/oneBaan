@@ -130,6 +130,7 @@
 }
 .SellCardWrapper {
 	display: none;
+	height: 100%;
 }
 
 .IconRow {

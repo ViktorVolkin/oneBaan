@@ -121,7 +121,7 @@
 	font-size: 24px;
 	font-weight: 700;
 	color: #333;
-	margin: 4px 4px 0 0;
+	margin: 0 4px 0 0;
 }
 
 .card__price_per_meter {
@@ -134,6 +134,7 @@
 	color: #2d3748;
 	font-weight: 700;
 	margin: 12px 0 4px 0;
+	height: 16px;
 }
 
 .card__breadcrumbs {
@@ -144,6 +145,7 @@
 	margin-top: 4x;
 	font-size: 13px;
 	color: #888;
+	height: 16px;
 	a {
 		text-decoration: none;
 		color: #a0aec0;
@@ -165,7 +167,13 @@
 	display: none;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 768px) and (max-width: 1439.9px) {
+	.price__container {
+		height: 27px;
+		* {
+			max-height: 100%;
+		}
+	}
 }
 @media (min-width: 1440px) {
 	.rent__card__wrapper {

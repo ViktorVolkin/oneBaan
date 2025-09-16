@@ -218,6 +218,7 @@
 		top: 104px;
 		display: flex;
 		gap: 12px;
+		padding: 0 34px;
 	}
 
 	.mainPage__image_title {
@@ -227,7 +228,6 @@
 		line-height: 40px;
 		text-align: center;
 		font-size: 26px;
-		width: 84%;
 		z-index: 1;
 	}
 
