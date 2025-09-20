@@ -200,7 +200,125 @@
 		height: 400px;
 	}
 }
-@media (min-width: 1440px) {
+@media (min-width: 1440px) and (max-width: 1919.9px) {
+	.SpecialistBlock__container {
+		max-width: 1240px;
+		height: 588px;
+		margin-bottom: 86px;
+		flex-direction: row;
+		gap: 20px;
+	}
+	.SpecialistBlock__infoContainer {
+		display: flex;
+		flex-direction: column;
+		width: 620px;
+		height: 100%;
+		gap: 30px;
+		position: relative;
+	}
+
+	.SpecialistBlock__title {
+		width: 400px;
+		font-size: 32px;
+		font-weight: 700;
+		text-align: left;
+		margin: 0;
+		margin-bottom: 0;
+		color: #2d3748;
+	}
+
+	.cards__container {
+		position: relative;
+		display: flex;
+		width: 100%;
+		max-width: 620px;
+		height: 380px;
+		background-color: unset;
+		border-radius: 12px;
+		gap: 20px;
+	}
+
+	.card {
+		width: 50%;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		align-items: flex-start;
+		background: white;
+		border-radius: 12px;
+		border: none;
+		background-color: #7180960f;
+		position: relative;
+		overflow: hidden;
+		padding-left: 20px;
+		padding-bottom: 28px;
+		&:last-of-type {
+			border: 0;
+			border-radius: 12px;
+			background-color: #7180960f;
+		}
+	}
+	.card__logo_image {
+		display: inline-block;
+		position: absolute;
+		width: 160px;
+		height: 160px;
+		top: -20px;
+		right: 0;
+	}
+
+	.card__textContainer {
+		display: flex;
+		min-width: 250px;
+		min-height: 118px;
+		gap: 10px;
+		justify-content: flex-end;
+	}
+
+	.card__textPS {
+		font-size: 18px;
+		color: #a0aec0;
+		gap: 0;
+	}
+	.card__icon {
+		position: absolute;
+		top: 20px;
+		left: 20px;
+		width: 80px;
+		height: 80px;
+	}
+	.keyWord {
+		font-size: 24px;
+		font-weight: 700;
+		color: #553c9a;
+	}
+	.card__text {
+		font-size: 24px;
+		font-weight: 700;
+	}
+
+	.SpecialistBlock__button {
+		display: inline-block;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 12px;
+		font-size: 24px;
+		color: white;
+		font-weight: 700;
+		height: 68px;
+	}
+
+	.RealEstateSpecialistBlock__image {
+		display: block;
+		z-index: -1;
+		width: 600px;
+		height: 100%;
+		border-radius: 24px;
+	}
+}
+@media (min-width: 1920px) {
 	.SpecialistBlock__container {
 		max-width: 1240px;
 		height: 588px;

@@ -315,3 +315,16 @@
 		color: black;
 	}
 }
+@media (min-width: 768px) and (max-width: 1439.9px) {
+	.location__titleRent {
+		font-size: 24px;
+	}
+}
+@media (min-width: 1440px) {
+	.location__titleRent {
+		font-size: 28px;
+	}
+	.card__breadcrumbsRent {
+		font-size: 16px;
+	}
+}

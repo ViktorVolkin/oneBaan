@@ -80,6 +80,7 @@
 	color: #000000;
 	font-weight: 700;
 	-webkit-box-orient: vertical;
+	line-clamp: 2;
 	-webkit-line-clamp: 2;
 	line-height: 1.2;
 }
@@ -151,7 +152,23 @@
 	}
 }
 
-@media (min-width: 1440px) {
+@media (min-width: 1440px) and (max-width: 1919.9px) {
+	.agent__underBlock {
+		display: none;
+	}
+	.rentCardContainer {
+		max-width: 1240px;
+	}
+	.rentCardContainer {
+		margin-top: 100px;
+	}
+	.rentCardContent {
+		margin-top: 40px;
+		max-width: 790px;
+		align-self: flex-start;
+	}
+}
+@media (min-width: 1920px) {
 	.agent__underBlock {
 		display: none;
 	}

@@ -139,9 +139,10 @@
 	font-size: 10px;
 	font-weight: 600;
 	line-height: 14px;
+	color: #a0aec0;
 }
 
-@media (min-width: 1440px) {
+@media (min-width: 1440px) and (max-width: 1919.9px) {
 	.guideBlock__container {
 		width: 100%;
 		height: 538px;
@@ -248,8 +249,8 @@
 		padding-left: 0;
 		padding-right: 0;
 
-		font-size: 14px;
-		line-height: 16px;
+		font-size: 18px;
+		line-height: 22px;
 		font-weight: 600;
 		color: #2d3748;
 		align-self: flex-start;
@@ -456,5 +457,165 @@
 		font-size: 14px;
 		font-weight: 400;
 		line-height: 18px;
+	}
+}
+
+@media (min-width: 1920px) {
+	.guideBlock__container {
+		width: 100%;
+		height: 538px;
+		max-width: 990px;
+		margin: 0 auto;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.guideBlock__intro_container {
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+		margin: 0 auto;
+		width: 458px;
+		height: 144px;
+		margin-bottom: 20px;
+		text-align: center;
+	}
+
+	.guideBlock__title {
+		font-size: 31px;
+		font-weight: 700;
+		line-height: 40px;
+		color: #2d3748;
+		height: 60%;
+	}
+
+	.guideBlock__intro_text {
+		color: #2d3748;
+		line-height: 26px;
+		font-size: 18px;
+		height: 40%;
+		width: calc(100% - 75px);
+		margin: 0 auto;
+	}
+
+	.guideBlock__guideContainer {
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+		background: #7180960f;
+		border-radius: 20px;
+		width: 100%;
+		height: 374px;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.guideCards__container {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		width: 100%;
+		max-width: 910px;
+		height: 142px;
+	}
+
+	.guideBlock__guideCard {
+		background-color: white;
+		border: 1px solid #e5e5e5;
+		border-radius: 16px;
+		width: 290px;
+		height: 100%;
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-between;
+		padding: 24px 20px;
+	}
+
+	.guideCard_decorate {
+		width: 250px;
+		height: 40px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin: 0 auto;
+	}
+
+	.guideCard__icon {
+		position: static;
+		align-self: center;
+		transform: translateY(0);
+		width: 40px;
+		height: 40px;
+	}
+
+	.guideCard__number {
+		position: static;
+		transform: translateY(0);
+		min-width: 35px;
+		min-height: 40px;
+		font-size: 32px;
+		line-height: 40px;
+		font-weight: 700;
+		color: #553c9a;
+		text-align: center;
+	}
+
+	.guideCard__details {
+		padding-left: 0;
+		padding-right: 0;
+
+		font-size: 17px;
+		line-height: 22px;
+		font-weight: 600;
+		color: #2d3748;
+		align-self: flex-start;
+		line-clamp: 2;
+		&::before {
+			content: none;
+		}
+	}
+
+	.contacts__container {
+		display: flex;
+		width: 566px;
+		height: 72px;
+		gap: 10px;
+		margin: 0;
+	}
+
+	.contacts__button {
+		text-decoration: none;
+		color: white;
+		font-weight: 700;
+		font-size: 24px;
+		line-height: 28px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-grow: 1;
+		border-radius: 12px;
+		gap: 10px;
+		&:first-of-type {
+			background-color: #4299e1;
+		}
+		&:last-of-type {
+			background-color: #48bb78;
+		}
+	}
+
+	.contacts__icon {
+		width: 32px;
+		height: 32px;
+	}
+
+	.guideBlock__importantDetail {
+		max-width: 570px;
+		height: 40px;
+		font-size: 16px;
+		font-weight: 400;
+		line-height: 20px;
 	}
 }

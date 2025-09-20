@@ -13,10 +13,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { useEffect, useMemo, useState } from "react";
 import { fetchSellCardDetailedPage } from "@/app/api/fetchSellCardDetailed";
 import { useQueryParams } from "@/app/customHooks/useQueryParams";
-import type { ListingCardBase } from "@/app/types/LargeCardHorizontalSellCatalog.types";
 import { Link } from "@/i18n/navigation";
-
-type CardItem = Omit<ListingCardBase, "isRentCard">;
 
 export function RentCardDetailed({ id }: { id: string }) {
 	type DataType = Awaited<ReturnType<typeof fetchSellCardDetailedPage>>;

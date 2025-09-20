@@ -202,7 +202,7 @@
 		object-fit: cover;
 	}
 }
-@media (min-width: 1440px) {
+@media (min-width: 1440px) and (max-width: 1919.9px) {
 	.mainPage__imageContainer {
 		width: 100%;
 		max-width: 1240px;
@@ -228,6 +228,57 @@
 		line-height: 40px;
 		text-align: center;
 		font-size: 26px;
+		z-index: 1;
+	}
+
+	.mainPage__image_text {
+		margin: 0 auto;
+		padding: 0;
+		font-size: 18px;
+		text-align: center;
+		line-height: 26px;
+		z-index: 1;
+		max-width: 100%;
+	}
+	.mainPage__cutoutImage {
+		position: absolute;
+		z-index: 5;
+		width: 100%;
+
+		object-fit: cover;
+	}
+	.offers__panel {
+		width: 649px;
+		height: 60px;
+	}
+}
+
+@media (min-width: 1920px) {
+	.mainPage__imageContainer {
+		width: 100%;
+		max-width: 1240px;
+		height: 760px;
+		margin-top: 100px;
+		margin-bottom: 80px;
+	}
+
+	.mainPage__image_description {
+		width: 100%;
+		max-width: 500px;
+		height: 456px;
+		top: 104px;
+		display: flex;
+		gap: 12px;
+		padding: 0 34px;
+	}
+
+	.mainPage__image_title {
+		margin: 0 auto;
+		margin-top: 50px;
+		font-weight: 700;
+		line-height: 40px;
+		text-align: center;
+		font-size: 27px;
 		z-index: 1;
 	}
 

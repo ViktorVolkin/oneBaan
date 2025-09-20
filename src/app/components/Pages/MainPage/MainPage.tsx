@@ -149,7 +149,7 @@ export async function MainPage({
 					</div>
 				</div>
 				<GuideBlock {...guideBlock} />
-				<NewObjectsSaleBlock data={recently} />{" "}
+				<NewObjectsSaleBlock data={recently} />
 				<RealEstateSpecialistBlock />
 			</main>
 		</>

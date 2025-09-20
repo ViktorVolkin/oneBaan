@@ -147,6 +147,12 @@
 	.moreOffersBlock {
 		gap: 20px;
 	}
+	.get__more_offers {
+		font-size: 16px;
+		font-weight: 700;
+		height: 50px;
+		margin-top: 16px;
+	}
 }
 @media (min-width: 1440px) {
 	.moreOffers__complex {
@@ -213,5 +219,11 @@
 	}
 	.moreOffersBlock {
 		gap: 24px;
+	}
+	.get__more_offers {
+		font-size: 18px;
+		font-weight: 700;
+		height: 54px;
+		margin-top: 24px;
 	}
 }

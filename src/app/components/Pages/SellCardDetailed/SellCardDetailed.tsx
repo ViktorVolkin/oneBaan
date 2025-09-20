@@ -13,12 +13,9 @@ import { fetchSellCardDetailedPage } from "@/app/api/fetchSellCardDetailed";
 import { Link } from "@/i18n/navigation";
 import { useQueryParams } from "@/app/customHooks/useQueryParams";
 import { useMediaQuery } from "@/app/customHooks/MediaQuery";
-import type { ListingCardBase } from "@/app/types/LargeCardHorizontalSellCatalog.types";
 import Footer from "../../Blocks/Footer";
 import ComplexConveniences from "../../Blocks/ComplexConveniences";
 import CardDetailedLocation from "../../Blocks/CardDetailedLocation";
-
-type CardItem = Omit<ListingCardBase, "isRentCard">;
 
 export function SellCardDetailedPage(props: { id: string }) {
 	type DataType = Awaited<ReturnType<typeof fetchSellCardDetailedPage>>;

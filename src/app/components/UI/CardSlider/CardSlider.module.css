@@ -15,5 +15,6 @@
 @media (min-width: 1440px) {
 	.swiperSlide {
 		width: 400px;
+		height: 400px;
 	}
 }

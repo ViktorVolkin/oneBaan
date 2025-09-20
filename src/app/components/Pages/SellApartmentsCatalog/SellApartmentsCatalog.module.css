@@ -565,7 +565,7 @@
 		font-size: 16px;
 	}
 }
-@media (min-width: 1440px) {
+@media (min-width: 1440px) and (max-width: 1919.9px) {
 	.catalog__container,
 	.rent__catalog__container {
 		display: flex;
@@ -853,4 +853,286 @@
 }
 .cardButtonContainer {
 	height: 52px;
+}
+@media (min-width: 1920px) {
+	.catalog__container,
+	.rent__catalog__container {
+		display: flex;
+		width: 100%;
+		flex-grow: 1;
+		flex-direction: column;
+		margin: 166px auto 32px auto;
+		max-width: 1200px;
+		position: relative;
+	}
+
+	.mainRow__container {
+		display: flex;
+		flex-direction: row;
+		gap: 0;
+	}
+
+	.title__container {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		margin: 0 auto;
+		justify-content: space-between;
+		gap: 9px;
+	}
+
+	.catalog__breadcrumbs {
+		display: block;
+		* {
+			text-decoration: none;
+			color: #718096;
+			font-size: 16px;
+		}
+	}
+	.card__separator {
+		display: inline;
+		margin: 0 4px;
+	}
+
+	.catalog__title {
+		width: 100%;
+		height: 28px;
+		font-weight: 700;
+		font-size: 30px;
+		color: #2d3748;
+		align-self: center;
+	}
+
+	.open__advancedFilters {
+		display: none;
+	}
+	.openFilters__image {
+		display: none;
+	}
+
+	.advancedFilters {
+		display: block;
+		position: absolute;
+		padding: 24px 20px;
+		width: 340px;
+		height: 500px;
+		display: flex;
+		flex-direction: column;
+		left: 0;
+		top: 82px;
+		background-color: #7180960f;
+		border-radius: 16px;
+	}
+	.rent__advancedFilters {
+		width: 380px;
+	}
+
+	.filterSearch {
+		width: 100%;
+		height: 44px;
+		background-color: white;
+		border-radius: 10px;
+		padding-left: 12px;
+		border: 1px solid #7180963d;
+	}
+
+	.catalog__selector {
+		width: 100%;
+		min-height: 42px;
+		margin-bottom: 16px;
+		border-radius: 10px;
+		border: 1px solid #7180963d;
+		background-color: #ffffff !important;
+		& * {
+			background-color: #ffffff !important;
+			border: 0 !important;
+			&::before {
+				background-color: #ffffff !important;
+				border: 0 !important;
+			}
+		}
+		& *[data-selected] {
+			background-color: #e2e8f0 !important;
+		}
+	}
+	.catalog__selector_location {
+		margin-top: 36px;
+	}
+
+	.optionsOfApartment {
+		display: flex;
+		gap: 8px;
+	}
+
+	.optionsPrices__container {
+		display: flex;
+		flex-direction: column;
+		height: 64px;
+	}
+	.optionsPrices__title {
+		margin-bottom: 6px;
+		color: #a0aec0;
+		font-size: 14px;
+	}
+	.customSelectorsContainer {
+		display: flex;
+		gap: 10px;
+	}
+
+	.buttonsContainer {
+		display: flex;
+		gap: 10px;
+		margin-top: 91px;
+	}
+	.resetQueryButton {
+		display: flex;
+		flex-grow: 1;
+		justify-content: center;
+		align-items: center;
+		background-color: #71809614;
+		border-radius: 10px;
+		color: #2d3748;
+		font-size: 16px;
+		border: 0;
+		height: 44px;
+	}
+	.findOffers {
+		display: flex;
+		flex-grow: 1;
+		justify-content: center;
+		align-items: center;
+		background-color: #2d3748;
+		color: white;
+		font-size: 16px;
+		border-radius: 10px;
+		border: 0;
+		height: 44px;
+	}
+
+	.desktopIconsSort__buttonContainer {
+		display: block;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 44px;
+		width: 203px;
+		gap: 9px;
+		align-self: last baseline;
+	}
+	.desktopIconsSort__button {
+		display: flex;
+		width: 44px;
+		height: 44px;
+		justify-content: center;
+		align-items: center;
+		border-radius: 10px;
+		border: 0;
+	}
+	.desktopIconsDisplay__button {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 44px;
+		height: 44px;
+		border-radius: 10px;
+		border: 0;
+	}
+	.desktopSortIcon {
+		width: 20px;
+		height: 20px;
+		color: #2d3748;
+	}
+	.displayIcon__active {
+		color: white;
+		background-color: #2d3748;
+	}
+
+	.phoneFilterOptions {
+		display: none;
+	}
+	.filterContainer {
+		display: none;
+	}
+	.cards__container {
+		display: flex;
+		flex-direction: column;
+		margin: 32px 0 0 auto;
+		width: 792px;
+	}
+	.desktop__sortBy {
+		display: flex;
+		width: 100%;
+		justify-content: space-between;
+		align-items: center;
+		padding: 0 12px;
+		margin-bottom: 10px;
+	}
+	.desktop__sortByText {
+		color: #718096;
+		font-size: 14px;
+	}
+	.desktop__sortBySelector {
+		max-width: max-content;
+		background-color: transparent !important;
+		& > * {
+			background-color: transparent !important;
+			border: 0 !important;
+		}
+	}
+	.desktop__sortByContainer {
+		display: flex;
+		gap: 10px;
+		width: 260px;
+		align-items: center;
+		justify-content: flex-end;
+	}
+	.desktop__sortText {
+		color: #a0aec0;
+		white-space: nowrap;
+		width: max-content;
+	}
+	.card__sortBy {
+		display: none;
+	}
+	.sortByContainer {
+		display: none;
+	}
+	.amountOfFoundOffers {
+		display: none;
+	}
+
+	.sortText {
+		display: none;
+	}
+	.select__phoneSortBy {
+		display: none;
+	}
+	.mainIconsPhone__container {
+		display: none;
+	}
+	.mainIconsButton {
+		display: none;
+	}
+	.activeMainIconPhone {
+		display: none;
+	}
+	.cards__wrapper {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 16px;
+		justify-content: center;
+	}
+
+	.Popup__content {
+		display: none;
+	}
+	.tabletSearchBoxContainer {
+		display: none;
+	}
+	.rent__advancedFilters .catalog__selector {
+		background-color: white;
+	}
+	.cardButtonContainer__rent {
+		height: 68px;
+	}
 }
