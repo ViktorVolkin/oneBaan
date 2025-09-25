@@ -31,29 +31,29 @@ export const RENT_CARD_DETAILED_MOCKS: Record<string, RentListingDetailsDTO> = {
 			amountOfApartments: "123",
 		},
 		tagsSell: {
-			tags: [{ code: "with_parking" }],
+			tags: [{ code: "parking" }],
 		},
 		offerFeatureText:
 			"Комплекс в шаговой доступности от моря; возможно полное обслуживание на ресепшене. Угловая квартира — больше света и меньше соседей.",
 		tagsDetailed: {
 			tags: [
-				{ code: "with_pool" },
+				{ code: "pool" },
 				{
-					code: "view_on_mountains",
+					code: "pool_for_kids",
 				},
 
-				{ code: "with_gym" },
-				{ code: "guards" },
+				{ code: "wellness_center" },
+				{ code: "on_first_line" },
 				{
-					code: "with_child_club",
+					code: "kids_club",
 				},
 				{
-					code: "with_coworking",
+					code: "coworking",
 				},
 				{
-					code: "with_restaurant",
+					code: "restaurant",
 				},
-				{ code: "with_garden" },
+				{ code: "garden_care" },
 			],
 		},
 		detailsOnOneBaan: { daysOnOneBaan: 12, amountOfViews: 14 },
@@ -65,7 +65,7 @@ export const RENT_CARD_DETAILED_MOCKS: Record<string, RentListingDetailsDTO> = {
 			amountOfApartments: 2132,
 			builder: "Sino-Thai Engineering & Construction",
 			tags: Array.from({ length: 6 }).map(() => ({
-				code: "with_parking",
+				code: "parking",
 			})),
 		},
 

@@ -85,7 +85,7 @@ export const sellCatalogListingCards: CatalogItem[] = [
 				code: "with_furniture",
 			},
 			{
-				code: "only_on_oneBaan",
+				code: "only_on_onebaan",
 			},
 		],
 	},
@@ -173,7 +173,7 @@ export const sellCatalogListingCards: CatalogItem[] = [
 				code: "beneficial_price",
 			},
 			{
-				code: "only_on_oneBaan",
+				code: "only_on_onebaan",
 			},
 		],
 	},
@@ -305,7 +305,7 @@ export const sellCatalogListingCards: CatalogItem[] = [
 				code: "object_verified",
 			},
 			{
-				code: "only_on_oneBaan",
+				code: "only_on_onebaan",
 			},
 		],
 	},
@@ -434,7 +434,7 @@ export const sellCatalogListingCards: CatalogItem[] = [
 				code: "object_verified",
 			},
 			{
-				code: "only_on_oneBaan",
+				code: "only_on_onebaan",
 			},
 		],
 	},
@@ -598,7 +598,7 @@ export const sellCatalogListingCards: CatalogItem[] = [
 		},
 		tags: [
 			{
-				code: "only_on_oneBaan",
+				code: "only_on_onebaan",
 			},
 		],
 	},

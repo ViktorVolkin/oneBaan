@@ -38,19 +38,19 @@ export const COMPLEX__MOCK_DATA: Record<string, ComplexInfoType> = {
 			builder: "Sino-Thai Engineering & Construction",
 			tags: [
 				{
-					code: "with_restaurant",
+					code: "restaurant",
 				},
 				{
-					code: "with_coworking",
+					code: "coworking",
 				},
 				{
-					code: "with_pool",
+					code: "pool",
 				},
 				{
-					code: "with_gym",
+					code: "wellness_center",
 				},
 				{
-					code: "with_cameras",
+					code: "cctv",
 				},
 			],
 		},

@@ -1,7 +1,9 @@
 import type { FunctionComponent, SVGProps } from "react";
 
 export interface CardTagProps {
-	icon: FunctionComponent<SVGProps<SVGSVGElement>>;
+	icon:
+		| FunctionComponent<SVGProps<SVGSVGElement>>
+		| FunctionComponent<SVGProps<SVGSVGElement>>[];
 	label: string;
 	bgColor?: string;
 	borderColor?: string;

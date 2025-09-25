@@ -28,12 +28,29 @@ export const CardTags = ({
 					}}
 					data-showborder={showBorder ? "show" : "hide"}
 				>
-					<tag.icon
-						width={sizeOfTheIcons ?? "12px"}
-						height={sizeOfTheIcons ?? "12px"}
-						fill={tag.textColor ?? "#44337A"}
-						style={{ color: tag.textColor ?? "#44337A" }}
-					/>
+					{tag.icon instanceof Array ? (
+						<div className={styles.icon_container}>
+							{tag.icon.map((Icon, idx) => (
+								<Icon
+									key={idx}
+									width={sizeOfTheIcons ?? "12px"}
+									height={sizeOfTheIcons ?? "12px"}
+									fill={tag.textColor ?? "#44337A"}
+									style={{
+										color: tag.textColor ?? "#44337A",
+									}}
+								/>
+							))}
+						</div>
+					) : (
+						<tag.icon
+							width={sizeOfTheIcons ?? "12px"}
+							height={sizeOfTheIcons ?? "12px"}
+							fill={tag.textColor ?? "#44337A"}
+							style={{ color: tag.textColor ?? "#44337A" }}
+						/>
+					)}
+
 					<p style={{ color: tag.textColor ?? "#44337A", margin: 0 }}>
 						{t(tag.label)}
 					</p>
