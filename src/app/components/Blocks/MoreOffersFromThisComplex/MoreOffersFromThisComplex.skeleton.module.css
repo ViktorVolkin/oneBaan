@@ -14,7 +14,6 @@
 .filters__container {
 	display: flex;
 	gap: 8px;
-	margin: 0 auto;
 	height: 32px;
 }
 .filters {
@@ -39,6 +38,11 @@
 	background-color: #eeeeee;
 }
 
+.cards__container {
+	& > div:last-of-type {
+		display: none;
+	}
+}
 .cards__container,
 .cards__container__sell {
 	display: flex;
@@ -63,24 +67,12 @@
 }
 .get__more_offers,
 .get__more_offers__sell {
-	display: flex;
 	margin-top: 8px;
 	height: 40px;
 	width: 100%;
-	color: #0a1137;
-	border: 1px solid #0a1137;
-	font-size: 14px;
-	font-weight: 600;
-	justify-content: center;
-	align-items: center;
+	border: 0;
 	border-radius: 10px;
-	background-color: transparent;
-	gap: 8px;
-}
-.get__more_offers_image {
-	display: block;
-	width: 16px;
-	height: 16px;
+	background-color: #eeeeee;
 }
 
 @media (min-width: 768px) and (max-width: 1439.9px) {
@@ -145,10 +137,13 @@
 		gap: 20px;
 	}
 	.get__more_offers {
-		font-size: 16px;
-		font-weight: 700;
 		height: 50px;
 		margin-top: 16px;
+	}
+	.cards__container {
+		& > div:last-of-type {
+			display: block;
+		}
 	}
 }
 @media (min-width: 1440px) {
@@ -213,9 +208,12 @@
 		gap: 24px;
 	}
 	.get__more_offers {
-		font-size: 18px;
-		font-weight: 700;
 		height: 54px;
 		margin-top: 24px;
+	}
+	.cards__container {
+		& > div:last-of-type {
+			display: block;
+		}
 	}
 }

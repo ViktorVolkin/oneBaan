@@ -2,6 +2,7 @@ import { CardDetailedPreviewBlockSkeleton } from "../../Blocks/CardDetailedPrevi
 import { ComplexConveniencesSkeleton } from "../../Blocks/ComplexConveniences";
 import { DetailsOfOfferSkeleton } from "../../Blocks/DetailsOfOffer";
 import { MoreOffersFromThisComplexSkeleton } from "../../Blocks/MoreOffersFromThisComplex";
+import { SubscribeForNotificationsSkeleton } from "../../Blocks/SubscribeForNotifications";
 import styles from "./ComplexInfo.skeleton.module.css";
 export function ComplexInfoSkeleton() {
 	return (
@@ -18,6 +19,9 @@ export function ComplexInfoSkeleton() {
 				</div>
 				<div className={styles.moreOffersFromThisComplex}>
 					<MoreOffersFromThisComplexSkeleton mode={"Complex"} />
+				</div>
+				<div className={styles.subscribeForNotifications}>
+					<SubscribeForNotificationsSkeleton />
 				</div>
 			</div>
 		</div>

@@ -10,7 +10,7 @@ export function MoreOffersFromThisComplexSkeleton({
 		<div className={styles.moreOffersBlock}>
 			<div className={styles.moreOffers__title} />
 
-			{isSell && (
+			{(isSell || mode === "Rent") && (
 				<div
 					className={`${styles.filters__container} ${
 						!isSell ? styles.filters__container__rent : ""

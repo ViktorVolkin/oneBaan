@@ -19,6 +19,12 @@
 .complexConveniences {
 	margin-top: 38px;
 }
+.moreOffersFromThisComplex {
+	margin-top: 40px;
+}
+.subscribeForNotifications {
+	margin-top: 40px;
+}
 @media (min-width: 768px) and (max-width: 1439.9px) {
 	.previewBlock {
 		margin-top: 60px;
@@ -36,6 +42,12 @@
 	}
 	.complexConveniences {
 		margin-top: 40px;
+	}
+	.moreOffersFromThisComplex {
+		margin-top: 58px;
+	}
+	.subscribeForNotifications {
+		margin-top: 64px;
 	}
 }
 @media (min-width: 1440px) {
@@ -61,5 +73,11 @@
 	}
 	.complexConveniences {
 		margin-top: 50px;
+	}
+	.moreOffersFromThisComplex {
+		margin-top: 60px;
+	}
+	.subscribeForNotifications {
+		margin-top: 72px;
 	}
 }

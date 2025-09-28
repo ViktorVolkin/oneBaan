@@ -1,3 +1,4 @@
+"use client";
 import { Link } from "@/i18n/navigation";
 import styles from "./CardButtons.module.css";
 import { useTranslations } from "next-intl";

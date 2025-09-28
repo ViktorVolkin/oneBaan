@@ -96,6 +96,7 @@ export function SimilarOffers({
 						height: "100%",
 						position: "relative",
 					}}
+					className={styles.swiper}
 				>
 					{cards.map((item) => (
 						<SwiperSlide
@@ -133,6 +134,7 @@ export function SimilarOffers({
 						height: "100%",
 						position: "relative",
 					}}
+					className={styles.swiper}
 				>
 					{cards.map((item) => (
 						<SwiperSlide
@@ -163,6 +165,7 @@ export function SimilarOffers({
 						height: "100%",
 						position: "relative",
 					}}
+					className={styles.swiper}
 				>
 					{cards.map((item) => (
 						<SwiperSlide

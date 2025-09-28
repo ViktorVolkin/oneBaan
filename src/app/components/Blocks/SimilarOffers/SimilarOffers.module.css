@@ -25,7 +25,6 @@
 	flex-wrap: wrap;
 	height: 100%;
 }
-
 .tag {
 	display: flex;
 	justify-content: center;
@@ -40,7 +39,7 @@
 .swiperSlideSell {
 	width: 282px;
 }
-.swiperSlideComplex {
+.swiper .swiperSlideComplex {
 	width: clamp(220px, 220px, 250px);
 }
 .swiper__buttons {
@@ -91,7 +90,13 @@
 .swiper__buttons {
 	display: none;
 }
-.swiperSlideRent {
+.swiperSlideRent,
+.swiperSlideComplex {
+	min-width: 0;
+	flex: 0 0 auto;
+}
+
+.swiper .swiperSlideRent {
 	width: 220px;
 }
 .button__container {
@@ -116,11 +121,11 @@
 		display: flex;
 		gap: 4px;
 	}
-	.swiperSlideRent {
+	.swiper .swiperSlideRent {
 		width: 320px;
 	}
 
-	.swiperSlideComplex {
+	.swiper .swiperSlideComplex {
 		width: 410px;
 	}
 }
@@ -146,10 +151,10 @@
 		display: flex;
 		gap: 4px;
 	}
-	.swiperSlideRent {
+	.swiper .swiperSlideRent {
 		width: 385px;
 	}
-	.swiperSlideComplex {
+	.swiper .swiperSlideComplex {
 		width: clamp(385px, 385px, 430px);
 	}
 }

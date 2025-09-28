@@ -6,7 +6,7 @@ type PageProps = { params: Promise<{ id: string }> };
 
 export default async function Page({ params }: PageProps) {
 	const { id } = await params;
-	await new Promise((r) => setTimeout(r, 30000));
+	await new Promise((r) => setTimeout(r, 10000));
 
 	return (
 		<div className={styles.page}>

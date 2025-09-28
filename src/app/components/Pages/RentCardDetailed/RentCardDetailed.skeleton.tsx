@@ -1,6 +1,7 @@
 import { CardDetailedPreviewBlockSkeleton } from "../../Blocks/CardDetailedPreviewBlock";
 import { ComplexConveniencesSkeleton } from "../../Blocks/ComplexConveniences";
 import { DetailsOfOfferSkeleton } from "../../Blocks/DetailsOfOffer";
+import { MoreOffersFromThisComplexSkeleton } from "../../Blocks/MoreOffersFromThisComplex";
 import styles from "./RentCardDetailed.skeleton.module.css";
 export function RentCardDetailedSkeleton() {
 	return (
@@ -14,6 +15,9 @@ export function RentCardDetailedSkeleton() {
 				</div>
 				<div className={styles.complexConveniences}>
 					<ComplexConveniencesSkeleton mode={"Rent"} />
+				</div>
+				<div className={styles.moreOffersFromThisComplex}>
+					<MoreOffersFromThisComplexSkeleton mode={"Rent"} />
 				</div>
 			</div>
 		</div>

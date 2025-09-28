@@ -1,0 +1,152 @@
+.container {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	background-color: #eeeeee;
+	padding: 12px;
+}
+
+.title__container {
+	display: flex;
+	justify-content: space-between;
+}
+
+.title {
+	width: 200px;
+	height: 48px;
+	background-color: #fff;
+	border-radius: 10px;
+}
+
+.bg__image {
+	width: 60px;
+	height: 48px;
+	border-radius: 10px;
+	z-index: 1;
+	background-color: #fff;
+}
+
+.items__container {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+.item {
+	width: 270px;
+	height: 32px;
+	background-color: #fff;
+	border-radius: 10px;
+}
+
+.button {
+	width: 296px;
+	height: 40px;
+	background-color: #fff;
+	border-radius: 10px;
+}
+@media (min-width: 768px) and (max-width: 1439.9px) {
+	.container {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		gap: 0;
+		background-color: #eeeeee;
+		padding: 16px;
+		position: relative;
+	}
+
+	.title {
+		width: 369px;
+		height: 28px;
+		background-color: #fff;
+		border-radius: 12px;
+		margin-bottom: 20px;
+	}
+
+	.bg__image {
+		position: absolute;
+		right: 16px;
+		top: 16px;
+		width: 176px;
+		height: 140px;
+		border-radius: 12px;
+	}
+
+	.items__container {
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+		margin-bottom: 32px;
+	}
+
+	.item {
+		width: 320px;
+		height: 25px;
+		background-color: #fff;
+		border-radius: 12px;
+		&:first-of-type {
+			height: 32px;
+		}
+	}
+
+	.button {
+		width: 628px;
+		height: 50px;
+		background-color: #fff;
+		border-radius: 12px;
+	}
+}
+@media (min-width: 1440px) {
+	.container {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		gap: 0;
+		background-color: #eeeeee;
+		padding: 20px;
+		position: relative;
+	}
+
+	.title {
+		width: 470px;
+		height: 36px;
+		background-color: #fff;
+		border-radius: 16px;
+		margin-bottom: 20px;
+	}
+
+	.bg__image {
+		position: absolute;
+		right: 20px;
+		top: 20px;
+		width: 176px;
+		height: 140px;
+		border-radius: 16px;
+	}
+
+	.items__container {
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+		margin-bottom: 26px;
+	}
+
+	.item {
+		width: 400px;
+		height: 25px;
+		background-color: #fff;
+		border-radius: 16px;
+		&:first-of-type {
+			height: 36px;
+		}
+	}
+
+	.button {
+		width: 750px;
+		height: 58px;
+		background-color: #fff;
+		border-radius: 16px;
+	}
+}
