@@ -1,5 +1,5 @@
 "use client";
-import styles from "./Header.module.css";
+import styles from "./HeaderCatalog.module.css";
 import HeaderPhoneMode from "../HeaderPhoneMode";
 import HeaderTabletMode from "../HeaderTabletMode";
 import HeaderDesktopMode from "../HeaderDesktopMode";
@@ -13,15 +13,13 @@ import {
 	CURRENCY_CONSTANTS,
 } from "@/app/constants/common";
 
-const Header = ({
+const HeaderCatalog = ({
 	burgerOptions = NAVIGATION_CONSTANTS.BURGER_OPTIONS,
 	typesOfCurrency = CURRENCY_CONSTANTS.TYPES,
 	handleLanguageChange: handleLanguageChangeProp,
-	hasCatalog = false,
 	disablePhoneMode,
 }: HeaderProps & {
 	disablePhoneMode?: boolean;
-	hasCatalog?: boolean;
 }) => {
 	const router = useRouter();
 	const path = usePathname();
@@ -64,7 +62,7 @@ const Header = ({
 						burgerOptions={burgerOptions}
 						typesOfCurrency={typesOfCurrency}
 						handleLanguageChange={handleLanguageChange}
-						hasCatalog={hasCatalog}
+						hasCatalog={true}
 					/>
 				</div>
 			)}
@@ -88,4 +86,4 @@ const Header = ({
 	);
 };
 
-export default Header;
+export default HeaderCatalog;

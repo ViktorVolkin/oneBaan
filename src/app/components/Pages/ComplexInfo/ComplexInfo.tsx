@@ -15,6 +15,7 @@ import { ComplexCardItem, fetchComplexInfo } from "@/app/api/fetchComplexInfo";
 import { useQueryParams } from "@/app/customHooks/useQueryParams";
 import { Link } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
+import { ComplexInfoSkeleton } from "./ComplexInfo.skeleton";
 
 export function ComplexInfoPage({ id }: { id: string }) {
 	const { get, set } = useQueryParams();
@@ -49,7 +50,7 @@ export function ComplexInfoPage({ id }: { id: string }) {
 		return () => ac.abort();
 	}, [id, qLocale, qCurr, sellPage, rentPage]);
 
-	if (!data) return <></>;
+	if (!data) return <ComplexInfoSkeleton />;
 
 	return (
 		<div className={styles.rentCardContainer}>

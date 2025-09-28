@@ -26,6 +26,7 @@ import {
 	FiltersState,
 	SellApartmentsCatalogProps,
 } from "@/app/types/SellApartmentsCatalog.types";
+import HeaderCatalog from "../../Blocks/HeaderCatalog";
 
 export function SellApartmentsCatalog({
 	breadcrumbs,
@@ -187,8 +188,6 @@ export function SellApartmentsCatalog({
 	}, [baseQuery, isRentPage]);
 
 	const listToRender: ListingCardBase[] = items;
-	const headerMediaQueryPhone = isRentPage ? 768 : 1439.9;
-	const headerMediaQueryTablet = isRentPage ? 1439.9 : 0;
 
 	const queriesToClear = useMemo(
 		() => [
@@ -209,14 +208,10 @@ export function SellApartmentsCatalog({
 			set("sortBy", "recommended");
 		}
 	}, [baseQuery]);
+	const HeaderToDisplay = isRentPage ? Header : HeaderCatalog;
 	return (
 		<>
-			<Header
-				hasCatalog={true}
-				maxPhoneWidth={headerMediaQueryPhone}
-				maxTabletWidth={headerMediaQueryTablet}
-				minDesktopWidth={1440}
-			/>
+			<HeaderToDisplay />
 
 			<div
 				className={`${

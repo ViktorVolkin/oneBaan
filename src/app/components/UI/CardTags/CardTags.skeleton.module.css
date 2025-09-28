@@ -1,0 +1,38 @@
+.tag {
+	background-color: #eeeeee;
+	height: 24px;
+	border-radius: 10px;
+}
+.tag[data-id="0"] {
+	width: 99px;
+}
+.tag[data-id="1"] {
+	width: 122px;
+}
+.tag[data-id="2"] {
+	width: 134px;
+}
+.tag[data-id="3"] {
+	width: 110px;
+}
+.tag[data-id="4"] {
+	width: 168px;
+}
+.tag[data-id="5"] {
+	width: 127px;
+}
+.tag[data-id="6"] {
+	width: 115px;
+}
+.tag[data-id="7"] {
+	width: 184px;
+}
+.tag[data-id="8"] {
+	width: 109px;
+}
+.tag[data-id="9"] {
+	width: 106px;
+}
+.tag[data-id="10"] {
+	width: 161px;
+}

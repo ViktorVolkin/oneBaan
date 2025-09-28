@@ -1,0 +1,159 @@
+.container {
+	background-color: #eeeeee;
+	width: 100%;
+}
+.content__container {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	max-width: calc((100% - 320px) / 2 + 320px);
+	margin-left: auto;
+	margin-right: 0;
+	& * {
+		background-color: #fff;
+		z-index: 2;
+		border-radius: 12px;
+	}
+}
+.title__container {
+	align-self: flex-start;
+	display: flex;
+	justify-content: space-between;
+	width: max-content;
+	background-color: #eeeeee;
+}
+
+.title {
+	margin-top: 20px;
+	margin-bottom: 16px;
+	width: 233px;
+	height: 44px;
+}
+
+.buttons__container {
+	display: none;
+}
+
+.cards__container {
+	display: flex;
+	gap: 8px;
+	max-width: 100%;
+	overflow: hidden;
+	margin-bottom: 20px;
+	background-color: #eeeeee;
+}
+
+.card {
+	min-width: 220px;
+	min-height: 300px;
+}
+@media (min-width: 768px) and (max-width: 1439.9px) {
+	.container {
+		background-color: #fff;
+	}
+	.content__container {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		max-width: calc((100% - 660px) / 2 + 660px);
+		& * {
+			background-color: #eeeeee;
+			z-index: 2;
+		}
+	}
+	.title__container {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		background-color: #fff;
+		width: 100%;
+		max-width: 660px;
+	}
+
+	.title {
+		margin-top: 0;
+		margin-bottom: 20px;
+		width: 344px;
+		height: 72px;
+	}
+
+	.buttons__container {
+		display: flex;
+		gap: 6px;
+		background-color: #fff;
+	}
+
+	.button {
+		width: 50px;
+		height: 50px;
+	}
+
+	.cards__container {
+		display: flex;
+		gap: 20px;
+		max-width: 100%;
+		overflow: hidden;
+		margin-bottom: 0;
+		background-color: #fff;
+	}
+
+	.card {
+		min-width: 240px;
+		min-height: 300px;
+	}
+}
+@media (min-width: 1440px) {
+	.container {
+		background-color: #fff;
+	}
+	.content__container {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		max-width: calc((100% - 1240px) / 2 + 1240px);
+		& * {
+			background-color: #eeeeee;
+			z-index: 2;
+		}
+	}
+	.title__container {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		background-color: #fff;
+		width: 100%;
+		max-width: 1240px;
+	}
+
+	.title {
+		margin-top: 0;
+		margin-bottom: 20px;
+		width: 500px;
+		height: 80px;
+	}
+
+	.buttons__container {
+		display: flex;
+		gap: 6px;
+		background-color: #fff;
+	}
+
+	.button {
+		width: 50px;
+		height: 50px;
+	}
+
+	.cards__container {
+		display: flex;
+		gap: 20px;
+		max-width: 100%;
+		overflow: hidden;
+		margin-bottom: 0;
+		background-color: #fff;
+	}
+
+	.card {
+		min-width: 400px;
+		min-height: 400px;
+	}
+}

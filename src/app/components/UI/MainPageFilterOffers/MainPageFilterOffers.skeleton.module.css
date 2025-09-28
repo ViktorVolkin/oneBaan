@@ -1,0 +1,53 @@
+.container {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	width: 100%;
+	max-width: 256px;
+}
+
+.buttons__container {
+	display: flex;
+	gap: 6px;
+}
+.button {
+	background-color: #ffffff;
+	border-radius: 10px;
+	flex-grow: 1;
+	height: 36px;
+}
+
+@media (min-width: 768px) and (max-width: 1439.9px) {
+	.container {
+		display: flex;
+		flex-direction: row;
+		background-color: #ffffff;
+		max-width: 458px;
+		height: 44px;
+		border-radius: 12px;
+	}
+
+	.buttons__container {
+		display: none;
+	}
+	.button {
+		display: none;
+	}
+}
+@media (min-width: 1440px) {
+	.container {
+		display: flex;
+		flex-direction: row;
+		background-color: #ffffff;
+		max-width: 650px;
+		height: 60px;
+		border-radius: 30px;
+	}
+
+	.buttons__container {
+		display: none;
+	}
+	.button {
+		display: none;
+	}
+}

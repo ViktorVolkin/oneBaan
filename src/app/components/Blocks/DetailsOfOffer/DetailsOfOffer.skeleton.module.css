@@ -1,0 +1,268 @@
+.detailsOfOfferSell,
+.detailsOfOfferRent,
+.detailsOfOfferComplex {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	margin: 0 auto;
+}
+
+.blueprintRent,
+.blueprintSell,
+.blueprintComplex {
+	display: flex;
+	border-radius: 10px;
+	align-items: center;
+	width: 123px;
+	height: 24px;
+	background-color: #eeeeee;
+	margin-bottom: 10px;
+}
+
+.offerDetail {
+	width: 100%;
+	height: 52px;
+	background-color: #eeeeee;
+	border-radius: 10px;
+	margin-bottom: 40px;
+	display: flex;
+	align-items: center;
+}
+.priceBlock {
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-end;
+	gap: 8px;
+	margin-bottom: 8px;
+}
+.price {
+	width: 230px;
+	height: 44px;
+	background-color: #eeeeee;
+	border-radius: 10px;
+}
+.perMonth {
+	width: 160px;
+	height: 28px;
+	background-color: #eeeeee;
+	border-radius: 10px;
+}
+.icons__list {
+	width: 300px;
+	height: 28px;
+	background-color: #eeeeee;
+	border-radius: 10px;
+}
+.breadcrumbs {
+	width: 230px;
+	height: 16px;
+	background-color: #eeeeee;
+	display: flex;
+	border-radius: 10px;
+	margin: 22px 0;
+}
+
+.cardDetails__container {
+	display: grid;
+	grid-template-rows: repeat(2, 1fr);
+	grid-template-columns: repeat(2, 1fr);
+	gap: 8px;
+	margin-bottom: 42px;
+	& > div {
+		border-radius: 10px;
+	}
+}
+
+.offerFeatureBlock {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+.offerFeature__title {
+	width: 261px;
+	height: 24px;
+	background-color: #eeeeee;
+	border-radius: 10px;
+}
+.offerFeature__text {
+	width: 320px;
+	height: 80px;
+	background-color: #eeeeee;
+	border-radius: 10px;
+}
+
+.complex__cards {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	height: 62px;
+	margin: 22px 0;
+}
+.breadcrumbs__with_complex {
+	margin: 0 0 22px 0 !important;
+}
+.offerDetail__with_complex {
+	margin-bottom: 0 !important;
+	color: #8a8a8a !important;
+}
+.cardDetails__containerComplex {
+	display: grid;
+	grid-template-rows: repeat(2, 1fr);
+	grid-template-columns: repeat(2, 1fr);
+	gap: 4px;
+	& > div {
+		border-radius: 10px;
+	}
+}
+.cardTags {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+}
+@media (min-width: 768px) and (max-width: 1439.9px) {
+	.detailsOfOfferSell {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+	}
+	.blueprintRent,
+	.blueprintComplex {
+		display: none;
+	}
+	.blueprintSell {
+		display: flex;
+		border-radius: 10px;
+		padding: 0 12px 0 8px;
+		min-height: 24px;
+		align-items: center;
+		gap: 8px;
+		background-color: #faf5ff;
+		color: #44337a;
+		font-size: 16px;
+		width: max-content;
+		margin-bottom: 13px;
+	}
+
+	.offerDetail {
+		width: 100%;
+		height: 40px;
+		border-radius: 10px;
+		margin-bottom: 62px;
+	}
+
+	.breadcrumbs {
+		display: flex;
+		width: 248px;
+		height: 18px;
+		margin: 22px 0;
+	}
+
+	.cardDetails__container {
+		display: flex;
+		height: 88px;
+		gap: 12px;
+		margin-bottom: 42px;
+		& > div {
+			border-radius: 12px;
+		}
+	}
+
+	.complex__cards {
+		height: 80px;
+		margin: 14px 0 22px 0;
+	}
+	.cardDetails__containerComplex {
+		display: flex;
+		gap: 8px;
+		& > div {
+			border-radius: 12px;
+		}
+	}
+	.offerFeatureBlock {
+		gap: 20px;
+	}
+	.offerFeature__title {
+		width: 261px;
+		height: 28px;
+		border-radius: 12px;
+	}
+	.offerFeature__text {
+		width: 532px;
+		height: 48px;
+		border-radius: 12px;
+	}
+}
+
+@media (min-width: 1440px) {
+	.detailsOfOfferSell {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+	}
+	.blueprintRent,
+	.blueprintSell,
+	.blueprintComplex {
+		display: none;
+	}
+
+	.offerDetail {
+		width: 100%;
+		height: 26px;
+		padding: 0;
+		color: #718096;
+		background-color: inherit;
+		font-size: 20px;
+		border-radius: 0;
+		margin-bottom: 24px;
+	}
+	.offerDetail__with_complex {
+		background-color: #f5f5f5;
+		border-radius: 12px;
+		height: 58px;
+	}
+
+	.breadcrumbs {
+		display: flex;
+		margin: 32px 0;
+		width: 248px;
+		height: 16px;
+	}
+
+	.cardDetails__container {
+		display: flex;
+		gap: 12px;
+		margin-bottom: 60px;
+		& > div {
+			border-radius: 16px;
+		}
+	}
+
+	.offerFeatureBlock {
+		gap: 20px;
+	}
+	.offerFeature__title {
+		width: 363px;
+		height: 36px;
+		border-radius: 16px;
+	}
+	.offerFeature__text {
+		width: 500px;
+		height: 50px;
+		border-radius: 16px;
+	}
+
+	.complex__cards {
+		margin: 14px 0 22px 0;
+		height: 102px;
+		& > div {
+			width: 100%;
+		}
+	}
+	.cardDetails__containerComplex {
+		display: flex;
+		gap: 10px;
+		& > div {
+			border-radius: 16px;
+		}
+	}
+}

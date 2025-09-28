@@ -1,0 +1,221 @@
+.moreOffersBlock {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+
+.moreOffers__title {
+	width: 263px;
+	height: 72px;
+	background-color: #eeeeee;
+	border-radius: 10px;
+}
+
+.filters__container {
+	display: flex;
+	gap: 8px;
+	margin: 0 auto;
+	height: 32px;
+}
+.filters {
+	display: flex;
+}
+.bedsSelect {
+	width: 68px;
+	height: 100%;
+}
+.priceSelect {
+	width: 100px;
+	height: 100%;
+}
+.sortBy {
+	width: 150px;
+	height: 100%;
+}
+.bedsSelect,
+.priceSelect,
+.sortBy {
+	border-radius: 10px;
+	background-color: #eeeeee;
+}
+
+.cards__container,
+.cards__container__sell {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	width: 100%;
+	justify-content: center;
+	align-items: stretch;
+}
+.card__container {
+	width: 100%;
+	height: 100%;
+}
+
+.cards__wrapper {
+	display: none;
+}
+.moreOffers {
+	display: flex;
+	flex-direction: column;
+	height: clamp(450px, 100%, 500px);
+}
+.get__more_offers,
+.get__more_offers__sell {
+	display: flex;
+	margin-top: 8px;
+	height: 40px;
+	width: 100%;
+	color: #0a1137;
+	border: 1px solid #0a1137;
+	font-size: 14px;
+	font-weight: 600;
+	justify-content: center;
+	align-items: center;
+	border-radius: 10px;
+	background-color: transparent;
+	gap: 8px;
+}
+.get__more_offers_image {
+	display: block;
+	width: 16px;
+	height: 16px;
+}
+
+@media (min-width: 768px) and (max-width: 1439.9px) {
+	.moreOffers__title {
+		font-size: 24px;
+	}
+
+	.moreOffers__complex {
+		text-decoration: underline;
+	}
+	.filters__container__rent {
+		display: none;
+	}
+
+	.filters__container {
+		display: flex;
+		gap: 0;
+		margin: 0;
+		height: 32px;
+		justify-content: space-between;
+		& > div {
+			display: flex;
+			gap: 8px;
+			width: max-content;
+			justify-content: space-between;
+		}
+	}
+	.get__more_offers__sell {
+		display: none;
+	}
+	.filters {
+		display: flex;
+	}
+
+	.cards__container {
+		display: flex;
+		flex-wrap: wrap;
+		width: 100%;
+		gap: 16px;
+		position: relative;
+	}
+	.card__container {
+		max-width: max-content;
+		width: 385px;
+	}
+	.swiperSlide {
+		width: 282px;
+	}
+
+	.cards__container__sell {
+		display: none;
+	}
+	.cards__wrapper {
+		display: block;
+		width: 100%;
+		height: 490px;
+	}
+	.filters__container__rent {
+		display: none;
+	}
+	.moreOffersBlock {
+		gap: 20px;
+	}
+	.get__more_offers {
+		font-size: 16px;
+		font-weight: 700;
+		height: 50px;
+		margin-top: 16px;
+	}
+}
+@media (min-width: 1440px) {
+	.moreOffers__complex {
+		text-decoration: underline;
+	}
+	.filters__container__rent {
+		display: none;
+	}
+
+	.filters__container {
+		display: flex;
+		gap: 0;
+		margin: 0;
+		height: 32px;
+		justify-content: space-between;
+	}
+	.get__more_offers__sell {
+		display: none;
+	}
+	.filters {
+		display: flex;
+		gap: 8px;
+	}
+
+	.bedsSelect,
+	.priceSelect,
+	.sortBy {
+		border-radius: 10px;
+		background-color: #71809614;
+		color: #2d3748;
+		font-size: 16px;
+	}
+
+	.cards__container {
+		display: flex;
+		flex-wrap: wrap;
+		width: 100%;
+		gap: 16px;
+		position: relative;
+	}
+	.card__container {
+		max-width: max-content;
+		width: 385px;
+	}
+	.swiperSlide {
+		width: 282px;
+	}
+
+	.cards__container__sell {
+		display: none;
+	}
+	.cards__wrapper {
+		display: block;
+		width: 100%;
+		height: clamp(450px, 100%, 500px) !important;
+	}
+	.filters__container__rent {
+		display: none;
+	}
+	.moreOffersBlock {
+		gap: 24px;
+	}
+	.get__more_offers {
+		font-size: 18px;
+		font-weight: 700;
+		height: 54px;
+		margin-top: 24px;
+	}
+}

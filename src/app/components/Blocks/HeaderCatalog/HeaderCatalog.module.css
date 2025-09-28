@@ -7,14 +7,6 @@
 .desktop {
 	display: none;
 }
-@media (min-width: 768px) and (max-width: 1439.9px) {
-	.tablet {
-		display: block;
-	}
-	.phone {
-		display: none;
-	}
-}
 
 @media (min-width: 1440px) {
 	.desktop {

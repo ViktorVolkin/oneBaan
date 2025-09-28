@@ -14,6 +14,7 @@ import { useEffect, useMemo, useState } from "react";
 import { fetchSellCardDetailedPage } from "@/app/api/fetchSellCardDetailed";
 import { useQueryParams } from "@/app/customHooks/useQueryParams";
 import { Link } from "@/i18n/navigation";
+import { RentCardDetailedSkeleton } from "./RentCardDetailed.skeleton";
 
 export function RentCardDetailed({ id }: { id: string }) {
 	type DataType = Awaited<ReturnType<typeof fetchSellCardDetailedPage>>;
@@ -268,6 +269,6 @@ export function RentCardDetailed({ id }: { id: string }) {
 			</div>
 		</div>
 	) : (
-		<></>
+		<RentCardDetailedSkeleton />
 	);
 }
