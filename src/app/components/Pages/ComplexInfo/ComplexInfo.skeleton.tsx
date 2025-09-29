@@ -1,7 +1,10 @@
+import { CardDetailedLocationSkeleton } from "../../Blocks/CardDetailedLocation";
 import { CardDetailedPreviewBlockSkeleton } from "../../Blocks/CardDetailedPreviewBlock";
 import { ComplexConveniencesSkeleton } from "../../Blocks/ComplexConveniences";
 import { DetailsOfOfferSkeleton } from "../../Blocks/DetailsOfOffer";
+import { ListingGrantedSkeleton } from "../../Blocks/ListingGranted";
 import { MoreOffersFromThisComplexSkeleton } from "../../Blocks/MoreOffersFromThisComplex";
+import { SimilarOffersSkeleton } from "../../Blocks/SimilarOffers/SimilarOffers.skeleton";
 import { SubscribeForNotificationsSkeleton } from "../../Blocks/SubscribeForNotifications";
 import styles from "./ComplexInfo.skeleton.module.css";
 export function ComplexInfoSkeleton() {
@@ -22,6 +25,18 @@ export function ComplexInfoSkeleton() {
 				</div>
 				<div className={styles.subscribeForNotifications}>
 					<SubscribeForNotificationsSkeleton />
+				</div>
+				<div className={styles.moreOffersFromThisComplex}>
+					<MoreOffersFromThisComplexSkeleton mode={"Complex"} />
+				</div>
+				<div className={styles.CardDetailedLocation}>
+					<CardDetailedLocationSkeleton />
+				</div>
+				<div className={styles.listingGranted}>
+					<ListingGrantedSkeleton mode={"Complex"} />
+				</div>
+				<div className={styles.similarOffers}>
+					<SimilarOffersSkeleton mode={"Complex"} />
 				</div>
 			</div>
 		</div>

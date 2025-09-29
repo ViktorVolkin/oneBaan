@@ -1,0 +1,289 @@
+.container {
+	display: flex;
+	flex-direction: column;
+	background-color: #eeeeee;
+	border-radius: 10px;
+}
+.containerRent {
+	height: 296px;
+	min-width: 220px;
+	padding: 12px;
+}
+.containerComplex {
+	height: 317px;
+	min-width: 220px;
+	padding: 12px;
+}
+
+.data__container {
+	display: flex;
+	flex-direction: column;
+	margin-top: auto;
+}
+.data__containerRent {
+	gap: 6px;
+}
+.data__containerComplex {
+	gap: 6px;
+}
+
+.data__item {
+	background-color: #fff;
+	border-radius: 10px;
+}
+.data__itemComplex {
+	width: 100%;
+}
+.data__itemComplex[data-id="0"] {
+	height: 42px;
+}
+.data__itemComplex[data-id="1"] {
+	height: 16px;
+}
+.data__itemComplex[data-id="2"] {
+	height: 14px;
+}
+.data__itemRent[data-id="0"] {
+	width: 170px;
+	height: 14px;
+}
+.data__itemRent[data-id="1"] {
+	width: 140px;
+	height: 24px;
+}
+.data__itemRent[data-id="2"] {
+	width: 160px;
+	height: 16px;
+}
+.data__itemRent[data-id="3"] {
+	width: 180px;
+	height: 14px;
+}
+.data__itemRent[data-id="4"] {
+	width: 190px;
+	height: 16px;
+}
+.contacts {
+	display: flex;
+	width: 100%;
+	gap: 4px;
+}
+.contactsRent {
+	margin-top: 12px;
+}
+.contactsComplex {
+	margin-top: 6px;
+}
+.phone {
+	width: 32px;
+	height: 32px;
+	border-radius: 10px;
+	background-color: #fff;
+}
+
+.whatsApp {
+	display: flex;
+	flex-grow: 1;
+	border-radius: 10px;
+	height: 32px;
+	background-color: #fff;
+}
+.minPrices {
+	height: 35px;
+	width: 100%;
+	margin-top: 12px;
+}
+@media (min-width: 768px) and (max-width: 1439.9px) {
+	.container {
+		display: flex;
+		flex-direction: column;
+		background-color: #eeeeee;
+		border-radius: 12px;
+	}
+	.containerRent {
+		height: 320px;
+		min-width: 398px;
+		padding: 12px;
+	}
+	.containerComplex {
+		height: 420px;
+		min-width: 407px;
+		padding: 16px;
+	}
+
+	.data__container {
+		display: flex;
+		flex-direction: column;
+		margin-top: auto;
+	}
+	.data__containerRent {
+		gap: 6px;
+	}
+	.data__containerComplex {
+		gap: 10px;
+	}
+
+	.data__item {
+		background-color: #fff;
+		border-radius: 12px;
+	}
+
+	.data__itemComplex[data-id="0"] {
+		width: 220px;
+		height: 28px;
+	}
+	.data__itemComplex[data-id="1"] {
+		width: 280px;
+		height: 22px;
+	}
+	.data__itemComplex[data-id="2"] {
+		width: 240px;
+		height: 14px;
+	}
+	.data__itemRent[data-id="0"] {
+		width: 220px;
+		height: 16px;
+	}
+	.data__itemRent[data-id="1"] {
+		width: 280px;
+		height: 28px;
+	}
+	.data__itemRent[data-id="2"] {
+		width: 240px;
+		height: 20px;
+	}
+	.data__itemRent[data-id="3"] {
+		width: 260px;
+		height: 16px;
+	}
+	.data__itemRent[data-id="4"] {
+		width: 240px;
+		height: 20px;
+	}
+	.contacts {
+		display: flex;
+		width: 100%;
+		gap: 6px;
+	}
+	.contactsRent {
+		margin-top: 20px;
+	}
+	.contactsComplex {
+		margin-top: 6px;
+	}
+	.phone {
+		width: 42px;
+		height: 42px;
+		border-radius: 12px;
+		background-color: #fff;
+	}
+
+	.whatsApp {
+		display: flex;
+		flex-grow: 1;
+		border-radius: 12px;
+		height: 42px;
+		background-color: #fff;
+	}
+	.minPrices {
+		height: 60px;
+		margin-top: 16px;
+	}
+}
+@media (min-width: 1440px) {
+	.container {
+		display: flex;
+		flex-direction: column;
+		background-color: #eeeeee;
+		border-radius: 16px;
+	}
+	.containerRent {
+		height: 430px;
+		min-width: 385px;
+		padding: 20px;
+	}
+	.containerComplex {
+		height: 486px;
+		min-width: 385px;
+		padding: 20px 16px;
+	}
+
+	.data__container {
+		display: flex;
+		flex-direction: column;
+		margin-top: auto;
+	}
+	.data__containerRent {
+		gap: 6px;
+	}
+	.data__containerComplex {
+		gap: 14px;
+	}
+
+	.data__item {
+		background-color: #fff;
+		border-radius: 16px;
+	}
+
+	.data__itemComplex[data-id="0"] {
+		width: 220px;
+		height: 32px;
+	}
+	.data__itemComplex[data-id="1"] {
+		width: 280px;
+		height: 24px;
+	}
+	.data__itemComplex[data-id="2"] {
+		width: 240px;
+		height: 16px;
+	}
+	.data__itemRent[data-id="0"] {
+		width: 220px;
+		height: 16px;
+	}
+	.data__itemRent[data-id="1"] {
+		width: 280px;
+		height: 28px;
+	}
+	.data__itemRent[data-id="2"] {
+		width: 240px;
+		height: 20px;
+	}
+	.data__itemRent[data-id="3"] {
+		width: 260px;
+		height: 16px;
+	}
+	.data__itemRent[data-id="4"] {
+		width: 240px;
+		height: 20px;
+	}
+	.contacts {
+		display: flex;
+		width: 100%;
+		gap: 6px;
+	}
+	.contactsRent {
+		margin-top: 20px;
+	}
+	.contactsComplex {
+		margin-top: 6px;
+	}
+	.phone {
+		width: 54px;
+		height: 54px;
+		border-radius: 16px;
+		background-color: #fff;
+	}
+
+	.whatsApp {
+		display: flex;
+		height: 54px;
+		flex-grow: 1;
+		border-radius: 16px;
+		background-color: #fff;
+	}
+	.minPrices {
+		height: 64px;
+		margin-top: 20px;
+	}
+}

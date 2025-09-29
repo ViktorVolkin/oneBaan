@@ -9,6 +9,7 @@
 	margin: 0 auto;
 	width: 320px;
 	max-width: 320px;
+	position: relative;
 }
 .previewBlock {
 	margin-top: 0;
@@ -21,6 +22,19 @@
 }
 .moreOffersFromThisComplex {
 	margin-top: 40px;
+}
+.subscribeForNotifications {
+	margin-top: 40px;
+}
+.listingGranted {
+	margin-top: 52px;
+}
+.CardDetailedLocation {
+	margin-top: 40px;
+}
+.similarOffers {
+	margin-top: 50px;
+	margin-bottom: 80px;
 }
 @media (min-width: 768px) and (max-width: 1439.9px) {
 	.previewBlock {
@@ -42,6 +56,19 @@
 	}
 	.moreOffersFromThisComplex {
 		margin-top: 58px;
+	}
+	.subscribeForNotifications {
+		margin-top: 64px;
+	}
+	.listingGranted {
+		margin-top: 50px;
+	}
+	.CardDetailedLocation {
+		margin-top: 70px;
+	}
+	.similarOffers {
+		margin-top: 66px;
+		margin-bottom: 86px;
 	}
 }
 @media (min-width: 1440px) {
@@ -70,5 +97,21 @@
 	}
 	.moreOffersFromThisComplex {
 		margin-top: 60px;
+	}
+	.subscribeForNotifications {
+		margin-top: 72px;
+	}
+	.listingGranted {
+		position: absolute;
+		left: calc(100% + 60px);
+		margin-top: 0;
+		top: 40px;
+	}
+	.CardDetailedLocation {
+		margin-top: 72px;
+	}
+	.similarOffers {
+		margin-top: 60px;
+		margin-bottom: 100px;
 	}
 }
