@@ -72,6 +72,7 @@ export const MainPageFilterOffers = <
 						fill="white"
 						width={12}
 						height={12}
+						onClick={() => setIsFocused(!isFocused)}
 					/>
 				</div>
 
@@ -82,7 +83,7 @@ export const MainPageFilterOffers = <
 							: styles.hidden
 					}`}
 				>
-					{filteredOffers.length > 0
+					{filteredOffers.length > 0 && isFocused
 						? filteredOffers.map((offer) => (
 								<div
 									key={offer.id}
