@@ -51,6 +51,7 @@ import MdDesktopWindows from "../../../public/iconTags/MdDesktopWindows.svg?comp
 import Check from "../../../public/BiCheckCircle.svg?component";
 import WithFurniture from "../../../public/MdOutlineChair.svg?component";
 import BenificialPrice from "../../../public/BiDollar.svg?component";
+import MdOutlineLocationOn from "../../../public/iconTags/MdOutlineLocationOn.svg?component";
 import { CardTagProps } from "../types/CardTags.types";
 
 export const TAG_CODES_CONSTANT: Record<string, CardTagProps> = {
@@ -366,5 +367,124 @@ export const TAG_CODES_CONSTANT: Record<string, CardTagProps> = {
 	separate_entrance: {
 		icon: BiDoorOpen,
 		label: "tag.code.separateEntrance",
+	},
+	location__bangtao: {
+		icon: MdOutlineLocationOn,
+		label: "tag.code.location.bangtao",
+		bgColor: "#F2FEFF",
+		borderColor: "#33727A1A",
+		textColor: "#33727A",
+	},
+	location__karon_kata: {
+		icon: MdOutlineLocationOn,
+		label: "tag.code.location.karonKata",
+		bgColor: "#F2FEFF",
+		borderColor: "#33727A1A",
+		textColor: "#33727A",
+	},
+	location__kathu: {
+		icon: MdOutlineLocationOn,
+		label: "tag.code.location.kathu",
+		bgColor: "#F2FEFF",
+		borderColor: "#33727A1A",
+		textColor: "#33727A",
+	},
+	location__ko_sirey: {
+		icon: MdOutlineLocationOn,
+		label: "tag.code.location.koSirey",
+		bgColor: "#F2FEFF",
+		borderColor: "#33727A1A",
+		textColor: "#33727A",
+	},
+	location__laguna: {
+		icon: MdOutlineLocationOn,
+		label: "tag.code.location.laguna",
+		bgColor: "#F2FEFF",
+		borderColor: "#33727A1A",
+		textColor: "#33727A",
+	},
+	location__mai_khao: {
+		icon: MdOutlineLocationOn,
+		label: "tag.code.location.maiKhao",
+		bgColor: "#F2FEFF",
+		borderColor: "#33727A1A",
+		textColor: "#33727A",
+	},
+	location__nai_thon: {
+		icon: MdOutlineLocationOn,
+		label: "tag.code.location.naiThon",
+		bgColor: "#F2FEFF",
+		borderColor: "#33727A1A",
+		textColor: "#33727A",
+	},
+	location__nai_harn: {
+		icon: MdOutlineLocationOn,
+		label: "tag.code.location.naiHarn",
+		bgColor: "#F2FEFF",
+		borderColor: "#33727A1A",
+		textColor: "#33727A",
+	},
+	location__nai_yang: {
+		icon: MdOutlineLocationOn,
+		label: "tag.code.location.naiYang",
+		bgColor: "#F2FEFF",
+		borderColor: "#33727A1A",
+		textColor: "#33727A",
+	},
+	location__paklok: {
+		icon: MdOutlineLocationOn,
+		label: "tag.code.location.paklok",
+		bgColor: "#F2FEFF",
+		borderColor: "#33727A1A",
+		textColor: "#33727A",
+	},
+	location__panwa: {
+		icon: MdOutlineLocationOn,
+		label: "tag.code.location.panwa",
+		bgColor: "#F2FEFF",
+		borderColor: "#33727A1A",
+		textColor: "#33727A",
+	},
+	location__patong: {
+		icon: MdOutlineLocationOn,
+		label: "tag.code.location.patong",
+		bgColor: "#F2FEFF",
+		borderColor: "#33727A1A",
+		textColor: "#33727A",
+	},
+	location__rawai: {
+		icon: MdOutlineLocationOn,
+		label: "tag.code.location.rawai",
+		bgColor: "#F2FEFF",
+		borderColor: "#33727A1A",
+		textColor: "#33727A",
+	},
+	location__surin: {
+		icon: MdOutlineLocationOn,
+		label: "tag.code.location.surin",
+		bgColor: "#F2FEFF",
+		borderColor: "#33727A1A",
+		textColor: "#33727A",
+	},
+	location__thalang: {
+		icon: MdOutlineLocationOn,
+		label: "tag.code.location.thalang",
+		bgColor: "#F2FEFF",
+		borderColor: "#33727A1A",
+		textColor: "#33727A",
+	},
+	location__chalong: {
+		icon: MdOutlineLocationOn,
+		label: "tag.code.location.chalong",
+		bgColor: "#F2FEFF",
+		borderColor: "#33727A1A",
+		textColor: "#33727A",
+	},
+	location__cherngtalay: {
+		icon: MdOutlineLocationOn,
+		label: "tag.code.location.cherngtalay",
+		bgColor: "#F2FEFF",
+		borderColor: "#33727A1A",
+		textColor: "#33727A",
 	},
 };

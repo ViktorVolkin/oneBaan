@@ -293,7 +293,26 @@
 			"ecoDesign": "Эко-дизайн",
 			"electricityAndWater": "Электричество и вода",
 			"insectsCleanse": "Обработка от насекомых",
-			"separateEntrance": "Отдельный вход"
+			"separateEntrance": "Отдельный вход",
+			"location": {
+				"bangtao": "Бангтао",
+				"karonKata": "Карон-Ката",
+				"kathu": "Катху",
+				"koSirey": "Ко Сирей",
+				"laguna": "Лагуна",
+				"maiKhao": "Май Кхао",
+				"naiThon": "Най Тон",
+				"naiHarn": "Най Харн",
+				"naiYang": "Най Янг",
+				"paklok": "Паклок",
+				"panwa": "Панва",
+				"patong": "Патонг",
+				"rawai": "Раваи",
+				"surin": "Сурин",
+				"thalang": "Таланг",
+				"chalong": "Чалонг",
+				"cherngtalay": "Чернгталей"
+			}
 		}
 	},
 	"complex": {
